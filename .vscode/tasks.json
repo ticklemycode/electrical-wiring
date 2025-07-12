@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "View Wiring Diagrams",
+			"type": "shell",
+			"command": "echo",
+			"args": [
+				"Opening bathroom wiring diagram documentation in markdown preview"
+			],
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
