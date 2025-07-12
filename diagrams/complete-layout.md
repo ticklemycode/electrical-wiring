@@ -6,18 +6,18 @@
 BATHROOM ELECTRICAL LAYOUT
 ═══════════════════════════════════════════════════════════════
 
-                    Electrical Panel (20A Breaker)
+                    Electrical Panel (15A Breaker)
                               │
-                              │ 12-2 w/Ground
+                              │ 14-2 w/Ground
                               ↓
     ┌─────────────────────────────────────────────────────────┐
     │                    WALL 1                               │
     │  ┌─────────────┐                                       │
     │  │ GFCI OUTLET │ ← Power Entry Point                   │
-    │  │   (20A)     │                                       │
+    │  │   (15A)     │                                       │
     │  └─────────────┘                                       │
     │         │                                               │
-    │         │ 12-2 w/Ground                                │
+    │         │ 14-2 w/Ground                                │
     │         ↓                                               │
     │  ┌─────────────┐                                       │
     │  │ VANITY LIGHT│                                       │
@@ -25,7 +25,7 @@ BATHROOM ELECTRICAL LAYOUT
     │  └─────────────┘                                       │
     └─────────────────────────────────────────────────────────┘
               │
-              │ 12-3 w/Ground (for 3-way switching)
+              │ 14-3 w/Ground (for 3-way switching)
               ↓
     ┌─────────────────────────────────────────────────────────┐
     │                    WALL 2                               │
@@ -35,7 +35,7 @@ BATHROOM ELECTRICAL LAYOUT
     │  └─────────────┘    └─────────────┘                    │
     └─────────────────────────────────────────────────────────┘
                                    │
-                                   │ 12-3 w/Ground
+                                   │ 14-3 w/Ground
                                    ↓
     ┌─────────────────────────────────────────────────────────┐
     │                   CEILING                               │
@@ -44,14 +44,14 @@ BATHROOM ELECTRICAL LAYOUT
     │                │  FIXTURE    │                          │
     │                └─────────────┘                          │
     │                        │                                │
-    │                        │ 12-2 w/Ground                 │
+    │                        │ 14-2 w/Ground                 │
     │                        ↓                                │
     │                ┌─────────────┐                          │
     │                │ EXHAUST FAN │                          │
     │                └─────────────┘                          │
     └─────────────────────────────────────────────────────────┘
                              │
-                             │ 12-3 w/Ground
+                             │ 14-3 w/Ground
                              ↓
     ┌─────────────────────────────────────────────────────────┐
     │                    WALL 3                               │
@@ -69,11 +69,11 @@ WIRE ROUTING AND CONNECTIONS
 ═══════════════════════════════════════════════════════════════
 
 ┌─ ELECTRICAL PANEL ─┐
-│   20A Breaker      │
+│   15A Breaker      │
 │   Hot │ Neutral │  │
 └───────┼─────────┼──┘
         │         │
-        │ 12-2 w/Ground Cable
+        │ 14-2 w/Ground Cable
         │         │
         ↓         ↓
 ┌───────────────────────┐
@@ -81,7 +81,7 @@ WIRE ROUTING AND CONNECTIONS
 │  Hot │ Neutral │ Gnd  │
 └──────┼─────────┼──────┘
        │         │
-       │ 12-2 w/Ground
+       │ 14-2 w/Ground
        │         │
        ↓         ↓
 ┌───────────────────────┐
@@ -89,7 +89,7 @@ WIRE ROUTING AND CONNECTIONS
 │  Hot │ Neutral │ Gnd  │ ← Always on hot supply
 └──────┼─────────┼──────┘
        │         │
-       │ 12-3 w/Ground (Hot + 2 Travelers)
+       │ 14-3 w/Ground (Hot + 2 Travelers)
        │         │
        ↓         ↓
 ┌───────────────────────┐
@@ -97,7 +97,7 @@ WIRE ROUTING AND CONNECTIONS
 │ COM │  T1  │  T2  │Gnd│ ← First 3-way for vanity
 └─────┼──────┼───┼───┼──┘
       │      │   │   │
-      │ 12-3 w/Ground
+      │ 14-3 w/Ground
       │      │   │   │
       ↓      ↓   ↓   ↓
 ┌───────────────────────┐
@@ -105,7 +105,7 @@ WIRE ROUTING AND CONNECTIONS
 │ COM │  T1  │  T2  │Gnd│ ← First 3-way for main light
 └─────┼──────┼───┼───┼──┘
       │      │   │   │
-      │ 12-3 w/Ground
+      │ 14-3 w/Ground
       │      │   │   │
       ↓      ↓   ↓   ↓
 ┌───────────────────────┐
@@ -113,7 +113,7 @@ WIRE ROUTING AND CONNECTIONS
 │ Sw.Hot│ Neutral │ Gnd │ ← Controlled by 3-way switches
 └───────┼─────────┼─────┘
         │         │
-        │ 12-2 w/Ground
+        │ 14-2 w/Ground
         │         │
         ↓         ↓
 ┌───────────────────────┐
@@ -121,7 +121,7 @@ WIRE ROUTING AND CONNECTIONS
 │  Hot │ Neutral │ Gnd  │ ← Pass-through power to switches
 └──────┼─────────┼──────┘
        │         │
-       │ 12-3 w/Ground
+       │ 14-3 w/Ground
        │         │
        ↓         ↓
 ┌───────────────────────┐
@@ -129,7 +129,7 @@ WIRE ROUTING AND CONNECTIONS
 │ COM │  T1  │  T2  │Gnd│ ← Second 3-way for main light
 └─────┼──────┼───┼───┼──┘
       │      │   │   │
-      │ 12-3 w/Ground (Travelers back to vanity)
+      │ 14-3 w/Ground (Travelers back to vanity)
       │      │   │   │
       ↓      ↓   ↓   ↓
 ┌───────────────────────┐
@@ -137,7 +137,7 @@ WIRE ROUTING AND CONNECTIONS
 │ COM │  T1  │  T2  │Gnd│ ← Second 3-way for vanity
 └─────┼──────┼───┼───┼──┘
       │      │   │   │
-      │ 12-2 w/Ground
+      │ 14-2 w/Ground
       │      │   │   │
       ↓      ↓   ↓   ↓
 ┌───────────────────────┐
@@ -186,31 +186,31 @@ Independent Control: Vanity switches operate separately from main light switches
 ## Wire Gauge and Circuit Protection
 
 ### Circuit Specifications:
-- **Circuit Rating**: 20 Amperes
-- **Wire Gauge**: 12 AWG (American Wire Gauge)
+- **Circuit Rating**: 15 Amperes
+- **Wire Gauge**: 14 AWG (American Wire Gauge)
 - **Cable Type**: NM-B (Non-metallic sheathed cable, Building wire)
 - **Voltage**: 120V AC
 - **Frequency**: 60 Hz
 
 ### Wire Current Capacity:
-- **12 AWG**: 20A maximum (perfect for 20A circuit)
+- **14 AWG**: 15A maximum (perfect for 15A circuit)
 - **Safety Factor**: Wire rated for exactly the breaker size
 - **Temperature Rating**: 90°C (194°F) cable rating
 
 ### Protection Devices:
-- **Main Breaker**: 20A single pole
-- **GFCI**: 20A, 120V (required for bathroom)
+- **Main Breaker**: 15A single pole
+- **GFCI**: 15A, 120V (required for bathroom)
 - **Arc Fault**: May be required by local code
 
 ## Installation Sequence
 
 ### Step-by-Step Wire Installation:
 1. **Install GFCI outlet** (power entry point)
-2. **Run 12-2 to vanity light** fixture location
-3. **Run 12-3 from vanity light** to first switch box
-4. **Run 12-3 between all switch boxes** (maintains 3-way capability)
-5. **Run 12-3 from switch box** to main light fixture
-6. **Run 12-2 from main light** to fan location
+2. **Run 14-2 to vanity light** fixture location
+3. **Run 14-3 from vanity light** to first switch box
+4. **Run 14-3 between all switch boxes** (maintains 3-way capability)
+5. **Run 14-3 from switch box** to main light fixture
+6. **Run 14-2 from main light** to fan location
 7. **Connect control wire** from fan switch back to fan
 
 ### Critical Connection Points:

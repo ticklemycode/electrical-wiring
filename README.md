@@ -26,11 +26,11 @@ This document provides a complete wiring diagram and installation guide for a ba
 ```
 ELECTRICAL PANEL
       |
-      | 12-2 w/Ground (20A Circuit)
+      | 14-2 w/Ground (15A Circuit)
       ↓
 ┌─────────────────┐
 │   GFCI OUTLET   │ ← Main power entry point
-│   (20A, 120V)   │
+│   (15A, 120V)   │
 └─────────────────┘
       |
       | 12-2 w/Ground
@@ -40,48 +40,48 @@ ELECTRICAL PANEL
 │   FIXTURE       │
 └─────────────────┘
       |
-      | 12-3 w/Ground (for 3-way switching)
+      | 14-3 w/Ground (for 3-way switching)
       ↓
 ┌─────────────────┐
 │ VANITY SWITCH 1 │ ← First 3-way switch for vanity
 │   (3-way)       │
 └─────────────────┘
       |
-      | 12-3 w/Ground
+      | 14-3 w/Ground
       ↓
 ┌─────────────────┐
 │ MAIN SWITCH 1   │ ← First 3-way switch for main light
 │   (3-way)       │
 └─────────────────┘
       |
-      | 12-3 w/Ground
+      | 14-3 w/Ground
       ↓
 ┌─────────────────┐
 │  MAIN LIGHT     │
 │   FIXTURE       │
 └─────────────────┘
       |
-      | 12-2 w/Ground
+      | 14-2 w/Ground
       ↓
 ┌─────────────────┐
 │  EXHAUST FAN    │
 └─────────────────┘
       |
-      | 12-3 w/Ground
+      | 14-3 w/Ground
       ↓
 ┌─────────────────┐
 │ MAIN SWITCH 2   │ ← Second 3-way switch for main light
 │   (3-way)       │
 └─────────────────┘
       |
-      | 12-3 w/Ground (traveler wires back to vanity)
+      | 14-3 w/Ground (traveler wires back to vanity)
       ↓
 ┌─────────────────┐
 │ VANITY SWITCH 2 │ ← Second 3-way switch for vanity
 │   (3-way)       │
 └─────────────────┘
       |
-      | 12-2 w/Ground
+      | 14-2 w/Ground
       ↓
 ┌─────────────────┐
 │   FAN SWITCH    │ ← Single pole switch for fan
@@ -92,10 +92,10 @@ ELECTRICAL PANEL
 ## Wire Configuration Details
 
 ### Wire Types Used:
-- **12-2 w/Ground**: 2 conductor + ground (Hot, Neutral, Ground)
-- **12-3 w/Ground**: 3 conductor + ground (Hot, Traveler 1, Traveler 2, Neutral, Ground)
+- **14-2 w/Ground**: 2 conductor + ground (Hot, Neutral, Ground)
+- **14-3 w/Ground**: 3 conductor + ground (Hot, Traveler 1, Traveler 2, Neutral, Ground)
 
-### Wire Gauge: 12 AWG (20 Amp circuit)
+### Wire Gauge: 14 AWG (15 Amp circuit)
 
 ## 3-Way Switch Wiring Details
 
@@ -133,8 +133,8 @@ ELECTRICAL PANEL
 
 ### Key Installation Points:
 1. **GFCI Protection**: Required for all bathroom outlets and must be first in the circuit
-2. **Circuit Rating**: 20A circuit recommended for bathroom with multiple fixtures
-3. **Wire Gauge**: 12 AWG wire required for 20A circuit
+2. **Circuit Rating**: 15A circuit recommended for bathroom with multiple fixtures
+3. **Wire Gauge**: 14 AWG wire required for 15A circuit
 4. **Grounding**: All metal fixtures and switch boxes must be properly grounded
 5. **Box Fill**: Ensure electrical boxes are large enough for wire connections
 6. **Code Compliance**: Installation must meet NEC (National Electrical Code) requirements
@@ -148,11 +148,11 @@ ELECTRICAL PANEL
 ## Materials List
 
 ### Wire:
-- 12-2 w/Ground NM-B cable (approximately 50 feet)
-- 12-3 w/Ground NM-B cable (approximately 75 feet)
+- 14-2 w/Ground NM-B cable (approximately 50 feet)
+- 14-3 w/Ground NM-B cable (approximately 75 feet)
 
 ### Devices:
-- 1x GFCI outlet (20A, 120V)
+- 1x GFCI outlet (15A, 120V)
 - 4x 3-way switches
 - 1x Single pole switch
 - Wire nuts (assorted sizes)

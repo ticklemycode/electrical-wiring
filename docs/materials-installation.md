@@ -5,15 +5,15 @@
 ### Electrical Wire
 | Item | Quantity | Specification | Usage |
 |------|----------|---------------|-------|
-| 12-2 NM-B Cable | 50 feet | 12 AWG, 2 conductor + ground | Power feeds, simple connections |
-| 12-3 NM-B Cable | 75 feet | 12 AWG, 3 conductor + ground | 3-way switch travelers |
+| 14-2 NM-B Cable | 50 feet | 14 AWG, 2 conductor + ground | Power feeds, simple connections |
+| 14-3 NM-B Cable | 75 feet | 14 AWG, 3 conductor + ground | 3-way switch travelers |
 | Wire Nuts | 1 box each | Yellow (small), Red (medium) | Wire connections |
 | Electrical Tape | 2 rolls | 3/4" x 60' | Securing connections |
 
 ### Electrical Devices
 | Item | Quantity | Specification | Notes |
 |------|----------|---------------|-------|
-| GFCI Outlet | 1 | 20A, 120V, Self-Test | Must be first device in circuit |
+| GFCI Outlet | 1 | 15A, 120V, Self-Test | Must be first device in circuit |
 | 3-Way Switches | 4 | 15A, 120V | 2 for main light, 2 for vanity |
 | Single Pole Switch | 1 | 15A, 120V | For exhaust fan |
 | Switch Plates | 3 | 1-gang, 2-gang, 3-gang | Based on switch groupings |
@@ -40,7 +40,7 @@
 ### Basic Electrical Tools
 - Non-contact voltage tester
 - Digital multimeter
-- Wire strippers (12-14 AWG)
+- Wire strippers (14-16 AWG)
 - Needle-nose pliers
 - Flat and Phillips screwdrivers
 - Wire nuts and crimp tool
@@ -76,8 +76,8 @@ Device Load Analysis:
 │ TOTAL LOAD      │          │         │  430W    │
 └─────────────────┴──────────┴─────────┴──────────┘
 
-Circuit Capacity: 20A × 120V = 2400W
-Load Percentage: 430W ÷ 2400W = 18% (Well within safe limits)
+Circuit Capacity: 15A × 120V = 1800W
+Load Percentage: 430W ÷ 1800W = 24% (Well within safe limits)
 ```
 
 ### Code Compliance Checklist

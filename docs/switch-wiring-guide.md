@@ -21,9 +21,9 @@
 
 ### Switch Box 1 (Main Switch 1):
 ```
-INCOMING POWER → 12-3 Cable to Switch 2 → 12-3 Cable to Light
+INCOMING POWER → 14-3 Cable to Switch 2 → 14-3 Cable to Light
 
-Power Source (12-2):          To Switch 2 (12-3):         To Light (12-3):
+Power Source (14-2):          To Switch 2 (14-3):         To Light (14-3):
 - Hot (Black)    →  COM       - Traveler 1 (Red)   →  T1  - Switched Hot → COM
 - Neutral (White) → Pigtail   - Traveler 2 (Black) →  T2  - Neutral     → Light
 - Ground (Bare)   → Switch    - Ground (Bare)      →  GND - Ground      → GND
@@ -31,7 +31,7 @@ Power Source (12-2):          To Switch 2 (12-3):         To Light (12-3):
 
 ### Switch Box 2 (Main Switch 2):
 ```
-From Switch 1 (12-3):         To Light Fixture (12-2):
+From Switch 1 (14-3):         To Light Fixture (14-2):
 - Traveler 1 (Red)   →  T1    - Switched Hot (Black) →  COM
 - Traveler 2 (Black) →  T2    - Neutral (White)      →  Pigtail
 - Ground (Bare)      →  GND   - Ground (Bare)        →  Switch
@@ -41,7 +41,7 @@ From Switch 1 (12-3):         To Light Fixture (12-2):
 
 ### Vanity Switch 1:
 ```
-From Main Circuit (12-3):     To Vanity Switch 2 (12-3):  To Vanity Light:
+From Main Circuit (14-3):     To Vanity Switch 2 (14-3):  To Vanity Light:
 - Hot (Black)     →  COM      - Traveler 1 (Red)   →  T1  - Switched Hot
 - Neutral (White) →  Pigtail  - Traveler 2 (Black) →  T2  - Neutral
 - Ground (Bare)   →  Switch   - Ground (Bare)      →  GND - Ground
@@ -49,7 +49,7 @@ From Main Circuit (12-3):     To Vanity Switch 2 (12-3):  To Vanity Light:
 
 ### Vanity Switch 2:
 ```
-From Vanity Switch 1 (12-3):  To Vanity Light Fixture:
+From Vanity Switch 1 (14-3):  To Vanity Light Fixture:
 - Traveler 1 (Red)   →  T1    - Switched Hot (Black) →  COM
 - Traveler 2 (Black) →  T2    - Neutral (White)      →  Light
 - Ground (Bare)      →  GND   - Ground (Bare)        →  Light & Switch
@@ -57,12 +57,12 @@ From Vanity Switch 1 (12-3):  To Vanity Light Fixture:
 
 ## Wire Color Code Standards
 
-### 12-2 Cable:
+### 14-2 Cable:
 - **Black**: Hot (Line/Load)
 - **White**: Neutral
 - **Bare/Green**: Ground
 
-### 12-3 Cable:
+### 14-3 Cable:
 - **Black**: Hot or Traveler
 - **Red**: Traveler
 - **White**: Neutral (sometimes used as traveler when properly marked)
@@ -118,12 +118,12 @@ From Vanity Switch 1 (12-3):  To Vanity Light Fixture:
 ┌─────────────────────────────────────┐
 │  Switch Box 1 (Main Light)         │
 │                                     │
-│  12-2 FROM PANEL    12-3 TO SWITCH2│
+│  14-2 FROM PANEL    14-3 TO SWITCH2│
 │  ┌─ Black (Hot)  ────── COM         │
 │  │  White (Neutral) ── Splice ──┐   │
 │  │  Ground ─────────── GND ──┐  │   │
 │  │                           │  │   │
-│  │  12-3 TO LIGHT            │  │   │
+│  │  14-3 TO LIGHT            │  │   │
 │  └─ Red (Traveler) ────── T1 │  │   │
 │     Black (Traveler) ──── T2 │  │   │
 │     White (Neutral) ────────┘  │   │
@@ -136,7 +136,7 @@ From Vanity Switch 1 (12-3):  To Vanity Light Fixture:
 ┌─────────────────────────────────────┐
 │  Switch Box 2 (Main Light)         │
 │                                     │
-│  12-3 FROM SWITCH1  12-2 TO LIGHT  │
+│  14-3 FROM SWITCH1  14-2 TO LIGHT  │
 │  ┌─ Red (Traveler) ────── T1        │
 │  │  Black (Traveler) ──── T2        │
 │  │  White (Neutral) ─── Splice ──┐  │
