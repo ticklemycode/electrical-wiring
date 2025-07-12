@@ -32,10 +32,10 @@ flowchart TD
     J -.->|Switched Hot<br/>Control Wire| G
     
     %% Styling
-    classDef panelStyle fill:#ff9999,stroke:#333,stroke-width:3px
-    classDef gfciStyle fill:#99ccff,stroke:#333,stroke-width:2px
-    classDef fixtureStyle fill:#99ff99,stroke:#333,stroke-width:2px
-    classDef switchStyle fill:#ffcc99,stroke:#333,stroke-width:2px
+    classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
+    classDef gfciStyle fill:#4ecdc4,stroke:#000,stroke-width:2px,color:#000
+    classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
+    classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
     classDef wireStyle stroke:#666,stroke-width:2px
     
     class A panelStyle
@@ -75,8 +75,8 @@ flowchart LR
         FS -->|Switched Hot| FAN
     end
     
-    classDef switchStyle fill:#ffcc99,stroke:#333,stroke-width:2px
-    classDef deviceStyle fill:#99ff99,stroke:#333,stroke-width:2px
+    classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
+    classDef deviceStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
     
     class MS1,MS2,VS1,VS2,FS switchStyle
     class ML,VL,FAN deviceStyle
@@ -145,9 +145,9 @@ flowchart TD
     SW1_MS -.->|Travelers| SW2_MS
     SW2_FS -.->|Control| FAN_SWITCH_HOT
     
-    classDef panelStyle fill:#ff9999,stroke:#333,stroke-width:3px
-    classDef boxStyle fill:#e6f3ff,stroke:#333,stroke-width:2px
-    classDef deviceStyle fill:#fff2e6,stroke:#333,stroke-width:1px
+    classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
+    classDef boxStyle fill:#e8f4fd,stroke:#000,stroke-width:2px,color:#000
+    classDef deviceStyle fill:#fff3cd,stroke:#000,stroke-width:1px,color:#000
     
     class PANEL panelStyle
     class GFCI_LINE,GFCI_LOAD,VL_HOT,VL_NEUTRAL,VL_GROUND,ML_SWITCH,ML_NEUTRAL,ML_GROUND,FAN_HOT,FAN_NEUTRAL,FAN_GROUND,FAN_SWITCH_HOT boxStyle
@@ -191,9 +191,9 @@ flowchart LR
     MS1_T1 -.->|Red Wire| MS2_T1
     MS1_T2 -.->|Black Wire| MS2_T2
     
-    classDef terminalStyle fill:#ffcc99,stroke:#333,stroke-width:2px
-    classDef wireStyle fill:#99ff99,stroke:#333,stroke-width:2px
-    classDef connectionStyle fill:#e6f3ff,stroke:#333,stroke-width:1px
+    classDef terminalStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
+    classDef wireStyle fill:#6c5ce7,stroke:#000,stroke-width:2px,color:#fff
+    classDef connectionStyle fill:#e8f4fd,stroke:#000,stroke-width:1px,color:#000
     
     class COM,T1,T2,GND terminalStyle
     class BLACK,RED,WHITE,BARE wireStyle
@@ -234,8 +234,8 @@ flowchart TD
         SWITCH2 --> LIGHT_OUT
     end
     
-    classDef stateStyle fill:#ffe6e6,stroke:#333,stroke-width:2px
-    classDef pathStyle fill:#e6ffe6,stroke:#333,stroke-width:2px
+    classDef stateStyle fill:#fd79a8,stroke:#000,stroke-width:2px,color:#000
+    classDef pathStyle fill:#00b894,stroke:#000,stroke-width:2px,color:#fff
     
     class STATE1,STATE2,STATE3,STATE4 stateStyle
     class HOT_IN,TRAV1,TRAV2,SWITCH2,LIGHT_OUT pathStyle
@@ -272,9 +272,9 @@ flowchart TD
     FAN --> TOTAL
     FUTURE --> TOTAL
     
-    classDef capacityStyle fill:#ff9999,stroke:#333,stroke-width:3px
-    classDef loadStyle fill:#99ccff,stroke:#333,stroke-width:2px
-    classDef summaryStyle fill:#99ff99,stroke:#333,stroke-width:2px
+    classDef capacityStyle fill:#e17055,stroke:#000,stroke-width:3px,color:#fff
+    classDef loadStyle fill:#74b9ff,stroke:#000,stroke-width:2px,color:#000
+    classDef summaryStyle fill:#00b894,stroke:#000,stroke-width:2px,color:#fff
     
     class BREAKER capacityStyle
     class GFCI,VL,ML,FAN,FUTURE loadStyle
@@ -303,9 +303,9 @@ flowchart TD
         GFCI_TEST[GFCI Function Test<br/>Monthly Testing]
     end
     
-    classDef safetyStyle fill:#ffcccc,stroke:#333,stroke-width:2px
-    classDef standardStyle fill:#ffffcc,stroke:#333,stroke-width:2px
-    classDef testStyle fill:#ccffcc,stroke:#333,stroke-width:2px
+    classDef safetyStyle fill:#ff7675,stroke:#000,stroke-width:2px,color:#000
+    classDef standardStyle fill:#fdcb6e,stroke:#000,stroke-width:2px,color:#000
+    classDef testStyle fill:#55a3ff,stroke:#000,stroke-width:2px,color:#fff
     
     class GFCI_REQ,GROUND_REQ,WIRE_REQ safetyStyle
     class BOX_FILL,SWITCH_ACCESS,FIXTURE_MOUNT standardStyle
@@ -337,5 +337,15 @@ These Mermaid diagrams can be viewed in several ways:
 - **Terminal Connections**: Detailed switch terminal wiring
 - **Load Analysis**: Circuit capacity and usage calculations
 - **Safety Compliance**: Code requirements and testing procedures
+- **High Contrast Styling**: Improved text readability with dark borders and contrasting colors
+
+## Styling Notes
+
+The diagrams use high-contrast color schemes for optimal readability:
+- **Dark borders (#000)** on all elements for clear definition
+- **White text on dark backgrounds** for critical components
+- **Black text on light backgrounds** for detailed information
+- **Bold stroke widths** to ensure visibility
+- **Color-coded components** for easy identification while maintaining accessibility
 
 These diagrams complement the ASCII art diagrams in the other documentation files and provide a more technical, structured view of the electrical system.
