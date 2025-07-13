@@ -240,76 +240,136 @@ Special Fan Wiring Considerations:
 - **GFCI protection**: Required for all bathroom circuits
 - **Proper sealing**: Use appropriate gaskets and mounting
 
-## Complete Circuit Wire Tracing Guide
+## Complete Circuit Wire Flow Guide
 
-### End-to-End Wire Color Tracking:
+### Circuit Path Overview (From Panel to Each Device)
 
-#### Hot Wire Path (Black):
 ```
-Electrical Panel → GFCI LINE (Black)
-                ↓
-GFCI LOAD (Black) → Vanity Light Hot (Black)
-                  ↓
-Vanity Light Pass-Through → Vanity Switch 1 COM (Black)
-                         ↓
-Vanity Switch 1 Travelers → Vanity Switch 2 Travelers
-                         ↓
-Vanity Switch 2 COM → Vanity Light Control (switched)
-
-Main Circuit Continuation:
-Vanity Switch Box → Main Switch 1 COM (Black)
-                 ↓
-Main Switch 1 Travelers → Main Switch 2 Travelers  
-                       ↓
-Main Switch 2 COM → Main Light Hot (switched Black)
-                 ↓
-Main Light Pass-Through → Fan Hot Pass-Through (Black)
-                       ↓
-Fan Pass-Through → Fan Switch HOT IN (Black)
-                ↓
-Fan Switch HOT OUT → Fan Control Wire (Black to fan)
+ELECTRICAL PANEL (15A Breaker)
+      ↓ 14-2 Cable
+  GFCI OUTLET (power source)
+      ↓ 14-2 Cable  
+  VANITY LIGHT ──→ Vanity Switches (3-way control)
+      ↓ 14-3 Cable (via switches)
+  MAIN LIGHT ──→ Main Switches (3-way control)  
+      ↓ 14-2 Cable (hot pass-through)
+  EXHAUST FAN ──→ Fan Switch (single pole control)
 ```
 
-#### Neutral Wire Path (White):
+### Wire-by-Wire Flow Summary
+
+#### 🔴 HOT WIRE PATHS (Black Wires)
+
+**Always Hot Branch:**
 ```
-Electrical Panel → GFCI LINE (White)
-                ↓
-GFCI LOAD (White) → Vanity Light Neutral (White)
-                  ↓
-Vanity Light Pass-Through → All Switch Boxes (White)
-                         ↓
-Switch Box Splices → Main Light Neutral (White)
-                  ↓
-Main Light Pass-Through → Fan Neutral (White)
-                       ↓
-Fan Connection → Neutral Return to Panel
+Panel → GFCI LINE → GFCI LOAD → Vanity Light (always energized)
 ```
 
-#### Ground Wire Path (Bare/Green):
+**Switched Hot Branch:**  
 ```
-Electrical Panel → GFCI Ground (Bare)
-                ↓
-GFCI Ground → Vanity Light Ground (Bare to fixture Green)
-           ↓
-All Junction Boxes → Switch Grounds + Box Grounds
-                  ↓
-Main Light Ground → Fan Ground → Panel Ground
+Vanity Light → Vanity Switches → Main Switches → Main Light (switched)
 ```
 
-### Traveler Wire Paths:
-
-#### Main Light Travelers:
+**Fan Control Branch:**
 ```
-Main Switch 1 → Main Switch 2:
-- T1 (Red wire): Switch 1 T1 ↔ Switch 2 T1
-- T2 (Black wire): Switch 1 T2 ↔ Switch 2 T2
+Main Light Box → Fan Switch → Fan Motor (switched)
 ```
 
-#### Vanity Light Travelers:
+#### ⚪ NEUTRAL WIRE PATH (White Wires)
 ```
-Vanity Switch 1 → Vanity Switch 2:
-- T1 (Red wire): Switch 1 T1 ↔ Switch 2 T1  
-- T2 (Black wire): Switch 1 T2 ↔ Switch 2 T2
+Panel Neutral → GFCI → Vanity → Switches → Main Light → Fan → Return to Panel
+```
+*Neutrals pass through switches but don't connect to switch terminals*
+
+#### 🟢 GROUND WIRE PATH (Bare/Green Wires)
+```
+Panel Ground → All Devices & Metal Boxes → Return to Panel
+```
+
+### Detailed Point-to-Point Wire Connections
+
+#### Connection 1: GFCI Outlet to Vanity Light Fixture
+```
+Cable: 14-2 from GFCI LOAD terminals to Vanity Light box
+
+GFCI LOAD Side          →    Vanity Light Junction Box
+├─ Black (Hot)          →    Black to vanity fixture + splice to switches
+├─ White (Neutral)      →    White to vanity fixture + splice to switches  
+└─ Bare (Ground)        →    Green to vanity fixture + splice to switches
+```
+
+#### Connection 2: Vanity Light to Vanity Switch 1
+```
+Cable: 14-3 from Vanity Light box to Vanity Switch 1 box
+
+Vanity Light Box        →    Vanity Switch 1 Box
+├─ Black (Always Hot)   →    Black to COM terminal
+├─ Red (Traveler 1)     →    Red to T1 terminal
+├─ Black (Traveler 2)   →    Black to T2 terminal
+├─ White (Neutral)      →    White splice (not to switch)
+└─ Bare (Ground)        →    Green screw on switch + box ground
+```
+
+#### Connection 3: Vanity Switch 1 to Vanity Switch 2
+```
+Cable: 14-3 between Vanity Switch boxes
+
+Vanity Switch 1         →    Vanity Switch 2
+├─ Red (T1 terminal)    →    Red to T1 terminal
+├─ Black (T2 terminal)  →    Black to T2 terminal
+├─ White (Neutral)      →    White splice (not to switch)
+└─ Bare (Ground)        →    Green screw on switch + box ground
+```
+
+#### Connection 4: Vanity Switch 2 to Main Switch 1
+```
+Cable: 14-2 from Vanity Switch 2 box to Main Switch 1 box
+
+Vanity Switch 2 Box     →    Main Switch 1 Box
+├─ Black (Hot Feed)     →    Black to COM terminal
+├─ White (Neutral)      →    White splice (not to switch)
+└─ Bare (Ground)        →    Green screw on switch + box ground
+```
+
+#### Connection 5: Main Switch 1 to Main Switch 2
+```
+Cable: 14-3 between Main Switch boxes
+
+Main Switch 1           →    Main Switch 2
+├─ Red (T1 terminal)    →    Red to T1 terminal
+├─ Black (T2 terminal)  →    Black to T2 terminal
+├─ White (Neutral)      →    White splice (not to switch)
+└─ Bare (Ground)        →    Green screw on switch + box ground
+```
+
+#### Connection 6: Main Switch 2 to Main Light Fixture
+```
+Cable: 14-2 from Main Switch 2 box to Main Light box
+
+Main Switch 2 Box       →    Main Light Junction Box
+├─ Black (COM terminal) →    Black to main fixture + splice to fan
+├─ White (Neutral)      →    White to main fixture + splice to fan
+└─ Bare (Ground)        →    Green to main fixture + splice to fan
+```
+
+#### Connection 7: Main Light Fixture to Fan Switch
+```
+Cable: 14-2 from Main Light box to Fan Switch box
+
+Main Light Box          →    Fan Switch Box
+├─ Black (Pass-through) →    Black to LINE terminal (hot feed)
+├─ White (Neutral)      →    White splice (not to switch)
+└─ Bare (Ground)        →    Green screw on switch + box ground
+```
+
+#### Connection 8: Fan Switch to Exhaust Fan
+```
+Cable: 14-2 from Fan Switch box to Fan box
+
+Fan Switch Box          →    Exhaust Fan Junction Box
+├─ Black (LOAD terminal)→    Black to fan motor
+├─ White (Neutral)      →    White to fan motor
+└─ Bare (Ground)        →    Green to fan motor + fan housing
 ```
 
 ### Wire Function Summary by Location:
@@ -420,18 +480,44 @@ This complete wire tracing helps ensure proper connections throughout the entire
 └─────────────────────────────────────┘
 ```
 
-## Safety Reminders
+## Quick Reference Guide
 
-⚠️ **ELECTRICAL SAFETY**:
-- Turn off power at breaker before working
-- Use a voltage tester to verify power is off
-- Follow local electrical codes
-- Consider hiring a licensed electrician
-- Test GFCI outlets monthly
+### Wire Color Code Summary
+| Wire Color | Function | Connects To |
+|------------|----------|------------|
+| **Black** | Hot (always) | GFCI LOAD → Vanity Light → Switches |
+| **Black** | Hot (switched) | Switch COM → Light fixtures |
+| **Black** | Travelers | Between 3-way switches (T2 terminals) |
+| **Red** | Travelers | Between 3-way switches (T1 terminals) |
+| **White** | Neutral | All fixtures, pass through switches |
+| **Bare/Green** | Ground | All devices, boxes, fixtures |
 
-## Code Compliance Notes
+### Switch Terminal Quick ID
+| Switch Type | Terminal | Wire Connection |
+|-------------|----------|----------------|
+| **3-Way** | COM | Hot IN (power side) or Hot OUT (load side) |
+| **3-Way** | T1 | Red traveler wire |
+| **3-Way** | T2 | Black traveler wire |
+| **Single Pole** | LINE | Hot IN (from source) |
+| **Single Pole** | LOAD | Hot OUT (to fixture) |
 
-- **NEC Article 210.52(D)**: GFCI protection required for bathroom outlets
-- **NEC Article 404.2(C)**: Switch accessibility requirements
-- **NEC Article 250**: Grounding and bonding requirements
-- Local codes may have additional requirements
+### Troubleshooting Checklist
+- [ ] Power OFF at breaker
+- [ ] Test with voltage tester
+- [ ] Check GFCI reset button
+- [ ] Verify COM terminal connections
+- [ ] Check traveler wire pairs (T1-T1, T2-T2)
+- [ ] Confirm neutral splices
+- [ ] Test ground continuity
+- [ ] Verify fixture connections
+
+### Load Calculations (15A Circuit)
+- **GFCI Outlet**: 1.5A (max)
+- **Vanity Light**: 1-2A (LED/CFL)
+- **Main Light**: 1-2A (LED/CFL)  
+- **Exhaust Fan**: 0.5-1.5A
+- **Total Load**: ~4-7A (well under 15A limit)
+
+---
+
+*Remember: When in doubt, consult a licensed electrician. Electrical work must meet local codes and inspection requirements.*

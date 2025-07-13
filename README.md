@@ -10,6 +10,18 @@ This document provides a complete wiring diagram and installation guide for a ba
 
 ## Circuit Configuration
 
+### Quick Wire Flow Overview
+```
+🔴 HOT WIRE FLOW:
+Panel → GFCI → Vanity Light (always hot) → Switches → Main Light (switched) → Fan Switch → Fan Motor
+
+⚪ NEUTRAL WIRE FLOW:  
+Panel → GFCI → All Fixtures → Return to Panel
+
+🟢 GROUND WIRE FLOW:
+Panel → All Devices & Boxes → Return to Panel
+```
+
 ### Power Flow Sequence
 1. **GFCI Outlet** (Power entry point)
 2. **Vanity Light Fixture**
@@ -33,7 +45,7 @@ ELECTRICAL PANEL
 │   (15A, 120V)   │
 └─────────────────┘
       |
-      | 12-2 w/Ground
+      | 14-2 w/Ground
       ↓
 ┌─────────────────┐
 │  VANITY LIGHT   │
@@ -157,6 +169,32 @@ This configuration allows the fan switch to be grouped with other switches while
 2. Verify all switches operate their intended fixtures
 3. Check that 3-way switches work from both locations
 4. Confirm proper grounding with multimeter
+
+## Detailed Documentation
+
+For complete implementation details, see:
+
+📋 **[Materials & Installation Guide](docs/materials-installation.md)**
+- Complete materials list with specifications  
+- Step-by-step installation instructions
+- GFCI wiring details and safety procedures
+
+🔧 **[Switch Wiring Guide](docs/switch-wiring-guide.md)**
+- Detailed 3-way switch terminal connections
+- Point-to-point wire routing
+- Fixture installation steps
+- Quick reference charts and troubleshooting
+
+📊 **[Complete Layout Diagram](diagrams/complete-layout.md)**  
+- Physical layout and wire routing
+- Junction box details
+- Switch box configurations
+
+🔀 **[Mermaid Wiring Diagram](diagrams/mermaid-wiring-diagram.md)**
+- Interactive flowchart diagram
+- Visual circuit flow representation
+
+---
 
 ## Materials List
 
