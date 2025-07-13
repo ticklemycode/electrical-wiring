@@ -13,7 +13,7 @@
    │             │
    │  T1     T2  │ ← Traveler terminals (brass colored screws)
    │             │
-   │     GND     │ ← Ground terminal (green screw)
+   │   [GND]     │ ← Ground wire (pigtail or push-in connection)
    └─────────────┘
 ```
 
@@ -39,21 +39,75 @@ From Switch 1 (14-3):         To Light Fixture (14-2):
 
 ## Vanity Light 3-Way Wiring Configuration
 
+**IMPORTANT**: The vanity light operates like a normal 3-way switched light - you can turn it ON/OFF from either switch location. The difference is that power is available at the fixture location (rather than at the first switch), but the light still switches normally.
+
+### Vanity Light Fixture Connections:
+```
+From GFCI (14-2 Cable):       Vanity Light Fixture:
+- Hot (Black)     →           - Fixture Hot (Black) - Power available
+- Neutral (White) →           - Fixture Neutral (White) - SWITCHED by 3-way system
+- Ground (Bare)   →           - Fixture Ground (Green)
+
+Note: NO RED WIRE connects to the vanity light fixture
+```
+
+### How Vanity Light Switching Works:
+The vanity light uses **switch loop control** where:
+1. **Hot wire**: Always available at fixture (from GFCI)
+2. **Neutral wire**: Controlled by the 3-way switch system
+3. **Light turns ON**: When switches complete the neutral path
+4. **Light turns OFF**: When switches break the neutral path
+
 ### Vanity Switch 1:
 ```
-From Main Circuit (14-3):     To Vanity Switch 2 (14-3):  To Vanity Light:
-- Hot (Black)     →  COM      - Traveler 1 (Red)   →  T1  - Switched Hot
-- Neutral (White) →  Pigtail  - Traveler 2 (Black) →  T2  - Neutral
-- Ground (Bare)   →  Switch   - Ground (Bare)      →  GND - Ground
+From Vanity Light Box (14-3): To Vanity Switch 2 (14-3):  
+- Hot (Black)     →  COM      - Traveler 1 (Red)   →  T1  
+- Red (Traveler)  →  T1       - Traveler 2 (Black) →  T2  
+- White (Control) →  T2       - Neutral (White)    →  Switched neutral path
+- Neutral (Pass)  →  Pigtail  - Ground (Bare)      →  Switch ground
+- Ground (Bare)   →  Switch   
 ```
 
 ### Vanity Switch 2:
 ```
-From Vanity Switch 1 (14-3):  To Vanity Light Fixture:
-- Traveler 1 (Red)   →  T1    - Switched Hot (Black) →  COM
-- Traveler 2 (Black) →  T2    - Neutral (White)      →  Light
-- Ground (Bare)      →  GND   - Ground (Bare)        →  Light & Switch
+From Vanity Switch 1 (14-3):  To Main Circuit (14-2):
+- Traveler 1 (Red)   →  T1    - Hot (Black)        →  COM output (to main circuit)
+- Traveler 2 (Black) →  T2    - Neutral (White)    →  Continue circuit
+- White (Control)    →  COM   - Ground (Bare)      →  Continue circuit
+- Ground (Bare)      →  Switch
 ```
+
+**Key Point**: The vanity light turns ON/OFF normally from either switch. The 3-way switches control the neutral path to complete the circuit.
+
+## How Vanity Light 3-Way Switching Works
+
+**Critical Understanding**: The vanity light operates like a normal 3-way switched light - it can be turned ON and OFF from either switch location.
+
+### Power Flow Explanation:
+```
+1. GFCI provides HOT → Vanity Light Fixture (hot side always available)
+                    ↓
+2. Vanity Light Neutral → 3-Way Switch System (controls neutral path)
+                    ↓
+3. When switches align → Complete circuit → Light ON
+   When switches differ → Broken circuit → Light OFF
+                    ↓
+4. Continuing circuit → Provides power to main lights
+```
+
+### What Each Wire Does:
+- **Black from GFCI**: Provides hot to vanity fixture + feeds switch system  
+- **White from vanity**: Controlled by 3-way switches (neutral switching)
+- **Red in 14-3 cable**: Traveler wire between switches ONLY
+- **Black in 14-3 cable**: Second traveler wire between switches ONLY
+- **Ground**: Safety ground for all devices
+
+### The Switching Logic:
+- **Both switches same position**: Vanity light OFF (neutral path broken)
+- **Switches different positions**: Vanity light ON (neutral path complete)
+- **Either switch can control**: Normal 3-way operation
+
+**Key Point**: The vanity light operates completely normally - you can turn it on and off from either switch location just like any other 3-way switched light.
 
 ## Wire Color Code Standards
 
@@ -82,24 +136,31 @@ GFCI LOAD Side → Vanity Light Junction Box:
 
 #### Vanity Light Fixture Connections:
 ```
-Junction Box Connections:
+Junction Box Connections (Switch Loop Method):
 ┌──────────────────────────────────────────┐
 │ From GFCI (14-2) │ To Switch 1 (14-3)   │
 │                  │                       │
 │ Hot (Black) ─────┼→ Hot to switch (Black) │
-│       │          │                       │
+│       │          │   (for control)       │
 │       └─────────→ Fixture Hot (Black)    │
+│                  │   (power available)   │
 │                  │                       │
-│ Neutral (White) ─┼→ Neutral (White)      │
-│       │          │                       │
+│ Neutral (White) ─┼→ Switch control (White)│
+│       │          │   (switched neutral)  │
 │       └─────────→ Fixture Neutral (White)│
+│                  │   *** SWITCHED ***    │
 │                  │                       │
 │ Ground (Bare) ───┼→ Ground (Bare)        │
 │       │          │                       │
 │       └─────────→ Fixture Ground (Green) │
+│                  │                       │
+│                  │ Red Wire: ONLY between │
+│                  │ switches - NOT to      │
+│                  │ fixture!              │
 └──────────────────────────────────────────┘
 
-Note: Vanity light gets constant power; switching occurs at switch locations
+Note: Vanity light operates normally (ON/OFF control from both switches).
+      The neutral path is switched by the 3-way system.
 ```
 
 #### Main Light Fixture Connections:
@@ -152,9 +213,10 @@ Note: Fan gets power from separate control wire from fan switch
 
 #### Circuit Wire Color Functions:
 1. **Always Hot Circuits** (Vanity Light):
-   - Black: Continuous hot from GFCI
-   - White: Neutral return to panel
+   - Black: Hot available at fixture + switch feed (power source)
+   - White: Switched neutral path (controlled by 3-way switches)
    - Bare: Ground for safety
+   - **Red: Traveler wire between switches (NOT to fixture)**
 
 2. **Switched Hot Circuits** (Main Light):
    - Black: Switched hot from 3-way switches
@@ -307,7 +369,7 @@ Vanity Light Box        →    Vanity Switch 1 Box
 ├─ Red (Traveler 1)     →    Red to T1 terminal
 ├─ Black (Traveler 2)   →    Black to T2 terminal
 ├─ White (Neutral)      →    White splice (not to switch)
-└─ Bare (Ground)        →    Green screw on switch + box ground
+└─ Bare (Ground)        →    Switch ground wire + box ground
 ```
 
 #### Connection 3: Vanity Switch 1 to Vanity Switch 2
@@ -318,7 +380,7 @@ Vanity Switch 1         →    Vanity Switch 2
 ├─ Red (T1 terminal)    →    Red to T1 terminal
 ├─ Black (T2 terminal)  →    Black to T2 terminal
 ├─ White (Neutral)      →    White splice (not to switch)
-└─ Bare (Ground)        →    Green screw on switch + box ground
+└─ Bare (Ground)        →    Switch ground wire + box ground
 ```
 
 #### Connection 4: Vanity Switch 2 to Main Switch 1
@@ -328,7 +390,7 @@ Cable: 14-2 from Vanity Switch 2 box to Main Switch 1 box
 Vanity Switch 2 Box     →    Main Switch 1 Box
 ├─ Black (Hot Feed)     →    Black to COM terminal
 ├─ White (Neutral)      →    White splice (not to switch)
-└─ Bare (Ground)        →    Green screw on switch + box ground
+└─ Bare (Ground)        →    Switch ground wire + box ground
 ```
 
 #### Connection 5: Main Switch 1 to Main Switch 2
@@ -339,7 +401,7 @@ Main Switch 1           →    Main Switch 2
 ├─ Red (T1 terminal)    →    Red to T1 terminal
 ├─ Black (T2 terminal)  →    Black to T2 terminal
 ├─ White (Neutral)      →    White splice (not to switch)
-└─ Bare (Ground)        →    Green screw on switch + box ground
+└─ Bare (Ground)        →    Switch ground wire + box ground
 ```
 
 #### Connection 6: Main Switch 2 to Main Light Fixture
@@ -359,7 +421,7 @@ Cable: 14-2 from Main Light box to Fan Switch box
 Main Light Box          →    Fan Switch Box
 ├─ Black (Pass-through) →    Black to LINE terminal (hot feed)
 ├─ White (Neutral)      →    White splice (not to switch)
-└─ Bare (Ground)        →    Green screw on switch + box ground
+└─ Bare (Ground)        →    Switch ground wire + box ground
 ```
 
 #### Connection 8: Fan Switch to Exhaust Fan
@@ -416,7 +478,10 @@ This complete wire tracing helps ensure proper connections throughout the entire
 
 ### 4. Ground Connections:
 - All switches, fixtures, and metal boxes must be grounded
-- Use green grounding screws on switches
+- **Switch grounding methods**:
+  - **Pigtail method**: Green wire from switch connects to ground wire bundle
+  - **Push-in connection**: Ground wire pushes into back of switch
+  - **Self-grounding**: Switch grounds through mounting screws (if box is grounded)
 - Bond all grounds together in each box
 
 ## Testing 3-Way Switch Operation
@@ -485,10 +550,10 @@ This complete wire tracing helps ensure proper connections throughout the entire
 ### Wire Color Code Summary
 | Wire Color | Function | Connects To |
 |------------|----------|------------|
-| **Black** | Hot (always) | GFCI LOAD → Vanity Light → Switches |
-| **Black** | Hot (switched) | Switch COM → Light fixtures |
-| **Black** | Travelers | Between 3-way switches (T2 terminals) |
-| **Red** | Travelers | Between 3-way switches (T1 terminals) |
+| **Black** | Hot (always) | GFCI LOAD → Vanity Light Fixture → Switch feed |
+| **Black** | Hot (switched) | Switch COM → Main Light Fixture |
+| **Black** | Travelers | Between 3-way switches (T2 terminals) - NOT to fixtures |
+| **Red** | Travelers | Between 3-way switches (T1 terminals) - NOT to fixtures |
 | **White** | Neutral | All fixtures, pass through switches |
 | **Bare/Green** | Ground | All devices, boxes, fixtures |
 
@@ -521,3 +586,56 @@ This complete wire tracing helps ensure proper connections throughout the entire
 ---
 
 *Remember: When in doubt, consult a licensed electrician. Electrical work must meet local codes and inspection requirements.*
+
+## Switch Grounding Methods
+
+Since your switches don't have ground screws, here are the proper grounding methods:
+
+### Method 1: Pigtail Connection (Most Common)
+```
+Switch Grounding with Pigtail:
+┌─────────────────────────────────────┐
+│ Junction Box                        │
+│                                     │
+│ Circuit Ground ──┐                  │
+│ (bare wire)      │                  │
+│                  ├── Wire Nut       │
+│ Box Ground ──────┤   Connection     │
+│ (to metal box)   │                  │
+│                  │                  │
+│ Switch Pigtail ──┘                  │
+│ (green wire)                        │
+│        │                            │
+│        └── To Switch Ground Wire    │
+└─────────────────────────────────────┘
+```
+
+### Method 2: Push-In Ground Connection
+```
+Switch with Push-In Ground:
+┌─────────────────────────────┐
+│        Back of Switch       │
+│                             │
+│  ○ ○ ○    [GROUND HOLE]     │ ← Push bare wire in here
+│  │ │ │                     │
+│  COM T1 T2                 │
+└─────────────────────────────┘
+
+Note: Strip 3/4" of ground wire and push firmly into hole
+```
+
+### Method 3: Self-Grounding Switch (If Applicable)
+```
+Self-Grounding Switch Installation:
+1. Metal box must be properly grounded
+2. Switch grounds through mounting screws
+3. Circuit ground connects to box only
+4. Verify continuity between switch and box ground
+```
+
+### Ground Wire Connection Steps:
+1. **Strip all ground wires**: 3/4" of insulation
+2. **Twist grounds together**: Circuit ground + box ground + switch pigtail
+3. **Apply wire nut**: Secure all ground connections
+4. **Connect switch ground**: Via pigtail, push-in, or self-grounding
+5. **Test continuity**: Verify ground path from panel to switch
