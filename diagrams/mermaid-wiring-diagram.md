@@ -439,65 +439,65 @@ flowchart TD
     end
     
     subgraph "Panel to GFCI (14-2)"
-        P1[⚫ Panel Hot] --> G1[⚫ GFCI LINE Hot]
-        P2[⚪ Panel Neutral] --> G2[⚪ GFCI LINE Neutral]
-        P3[🟢 Panel Ground] --> G3[🟢 GFCI Ground]
+        P1["⚫ Panel Hot"] --> G1["⚫ GFCI LINE Hot"]
+        P2["⚪ Panel Neutral"] --> G2["⚪ GFCI LINE Neutral"]
+        P3["🟢 Panel Ground"] --> G3["🟢 GFCI Ground"]
     end
     
     subgraph "GFCI to Vanity Light (14-2)"
-        G4[⚫ GFCI LOAD Hot] --> V1["⚫ Vanity Fixture Hot + Switch Feed"]
-        G5[⚪ GFCI LOAD Neutral] --> V2["⚪ Vanity Fixture Neutral + Circuit"]
-        G6[🟢 GFCI LOAD Ground] --> V3["🟢 Vanity Fixture Ground + Circuit"]
+        G4["⚫ GFCI LOAD Hot"] --> V1["⚫ Vanity Fixture Hot + Switch Feed"]
+        G5["⚪ GFCI LOAD Neutral"] --> V2["⚪ Vanity Fixture Neutral + Circuit"]
+        G6["🟢 GFCI LOAD Ground"] --> V3["🟢 Vanity Fixture Ground + Circuit"]
     end
     
     subgraph "Vanity Switch 1 to Vanity Light (14-3)"
-        S1[⚫ VS1 COM Terminal] --> V4[⚫ Black to White VS2 Junction]
-        S2[🔴 VS1 T1 Terminal] --> V5[🔴 Red Pass-Through to VS2]
-        S3[⚪ VS1 T2 Terminal] --> V6[⚪ White to Light Fixture Hot]
-        S4["⚪ Neutral Pass-Through"] --> V7[⚪ Neutral Continue to VS2]
-        S5["🟢 VS1 Ground"] --> V8[🟢 Green Pass-Through to VS2]
+        S1["⚫ VS1 COM Terminal"] --> V4["⚫ Black to White VS2 Junction"]
+        S2["🔴 VS1 T1 Terminal"] --> V5["🔴 Red Pass-Through to VS2"]
+        S3["⚪ VS1 T2 Terminal"] --> V6["⚪ White to Light Fixture Hot"]
+        S4["⚪ Neutral Pass-Through"] --> V7["⚪ Neutral Continue to VS2"]
+        S5["🟢 VS1 Ground"] --> V8["🟢 Green Pass-Through to VS2"]
     end
     
     subgraph "Vanity Light to Combined Box (14-3)"
         V9["⚪ White from Black VS1 Junction"] --> C2["⚪ VS2 COM Terminal"]
-        V10[🔴 Red Pass-Through] --> C3[🔴 VS2 T1 Terminal]
-        V11[⚫ Black from Light Fixture] --> C4[⚫ VS2 T2 Terminal]
-        V12[⚪ Neutral Continue] --> C5["⚪ Neutral Bundle Wire Nut"]
-        V13[🟢 Green Continue] --> C6["🟢 Ground Bundle Wire Nut"]
+        V10["🔴 Red Pass-Through"] --> C3["🔴 VS2 T1 Terminal"]
+        V11["⚫ Black from Light Fixture"] --> C4["⚫ VS2 T2 Terminal"]
+        V12["⚪ Neutral Continue"] --> C5["⚪ Neutral Bundle Wire Nut"]
+        V13["🟢 Green Continue"] --> C6["🟢 Ground Bundle Wire Nut"]
     end
     
     subgraph "Combined Box Connections"
-        H1[⚫ Hot Distribution Bundle] --> C7[⚫ Main SW1 COM]
-        H1 --> C8[⚫ Fan Switch LINE]
-        C2 --> C9[⚪ Vanity SW2 COM from Light]
-        C10[🔴 Red MS1 T1] --> C11[🔴 To Main SW2 T1]
-        C12[⚫ Black MS1 T2] --> C13[⚫ To Main SW2 T2]
-        C14[⚫ Fan Switch LOAD] --> C15[⚫ Control to Fan Motor]
-        C6 --> C16[🟢 All Switch Grounds]
+        H1["⚫ Hot Distribution Bundle"] --> C7["⚫ Main SW1 COM"]
+        H1 --> C8["⚫ Fan Switch LINE"]
+        C2 --> C9["⚪ Vanity SW2 COM from Light"]
+        C10["🔴 Red MS1 T1"] --> C11["🔴 To Main SW2 T1"]
+        C12["⚫ Black MS1 T2"] --> C13["⚫ To Main SW2 T2"]
+        C14["⚫ Fan Switch LOAD"] --> C15["⚫ Control to Fan Motor"]
+        C6 --> C16["🟢 All Switch Grounds"]
     end
     
     subgraph "Combined Box to Main Switch 2 (14-3)"
-        C17[⚫ From Main SW1 COM] --> M1[⚫ Main SW2 COM]
-        C11 --> M2[🔴 Main SW2 T1]
-        C13 --> M3[⚫ Main SW2 T2]
-        C5 --> M4[⚪ Neutral Pass-Through]
-        C6 --> M5[🟢 Main SW2 Ground]
+        C17["⚫ From Main SW1 COM"] --> M1["⚫ Main SW2 COM"]
+        C11 --> M2["🔴 Main SW2 T1"]
+        C13 --> M3["⚫ Main SW2 T2"]
+        C5 --> M4["⚪ Neutral Pass-Through"]
+        C6 --> M5["🟢 Main SW2 Ground"]
     end
     
     subgraph "Main Switch 2 to Main Light (14-2)"
-        M6[⚫ Main SW2 COM Output] --> L1["⚫ Main Light Fixture + Pass-Through"]
+        M6["⚫ Main SW2 COM Output"] --> L1["⚫ Main Light Fixture + Pass-Through"]
         M4 --> L2["⚪ Main Light Neutral + Pass-Through"]
         M5 --> L3["🟢 Main Light Ground + Pass-Through"]
     end
     
     subgraph "Main Light to Fan (14-2)"
-        L4[⚫ Hot Pass-Through] --> F1[⚫ Fan Box Pass-Through]
+        L4["⚫ Hot Pass-Through"] --> F1["⚫ Fan Box Pass-Through"]
         L2 --> F2["⚪ Fan Neutral to Motor"]
         L3 --> F3["🟢 Fan Ground to Motor + Case"]
     end
     
     subgraph "Fan Control from Combined Box"
-        C15 --> F4[⚫ Fan Motor Hot from Switch]
+        C15 --> F4["⚫ Fan Motor Hot from Switch"]
     end
     
     classDef boxPadding padding:10px 15px
