@@ -48,15 +48,24 @@ flowchart TD
 
 ### Power Path to Fan Switch:
 1. **Continuous Hot Wire**: Runs from GFCI → Vanity Light → Switch Box 1 → Main Light → **Fan (passes through)** → Switch Box 2 → Fan Switch
-2. **Fan Switch Location**: Physical end of the circuit run
+2. **Fan Switch Location**: Physical end of the circuit run  
 3. **Fan Location**: Middle of the circuit (between main light and switch box 2)
 
 ### Fan Control Method:
-- **Hot Wire**: Continues past the fan to reach the fan switch
-- **Switched Hot**: Fan switch sends control signal BACK to fan via separate wire
+- **⚫ Hot Wire**: Continues past the fan to reach the fan switch
+- **⚫ Switched Hot**: Fan switch sends control signal BACK to fan via separate wire
 - **Result**: Fan switch can turn fan ON/OFF even though it's downstream
 
 This is a common electrical configuration where the switch controlling a device is not physically adjacent to that device.
+
+### Visual Flow:
+```
+Panel → GFCI → VS1 → Vanity Light → Combined Box → MS2 → Main Light → Fan → Combined Box
+                                                                      ↑        ↓
+                                                                  Pass-Through  Control Wire
+                                                                      ↑        ↓  
+                                                                 Fan Switch ←──┘
+```
 
 ## 3-Way Switch Control Logic Diagram
 
@@ -67,9 +76,9 @@ flowchart LR
         MS2[Main Switch 2<br/>Position A/B]
         ML[Main Light<br/>ON/OFF]
         
-        MS1 -.->|Traveler 1<br/>Red Wire| MS2
-        MS1 -.->|Traveler 2<br/>Black Wire| MS2
-        MS2 -->|Switched Hot| ML
+        MS1 -.->|🔴 Traveler 1<br/>Red Wire| MS2
+        MS1 -.->|⚫ Traveler 2<br/>Black Wire| MS2
+        MS2 -->|⚫ Switched Hot| ML
     end
     
     subgraph "Vanity Light Control"
@@ -77,16 +86,16 @@ flowchart LR
         VS2[Vanity Switch 2<br/>Position A/B]
         VL[Vanity Light<br/>ON/OFF]
         
-        VS1 -.->|Traveler 1<br/>Red Wire| VS2
-        VS1 -.->|Traveler 2<br/>Black Wire| VS2
-        VS2 -->|Switched Hot| VL
+        VS1 -.->|🔴 Traveler 1<br/>Red Wire| VS2
+        VS1 -.->|⚫ Traveler 2<br/>Black Wire| VS2
+        VS2 -->|⚫ Switched Hot| VL
     end
     
     subgraph "Fan Control"
         FS[Fan Switch<br/>ON/OFF]
         FAN[Exhaust Fan<br/>ON/OFF]
         
-        FS -->|Switched Hot| FAN
+        FS -->|⚫ Switched Hot| FAN
     end
     
     classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
@@ -181,36 +190,36 @@ flowchart TD
 flowchart LR
     subgraph "3-Way Switch Terminals"
         direction TB
-        COM[COM Terminal<br/>Dark Screw]
-        T1[T1 Terminal<br/>Brass Screw]
-        T2[T2 Terminal<br/>Brass Screw]
-        GND[Ground Terminal<br/>Green Screw]
+        COM[COM Terminal<br/>⚫ Dark Screw]
+        T1[T1 Terminal<br/>🟡 Brass Screw]
+        T2[T2 Terminal<br/>🟡 Brass Screw]
+        GND[Ground Terminal<br/>🟢 Green Screw]
     end
     
     subgraph "Wire Colors - 14-3 Cable"
-        BLACK[Black Wire<br/>Hot or Traveler]
-        RED[Red Wire<br/>Traveler]
-        WHITE[White Wire<br/>Neutral]
-        BARE[Bare Wire<br/>Ground]
+        BLACK[⚫ Black Wire<br/>Hot or Traveler]
+        RED[🔴 Red Wire<br/>Traveler]
+        WHITE[⚪ White Wire<br/>Neutral]
+        BARE[🟢 Bare Wire<br/>Ground]
     end
     
     subgraph "Main Switch 1 Connections"
-        MS1_COM[COM ← Hot from Source]
-        MS1_T1[T1 ← Red Traveler]
-        MS1_T2[T2 ← Black Traveler]
-        MS1_GND[GND ← Ground]
+        MS1_COM[COM ← ⚫ Hot from Source]
+        MS1_T1[T1 ← 🔴 Red Traveler]
+        MS1_T2[T2 ← ⚫ Black Traveler]
+        MS1_GND[GND ← 🟢 Ground]
     end
     
     subgraph "Main Switch 2 Connections"
-        MS2_COM[COM → Switched Hot to Light]
-        MS2_T1[T1 ← Red Traveler]
-        MS2_T2[T2 ← Black Traveler]
-        MS2_GND[GND ← Ground]
+        MS2_COM[COM → ⚫ Switched Hot to Light]
+        MS2_T1[T1 ← 🔴 Red Traveler]
+        MS2_T2[T2 ← ⚫ Black Traveler]
+        MS2_GND[GND ← 🟢 Ground]
     end
     
     %% Traveler Connections
-    MS1_T1 -.->|Red Wire| MS2_T1
-    MS1_T2 -.->|Black Wire| MS2_T2
+    MS1_T1 -.->|🔴 Red Wire| MS2_T1
+    MS1_T2 -.->|⚫ Black Wire| MS2_T2
     
     classDef terminalStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
     classDef wireStyle fill:#6c5ce7,stroke:#000,stroke-width:2px,color:#fff
@@ -228,10 +237,10 @@ flowchart TD
     subgraph "3-Way Switch Logic - Main Light"
         direction TB
         
-        STATE1[Switch 1: UP<br/>Switch 2: UP<br/>Result: LIGHT OFF]
-        STATE2[Switch 1: UP<br/>Switch 2: DOWN<br/>Result: LIGHT ON]
-        STATE3[Switch 1: DOWN<br/>Switch 2: UP<br/>Result: LIGHT ON]
-        STATE4[Switch 1: DOWN<br/>Switch 2: DOWN<br/>Result: LIGHT OFF]
+        STATE1[Switch 1: ↑ UP<br/>Switch 2: ↑ UP<br/>Result: 💡 LIGHT OFF]
+        STATE2[Switch 1: ↑ UP<br/>Switch 2: ↓ DOWN<br/>Result: 🔆 LIGHT ON]
+        STATE3[Switch 1: ↓ DOWN<br/>Switch 2: ↑ UP<br/>Result: 🔆 LIGHT ON]
+        STATE4[Switch 1: ↓ DOWN<br/>Switch 2: ↓ DOWN<br/>Result: 💡 LIGHT OFF]
         
         STATE1 --> STATE2
         STATE2 --> STATE3
@@ -242,11 +251,11 @@ flowchart TD
     subgraph "Circuit Path Analysis"
         direction LR
         
-        HOT_IN[Hot Input<br/>Switch 1 COM]
-        TRAV1[Traveler 1<br/>Red Wire]
-        TRAV2[Traveler 2<br/>Black Wire]
+        HOT_IN[⚫ Hot Input<br/>Switch 1 COM]
+        TRAV1[🔴 Traveler 1<br/>Red Wire]
+        TRAV2[⚫ Traveler 2<br/>Black Wire]
         SWITCH2[Switch 2<br/>T1 & T2]
-        LIGHT_OUT[To Light<br/>Switch 2 COM]
+        LIGHT_OUT[⚫ To Light<br/>Switch 2 COM]
         
         HOT_IN --> TRAV1
         HOT_IN --> TRAV2
@@ -267,19 +276,19 @@ flowchart TD
 ```mermaid
 flowchart TD
     subgraph "Circuit Capacity"
-        BREAKER[15A Circuit Breaker<br/>1800W Capacity]
+        BREAKER[⚡ 15A Circuit Breaker<br/>1800W Capacity]
     end
     
     subgraph "Connected Loads"
-        GFCI[GFCI Outlet<br/>0W Standby]
-        VL[Vanity Light<br/>80W LED]
-        ML[Main Light<br/>60W LED]
-        FAN[Exhaust Fan<br/>90W Motor]
-        FUTURE[Future Devices<br/>200W Reserve]
+        GFCI[🔌 GFCI Outlet<br/>0W Standby]
+        VL[💡 Vanity Light<br/>80W LED]
+        ML[💡 Main Light<br/>60W LED]
+        FAN[🌪️ Exhaust Fan<br/>90W Motor]
+        FUTURE[🔌 Future Devices<br/>200W Reserve]
     end
     
     subgraph "Load Summary"
-        TOTAL[Total Load: 430W<br/>Circuit Usage: 24%<br/>Available: 1370W]
+        TOTAL[📊 Total Load: 430W<br/>Circuit Usage: 24%<br/>Available: 1370W]
     end
     
     BREAKER --> GFCI
@@ -393,27 +402,27 @@ These diagrams complement the ASCII art diagrams in the other documentation file
 ```mermaid
 flowchart TD
     subgraph "Wire Color Legend"
-        ⚫[⚫ Hot/Switched Hot - Black Wire]
-        ⚪[⚪ Neutral - White Wire]
-        🟢[🟢 Ground - Bare/Green Wire]
-        🔴R[🔴 Traveler 1 - Red Wire]
-        ⚫[⚫ Traveler 2 - Black Wire in 14-3]
+        ⚫HOT[⚫ Hot/Switched Hot - Black Wire]
+        ⚪NEUT[⚪ Neutral - White Wire]
+        🟢GND[🟢 Ground - Bare/Green Wire]
+        🔴TRAV1[🔴 Traveler 1 - Red Wire]
+        ⚫TRAV2[⚫ Traveler 2 - Black Wire in 14-3]
     end
     
     subgraph "Panel to GFCI (14-2)"
-        P1[🔴 Panel Hot] --> G1[🔴 GFCI LINE Hot]
+        P1[⚫ Panel Hot] --> G1[⚫ GFCI LINE Hot]
         P2[⚪ Panel Neutral] --> G2[⚪ GFCI LINE Neutral]
         P3[🟢 Panel Ground] --> G3[🟢 GFCI Ground]
     end
     
     subgraph "GFCI to Vanity Light (14-2)"
-        G4[🔴 GFCI LOAD Hot] --> V1[🔴 Vanity Fixture Hot + Switch Feed]
+        G4[⚫ GFCI LOAD Hot] --> V1[⚫ Vanity Fixture Hot + Switch Feed]
         G5[⚪ GFCI LOAD Neutral] --> V2[⚪ Vanity Fixture Neutral + Circuit]
         G6[🟢 GFCI LOAD Ground] --> V3[🟢 Vanity Fixture Ground + Circuit]
     end
     
     subgraph "Vanity Light to Switch 1 (14-3)"
-        V4[🔴 Hot from Fixture] --> S1[🔴 VS1 COM Terminal]
+        V4[⚫ Hot from Fixture] --> S1[⚫ VS1 COM Terminal]
         V5[🔴 Red Traveler] --> S2[🔴 VS1 T1 Terminal]
         V6[⚫ Black Traveler] --> S3[⚫ VS1 T2 Terminal]
         V7[⚪ Neutral Pass-Through] --> S4[⚪ Wire Nut Only]
@@ -421,7 +430,7 @@ flowchart TD
     end
     
     subgraph "Switch 1 to Combined Box (14-3)"
-        S6[🔴 Hot Continuation] --> C1[🔴 Hot Distribution to 3 Switches]
+        S6[⚫ Hot Continuation] --> C1[⚫ Hot Distribution to 3 Switches]
         S7[🔴 Red from VS1 T1] --> C2[🔴 VS2 T1 Terminal]
         S8[⚫ Black from VS1 T2] --> C3[⚫ VS2 T2 Terminal]
         S9[⚪ Neutral Pass-Through] --> C4[⚪ Neutral Bundle Wire Nut]
@@ -429,17 +438,17 @@ flowchart TD
     end
     
     subgraph "Combined Box Connections"
-        C1 --> C6[🔴 Main SW1 COM]
-        C1 --> C7[🔴 Vanity SW2 COM]
-        C1 --> C8[🔴 Fan Switch LINE]
+        C1 --> C6[⚫ Main SW1 COM]
+        C1 --> C7[⚫ Vanity SW2 COM]
+        C1 --> C8[⚫ Fan Switch LINE]
         C9[🔴 Red MS1 T1] --> C10[🔴 To Main SW2 T1]
         C11[⚫ Black MS1 T2] --> C12[⚫ To Main SW2 T2]
-        C13[🔴 Fan Switch LOAD] --> C14[🔴 Control to Fan Motor]
+        C13[⚫ Fan Switch LOAD] --> C14[⚫ Control to Fan Motor]
         C5 --> C15[🟢 All Switch Grounds]
     end
     
     subgraph "Combined Box to Main Switch 2 (14-3)"
-        C16[🔴 From Main SW1 COM] --> M1[🔴 Main SW2 COM]
+        C16[⚫ From Main SW1 COM] --> M1[⚫ Main SW2 COM]
         C10 --> M2[🔴 Main SW2 T1]
         C12 --> M3[⚫ Main SW2 T2]
         C4 --> M4[⚪ Neutral Pass-Through]
@@ -447,19 +456,19 @@ flowchart TD
     end
     
     subgraph "Main Switch 2 to Main Light (14-2)"
-        M6[🔴 Main SW2 COM Output] --> L1[🔴 Main Light Fixture + Pass-Through]
+        M6[⚫ Main SW2 COM Output] --> L1[⚫ Main Light Fixture + Pass-Through]
         M4 --> L2[⚪ Main Light Neutral + Pass-Through]
         M5 --> L3[🟢 Main Light Ground + Pass-Through]
     end
     
     subgraph "Main Light to Fan (14-2)"
-        L4[🔴 Hot Pass-Through] --> F1[🔴 Fan Box Pass-Through]
+        L4[⚫ Hot Pass-Through] --> F1[⚫ Fan Box Pass-Through]
         L2 --> F2[⚪ Fan Neutral to Motor]
         L3 --> F3[🟢 Fan Ground to Motor + Case]
     end
     
     subgraph "Fan Control from Combined Box"
-        C14 --> F4[🔴 Fan Motor Hot from Switch]
+        C14 --> F4[⚫ Fan Motor Hot from Switch]
     end
     
     classDef hotStyle fill:#ff9999,stroke:#000,stroke-width:2px,color:#000
@@ -485,14 +494,14 @@ Pigtails are short lengths of wire used to connect devices to spliced wires. Her
 
 #### Box 4 - Combined Switch Box (3 switches):
 **Hot Distribution (3 pigtails required):**
-- 🔴 Pigtail 1: Hot bundle → Main Switch 1 COM
-- 🔴 Pigtail 2: Hot bundle → Vanity Switch 2 COM  
-- 🔴 Pigtail 3: Hot bundle → Fan Switch LINE
+- Pigtail 1: Hot bundle → Main Switch 1 COM
+- Pigtail 2: Hot bundle → Vanity Switch 2 COM  
+- Pigtail 3: Hot bundle → Fan Switch LINE
 
 **Ground Distribution (3 pigtails required):**
-- 🟢 Pigtail 1: Ground bundle → Main Switch 1 GND
-- 🟢 Pigtail 2: Ground bundle → Vanity Switch 2 GND
-- 🟢 Pigtail 3: Ground bundle → Fan Switch GND
+- Pigtail 1: Ground bundle → Main Switch 1 GND
+- Pigtail 2: Ground bundle → Vanity Switch 2 GND
+- Pigtail 3: Ground bundle → Fan Switch GND
 
 **Neutral**: Pass-through only, no pigtails to switches
 
