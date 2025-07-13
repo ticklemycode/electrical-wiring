@@ -140,10 +140,10 @@ flowchart TD
     
     subgraph "Box 4 - Combined Switch Box"
         direction TB
-        COMB_MAIN[Main Switch 1<br/>⚫ COM ← Hot Pigtail<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail]
-        COMB_VANITY["Vanity Switch 2<br/>⚪ COM ← White (from Black VS1)<br/>🔴 T1 ↔ Red Pass-Through<br/>⚫ T2 ↔ Black from Light<br/>🟢 GND ← Ground Pigtail"]
-        COMB_FAN[Fan Switch<br/>⚫ LINE ← Hot Pigtail<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail]
-        COMB_BUNDLES[Wire Bundles<br/>⚫ Hot Distribution<br/>⚪ Neutral Pass-Through<br/>🟢 Ground Collection]
+        COMB_MAIN[Main Switch 1<br/>⚫ COM ← Hot Pigtail from White Bundle<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail]
+        COMB_VANITY["Vanity Switch 2<br/>⚪ COM ← White from Vanity Light (Hot)<br/>🔴 T1 ↔ Red Pass-Through<br/>⚫ T2 ↔ Black from Light<br/>🟢 GND ← Ground Pigtail"]
+        COMB_FAN[Fan Switch<br/>⚫ LINE ← Hot Pigtail from White Bundle<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail]
+        COMB_BUNDLES[Wire Bundles<br/>⚪ White Hot: VS2 Direct + Pigtails<br/>⚪ Neutral Pass-Through<br/>🟢 Ground Collection]
         
         COMB_BUNDLES -.-> COMB_MAIN
         COMB_BUNDLES -.-> COMB_VANITY
