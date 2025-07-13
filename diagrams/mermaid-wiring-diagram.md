@@ -431,11 +431,11 @@ These diagrams complement the ASCII art diagrams in the other documentation file
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     subgraph "Wire Color Legend"
-        ⚫HOT["Hot | Switched Hot - Black Wire"]
-        ⚪NEUT["Neutral - White Wire"]
-        🟢GND["Ground - Bare | Green Wire"]
-        🔴TRAV1["Traveler 1 - Red Wire"]
-        ⚫TRAV2["Traveler 2 - Black Wire in 14-3"]
+        HOT["⚫ Hot | Switched Hot - Black Wire"]
+        NEUT["⚪ Neutral - White Wire"]
+        GND["🟢 Ground - Bare | Green Wire"]
+        TRAV1["🔴 Traveler 1 - Red Wire"]
+        TRAV2["⚫ Traveler 2 - Black Wire in 14-3"]
     end
     
     subgraph "Panel to GFCI (14-2)"
@@ -506,7 +506,7 @@ flowchart TD
     classDef groundStyle fill:#90ee90,stroke:#000,stroke-width:2px,color:#000
     classDef travelerStyle fill:#ffd700,stroke:#000,stroke-width:2px,color:#000
     
-    class ⚫HOT,⚪NEUT,🟢GND,🔴TRAV1,⚫TRAV2,P1,P2,P3,G1,G2,G3,G4,G5,G6,V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11,V12,V13,S1,S2,S3,S4,S5,H1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,M1,M2,M3,M4,M5,M6,L1,L2,L3,L4,F1,F2,F3,F4 boxPadding
+    class HOT,NEUT,GND,TRAV1,TRAV2,P1,P2,P3,G1,G2,G3,G4,G5,G6,V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11,V12,V13,S1,S2,S3,S4,S5,H1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,M1,M2,M3,M4,M5,M6,L1,L2,L3,L4,F1,F2,F3,F4 boxPadding
     class P1,G1,G4,V1,V4,S1,H1,C7,C8,C17,M1,M6,L1,L4,F1,C14,C15,F4 hotStyle
     class P2,G2,G5,V2,V7,S4,C5,M4,L2,F2,V9,C2 neutralStyle
     class P3,G3,G6,V3,V8,S5,C6,C16,M5,L3,F3,V13 groundStyle
