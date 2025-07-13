@@ -35,7 +35,7 @@ flowchart TD
     classDef gfciStyle fill:#4ecdc4,stroke:#000,stroke-width:2px,color:#000,padding:15px
     classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff,padding:15px
     classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000,padding:15px
-    classDef wireStyle stroke:#666,stroke-width:2px
+    classDef wireStyle stroke:#666,stroke-width:2px,padding:15px
     
     class A panelStyle
     class B gfciStyle
