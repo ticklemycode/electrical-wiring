@@ -45,26 +45,29 @@ From Switch 1 (14-3):         To Light Fixture (14-2):
 ```
 From GFCI (14-2 Cable):       Vanity Light Fixture:
 - Hot (Black)     →           - Fixture Hot (Black) - Power available
-- Neutral (White) →           - Fixture Neutral (White) - SWITCHED by 3-way system
+- Neutral (White) →           - Fixture Neutral (White) - Direct to panel
 - Ground (Bare)   →           - Fixture Ground (Green)
 
 Note: NO RED WIRE connects to the vanity light fixture
+Hot wire is also tapped to feed the 3-way switch system for control
 ```
 
 ### How Vanity Light Switching Works:
-The vanity light uses **switch loop control** where:
-1. **Hot wire**: Always available at fixture (from GFCI)
-2. **Neutral wire**: Controlled by the 3-way switch system
-3. **Light turns ON**: When switches complete the neutral path
-4. **Light turns OFF**: When switches break the neutral path
+The vanity light uses **standard 3-way switch control** where:
+1. **Hot wire**: Available at fixture from GFCI, also feeds first switch
+2. **Switched hot**: Controlled by the 3-way switch system through travelers
+3. **Light turns ON**: When switches complete the hot path through travelers
+4. **Light turns OFF**: When switches break the hot path
+
+**Important**: This is normal 3-way switching - the switches control the hot wire, not the neutral.
 
 ### Vanity Switch 1:
 ```
 From Vanity Light Box (14-3): To Vanity Switch 2 (14-3):  
 - Hot (Black)     →  COM      - Traveler 1 (Red)   →  T1  
 - Red (Traveler)  →  T1       - Traveler 2 (Black) →  T2  
-- White (Control) →  T2       - Neutral (White)    →  Switched neutral path
-- Neutral (Pass)  →  Pigtail  - Ground (Bare)      →  Switch ground
+- Black (Traveler)→  T2       - Neutral (White)    →  Pass-through (wire nut)
+- White (Neutral) →  Pigtail  - Ground (Bare)      →  Switch ground
 - Ground (Bare)   →  Switch   
 ```
 
@@ -72,8 +75,8 @@ From Vanity Light Box (14-3): To Vanity Switch 2 (14-3):
 ```
 From Vanity Switch 1 (14-3):  To Main Circuit (14-2):
 - Traveler 1 (Red)   →  T1    - Hot (Black)        →  COM output (to main circuit)
-- Traveler 2 (Black) →  T2    - Neutral (White)    →  Continue circuit
-- White (Control)    →  COM   - Ground (Bare)      →  Continue circuit
+- Traveler 2 (Black) →  T2    - Neutral (White)    →  Continue circuit (wire nut)
+- White (Neutral)    →  Pigtail - Ground (Bare)    →  Continue circuit
 - Ground (Bare)      →  Switch
 ```
 
@@ -87,24 +90,24 @@ From Vanity Switch 1 (14-3):  To Main Circuit (14-2):
 ```
 1. GFCI provides HOT → Vanity Light Fixture (hot side always available)
                     ↓
-2. Vanity Light Neutral → 3-Way Switch System (controls neutral path)
+2. Same hot wire → 3-Way Switch System (for switching control)
                     ↓
-3. When switches align → Complete circuit → Light ON
-   When switches differ → Broken circuit → Light OFF
+3. When switches align → Complete hot path → Light ON
+   When switches differ → Broken hot path → Light OFF
                     ↓
-4. Continuing circuit → Provides power to main lights
+4. Continuing circuit → Provides switched hot to main lights
 ```
 
 ### What Each Wire Does:
 - **Black from GFCI**: Provides hot to vanity fixture + feeds switch system  
-- **White from vanity**: Controlled by 3-way switches (neutral switching)
+- **White (neutral)**: Direct path from fixture to panel (not switched)
 - **Red in 14-3 cable**: Traveler wire between switches ONLY
 - **Black in 14-3 cable**: Second traveler wire between switches ONLY
 - **Ground**: Safety ground for all devices
 
 ### The Switching Logic:
-- **Both switches same position**: Vanity light OFF (neutral path broken)
-- **Switches different positions**: Vanity light ON (neutral path complete)
+- **Both switches same position**: Vanity light OFF (hot path broken)
+- **Switches different positions**: Vanity light ON (hot path complete)
 - **Either switch can control**: Normal 3-way operation
 
 **Key Point**: The vanity light operates completely normally - you can turn it on and off from either switch location just like any other 3-way switched light.
@@ -145,10 +148,11 @@ Junction Box Connections (Switch Loop Method):
 │       └─────────→ Fixture Hot (Black)    │
 │                  │   (power available)   │
 │                  │                       │
-│ Neutral (White) ─┼→ Switch control (White)│
-│       │          │   (switched neutral)  │
+│ Neutral (White) ─┼→ Switch pass-through    │
+│       │          │   (wire nut - not to   │
+│       │          │    switch terminals)   │
 │       └─────────→ Fixture Neutral (White)│
-│                  │   *** SWITCHED ***    │
+│                  │   (direct to panel)    │
 │                  │                       │
 │ Ground (Bare) ───┼→ Ground (Bare)        │
 │       │          │                       │
@@ -214,7 +218,7 @@ Note: Fan gets power from separate control wire from fan switch
 #### Circuit Wire Color Functions:
 1. **Always Hot Circuits** (Vanity Light):
    - Black: Hot available at fixture + switch feed (power source)
-   - White: Switched neutral path (controlled by 3-way switches)
+   - White: Direct neutral path (not switched)
    - Bare: Ground for safety
    - **Red: Traveler wire between switches (NOT to fixture)**
 
