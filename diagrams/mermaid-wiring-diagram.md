@@ -5,6 +5,7 @@ This document provides a detailed Mermaid flowchart diagram of the bathroom elec
 ## Complete Circuit Flow Diagram
 
 ```mermaid
+%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     A[Electrical Panel<br/>15A Breaker] -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| B[GFCI Outlet<br/>15A, 120V]
     
@@ -30,10 +31,10 @@ flowchart TD
     E -.->|14-3 Cable:<br/>🔴 Red: MS1↔MS2<br/>⚫ Black: MS1↔MS2| F
     
     %% Styling
-    classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
-    classDef gfciStyle fill:#4ecdc4,stroke:#000,stroke-width:2px,color:#000
-    classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
-    classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
+    classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff,padding:15px
+    classDef gfciStyle fill:#4ecdc4,stroke:#000,stroke-width:2px,color:#000,padding:15px
+    classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff,padding:15px
+    classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000,padding:15px
     classDef wireStyle stroke:#666,stroke-width:2px
     
     class A panelStyle
