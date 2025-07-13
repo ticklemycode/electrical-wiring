@@ -5,7 +5,6 @@ This document provides a detailed Mermaid flowchart diagram of the bathroom elec
 ## Complete Circuit Flow Diagram
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'fontSize': '12px', 'fontFamily': 'Arial', 'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'lineColor': '#000000'}}}%%
 flowchart TD
     A[Electrical Panel<br/>15A Breaker] -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| B[GFCI Outlet<br/>15A, 120V]
     
@@ -31,11 +30,11 @@ flowchart TD
     E -.->|14-3 Cable:<br/>🔴 Red: MS1↔MS2<br/>⚫ Black: MS1↔MS2| F
     
     %% Styling
-    classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff,font-size:11px
-    classDef gfciStyle fill:#4ecdc4,stroke:#000,stroke-width:2px,color:#000,font-size:11px
-    classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff,font-size:11px
-    classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000,font-size:11px
-    classDef wireStyle stroke:#666,stroke-width:2px,font-size:10px
+    classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
+    classDef gfciStyle fill:#4ecdc4,stroke:#000,stroke-width:2px,color:#000
+    classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
+    classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
+    classDef wireStyle stroke:#666,stroke-width:2px
     
     class A panelStyle
     class B gfciStyle
@@ -109,7 +108,6 @@ flowchart LR
 ## Wire Routing and Box Connections
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {'fontSize': '11px', 'fontFamily': 'Arial', 'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'lineColor': '#000000'}}}%%
 flowchart TD
     subgraph "Electrical Panel"
         PANEL[15A Breaker<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare]
@@ -122,7 +120,7 @@ flowchart TD
     end
     
     subgraph "Box 2 - Vanity Switch 1"
-        VS1_SWITCH[Vanity Switch 1<br/>⚫ COM ← Hot<br/>🔴 T1 → Red Trav<br/>⚫ T2 → Blk Trav<br/>🟢 GND ← Ground]
+        VS1_SWITCH[Vanity Switch 1<br/>⚫ COM ← Hot from GFCI<br/>🔴 T1 → Red Traveler<br/>⚫ T2 → Black Traveler<br/>🟢 GND ← Ground]
         VS1_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only]
     end
     
@@ -132,10 +130,10 @@ flowchart TD
     
     subgraph "Box 4 - Combined Switch Box"
         direction TB
-        COMB_MAIN[Main Switch 1<br/>⚫ COM ← Hot Pig<br/>🔴 T1 ↔ Red→MS2<br/>⚫ T2 ↔ Blk→MS2<br/>🟢 GND ← Gnd Pig]
-        COMB_VANITY[Vanity Switch 2<br/>⚫ COM ← Hot Pig<br/>🔴 T1 ↔ Red←VS1<br/>⚫ T2 ↔ Blk←VS1<br/>🟢 GND ← Gnd Pig]
-        COMB_FAN[Fan Switch<br/>⚫ LINE ← Hot Pig<br/>⚫ LOAD → Fan Ctrl<br/>🟢 GND ← Gnd Pig]
-        COMB_BUNDLES[Wire Bundles<br/>⚫ Hot Distrib<br/>⚪ Neutral Pass<br/>🟢 Gnd Collect]
+        COMB_MAIN[Main Switch 1<br/>⚫ COM ← Hot Pigtail<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail]
+        COMB_VANITY[Vanity Switch 2<br/>⚫ COM ← Hot Pigtail<br/>🔴 T1 ↔ Red from VS1<br/>⚫ T2 ↔ Black from VS1<br/>🟢 GND ← Ground Pigtail]
+        COMB_FAN[Fan Switch<br/>⚫ LINE ← Hot Pigtail<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail]
+        COMB_BUNDLES[Wire Bundles<br/>⚫ Hot Distribution<br/>⚪ Neutral Pass-Through<br/>🟢 Ground Collection]
         
         COMB_BUNDLES -.-> COMB_MAIN
         COMB_BUNDLES -.-> COMB_VANITY
@@ -143,7 +141,7 @@ flowchart TD
     end
     
     subgraph "Box 5 - Main Switch 2"
-        MS2_SWITCH[Main Switch 2<br/>⚫ COM → Sw Hot<br/>🔴 T1 ← Red←MS1<br/>⚫ T2 ← Blk←MS1<br/>🟢 GND ← Ground]
+        MS2_SWITCH[Main Switch 2<br/>⚫ COM → Switched Hot<br/>🔴 T1 ← Red from MS1<br/>⚫ T2 ← Black from MS1<br/>🟢 GND ← Ground]
         MS2_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only]
     end
     
@@ -175,10 +173,10 @@ flowchart TD
     VS1_SWITCH -.->|🔴⚫ Travelers| COMB_VANITY
     COMB_MAIN -.->|🔴⚫ Travelers| MS2_SWITCH
     
-    classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff,font-size:11px
-    classDef boxStyle fill:#e8f4fd,stroke:#000,stroke-width:2px,color:#000,font-size:10px
-    classDef deviceStyle fill:#fff3cd,stroke:#000,stroke-width:2px,color:#000,font-size:10px
-    classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff,font-size:11px
+    classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
+    classDef boxStyle fill:#e8f4fd,stroke:#000,stroke-width:2px,color:#000
+    classDef deviceStyle fill:#fff3cd,stroke:#000,stroke-width:2px,color:#000
+    classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
     
     class PANEL panelStyle
     class GFCI_LINE,GFCI_LOAD,VL_SPLICE,VS1_SWITCH,VS1_NEUTRAL,COMB_BUNDLES,MS2_SWITCH,MS2_NEUTRAL,ML_SPLICE,FAN_PASS boxStyle
