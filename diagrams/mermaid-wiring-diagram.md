@@ -168,20 +168,21 @@ flowchart TD
     
     %% Cable Connections with Wire Colors and Travelers
     PANEL -->|"14-2 Cable<br/>⚫⚪🟢"| GFCI_LINE
-    GFCI_LOAD -->|"14-2 Cable<br/>⚫⚪🟢"| VL_FIXTURE
-    VL_FIXTURE -->|"14-3 Cable<br/>⚫🔴⚪🟢<br/>Hot + Neutral + 3-Way Control"| VS1_SWITCH
+    GFCI_LOAD -->|"14-2 Cable<br/>⚫⚪🟢"| VS1_SWITCH
     
     %% Vanity 3-Way Circuit - 14-3 Cable with Travelers
-    VS1_SWITCH -->|"14-3 Cable Run #1<br/>⚫🔴⚪🟢<br/>🔴Red + ⚫Black = Travelers<br/>⚪White = Neutral Pass-Through"| COMB_MAIN
+    VS1_SWITCH -->|"14-3 Cable Run #1<br/>⚫🔴⚪🟢<br/>🔴Red = Traveler 1<br/>⚪White = Hot to Light"| VL_FIXTURE
+    VL_FIXTURE -->|"14-3 Cable Run #2<br/>⚫🔴⚪🟢<br/>🔴Red = Traveler to VS2<br/>⚫Black = Hot continues to MS2"| MS2_SWITCH
     
-    %% Main 3-Way Circuit - 14-3 Cable to Main Light
-    COMB_MAIN -->|"14-3 Cable<br/>⚫🔴⚪🟢<br/>Main Light Control"| ML_SPLICE
+    %% Main 3-Way Circuit - 14-2 then 14-3 Cable
+    MS2_SWITCH -->|"14-2 Cable<br/>⚫⚪🟢"| ML_SPLICE
     ML_SPLICE -->|"14-2 Cable<br/>⚫⚪🟢"| FAN_PASS
-    FAN_PASS -->|"14-3 Cable<br/>⚫🔴⚪🟢<br/>Power + Main Light Travelers"| MS2_SWITCH
-    MS2_SWITCH -->|"14-3 Cable Run #2<br/>⚫🔴⚪🟢<br/>Power + Vanity Travelers"| COMB_BUNDLES
+    FAN_PASS -->|"14-2 Cable<br/>⚫⚪🟢"| COMB_BUNDLES
     
-    %% Control Wires within Combined Box
+    %% Control Wires back to devices
     COMB_FAN -.->|"⚫ Switched Hot"| FAN_MOTOR
+    COMB_MAIN -.->|"14-3 Cable #3<br/>🔴Red + ⚫Black Travelers"| MS2_SWITCH
+    COMB_VANITY -.->|"14-3 Cable #4<br/>🔴Red + ⚫Black Travelers"| VL_FIXTURE
     COMB_BUNDLES -.-> COMB_MAIN
     COMB_BUNDLES -.-> COMB_VANITY
     COMB_BUNDLES -.-> COMB_FAN
