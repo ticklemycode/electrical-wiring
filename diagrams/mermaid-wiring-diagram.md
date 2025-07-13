@@ -8,17 +8,17 @@ This document provides a detailed Mermaid flowchart diagram of the bathroom elec
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     A["Electrical Panel<br/>15A Breaker"] -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| B["GFCI Outlet<br/>15A, 120V"]
-     B -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| D[Vanity Switch 1<br/>3-Way Switch]
+     B -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| D["Vanity Switch 1<br/>3-Way Switch"]
 
-    D -->|14-3 Cable<br/>⚫ Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Hot to Light: White<br/>🟢 Ground: Bare| C[Vanity Light Fixture<br/>LED Compatible]
+    D -->|14-3 Cable<br/>⚫ Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Hot to Light: White<br/>🟢 Ground: Bare| C["Vanity Light Fixture<br/>LED Compatible"]
 
-    C -->|14-3 Cable<br/>⚪ White to VS2: White<br/>🔴 Traveler: Red<br/>⚫ Black from Light: Black<br/>🟢 Ground: Green| F[Main Switch 2<br/>3-Way Switch]
+    C -->|14-3 Cable<br/>⚪ White to VS2: White<br/>🔴 Traveler: Red<br/>⚫ Black from Light: Black<br/>🟢 Ground: Green| F["Main Switch 2<br/>3-Way Switch"]
 
-    F -->|14-2 Cable<br/>⚫ Switched Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| G[Main Light Fixture<br/>LED Compatible]
+    F -->|14-2 Cable<br/>⚫ Switched Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| G["Main Light Fixture<br/>LED Compatible"]
 
-    G -->|14-2 Cable<br/>⚫ Hot Pass-Through: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| H[Exhaust Fan<br/>CFM Rated]
+    G -->|14-2 Cable<br/>⚫ Hot Pass-Through: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| H["Exhaust Fan<br/>CFM Rated"]
     
-    H -->|14-2 Cable<br/>⚫ Hot Continuous: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| E[Combined Switch Box<br/>Main SW1<br/>Vanity SW2<br/>Fan SW]
+    H -->|14-2 Cable<br/>⚫ Hot Continuous: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| E["Combined Switch Box<br/>Main SW1<br/>Vanity SW2<br/>Fan SW"]
     
     %% Fan Control Wire
     E -.->|⚫ Switched Hot<br/>Fan Switch → Fan| H
@@ -139,8 +139,8 @@ flowchart TD
     end
     
     subgraph "Box 4 - Main Switch 2"
-        MS2_SWITCH[Main Switch 2<br/>⚫ COM → Switched Hot<br/>🔴 T1 ← Red from MS1 (via Combined Box)<br/>⚫ T2 ← Black from MS1 (via Combined Box)<br/>🟢 GND ← Ground]
-        MS2_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only]
+        MS2_SWITCH["Main Switch 2<br/>⚫ COM → Switched Hot<br/>🔴 T1 ← Red from MS1 (via Combined Box)<br/>⚫ T2 ← Black from MS1 (via Combined Box)<br/>🟢 GND ← Ground"]
+        MS2_NEUTRAL["⚪ Neutral Pass-Through<br/>Wire Nut Only"]
     end
     
     subgraph "Box 5 - Main Light"
@@ -156,10 +156,10 @@ flowchart TD
     
     subgraph "Box 7 - Combined Switch Box (END OF RUN)"
         direction TB
-        COMB_MAIN[Main Switch 1<br/>⚫ COM ← Hot from Fan Pass-Through<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail]
+        COMB_MAIN["Main Switch 1<br/>⚫ COM ← Hot from Fan Pass-Through<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail"]
         COMB_VANITY["Vanity Switch 2<br/>⚪ COM ← White from Vanity Light (Hot)<br/>🔴 T1 ↔ Red to Vanity Light<br/>⚫ T2 ↔ Black to Vanity Light<br/>🟢 GND ← Ground Pigtail"]
-        COMB_FAN[Fan Switch<br/>⚫ LINE ← Hot from Fan Pass-Through<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail]
-        COMB_BUNDLES[Wire Bundles<br/>⚫ Hot Distribution<br/>⚪ Neutral Termination<br/>🟢 Ground Collection]
+        COMB_FAN["Fan Switch<br/>⚫ LINE ← Hot from Fan Pass-Through<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail"]
+        COMB_BUNDLES["Wire Bundles<br/>⚫ Hot Distribution<br/>⚪ Neutral Termination<br/>🟢 Ground Collection"]
         
         COMB_BUNDLES -.-> COMB_MAIN
         COMB_BUNDLES -.-> COMB_VANITY
@@ -204,31 +204,31 @@ flowchart TD
 flowchart LR
     subgraph "3-Way Switch Terminals"
         direction TB
-        COM[COM Terminal<br/>⚫ Dark Screw]
-        T1[T1 Terminal<br/>🟡 Brass Screw]
-        T2[T2 Terminal<br/>🟡 Brass Screw]
-        GND[Ground Terminal<br/>🟢 Green Screw]
+        COM["COM Terminal<br/>⚫ Dark Screw"]
+        T1["T1 Terminal<br/>🟡 Brass Screw"]
+        T2["T2 Terminal<br/>🟡 Brass Screw"]
+        GND["Ground Terminal<br/>🟢 Green Screw"]
     end
     
     subgraph "Wire Colors - 14-3 Cable"
-        BLACK[⚫ Black Wire<br/>Hot or Traveler]
-        RED[🔴 Red Wire<br/>Traveler]
-        WHITE[⚪ White Wire<br/>Neutral]
-        BARE[🟢 Bare Wire<br/>Ground]
+        BLACK["⚫ Black Wire<br/>Hot or Traveler"]
+        RED["🔴 Red Wire<br/>Traveler"]
+        WHITE["⚪ White Wire<br/>Neutral"]
+        BARE["🟢 Bare Wire<br/>Ground"]
     end
     
     subgraph "Main Switch 1 Connections"
-        MS1_COM[COM ← ⚫ Hot from Source]
-        MS1_T1[T1 ← 🔴 Red Traveler]
-        MS1_T2[T2 ← ⚫ Black Traveler]
-        MS1_GND[GND ← 🟢 Ground]
+        MS1_COM["COM ← ⚫ Hot from Source"]
+        MS1_T1["T1 ← 🔴 Red Traveler"]
+        MS1_T2["T2 ← ⚫ Black Traveler"]
+        MS1_GND["GND ← 🟢 Ground"]
     end
     
     subgraph "Main Switch 2 Connections"
-        MS2_COM[COM → ⚫ Switched Hot to Light]
-        MS2_T1[T1 ← 🔴 Red Traveler]
-        MS2_T2[T2 ← ⚫ Black Traveler]
-        MS2_GND[GND ← 🟢 Ground]
+        MS2_COM["COM → ⚫ Switched Hot to Light"]
+        MS2_T1["T1 ← 🔴 Red Traveler"]
+        MS2_T2["T2 ← ⚫ Black Traveler"]
+        MS2_GND["GND ← 🟢 Ground"]
     end
     
     %% Traveler Connections
@@ -268,11 +268,11 @@ flowchart TD
     subgraph "Circuit Path Analysis"
         direction LR
         
-        HOT_IN[⚫ Hot Input<br/>Switch 1 COM]
-        TRAV1[🔴 Traveler 1<br/>Red Wire]
-        TRAV2[⚫ Traveler 2<br/>Black Wire]
+        HOT_IN["⚫ Hot Input<br/>Switch 1 COM"]
+        TRAV1["🔴 Traveler 1<br/>Red Wire"]
+        TRAV2["⚫ Traveler 2<br/>Black Wire"]
         SWITCH2["Switch 2<br/>T1 & T2"]
-        LIGHT_OUT[⚫ To Light<br/>Switch 2 COM]
+        LIGHT_OUT["⚫ To Light<br/>Switch 2 COM"]
         
         HOT_IN --> TRAV1
         HOT_IN --> TRAV2
