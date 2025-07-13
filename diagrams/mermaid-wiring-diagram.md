@@ -1,33 +1,39 @@
 # Bathroom Electrical Wiring - Mermaid Diagram
 
-This document provides a detailed Mermaid flowchart diagram of the bathroom electrical wiring system.
+This document provides a detailed Mer### Visual Power Flow:
+```
+VANITY CIRCUIT:
+Panel → GFCI → VS1 → Vanity Light ← VS2 (Combined Box)
+
+MAIN LIGHT CIRCUIT:  
+Panel → GFCI → VS1 → Vanity Light → MS2 ← Travelers → MS1 (Combined Box) → Main Light
+
+FAN CIRCUIT:
+Main Light → Fan ← Fan Switch (Combined Box)
+```lowchart diagram of the bathroom electrical wiring system.
 
 ## Complete Circuit Flow Diagram
 
 ```mermaid
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
-    A["Electrical Panel<br/>15A Breaker"] -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| B["GFCI Outlet<br/>15A, 120V"]
-     B -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| D["Vanity Switch 1<br/>3-Way Switch"]
+    A["Electrical Panel<br/>15A Breaker"] -->|"14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare"| B["GFCI Outlet<br/>15A, 120V"]
+     B -->|"14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare"| D["Vanity Switch 1<br/>3-Way Switch"]
 
-    D -->|14-3 Cable<br/>⚫ Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Hot to Light: White<br/>🟢 Ground: Bare| C["Vanity Light Fixture<br/>LED Compatible"]
+    D -->|"14-3 Cable<br/>⚫ Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Hot to Light: White<br/>🟢 Ground: Bare"| C["Vanity Light Fixture<br/>LED Compatible"]
 
-    C -->|14-3 Cable<br/>⚪ White to VS2: White<br/>🔴 Traveler: Red<br/>⚫ Black from Light: Black<br/>🟢 Ground: Green| F["Main Switch 2<br/>3-Way Switch"]
+    C -->|"14-3 Cable<br/>⚪ White to VS2: White<br/>🔴 Traveler: Red<br/>⚫ Black from Light: Black<br/>🟢 Ground: Green"| F["Main Switch 2<br/>3-Way Switch"]
 
-    F -->|14-2 Cable<br/>⚫ Switched Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| G["Main Light Fixture<br/>LED Compatible"]
+    F -->|"14-3 Cable A (Vanity)<br/>⚪ White Hot to VS2: White<br/>🔴 Vanity Traveler: Red<br/>⚫ Neutral: Black<br/>🟢 Ground: Bare"| E["Combined Switch Box<br/>Main SW1<br/>Vanity SW2<br/>Fan SW"]
 
-    G -->|14-2 Cable<br/>⚫ Hot Pass-Through: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| H["Exhaust Fan<br/>CFM Rated"]
+    F -->|"14-3 Cable B (Main Light)<br/>🔴 Main Traveler: Red<br/>⚫ Main Traveler: Black<br/>⚪ Neutral Feed: White<br/>🟢 Ground: Bare"| E
+
+    E -->|"14-2 Cable<br/>⚫ Switched Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare"| G["Main Light Fixture<br/>LED Compatible"]
+
+    G -->|"14-2 Cable<br/>⚫ Hot Pass-Through: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare"| H["Exhaust Fan<br/>CFM Rated"]
     
-    H -->|14-2 Cable<br/>⚫ Hot Continuous: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| E["Combined Switch Box<br/>Main SW1<br/>Vanity SW2<br/>Fan SW"]
-    
-    %% Fan Control Wire
-    E -.->|⚫ Switched Hot<br/>Fan Switch → Fan| H
-    
-    %% Main Light 3-Way Control
-    E -.->|14-3 Cable<br/>🔴 Red + ⚫ Black Travelers<br/>Main SW1 ↔ MS2| F
-    
-    %% Vanity Light 3-Way Control 
-    E -.->|14-3 Cable<br/>🔴 Red + ⚫ Black Travelers<br/>VS2 ↔ Vanity Light| C
+    %% Fan Control from Combined Box
+    E -.->|"⚫ Switched Hot<br/>Fan Switch → Fan"| H
     
     %% Styling
     classDef boxPadding padding:10px 15px
@@ -44,7 +50,23 @@ flowchart TD
     class D,E,F switchStyle
 ```
 
-## Fan Control Power Flow Explanation
+## Circuit Control Power Flow Explanation
+
+### ⚡ MAIN LIGHT CIRCUIT (3-Way Control)
+**Primary Controller**: Main Switch 1 (Combined Box) - **SOURCES SWITCHED HOT**
+**Secondary Controller**: Main Switch 2 (Separate Box) - **RECEIVES TRAVELERS**
+
+**Power Flow**: Hot from vanity circuit → Main Switch 2 (pass-through via travelers) → Main Switch 1 (Combined Box) → **SWITCHED HOT OUTPUT** → Main Light
+
+### ⚡ VANITY LIGHT CIRCUIT (3-Way Control)  
+**Primary Controller**: Vanity Switch 1 (Separate Box) - **SOURCES HOT TO LIGHT**
+**Secondary Controller**: Vanity Switch 2 (Combined Box) - **COMPLETES CIRCUIT**
+
+**Power Flow**: GFCI → Vanity Switch 1 → **SWITCHED HOT TO VANITY LIGHT** → return via Vanity Switch 2
+
+### ⚡ FAN CIRCUIT (Single-Pole Control)
+**Controller**: Fan Switch (Combined Box)
+**Power Flow**: Hot from main circuit → Fan Switch → **SWITCHED HOT TO FAN**
 
 **Important Note**: The fan switch is located at the END of the circuit and controls the fan in the MIDDLE of the circuit. Here's how it works:
 
@@ -59,24 +81,23 @@ In 3-way switch circuits, white wires from switch loops carry hot (not neutral).
 - **Why**: Prevents dangerous confusion between true neutrals and hot wires
 
 ### Power Path to Fan Switch:
-1. **Continuous Hot Wire**: Runs from GFCI → Vanity Switch 1 → Vanity Light → Main Switch 2 → Main Light → **Fan (passes through)** → Combined Switch Box (Fan Switch)
-2. **Fan Switch Location**: Physical end of the circuit run  
-3. **Fan Location**: Middle of the circuit (between main light and combined switch box)
+1. **Continuous Hot Wire**: Runs from GFCI → Vanity Switch 1 → Vanity Light → Main Switch 2 → **Combined Switch Box (Fan Switch)** 
+2. **Fan Switch Location**: Physical end of the circuit run in Combined Switch Box
+3. **Fan Location**: Between main light and combined switch box (receives power via main light circuit)
 
-### Fan Control Method:
-- **⚫ Hot Wire**: Continues past the fan to reach the fan switch at the end
-- **⚫ Switched Hot**: Fan switch sends control signal BACK to fan via separate wire
-- **Result**: Fan switch can turn fan ON | OFF even though the switch is downstream
+### Circuit Control Method:
+- **⚫ Main Light Control**: Main Switch 1 (Combined Box) sends switched hot to Main Light via travelers from Main Switch 2
+- **⚫ Vanity Light Control**: Vanity Switch 1 sends switched hot directly to Vanity Light, completed by Vanity Switch 2
+- **⚫ Fan Control**: Fan switch in Combined Box sends switched hot to fan via main light pass-through
+- **Result**: Each circuit controlled independently by its respective 3-way or single-pole switches
 
-This is a common electrical configuration where the switch controlling a device is not physically adjacent to that device.
+This configuration allows centralized control with the fan switch grouped with other switches.
 
 ### Visual Flow:
 ```
-Panel → GFCI → VS1 → Vanity Light → MS2 → Main Light → Fan → Combined Box (End)
-                                                        ↑        ↓
-                                                    Pass-Through  Control Wire
-                                                        ↑        ↓  
-                                                   Fan Switch ←──┘
+Panel → GFCI → VS1 → Vanity Light → MS2 → Combined Switch Box → Main Light → Fan
+                                            ↑                         ↓
+                                       Fan Switch ─────────────────→ Fan Control
 ```
 
 ## 3-Way Switch Control Logic Diagram
@@ -85,13 +106,13 @@ Panel → GFCI → VS1 → Vanity Light → MS2 → Main Light → Fan → Combi
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart LR
     subgraph "Main Light Control"
-        MS1["Main Switch 1<br/>Position A | B"] 
-        MS2["Main Switch 2<br/>Position A | B"]
+        MS1["Main Switch 1<br/>(Combined Box)<br/>Position A | B"] 
+        MS2["Main Switch 2<br/>(Separate Box)<br/>Position A | B"]
         ML["Main Light<br/>ON | OFF"]
         
-        MS1 -.->|🔴 Traveler 1<br/>Red Wire| MS2
-        MS1 -.->|⚫ Traveler 2<br/>Black Wire| MS2
-        MS2 -->|⚫ Switched Hot| ML
+        MS1 -.->|"🔴 Traveler 1<br/>Red Wire"| MS2
+        MS1 -.->|"⚫ Traveler 2<br/>Black Wire"| MS2
+        MS1 -->|"⚫ Switched Hot<br/>to Main Light"| ML
     end
     
     subgraph "Vanity Light Control"
@@ -99,18 +120,18 @@ flowchart LR
         VS2["Vanity Switch 2<br/>Position A | B"]
         VL["Vanity Light<br/>ON | OFF"]
         
-        VS1 -.->|🔴 Traveler 1<br/>Red Wire| VL
-        VS1 -.->|⚪ Traveler 2<br/>White Wire| VL
-        VL -.->|🔴 Red Pass-Through| VS2
-        VL -.->|⚫ Black Pass-Through| VS2
-        VL -->|🔄 Hot Junction| VL
+        VS1 -.->|"🔴 Traveler 1<br/>Red Wire"| VL
+        VS1 -.->|"⚪ Traveler 2<br/>White Wire"| VL
+        VL -.->|"🔴 Red Pass-Through"| VS2
+        VL -.->|"⚫ Black Pass-Through"| VS2
+        VL -->|"🔄 Hot Junction"| VL
     end
     
     subgraph "Fan Control"
         FS["Fan Switch<br/>ON | OFF"]
         FAN["Exhaust Fan<br/>ON | OFF"]
         
-        FS -->|⚫ Switched Hot| FAN
+        FS -->|"⚫ Switched Hot"| FAN
     end
     
     classDef boxPadding padding:10px 15px
@@ -134,7 +155,7 @@ flowchart TD
     subgraph "Box 1 - GFCI Outlet"
         GFCI_LINE[LINE Side<br/>⚫ From Panel Hot<br/>⚪ From Panel Neutral<br/>🟢 From Panel Ground]
         GFCI_LOAD[LOAD Side<br/>⚫ To Vanity Hot<br/>⚪ To Vanity Neutral<br/>🟢 To Vanity Ground]
-        GFCI_LINE -->|Internal GFCI Protection| GFCI_LOAD
+        GFCI_LINE -->|"Internal GFCI Protection"| GFCI_LOAD
     end
     
     subgraph "Box 2 - Vanity Switch 1"
@@ -149,10 +170,10 @@ flowchart TD
     end
     
     subgraph "Box 4 - Main Switch 2"
-        MS2_SWITCH["Main Switch 2<br/>⚫ COM INPUT ← Black Hot from Vanity Circuit<br/>⚫ COM OUTPUT → Switched Hot to Main Light<br/>🔴 T1 ← Red Traveler from MS1<br/>⚫ T2 ← Black Traveler from MS1<br/>🟢 GND ← Ground"]
-        MS2_NEUTRAL["⚪ TRUE Neutral Pass-Through<br/>(From Combined Box to Main Light)"]
-        MS2_HOT["⚪ WHITE HOT from Vanity Light<br/>(Switched Hot Return - NOT Neutral)<br/>Continues to Combined Box"]
-        MS2_POWER["⚫ Hot Power Flow<br/>Vanity Circuit → MS2 COM → Main Light"]
+        MS2_SWITCH["Main Switch 2<br/>⚫ COM INPUT ← Black Hot from Vanity Circuit<br/>🔴 T1 ↔ Red Traveler to/from MS1<br/>⚫ T2 ↔ Black Traveler to/from MS1<br/>🟢 GND ← Ground"]
+        MS2_NEUTRAL["⚪ TRUE Neutral Pass-Through<br/>(To/From Combined Box and Main Light)"]
+        MS2_HOT["⚪ WHITE HOT from Vanity Light<br/>(Switched Hot Return - NOT Neutral)<br/>**MARK WITH BLACK TAPE**<br/>Continues to Combined Box"]
+        MS2_CONTROL["⚡ 3-Way Control Logic<br/>Works with Main Switch 1 to control Main Light<br/>via Traveler Wires (Red & Black)"]
     end
     
     subgraph "Box 5 - Main Light"
@@ -168,9 +189,9 @@ flowchart TD
     
     subgraph "Box 7 - Combined Switch Box (END OF RUN)"
         direction TB
-        COMB_MAIN["Main Switch 1<br/>⚫ COM ← Hot from Fan Pass-Through<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail"]
-        COMB_VANITY["Vanity Switch 2<br/>⚪ COM ← White from Vanity Light (Hot)<br/>🔴 T1 ↔ Red to Vanity Light<br/>⚫ T2 ↔ Black to Vanity Light<br/>🟢 GND ← Ground Pigtail"]
-        COMB_FAN["Fan Switch<br/>⚫ LINE ← Hot from Fan Pass-Through<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail"]
+        COMB_MAIN["Main Switch 1<br/>⚫ COM → Switched Hot to Main Light<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail"]
+        COMB_VANITY["Vanity Switch 2<br/>⚪ COM ← White from Vanity Light (Hot)<br/>🔴 T1 ↔ Red to Vanity Light<br/>⚫ T2 → Neutral (black wire in Cable A)<br/>🟢 GND ← Ground Pigtail"]
+        COMB_FAN["Fan Switch<br/>⚫ LINE ← Hot from Main Circuit<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail"]
         COMB_BUNDLES["Wire Bundles<br/>⚫ Hot Distribution<br/>⚪ Neutral Termination<br/>🟢 Ground Collection"]
         
         COMB_BUNDLES -.-> COMB_MAIN
@@ -186,15 +207,16 @@ flowchart TD
     VS1_SWITCH -->|"14-3 Cable Run #1<br/>⚫🔴⚪🟢<br/>🔴Red = Traveler 1<br/>⚪White = Hot to Light"| VL_FIXTURE
     VL_FIXTURE -->|"14-3 Cable Run #2<br/>⚫🔴⚪🟢<br/>🔴Red = Traveler to VS2<br/>⚫Black = Hot continues to MS2"| MS2_SWITCH
     
-    %% Main 3-Way Circuit - 14-2 then 14-3 Cable
-    MS2_SWITCH -->|"14-2 Cable<br/>⚫⚪🟢"| ML_SPLICE
-    ML_SPLICE -->|"14-2 Cable<br/>⚫⚪🟢"| FAN_PASS
-    FAN_PASS -->|"14-2 Cable<br/>⚫⚪🟢"| COMB_BUNDLES
+    %% Two 14-3 Cables from MS2 to Combined Box
+    MS2_SWITCH -->|"14-3 Cable A (Vanity)<br/>⚪⚫🔴🟢<br/>⚪White = Hot (marked)<br/>🔴Red = Traveler<br/>⚫Black = Neutral"| COMB_BUNDLES
+    MS2_SWITCH -->|"14-3 Cable B (Main Light)<br/>🔴⚫⚪🟢<br/>🔴Red = Traveler 1<br/>⚫Black = Traveler 2<br/>⚪White = Neutral"| COMB_BUNDLES
     
-    %% Control Wires back to devices
+    %% Main Circuit - Combined Box to Main Light to Fan  
+    COMB_MAIN -->|"14-2 Cable<br/>⚫⚪🟢<br/>⚫ Switched Hot"| ML_SPLICE
+    ML_SPLICE -->|"14-2 Cable<br/>⚫⚪🟢"| FAN_PASS
+    
+    %% Fan Control Wire
     COMB_FAN -.->|"⚫ Switched Hot"| FAN_MOTOR
-    COMB_MAIN -.->|"14-3 Cable #3<br/>🔴Red + ⚫Black Travelers"| MS2_SWITCH
-    COMB_VANITY -.->|"14-3 Cable #4<br/>🔴Red + ⚫Black Travelers"| VL_FIXTURE
     COMB_BUNDLES -.-> COMB_MAIN
     COMB_BUNDLES -.-> COMB_VANITY
     COMB_BUNDLES -.-> COMB_FAN
@@ -247,8 +269,8 @@ flowchart LR
     end
     
     %% Traveler Connections
-    MS1_T1 -.->|🔴 Red Wire| MS2_T1
-    MS1_T2 -.->|⚫ Black Wire| MS2_T2
+    MS1_T1 -.->|"🔴 Red Wire"| MS2_T1
+    MS1_T2 -.->|"⚫ Black Wire"| MS2_T2
     
     classDef boxPadding padding:10px 15px
     classDef terminalStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
@@ -478,40 +500,37 @@ flowchart TD
         V13["🟢 Green Continue"] --> M_VS2_GND["🟢 Ground continues to Combined Box"]
     end
     
-    subgraph "Main Switch 2 to Combined Box via Circuit (14-3 travelers)"
-        M_VS2_HOT --> C2["⚪ VS2 COM Terminal"]
-        M_VS2_RED --> C3["🔴 VS2 T1 Terminal"]
-        M_VS2_BLACK --> C4["⚫ VS2 T2 Terminal"]
-        M_VS2_NEUT --> C5["⚪ Neutral Bundle Wire Nut"]
+    subgraph "Main Switch 2 to Combined Box (Two 14-3 Cables)"
+        M_VS2_HOT --> C2_A["⚪ Cable A: VS2 COM Terminal"]
+        M_VS2_RED --> C3_A["🔴 Cable A: VS2 T1 Terminal"] 
+        M_VS2_BLACK --> C4_A["⚫ Cable A: Neutral to Bundle"]
         M_VS2_GND --> C6["🟢 Ground Bundle Wire Nut"]
+        
+        C7_B["⚫ Cable B: From Main SW1 COM"] --> M1["� Main SW2 T1"]
+        C11_B["🔴 Cable B: MS1 T1"] --> M2["⚫ Main SW2 T2"]
+        C12_B["⚫ Cable B: MS1 T2"] --> M3["⚪ Main SW2 T2"]
+        C5_B["⚪ Cable B: Neutral"] --> M4["⚪ Neutral Pass-Through"]
     end
     
     subgraph "Combined Box Connections"
-        H1["⚫ Hot Distribution Bundle"] --> C7["⚫ Main SW1 COM"]
+        H1["⚫ Hot Distribution Bundle"] --> C7["⚫ Main SW1 COM → Main Light"]
         H1 --> C8["⚫ Fan Switch LINE"]
-        C2 --> C9["⚪ Vanity SW2 COM from Light"]
-        C10["🔴 Red MS1 T1"] --> C11["🔴 To Main SW2 T1"]
-        C12["⚫ Black MS1 T2"] --> C13["⚫ To Main SW2 T2"]
+        C2_A --> C9["⚪ Vanity SW2 COM from Light"]
+        C10["🔴 Red MS1 T1"] --> C11_B
+        C12["⚫ Black MS1 T2"] --> C12_B
         C14["⚫ Fan Switch LOAD"] --> C15["⚫ Control to Fan Motor"]
         C6 --> C16["🟢 All Switch Grounds"]
-    end
-    
-    subgraph "Combined Box to Main Switch 2 (14-3)"
-        C17["⚫ From Main SW1 COM"] --> M1["⚫ Main SW2 COM"]
-        C11 --> M2["🔴 Main SW2 T1"]
-        C13 --> M3["⚫ Main SW2 T2"]
-        C5 --> M4["⚪ Neutral Pass-Through"]
         C6 --> M5["🟢 Main SW2 Ground"]
     end
     
-    subgraph "Main Switch 2 to Main Light (14-2)"
-        M6["⚫ Main SW2 COM Output"] --> L1["⚫ Main Light Fixture + Pass-Through"]
-        M4 --> L2["⚪ Main Light Neutral + Pass-Through"]
-        M5 --> L3["🟢 Main Light Ground + Pass-Through"]
+    subgraph "Combined Box to Main Light (14-2)"
+        C7 --> L1["⚫ Main Light Fixture + Pass-Through"]
+        C5_B --> L2["⚪ Main Light Neutral + Pass-Through"]
+        C6 --> L3["🟢 Main Light Ground + Pass-Through"]
     end
     
     subgraph "Main Light to Fan (14-2)"
-        L4["⚫ Hot Pass-Through"] --> F1["⚫ Fan Box Pass-Through"]
+        L1 --> F1["⚫ Fan Box Pass-Through"]
         L2 --> F2["⚪ Fan Neutral to Motor"]
         L3 --> F3["🟢 Fan Ground to Motor + Case"]
     end
@@ -526,12 +545,11 @@ flowchart TD
     classDef groundStyle fill:#90ee90,stroke:#000,stroke-width:2px,color:#000
     classDef travelerStyle fill:#ffd700,stroke:#000,stroke-width:2px,color:#000
     
-    class HOT,NEUT,GND,TRAV1,TRAV2,P1,P2,P3,G1,G2,G3,G4,G5,G6,V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11,V12,V13,S1,S2,S3,S4,S5,H1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,M1,M2,M3,M4,M5,M6,L1,L2,L3,L4,F1,F2,F3,F4,M_VS2_HOT,M_VS2_RED,M_VS2_BLACK,M_VS2_NEUT,M_VS2_GND boxPadding
-    class P1,G1,G4,V1,V4,S1,H1,C7,C8,C17,M1,M6,L1,L4,F1,C14,C15,F4,M_VS2_HOT hotStyle
-    class P2,G2,G5,V2,V7,S4,C5,M4,L2,F2,V9,C2,M_VS2_NEUT neutralStyle
-    class P3,G3,G6,V3,V8,S5,C6,C16,M5,L3,F3,V13,M_VS2_GND groundStyle
-    class V5,S2,C3,C10,C11,M2,V6,S3,C4,C12,C13,M3,V10,V11,M_VS2_RED,M_VS2_BLACK travelerStyle
-    class V5,S2,C3,C10,C11,M2,V6,S3,C4,C12,C13,M3,V10,V11 travelerStyle
+    class HOT,NEUT,GND,TRAV1,TRAV2,P1,P2,P3,G1,G2,G3,G4,G5,G6,V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11,V12,V13,S1,S2,S3,S4,S5,H1,C2_A,C3_A,C4_A,C5_B,C6,C7,C8,C9,C10,C11_B,C12,C12_B,C14,C15,C16,C7_B,M1,M2,M3,M4,L1,L2,L3,F1,F2,F3,F4,M_VS2_HOT,M_VS2_RED,M_VS2_BLACK,M_VS2_GND boxPadding
+    class P1,G1,G4,V1,V4,S1,H1,C7,C8,C7_B,M1,L1,F1,C14,C15,F4,M_VS2_HOT hotStyle
+    class P2,G2,G5,V2,V7,S4,C5_B,M4,L2,F2,V9,C2_A,M_VS2_GND neutralStyle
+    class P3,G3,G6,V3,V8,S5,C6,C16,L3,F3,V13,M_VS2_GND groundStyle
+    class V5,S2,C3_A,C10,C11_B,M2,V6,S3,C4_A,C12,C12_B,M3,V10,V11,M_VS2_RED travelerStyle
 ```
 
 ## Pigtail Requirements
@@ -578,9 +596,10 @@ Pigtails are short lengths of wire used to connect devices to spliced wires. Her
 - This white wire continues to Combined Box as part of 14-3 cable
 
 **Power Flow:**
-- Hot power enters MS2 COM from vanity circuit (black wire)
-- When 3-way switches are in correct position, hot exits MS2 COM to main light
-- Main light is controlled by Main Switch 1 + Main Switch 2 working together
+- Hot power enters MS2 from vanity circuit (black wire from vanity light)  
+- MS2 sends this power to Combined Box via Cable A
+- Combined Box controls main light via Main Switch 1 (3-way with MS2)
+- Main light is controlled by Main Switch 1 + Main Switch 2 working together via travelers
 
 **Wiring Notes:**
 - The white wire from the vanity light is re-identified as hot per NEC 200.7(C)
@@ -598,3 +617,73 @@ Pigtails are short lengths of wire used to connect devices to spliced wires. Her
 2. **Safety**: Ensures secure connections under switch screws
 3. **Reliability**: Prevents loose connections from wire movement
 4. **Future Service**: Allows switch replacement without re-splicing
+
+## Circuit Control Analysis & Hot Wire Identification
+
+### ⚡ VANITY LIGHT CIRCUIT (3-Way Control)
+
+**Controllers**: Vanity Switch 1 (Box 2) + Vanity Switch 2 (Combined Box)
+
+**Power Flow Path:**
+```
+GFCI → Vanity Switch 1 → Vanity Light → Main Switch 2 (pass-through) → Combined Box (Vanity Switch 2)
+```
+
+**Hot Wire Identification (NEC 200.7):**
+- **Box 3 (Vanity Light)**: White wire from VS1 T2 terminal = **HOT** (mark with black tape)
+- **Box 4 (Main Switch 2)**: White wire from vanity light = **HOT** (mark with black tape)  
+- **Box 7 (Combined Box)**: White wire to VS2 COM terminal = **HOT** (already marked)
+
+### ⚡ MAIN LIGHT CIRCUIT (3-Way Control)
+
+**Controllers**: Main Switch 1 (Combined Box) + Main Switch 2 (Box 4)
+
+**Power Flow Path:**
+```
+Hot Source → Combined Box (Main Switch 1) → Main Switch 2 → Main Light
+```
+
+**Critical Fix**: Main light is controlled by MS1 in Combined Box, NOT directly by MS2. MS2 acts as the second 3-way switch receiving travelers from MS1.
+
+### 🔍 CIRCUIT VERIFICATION SUMMARY
+
+### ✅ VANITY LIGHT CIRCUIT - PROPERLY CONFIGURED
+- **Control**: Vanity Switch 1 (Box 2) + Vanity Switch 2 (Combined Box)
+- **Hot Source**: Vanity Switch 1 COM terminal
+- **Switched Hot**: VS1 T2 terminal → Vanity Light (white wire marked as hot)
+- **Circuit Completion**: VS2 T2 terminal → neutral bundle
+- **Independent Operation**: ✅ Works independently from main light
+
+### ✅ MAIN LIGHT CIRCUIT - PROPERLY CONFIGURED  
+- **Control**: Main Switch 1 (Combined Box) + Main Switch 2 (Box 4)
+- **Hot Source**: Hot distribution bundle in Combined Box → MS1 COM terminal
+- **Switched Hot**: MS1 COM terminal → Main Light
+- **Traveler Control**: MS1 ↔ MS2 via red/black travelers
+- **Independent Operation**: ✅ Works independently from vanity light
+
+### ✅ FAN CIRCUIT - PROPERLY CONFIGURED
+- **Control**: Fan Switch (Combined Box) - single-pole
+- **Hot Source**: Hot distribution bundle in Combined Box → Fan Switch LINE
+- **Switched Hot**: Fan Switch LOAD → Fan Motor (via main light pass-through)
+- **Independent Operation**: ✅ Works independently from both lights
+
+### 🔧 CRITICAL HOT WIRE MARKINGS (NEC 200.7)
+1. **Box 3 (Vanity Light)**: White wire from VS1 T2 → vanity fixture (**MARK BLACK**)
+2. **Box 4 (Main Switch 2)**: White wire from vanity light → Combined Box (**MARK BLACK**)  
+3. **Box 7 (Combined Box)**: White wire → VS2 COM terminal (**MARK BLACK**)
+
+### 📦 WIRE NUT REQUIREMENTS SUMMARY
+- **Box 1 (GFCI)**: No wire nuts - terminal connections only
+- **Box 2 (VS1)**: 2 wire nuts (neutral + ground)
+- **Box 3 (Vanity Light)**: 4 wire nuts (hot, neutral, traveler, hot marking)
+- **Box 4 (MS2)**: 6 wire nuts (hot, neutral, marked hot, red traveler, black traveler, ground)
+- **Box 5 (Main Light)**: 3 wire nuts (hot, neutral, ground distributions)
+- **Box 6 (Fan)**: 4 wire nuts (neutral, hot pass-through, fan hot, ground)
+- **Box 7 (Combined)**: 5 wire nuts (hot distribution, neutral, ground, red travelers, black travelers)
+
+### ⚡ POWER FLOW VERIFICATION
+✅ **Vanity Circuit**: GFCI → VS1 → Vanity Light ← VS2  
+✅ **Main Circuit**: Hot → MS1 (Combined) → Main Light (via travelers to/from MS2)  
+✅ **Fan Circuit**: Hot → Fan Switch → Fan Motor
+
+All three circuits operate independently with proper 3-way and single-pole control logic.

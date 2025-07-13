@@ -61,13 +61,15 @@ BATHROOM ELECTRICAL LAYOUT
     │  └─────────────────────────────────────────────────────┘ │
     └─────────────────────────────────────────────────────────┘
                              │
-                             │ 14-3 w/Ground  
+                             │ TWO 14-3 Cables w/Ground:  
+                             │ • Cable A: Vanity circuit
+                             │ • Cable B: Main light travelers
                              ↓
     ┌─────────────────────────────────────────────────────────┐
     │                    WALL 4                               │
     │  ┌─────────────┐                                       │
-    │  │ MAIN SW2    │                                       │
-    │  │  (3-way)    │                                       │
+    │  │ MAIN SW2    │ ← Receives both vanity pass-through   │
+    │  │  (3-way)    │   and main light traveler cables     │
     │  └─────────────┘                                       │
     └─────────────────────────────────────────────────────────┘
 ```
@@ -139,13 +141,23 @@ WIRE ROUTING AND CONNECTIONS
 │ COM │  T1  │  T2  │Gnd│ ← Second 3-way for main light
 └─────┼──────┼───┼───┼──┘
       │      │   │   │
-      │ 14-3 w/Ground (Travelers back to vanity)
+      │ TWO 14-3 Cables w/Ground to Combined Box:
+      │ • Cable A: Vanity circuit pass-through  
+      │ • Cable B: Main light travelers
       │      │   │   │
       ↓      ↓   ↓   ↓
-┌───────────────────────┐
-│   VANITY SWITCH 2     │
-│ COM │  T1  │  T2  │Gnd│ ← Second 3-way for vanity
-└─────┼──────┼───┼───┼──┘
+┌─────────────────────────────────────┐
+│        COMBINED SWITCH BOX          │
+│ ┌─────────┐┌─────────┐┌───────────┐ │
+│ │MAIN SW1 ││VANITY SW2││FAN SWITCH │ │
+│ │ COM│T1 ││ COM│T1 ││  COM│LOAD │ │
+│ └────┼───┘└────┼───┘└─────┼──────┘ │
+└──────┼─────────┼─────────┼─────────┘
+       │         │         │
+       │ 14-2    │ (N/A)   │ 14-2
+       │         │         │
+       ↓         ↓         ↓
+   Main Light  (Internal) Fan
       │      │   │   │
       │ 14-2 w/Ground
       │      │   │   │

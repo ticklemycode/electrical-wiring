@@ -13,7 +13,7 @@ This document provides a complete wiring diagram and installation guide for a ba
 ### Quick Wire Flow Overview
 ```
 ⚫ HOT WIRE FLOW:
-Panel → GFCI → Vanity Switch 1 → Vanity Light (switched) → Main Switch 2 → Main Light (switched) → Fan → Combined Switch Box (end of run)
+Panel → GFCI → Vanity Switch 1 → Vanity Light (switched) → Main Switch 2 → Combined Switch Box → Main Light (switched) → Fan
 
 ⚪ NEUTRAL WIRE FLOW:  
 Panel → GFCI → All Fixtures → Return to Panel
@@ -26,10 +26,12 @@ Panel → All Devices & Boxes → Return to Panel
 1. **GFCI Outlet** (Power entry point)
 2. **Vanity Switch #1** (separate box - controls vanity light)
 3. **Vanity Light Fixture** (receives hot via 14-3 cable from VS1, switching junction for VS2)
-4. **Main Switch #2** (separate box - controls main light)
-5. **Main Light Fixture**
-6. **Exhaust Fan**
-7. **Combined Switch Box** (Main Switch #1, Vanity Switch #2, Fan Switch - END of circuit run)
+4. **Main Switch #2** (separate box - passes power to Combined Box, provides 3-way travelers)
+5. **Combined Switch Box** (controls main light and fan)
+6. **Main Light Fixture**
+7. **Exhaust Fan**
+
+**Note**: Combined Switch Box contains Main Switch #1, Vanity Switch #2, and Fan Switch
 
 ## Switch Box Configuration
 
@@ -56,28 +58,30 @@ ELECTRICAL PANEL
       | 14-2 w/Ground
       ↓
 ┌─────────────────┐
-│  VANITY LIGHT   │
-│   FIXTURE       │
-└─────────────────┘
-      |
-      | 14-3 w/Ground (for 3-way switching)
-      ↓
-┌─────────────────┐
 │ VANITY SWITCH 1 │ ← First 3-way switch for vanity
 │   (3-way)       │
 └─────────────────┘
       |
-      | 14-3 w/Ground
+      | 14-3 w/Ground (for 3-way switching via fixture)
       ↓
 ┌─────────────────┐
-│ MAIN SWITCH 1   │ ← First 3-way switch for main light
-│   (3-way)       │
+│  VANITY LIGHT   │ ← Switching junction for VS1 & VS2
+│   FIXTURE       │
 └─────────────────┘
       |
-      | 14-3 w/Ground
+      | 14-3 w/Ground (vanity circuit continues)
       ↓
 ┌─────────────────┐
-│  MAIN LIGHT     │
+│ MAIN SWITCH 2   │ ← Second 3-way switch for main light
+│   (3-way)       │   (also vanity circuit pass-through)
+└─────────────────┘
+      |           |
+      |           | TWO 14-3 Cables to Combined Box:
+      |           | • Cable A: Vanity circuit
+      |           | • Cable B: Main light travelers
+      ↓           ↓
+┌─────────────────┐
+│  MAIN LIGHT     │ ← Controlled by Main SW1 & Main SW2
 │   FIXTURE       │
 └─────────────────┘
       |
@@ -87,17 +91,15 @@ ELECTRICAL PANEL
 │  EXHAUST FAN    │ ← Hot wire passes through; controlled by switch downstream
 └─────────────────┘
       |
-      | 14-3 w/Ground
+      | 14-2 w/Ground
       ↓
-┌─────────────────┐
-│ MAIN SWITCH 2   │ ← Second 3-way switch for main light
-│   (3-way)       │
-└─────────────────┘
-      |
-      | 14-3 w/Ground (traveler wires back to vanity)
-      ↓
-┌─────────────────┐
-│ VANITY SWITCH 2 │ ← Second 3-way switch for vanity
+┌─────────────────────────────────────┐
+│        COMBINED SWITCH BOX          │
+│ ┌─────────┐┌─────────┐┌───────────┐ │
+│ │MAIN SW1 ││VANITY SW2││FAN SWITCH │ │
+│ │(3-way)  ││(3-way)  ││(single)   │ │
+│ └─────────┘└─────────┘└───────────┘ │
+└─────────────────────────────────────┘
 │   (3-way)       │
 └─────────────────┘
       |

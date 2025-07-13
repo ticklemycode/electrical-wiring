@@ -6,8 +6,31 @@
 | Item | Quantity | Specification | Usage |
 |----#### Step 3: GFCI Outlet Wiring
 ```
-GFCI Outlet Connections:
-┌─────────────────┐
+GFCI Outlet C#### Step 2: Run Cable Routing
+```
+Cable Run Sequence:
+1. Panel → GFCI Outlet (14-2)
+2. GFCI → Vanity Switch 1 (14-2)
+3. Vanity Switch 1 → Vanity Light (14-3, switching junction)
+4. Vanity Light → Main Switch 2 (14-3, vanity circuit pass-through)
+5. Main Switch 2 → Combined Switch Box (14-3, vanity circuit Cable A)
+6. Main Switch 2 → Combined Switch Box (14-3, main light travelers Cable B)
+7. Combined Switch Box → Main Light (14-2, switched hot)
+8. Main Light → Fan (14-2, hot pass-through)
+
+Key Changes in New Design:
+- TWO separate 14-3 cables from Main Switch 2 to Combined Box
+- Cable A: Vanity circuit (white=hot marked, red=traveler, black=neutral)
+- Cable B: Main light travelers (red=traveler1, black=traveler2, white=neutral)
+- Cleaner separation between vanity and main light circuits
+
+Notes:
+- Leave 8" of cable at each box
+- Secure cable every 4.5 feet
+- Use cable staples within 12" of boxes
+- Protect cable through framing
+- Combined switch box requires larger capacity for 3 switches
+````───────────┐
 │      GFCI       │
 │  LINE    LOAD   │
 │ H  N  G  H  N  G│
@@ -60,7 +83,7 @@ GFCI Outlet Back View:
 - **GFCI protects** all downstream devices when wired correctly
 - **Replace immediately** if GFCI won't reset or trips frequently-----------|-------|
 | 14-2 NM-B Cable | 50 feet | 14 AWG, 2 conductor + ground | Power feeds, simple connections |
-| 14-3 NM-B Cable | 75 feet | 14 AWG, 3 conductor + ground | 3-way switch travelers |
+| 14-3 NM-B Cable | 100 feet | 14 AWG, 3 conductor + ground | 3-way switch travelers, dual runs |
 | Wire Nuts | 1 box each | Yellow (small), Red (medium) | Wire connections |
 | Electrical Tape | 2 rolls | 3/4" x 60' | Securing connections |
 

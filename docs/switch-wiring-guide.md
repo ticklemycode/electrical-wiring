@@ -63,26 +63,35 @@ Incoming Power (14-2):           Main Switch 1 Connections:      To Main Switch 
 ```
 
 ### Switch Box 2 (Main Switch 2):
-**IMPORTANT**: Main Switch 2 is located between the vanity light and the main light. It receives travelers from Main Switch 1 (in Combined Box) and also has vanity circuit wires passing through.
+**IMPORTANT**: Main Switch 2 now connects to the Combined Box via **TWO separate 14-3 cables** for clean circuit separation:
+- **Cable A**: Vanity circuit pass-through (white=hot, red=traveler, black=neutral)
+- **Cable B**: Main light travelers (red=traveler1, black=traveler2, white=neutral)
 
 ```
-From Vanity Light (14-3):           Main Switch 2 Connections:        To Main Light (14-2):
-- WHITE (Hot from VS circuit) → Pass-through to Combined Box       - Switched Hot (Black) → COM output
-- Red (Traveler to VS2)       → Pass-through to Combined Box       - Neutral (White)      → Pass-through
-- Black (Hot continues)       → Pass-through to Combined Box       - Ground (Bare)        → Switch GND
+From Vanity Light (14-3):           To Combined Box - Cable A (14-3):        
+- WHITE (Hot from VS circuit) → White (marked as hot with tape)    
+- Red (Traveler to VS2)       → Red (traveler pass-through)        
+- Black (Hot continues)       → Black (neutral pass-through)       
 
-From Combined Box (14-3 Travelers):  Switch Terminal Connections:
-- Red from Main SW1          →  T1   (Red Traveler)
-- Black from Main SW1        →  T2   (Black Traveler)  
-- Ground from Combined Box   →  GND  (Ground)
+From/To Combined Box - Cable B (14-3):  Main Switch 2 Connections:        
+- Red to Combined Box         →  T1   (Red Traveler)              
+- Black to Combined Box       →  T2   (Black Traveler)            
+- White (neutral)             →  Pass-through                     
+- Ground from Combined Box    →  GND  (Ground)
+
+IMPORTANT: Main Switch 2 does NOT directly control main light
+- Main light is controlled by Combined Box (Main Switch 1)
+- Main Switch 2 provides 3-way travelers to Combined Box via Cable B
+- Combined Box uses these travelers to provide 3-way control
 
 TRUE NEUTRALS in this box:
 - White from incoming 14-2 power (always neutral)
-- White continuing to main light (always neutral)
+- White in Cable B to Combined Box (always neutral)
+- Black from vanity light in Cable A (neutral pass-through)
 
 WHITE WIRE CARRYING HOT (mark with black tape):
 - White from vanity light circuit (switched hot - NOT neutral)
-- This white continues to Combined Box as part of vanity circuit
+- White in Cable A to Combined Box (continuation of above hot)
 ```
 
 **Wire Identification Required**: The white wire from the vanity light circuit carries HOT and must be marked with black electrical tape at both ends per NEC 200.7(C).
@@ -128,29 +137,33 @@ The vanity light uses **3-way switch control through the fixture** where:
 
 ### Combined Switch Box (Main Switch 1, Vanity Switch 2, Fan Switch):
 
+**IMPORTANT**: Combined Box now receives **TWO separate 14-3 cables from Main Switch 2** for clean circuit separation:
+- **Cable A**: Vanity circuit (white=hot marked with tape, red=traveler, black=neutral)  
+- **Cable B**: Main light travelers (red=traveler1, black=traveler2, white=neutral)
+
 #### Main Switch 1 (3-Way for Main Light):
 ```
-Wire Connections in Combined Box:
-- Hot (spliced from incoming) →  COM      - Traveler 1 (Red)   →  T1 (to Main Switch 2)
-- Red (from Main Switch 2)    →  T1       - Traveler 2 (Black) →  T2 (to Main Switch 2)  
-- Black (from Main Switch 2)  →  T2       - Switched Hot       →  COM (to main light)
-- Ground (from ground bundle) →  Switch ground
+From Main Switch 2 - Cable B (14-3):    Main Switch 1 Connections:      To Main Light (14-2):
+- Red Traveler 1      →  T1             - Hot (spliced)    →  COM        - Switched Hot (Black)
+- Black Traveler 2    →  T2             - Red Traveler     →  T1         - Neutral (White)      
+- White (neutral)     →  Pass-through   - Black Traveler   →  T2         - Ground (Bare)
+- Ground             →  Switch ground   - Ground           →  GND
 ```
 
 #### Vanity Switch 2 (3-Way for Vanity Light):
 ```
-Wire Connections in Combined Box:
-- White from Light Fixture   →  COM      - This carries hot from VS1 black
-- Red (from Vanity Switch 1) →  T1       - Red traveler pass-through
-- Black (from Light Fixture)→  T2       - Black switched hot from fixture
-- Ground (from ground bundle)→  Switch ground
+From Main Switch 2 - Cable A (14-3):    Vanity Switch 2 Connections:
+- White (hot marked) →  COM             - Hot from VS1     →  COM (marked white)
+- Red Traveler       →  T1              - Red Traveler     →  T1         
+- Black (neutral)    →  Pass-through    - Neutral Return   →  T2 (black wire)
+- Ground            →  Switch ground    - Ground           →  GND
 ```
 
 #### Fan Switch (Single Pole):
 ```
 Wire Connections in Combined Box:
-- Hot (spliced from incoming) →  LINE     - Switched Hot       →  LOAD (to fan)
-- Ground (from ground bundle) →  Switch ground
+- Hot (spliced from main feed) →  LINE     - Switched Hot       →  LOAD (to fan)
+- Ground (from ground bundle)  →  Switch ground
 ```
 
 **Key Point**: The vanity light turns ON/OFF normally from either switch. The 3-way switches control the **hot path** to complete the circuit.
