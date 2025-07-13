@@ -12,7 +12,7 @@ This is a bathroom electrical wiring diagram documentation project. When working
 ## Code Style
 - Use clear, descriptive ASCII art for wiring diagrams
 - Follow electrical diagram conventions and symbols
-- Include wire gauge specifications (typically 12 AWG for 20A circuits)
+- Include wire gauge specifications (14 AWG for 15A circuits in this project)
 - Clearly distinguish between 2-wire and 3-wire configurations
 - Use consistent formatting for electrical documentation
 

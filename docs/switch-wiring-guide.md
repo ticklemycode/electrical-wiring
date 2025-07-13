@@ -67,8 +67,8 @@ From Vanity Light Box (14-3): To Vanity Switch 2 (14-3):
 - Hot (Black)     →  COM      - Traveler 1 (Red)   →  T1  
 - Red (Traveler)  →  T1       - Traveler 2 (Black) →  T2  
 - Black (Traveler)→  T2       - Neutral (White)    →  Pass-through (wire nut)
-- White (Neutral) →  Pigtail  - Ground (Bare)      →  Switch ground
-- Ground (Bare)   →  Switch   
+- White (Neutral) →  Pass-through (wire nut) - Ground (Bare)      →  Switch ground
+- Ground (Bare)   →  Switch ground
 ```
 
 ### Vanity Switch 2:
@@ -76,11 +76,11 @@ From Vanity Light Box (14-3): To Vanity Switch 2 (14-3):
 From Vanity Switch 1 (14-3):  To Main Circuit (14-2):
 - Traveler 1 (Red)   →  T1    - Hot (Black)        →  COM output (to main circuit)
 - Traveler 2 (Black) →  T2    - Neutral (White)    →  Continue circuit (wire nut)
-- White (Neutral)    →  Pigtail - Ground (Bare)    →  Continue circuit
-- Ground (Bare)      →  Switch
+- White (Neutral)    →  Pass-through (wire nut) - Ground (Bare)    →  Continue circuit
+- Ground (Bare)      →  Switch ground
 ```
 
-**Key Point**: The vanity light turns ON/OFF normally from either switch. The 3-way switches control the neutral path to complete the circuit.
+**Key Point**: The vanity light turns ON/OFF normally from either switch. The 3-way switches control the **hot path** to complete the circuit.
 
 ## How Vanity Light 3-Way Switching Works
 
@@ -164,7 +164,7 @@ Junction Box Connections (Switch Loop Method):
 └──────────────────────────────────────────┘
 
 Note: Vanity light operates normally (ON/OFF control from both switches).
-      The neutral path is switched by the 3-way system.
+      The hot path is switched by the 3-way system.
 ```
 
 #### Main Light Fixture Connections:
