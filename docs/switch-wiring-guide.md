@@ -68,6 +68,277 @@ From Vanity Switch 1 (14-3):  To Vanity Light Fixture:
 - **White**: Neutral (sometimes used as traveler when properly marked)
 - **Bare/Green**: Ground
 
+## Fixture Wiring Guide
+
+### Complete Wire Color Connections for Entire Circuit
+
+#### GFCI Outlet to Vanity Light Fixture (14-2 Cable):
+```
+GFCI LOAD Side → Vanity Light Junction Box:
+- Black (Hot) ────────→ Black fixture wire (always hot)
+- White (Neutral) ────→ White fixture wire (neutral return)
+- Bare (Ground) ──────→ Green fixture wire + box ground
+```
+
+#### Vanity Light Fixture Connections:
+```
+Junction Box Connections:
+┌──────────────────────────────────────────┐
+│ From GFCI (14-2) │ To Switch 1 (14-3)   │
+│                  │                       │
+│ Hot (Black) ─────┼→ Hot to switch (Black) │
+│       │          │                       │
+│       └─────────→ Fixture Hot (Black)    │
+│                  │                       │
+│ Neutral (White) ─┼→ Neutral (White)      │
+│       │          │                       │
+│       └─────────→ Fixture Neutral (White)│
+│                  │                       │
+│ Ground (Bare) ───┼→ Ground (Bare)        │
+│       │          │                       │
+│       └─────────→ Fixture Ground (Green) │
+└──────────────────────────────────────────┘
+
+Note: Vanity light gets constant power; switching occurs at switch locations
+```
+
+#### Main Light Fixture Connections:
+```
+Main Light Junction Box:
+┌──────────────────────────────────────────┐
+│ From Switch 2 (14-3) │ To Fan (14-2)     │
+│                      │                   │
+│ Switched Hot (Black) ┼→ Hot to fan (pass) │
+│       │              │                   │
+│       └─────────────→ Fixture Hot (Black)│
+│                      │                   │
+│ Neutral (White) ─────┼→ Neutral (White)  │
+│       │              │                   │
+│       └─────────────→ Fixture Neutral    │
+│                      │                   │
+│ Ground (Bare) ───────┼→ Ground (Bare)    │
+│       │              │                   │
+│       └─────────────→ Fixture Ground     │
+└──────────────────────────────────────────┘
+
+Note: Main light receives switched hot from 3-way switch system
+```
+
+#### Exhaust Fan Fixture Connections:
+```
+Fan Junction Box (Pass-Through + Control):
+┌──────────────────────────────────────────┐
+│ From Main Light (14-2) │ To Switches (14-3) │
+│                        │                     │
+│ Hot (Black) ───────────┼→ Hot continue (Black)│
+│       │                │                     │
+│       └── Control wire from fan switch ─────┐│
+│                                             ││
+│ Fan Motor Connections:                      ││
+│ - Hot from switch ←─────────────────────────┘│
+│ - Neutral (White) ←─ Neutral (White)        │
+│ - Ground (Bare) ←─── Ground (Bare)          │
+└──────────────────────────────────────────────┘
+
+Note: Fan gets power from separate control wire from fan switch
+```
+
+### Fixture Wiring Color Code Summary:
+
+#### Standard Fixture Wire Colors:
+- **Black**: Hot (power input to fixture)
+- **White**: Neutral (return path from fixture)
+- **Green or Bare Copper**: Ground (safety connection)
+
+#### Circuit Wire Color Functions:
+1. **Always Hot Circuits** (Vanity Light):
+   - Black: Continuous hot from GFCI
+   - White: Neutral return to panel
+   - Bare: Ground for safety
+
+2. **Switched Hot Circuits** (Main Light):
+   - Black: Switched hot from 3-way switches
+   - White: Neutral return to panel
+   - Bare: Ground for safety
+
+3. **Controlled Circuits** (Exhaust Fan):
+   - Black: Hot pass-through + switched control
+   - White: Neutral return to panel
+   - Bare: Ground for safety
+
+## Detailed Fixture Installation Steps
+
+### Vanity Light Installation:
+```
+Step-by-Step Connection:
+1. Turn OFF power at breaker
+2. Test with voltage tester
+3. Identify fixture wires:
+   - Black (or red) = Hot input
+   - White = Neutral
+   - Green/Bare = Ground
+4. Connect in junction box:
+   - Circuit black → Fixture black (wire nut)
+   - Circuit white → Fixture white (wire nut)
+   - Circuit ground → Fixture ground + box ground (wire nut)
+5. Mount fixture to box
+6. Install bulbs and test
+```
+
+### Main Light Installation:
+```
+Step-by-Step Connection:
+1. Verify switched hot available at box
+2. Connect fixture wires:
+   - Switched hot (black) → Fixture hot (black)
+   - Neutral (white) → Fixture neutral (white)  
+   - Ground (bare) → Fixture ground (green/bare)
+3. Ensure proper support for fixture weight
+4. Test 3-way switch operation from both locations
+```
+
+### Exhaust Fan Installation:
+```
+Special Fan Wiring Considerations:
+1. Fan receives power from control wire (not pass-through hot)
+2. Connection sequence:
+   - Control black from switch → Fan black
+   - Circuit neutral (white) → Fan white
+   - Circuit ground (bare) → Fan ground
+3. Pass-through hot continues to switches (no fan connection)
+4. Test fan operation from fan switch
+```
+
+### Junction Box Wire Management:
+
+#### Proper Wire Nut Sizing:
+- **Yellow wire nuts**: 2-3 wires (14 AWG)
+- **Red wire nuts**: 3-4 wires (14 AWG)
+- **Blue wire nuts**: 4-5 wires (14 AWG)
+
+#### Wire Splicing Best Practices:
+1. **Strip wires**: 3/4" of insulation
+2. **Twist together**: Clockwise direction
+3. **Apply wire nut**: Hand-tight plus 1/4 turn
+4. **Tug test**: Gentle pull to verify connection
+5. **Tape if needed**: Additional security for multiple wires
+
+### Fixture-Specific Wiring Notes:
+
+#### LED Fixtures:
+- **Compatibility**: Verify with dimmer switches if used
+- **Neutral required**: Always connect white wire
+- **Grounding**: Essential for metal fixtures
+
+#### Fan/Light Combinations:
+- **Separate controls**: May require additional switching
+- **Wire capacity**: Ensure box can handle extra connections
+- **Load calculations**: Add both fan and light wattage
+
+#### Moisture Considerations:
+- **Bathroom rating**: All fixtures must be bathroom-rated
+- **GFCI protection**: Required for all bathroom circuits
+- **Proper sealing**: Use appropriate gaskets and mounting
+
+## Complete Circuit Wire Tracing Guide
+
+### End-to-End Wire Color Tracking:
+
+#### Hot Wire Path (Black):
+```
+Electrical Panel → GFCI LINE (Black)
+                ↓
+GFCI LOAD (Black) → Vanity Light Hot (Black)
+                  ↓
+Vanity Light Pass-Through → Vanity Switch 1 COM (Black)
+                         ↓
+Vanity Switch 1 Travelers → Vanity Switch 2 Travelers
+                         ↓
+Vanity Switch 2 COM → Vanity Light Control (switched)
+
+Main Circuit Continuation:
+Vanity Switch Box → Main Switch 1 COM (Black)
+                 ↓
+Main Switch 1 Travelers → Main Switch 2 Travelers  
+                       ↓
+Main Switch 2 COM → Main Light Hot (switched Black)
+                 ↓
+Main Light Pass-Through → Fan Hot Pass-Through (Black)
+                       ↓
+Fan Pass-Through → Fan Switch HOT IN (Black)
+                ↓
+Fan Switch HOT OUT → Fan Control Wire (Black to fan)
+```
+
+#### Neutral Wire Path (White):
+```
+Electrical Panel → GFCI LINE (White)
+                ↓
+GFCI LOAD (White) → Vanity Light Neutral (White)
+                  ↓
+Vanity Light Pass-Through → All Switch Boxes (White)
+                         ↓
+Switch Box Splices → Main Light Neutral (White)
+                  ↓
+Main Light Pass-Through → Fan Neutral (White)
+                       ↓
+Fan Connection → Neutral Return to Panel
+```
+
+#### Ground Wire Path (Bare/Green):
+```
+Electrical Panel → GFCI Ground (Bare)
+                ↓
+GFCI Ground → Vanity Light Ground (Bare to fixture Green)
+           ↓
+All Junction Boxes → Switch Grounds + Box Grounds
+                  ↓
+Main Light Ground → Fan Ground → Panel Ground
+```
+
+### Traveler Wire Paths:
+
+#### Main Light Travelers:
+```
+Main Switch 1 → Main Switch 2:
+- T1 (Red wire): Switch 1 T1 ↔ Switch 2 T1
+- T2 (Black wire): Switch 1 T2 ↔ Switch 2 T2
+```
+
+#### Vanity Light Travelers:
+```
+Vanity Switch 1 → Vanity Switch 2:
+- T1 (Red wire): Switch 1 T1 ↔ Switch 2 T1  
+- T2 (Black wire): Switch 1 T2 ↔ Switch 2 T2
+```
+
+### Wire Function Summary by Location:
+
+#### At GFCI Outlet:
+- **LINE Black**: From panel breaker
+- **LINE White**: From panel neutral
+- **LOAD Black**: To vanity light
+- **LOAD White**: To vanity light
+- **Ground**: Panel and downstream ground
+
+#### At Vanity Light:
+- **Black**: Always hot (spliced: to fixture + to switches)
+- **White**: Neutral (spliced: to fixture + to switches)
+- **Bare**: Ground (spliced: to fixture + to switches)
+
+#### At Main Light:
+- **Black**: Switched hot from 3-way switches (to fixture + pass-through)
+- **White**: Neutral (to fixture + pass-through)
+- **Bare**: Ground (to fixture + pass-through)
+
+#### At Exhaust Fan:
+- **Black Pass-Through**: Continues to switches (not to fan motor)
+- **Black Control**: From fan switch to fan motor
+- **White**: Neutral to fan motor
+- **Bare**: Ground to fan motor and case
+
+This complete wire tracing helps ensure proper connections throughout the entire bathroom electrical circuit.
+
 ## Critical Wiring Rules
 
 ### 1. Common Terminal Usage:
