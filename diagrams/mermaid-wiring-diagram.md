@@ -7,19 +7,18 @@ This document provides a detailed Mermaid flowchart diagram of the bathroom elec
 ```mermaid
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
-    A[Electrical Panel<br/>15A Breaker] -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| B[GFCI Outlet<br/>15A, 120V]
-    
-    B -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| D[Vanity Switch 1<br/>3-Way Switch]
-    
-    D -->|14-2 Cable<br/>⚫ Switched Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| C[Vanity Light Fixture<br/>LED Compatible]
-    
-    D -->|14-3 Cable<br/>⚫ Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| E[Combined Switch Box<br/>Main SW1<br/>Vanity SW2<br/>Fan SW]
-    
-    E -->|14-3 Cable<br/>⚫ Switched Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| F[Main Switch 2<br/>3-Way Switch]
-    
-    F -->|14-2 Cable<br/>⚫ Switched Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| G[Main Light Fixture<br/>LED Compatible]
-    
-    G -->|14-2 Cable<br/>⚫ Hot Pass-Through: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| H[Exhaust Fan<br/>CFM Rated]
+    A&#91;Electrical Panel<br/>15A Breaker&#93; -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| B&#91;GFCI Outlet<br/>15A, 120V&#93;
+     B -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| D&#91;Vanity Switch 1<br/>3-Way Switch&#93;
+
+    D -->|14-2 Cable<br/>⚫ Switched Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| C&#91;Vanity Light Fixture<br/>LED Compatible&#93;
+
+    D -->|14-3 Cable<br/>⚫ Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| E&#91;Combined Switch Box<br/>Main SW1<br/>Vanity SW2<br/>Fan SW&#93;
+
+    E -->|14-3 Cable<br/>⚫ Switched Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| F&#91;Main Switch 2<br/>3-Way Switch&#93;
+
+    F -->|14-2 Cable<br/>⚫ Switched Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| G&#91;Main Light Fixture<br/>LED Compatible&#93;
+
+    G -->|14-2 Cable<br/>⚫ Hot Pass-Through: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| H&#91;Exhaust Fan<br/>CFM Rated&#93;
     
     H -->|14-2 Cable<br/>⚫ Hot Continuous: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| E
     
@@ -76,9 +75,9 @@ Panel → GFCI → VS1 → Vanity Light → Combined Box → MS2 → Main Light 
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart LR
     subgraph "Main Light Control"
-        MS1[Main Switch 1<br/>Position A | B] 
-        MS2[Main Switch 2<br/>Position A | B]
-        ML[Main Light<br/>ON | OFF]
+        MS1&#91;Main Switch 1<br/>Position A | B&#93; 
+        MS2&#91;Main Switch 2<br/>Position A | B&#93;
+        ML&#91;Main Light<br/>ON | OFF&#93;
         
         MS1 -.->|🔴 Traveler 1<br/>Red Wire| MS2
         MS1 -.->|⚫ Traveler 2<br/>Black Wire| MS2
@@ -86,9 +85,9 @@ flowchart LR
     end
     
     subgraph "Vanity Light Control"
-        VS1[Vanity Switch 1<br/>Position A | B]
-        VS2[Vanity Switch 2<br/>Position A | B]
-        VL[Vanity Light<br/>ON | OFF]
+        VS1&#91;Vanity Switch 1<br/>Position A | B&#93;
+        VS2&#91;Vanity Switch 2<br/>Position A | B&#93;
+        VL&#91;Vanity Light<br/>ON | OFF&#93;
         
         VS1 -.->|🔴 Traveler 1<br/>Red Wire| VS2
         VS1 -.->|⚫ Traveler 2<br/>Black Wire| VS2
@@ -96,8 +95,8 @@ flowchart LR
     end
     
     subgraph "Fan Control"
-        FS[Fan Switch<br/>ON | OFF]
-        FAN[Exhaust Fan<br/>ON | OFF]
+        FS&#91;Fan Switch<br/>ON | OFF&#93;
+        FAN&#91;Exhaust Fan<br/>ON | OFF&#93;
         
         FS -->|⚫ Switched Hot| FAN
     end
@@ -117,30 +116,30 @@ flowchart LR
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     subgraph "Electrical Panel"
-        PANEL[15A Breaker<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare]
+        PANEL&#91;15A Breaker<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare&#93;
     end
     
     subgraph "Box 1 - GFCI Outlet"
-        GFCI_LINE[LINE Side<br/>⚫ From Panel Hot<br/>⚪ From Panel Neutral<br/>🟢 From Panel Ground]
-        GFCI_LOAD[LOAD Side<br/>⚫ To Vanity Hot<br/>⚪ To Vanity Neutral<br/>🟢 To Vanity Ground]
+        GFCI_LINE&#91;LINE Side<br/>⚫ From Panel Hot<br/>⚪ From Panel Neutral<br/>🟢 From Panel Ground&#93;
+        GFCI_LOAD&#91;LOAD Side<br/>⚫ To Vanity Hot<br/>⚪ To Vanity Neutral<br/>🟢 To Vanity Ground&#93;
         GFCI_LINE -->|Internal GFCI Protection| GFCI_LOAD
     end
     
     subgraph "Box 2 - Vanity Switch 1"
-        VS1_SWITCH[Vanity Switch 1<br/>⚫ COM ← Hot from GFCI<br/>🔴 T1 → Red Traveler<br/>⚫ T2 → Black Traveler<br/>🟢 GND ← Ground]
-        VS1_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only]
+        VS1_SWITCH&#91;Vanity Switch 1<br/>⚫ COM ← Hot from GFCI<br/>🔴 T1 → Red Traveler<br/>⚫ T2 → Black Traveler<br/>🟢 GND ← Ground&#93;
+        VS1_NEUTRAL&#91;⚪ Neutral Pass-Through<br/>Wire Nut Only&#93;
     end
     
     subgraph "Box 3 - Vanity Light"
-        VL_FIXTURE[Vanity Light Fixture<br/>⚫ Switched Hot from VS1<br/>⚪ Neutral Return<br/>🟢 Ground]
+        VL_FIXTURE&#91;Vanity Light Fixture<br/>⚫ Switched Hot from VS1<br/>⚪ Neutral Return<br/>🟢 Ground&#93;
     end
     
     subgraph "Box 4 - Combined Switch Box"
         direction TB
-        COMB_MAIN[Main Switch 1<br/>⚫ COM ← Hot Pigtail<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail]
-        COMB_VANITY[Vanity Switch 2<br/>⚫ COM ← Hot Pigtail<br/>🔴 T1 ↔ Red from VS1<br/>⚫ T2 ↔ Black from VS1<br/>🟢 GND ← Ground Pigtail]
-        COMB_FAN[Fan Switch<br/>⚫ LINE ← Hot Pigtail<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail]
-        COMB_BUNDLES[Wire Bundles<br/>⚫ Hot Distribution<br/>⚪ Neutral Pass-Through<br/>🟢 Ground Collection]
+        COMB_MAIN&#91;Main Switch 1<br/>⚫ COM ← Hot Pigtail<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail&#93;
+        COMB_VANITY&#91;Vanity Switch 2<br/>⚫ COM ← Hot Pigtail<br/>🔴 T1 ↔ Red from VS1<br/>⚫ T2 ↔ Black from VS1<br/>🟢 GND ← Ground Pigtail&#93;
+        COMB_FAN&#91;Fan Switch<br/>⚫ LINE ← Hot Pigtail<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail&#93;
+        COMB_BUNDLES&#91;Wire Bundles<br/>⚫ Hot Distribution<br/>⚪ Neutral Pass-Through<br/>🟢 Ground Collection&#93;
         
         COMB_BUNDLES -.-> COMB_MAIN
         COMB_BUNDLES -.-> COMB_VANITY
@@ -148,19 +147,19 @@ flowchart TD
     end
     
     subgraph "Box 5 - Main Switch 2"
-        MS2_SWITCH[Main Switch 2<br/>⚫ COM → Switched Hot<br/>🔴 T1 ← Red from MS1<br/>⚫ T2 ← Black from MS1<br/>🟢 GND ← Ground]
-        MS2_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only]
+        MS2_SWITCH&#91;Main Switch 2<br/>⚫ COM → Switched Hot<br/>🔴 T1 ← Red from MS1<br/>⚫ T2 ← Black from MS1<br/>🟢 GND ← Ground&#93;
+        MS2_NEUTRAL&#91;⚪ Neutral Pass-Through<br/>Wire Nut Only&#93;
     end
     
     subgraph "Box 6 - Main Light"
-        ML_FIXTURE[Main Light Fixture<br/>⚫ Switched Hot<br/>⚪ Neutral Return<br/>🟢 Ground]
-        ML_SPLICE[Wire Splices<br/>⚫ Hot: Fixture + Pass-Through<br/>⚪ Neutral: Fixture + Pass-Through<br/>🟢 Ground: Fixture + Pass-Through]
+        ML_FIXTURE&#91;Main Light Fixture<br/>⚫ Switched Hot<br/>⚪ Neutral Return<br/>🟢 Ground&#93;
+        ML_SPLICE&#91;Wire Splices<br/>⚫ Hot: Fixture + Pass-Through<br/>⚪ Neutral: Fixture + Pass-Through<br/>🟢 Ground: Fixture + Pass-Through&#93;
         ML_SPLICE -.-> ML_FIXTURE
     end
     
     subgraph "Box 7 - Exhaust Fan"
-        FAN_MOTOR[Fan Motor<br/>⚫ From Switch Control<br/>⚪ Neutral Direct<br/>🟢 Ground to Case]
-        FAN_PASS[Pass-Through Wires<br/>⚫ Hot Continue<br/>⚪ Neutral Continue<br/>🟢 Ground Continue]
+        FAN_MOTOR&#91;Fan Motor<br/>⚫ From Switch Control<br/>⚪ Neutral Direct<br/>🟢 Ground to Case&#93;
+        FAN_PASS&#91;Pass-Through Wires<br/>⚫ Hot Continue<br/>⚪ Neutral Continue<br/>🟢 Ground Continue&#93;
     end
     
     %% Cable Connections with Wire Colors
@@ -200,31 +199,31 @@ flowchart TD
 flowchart LR
     subgraph "3-Way Switch Terminals"
         direction TB
-        COM[COM Terminal<br/>⚫ Dark Screw]
-        T1[T1 Terminal<br/>🟡 Brass Screw]
-        T2[T2 Terminal<br/>🟡 Brass Screw]
-        GND[Ground Terminal<br/>🟢 Green Screw]
+        COM&#91;COM Terminal<br/>⚫ Dark Screw&#93;
+        T1&#91;T1 Terminal<br/>🟡 Brass Screw&#93;
+        T2&#91;T2 Terminal<br/>🟡 Brass Screw&#93;
+        GND&#91;Ground Terminal<br/>🟢 Green Screw&#93;
     end
     
     subgraph "Wire Colors - 14-3 Cable"
-        BLACK[⚫ Black Wire<br/>Hot or Traveler]
-        RED[🔴 Red Wire<br/>Traveler]
-        WHITE[⚪ White Wire<br/>Neutral]
-        BARE[🟢 Bare Wire<br/>Ground]
+        BLACK&#91;⚫ Black Wire<br/>Hot or Traveler&#93;
+        RED&#91;🔴 Red Wire<br/>Traveler&#93;
+        WHITE&#91;⚪ White Wire<br/>Neutral&#93;
+        BARE&#91;🟢 Bare Wire<br/>Ground&#93;
     end
     
     subgraph "Main Switch 1 Connections"
-        MS1_COM[COM ← ⚫ Hot from Source]
-        MS1_T1[T1 ← 🔴 Red Traveler]
-        MS1_T2[T2 ← ⚫ Black Traveler]
-        MS1_GND[GND ← 🟢 Ground]
+        MS1_COM&#91;COM ← ⚫ Hot from Source&#93;
+        MS1_T1&#91;T1 ← 🔴 Red Traveler&#93;
+        MS1_T2&#91;T2 ← ⚫ Black Traveler&#93;
+        MS1_GND&#91;GND ← 🟢 Ground&#93;
     end
     
     subgraph "Main Switch 2 Connections"
-        MS2_COM[COM → ⚫ Switched Hot to Light]
-        MS2_T1[T1 ← 🔴 Red Traveler]
-        MS2_T2[T2 ← ⚫ Black Traveler]
-        MS2_GND[GND ← 🟢 Ground]
+        MS2_COM&#91;COM → ⚫ Switched Hot to Light&#93;
+        MS2_T1&#91;T1 ← 🔴 Red Traveler&#93;
+        MS2_T2&#91;T2 ← ⚫ Black Traveler&#93;
+        MS2_GND&#91;GND ← 🟢 Ground&#93;
     end
     
     %% Traveler Connections
@@ -250,10 +249,10 @@ flowchart TD
     subgraph "3-Way Switch Logic - Main Light"
         direction TB
         
-        STATE1[Switch 1: ↑ UP<br/>Switch 2: ↑ UP<br/>Result: 💡 LIGHT OFF]
-        STATE2[Switch 1: ↑ UP<br/>Switch 2: ↓ DOWN<br/>Result: 🔆 LIGHT ON]
-        STATE3[Switch 1: ↓ DOWN<br/>Switch 2: ↑ UP<br/>Result: 🔆 LIGHT ON]
-        STATE4[Switch 1: ↓ DOWN<br/>Switch 2: ↓ DOWN<br/>Result: 💡 LIGHT OFF]
+        STATE1&#91;Switch 1: ↑ UP<br/>Switch 2: ↑ UP<br/>Result: 💡 LIGHT OFF&#93;
+        STATE2&#91;Switch 1: ↑ UP<br/>Switch 2: ↓ DOWN<br/>Result: 🔆 LIGHT ON&#93;
+        STATE3&#91;Switch 1: ↓ DOWN<br/>Switch 2: ↑ UP<br/>Result: 🔆 LIGHT ON&#93;
+        STATE4&#91;Switch 1: ↓ DOWN<br/>Switch 2: ↓ DOWN<br/>Result: 💡 LIGHT OFF&#93;
         
         STATE1 --> STATE2
         STATE2 --> STATE3
@@ -264,11 +263,11 @@ flowchart TD
     subgraph "Circuit Path Analysis"
         direction LR
         
-        HOT_IN[⚫ Hot Input<br/>Switch 1 COM]
-        TRAV1[🔴 Traveler 1<br/>Red Wire]
-        TRAV2[⚫ Traveler 2<br/>Black Wire]
-        SWITCH2[Switch 2<br/>T1 & T2]
-        LIGHT_OUT[⚫ To Light<br/>Switch 2 COM]
+        HOT_IN&#91;⚫ Hot Input<br/>Switch 1 COM&#93;
+        TRAV1&#91;🔴 Traveler 1<br/>Red Wire&#93;
+        TRAV2&#91;⚫ Traveler 2<br/>Black Wire&#93;
+        SWITCH2&#91;Switch 2<br/>T1 & T2&#93;
+        LIGHT_OUT&#91;⚫ To Light<br/>Switch 2 COM&#93;
         
         HOT_IN --> TRAV1
         HOT_IN --> TRAV2
@@ -292,19 +291,19 @@ flowchart TD
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     subgraph "Circuit Capacity"
-        BREAKER[⚡ 15A Circuit Breaker<br/>1800W Capacity]
+        BREAKER&#91;⚡ 15A Circuit Breaker<br/>1800W Capacity&#93;
     end
     
     subgraph "Connected Loads"
-        GFCI[🔌 GFCI Outlet<br/>0W Standby]
-        VL[💡 Vanity Light<br/>80W LED]
-        ML[💡 Main Light<br/>60W LED]
-        FAN[🌪️ Exhaust Fan<br/>90W Motor]
-        FUTURE[🔌 Future Devices<br/>200W Reserve]
+        GFCI&#91;🔌 GFCI Outlet<br/>0W Standby&#93;
+        VL&#91;💡 Vanity Light<br/>80W LED&#93;
+        ML&#91;💡 Main Light<br/>60W LED&#93;
+        FAN&#91;🌪️ Exhaust Fan<br/>90W Motor&#93;
+        FUTURE&#91;🔌 Future Devices<br/>200W Reserve&#93;
     end
     
     subgraph "Load Summary"
-        TOTAL[📊 Total Load: 430W<br/>Circuit Usage: 24%<br/>Available: 1370W]
+        TOTAL&#91;📊 Total Load: 430W<br/>Circuit Usage: 24%<br/>Available: 1370W&#93;
     end
     
     BREAKER --> GFCI
@@ -335,21 +334,21 @@ flowchart TD
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     subgraph "Safety Requirements"
-        GFCI_REQ[GFCI Protection<br/>NEC 210.8<br/>Required for Bathroom]
-        GROUND_REQ[Proper Grounding<br/>NEC 250<br/>All Metal Components]
-        WIRE_REQ[Wire Gauge<br/>NEC 310.15<br/>14 AWG for 15A Circuit]
+        GFCI_REQ&#91;GFCI Protection<br/>NEC 210.8<br/>Required for Bathroom&#93;
+        GROUND_REQ&#91;Proper Grounding<br/>NEC 250<br/>All Metal Components&#93;
+        WIRE_REQ&#91;Wire Gauge<br/>NEC 310.15<br/>14 AWG for 15A Circuit&#93;
     end
     
     subgraph "Installation Standards"
-        BOX_FILL[Box Fill Calculation<br/>NEC 314.16<br/>Adequate Space]
-        SWITCH_ACCESS[Switch Accessibility<br/>NEC 404.2<br/>Proper Height]
-        FIXTURE_MOUNT[Fixture Mounting<br/>NEC 314.27<br/>Secure Installation]
+        BOX_FILL&#91;Box Fill Calculation<br/>NEC 314.16<br/>Adequate Space&#93;
+        SWITCH_ACCESS&#91;Switch Accessibility<br/>NEC 404.2<br/>Proper Height&#93;
+        FIXTURE_MOUNT&#91;Fixture Mounting<br/>NEC 314.27<br/>Secure Installation&#93;
     end
     
     subgraph "Testing Requirements"
-        VOLTAGE_TEST[Voltage Testing<br/>Before Work]
-        CONTINUITY[Continuity Testing<br/>All Connections]
-        GFCI_TEST[GFCI Function Test<br/>Monthly Testing]
+        VOLTAGE_TEST&#91;Voltage Testing<br/>Before Work&#93;
+        CONTINUITY&#91;Continuity Testing<br/>All Connections&#93;
+        GFCI_TEST&#91;GFCI Function Test<br/>Monthly Testing&#93;
     end
     
     classDef boxPadding padding:10px 15px
@@ -424,73 +423,73 @@ These diagrams complement the ASCII art diagrams in the other documentation file
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     subgraph "Wire Color Legend"
-        ⚫HOT[⚫ Hot | Switched Hot - Black Wire]
-        ⚪NEUT[⚪ Neutral - White Wire]
-        🟢GND[🟢 Ground - Bare | Green Wire]
-        🔴TRAV1[🔴 Traveler 1 - Red Wire]
-        ⚫TRAV2[⚫ Traveler 2 - Black Wire in 14-3]
+        ⚫HOT&#91;⚫ Hot | Switched Hot - Black Wire&#93;
+        ⚪NEUT&#91;⚪ Neutral - White Wire&#93;
+        🟢GND&#91;🟢 Ground - Bare | Green Wire&#93;
+        🔴TRAV1&#91;🔴 Traveler 1 - Red Wire&#93;
+        ⚫TRAV2&#91;⚫ Traveler 2 - Black Wire in 14-3&#93;
     end
     
     subgraph "Panel to GFCI (14-2)"
-        P1[⚫ Panel Hot] --> G1[⚫ GFCI LINE Hot]
-        P2[⚪ Panel Neutral] --> G2[⚪ GFCI LINE Neutral]
-        P3[🟢 Panel Ground] --> G3[🟢 GFCI Ground]
+        P1&#91;⚫ Panel Hot&#93; --> G1&#91;⚫ GFCI LINE Hot&#93;
+        P2&#91;⚪ Panel Neutral&#93; --> G2&#91;⚪ GFCI LINE Neutral&#93;
+        P3&#91;🟢 Panel Ground&#93; --> G3&#91;🟢 GFCI Ground&#93;
     end
     
     subgraph "GFCI to Vanity Light (14-2)"
-        G4[⚫ GFCI LOAD Hot] --> V1[⚫ Vanity Fixture Hot + Switch Feed]
-        G5[⚪ GFCI LOAD Neutral] --> V2[⚪ Vanity Fixture Neutral + Circuit]
-        G6[🟢 GFCI LOAD Ground] --> V3[🟢 Vanity Fixture Ground + Circuit]
+        G4&#91;⚫ GFCI LOAD Hot&#93; --> V1&#91;⚫ Vanity Fixture Hot + Switch Feed&#93;
+        G5&#91;⚪ GFCI LOAD Neutral&#93; --> V2&#91;⚪ Vanity Fixture Neutral + Circuit&#93;
+        G6&#91;🟢 GFCI LOAD Ground&#93; --> V3&#91;🟢 Vanity Fixture Ground + Circuit&#93;
     end
     
     subgraph "Vanity Light to Switch 1 (14-3)"
-        V4[⚫ Hot from Fixture] --> S1[⚫ VS1 COM Terminal]
-        V5[🔴 Red Traveler] --> S2[🔴 VS1 T1 Terminal]
-        V6[⚫ Black Traveler] --> S3[⚫ VS1 T2 Terminal]
-        V7[⚪ Neutral Pass-Through] --> S4[⚪ Wire Nut Only]
-        V8[🟢 Ground] --> S5[🟢 VS1 Ground + Wire Nut]
+        V4&#91;⚫ Hot from Fixture&#93; --> S1&#91;⚫ VS1 COM Terminal&#93;
+        V5&#91;🔴 Red Traveler&#93; --> S2&#91;🔴 VS1 T1 Terminal&#93;
+        V6&#91;⚫ Black Traveler&#93; --> S3&#91;⚫ VS1 T2 Terminal&#93;
+        V7&#91;⚪ Neutral Pass-Through&#93; --> S4&#91;⚪ Wire Nut Only&#93;
+        V8&#91;🟢 Ground&#93; --> S5&#91;🟢 VS1 Ground + Wire Nut&#93;
     end
     
     subgraph "Switch 1 to Combined Box (14-3)"
-        S6[⚫ Hot Continuation] --> C1[⚫ Hot Distribution to 3 Switches]
-        S7[🔴 Red from VS1 T1] --> C2[🔴 VS2 T1 Terminal]
-        S8[⚫ Black from VS1 T2] --> C3[⚫ VS2 T2 Terminal]
-        S9[⚪ Neutral Pass-Through] --> C4[⚪ Neutral Bundle Wire Nut]
-        S10[🟢 Ground] --> C5[🟢 Ground Bundle Wire Nut]
+        S6&#91;⚫ Hot Continuation&#93; --> C1&#91;⚫ Hot Distribution to 3 Switches&#93;
+        S7&#91;🔴 Red from VS1 T1&#93; --> C2&#91;🔴 VS2 T1 Terminal&#93;
+        S8&#91;⚫ Black from VS1 T2&#93; --> C3&#91;⚫ VS2 T2 Terminal&#93;
+        S9&#91;⚪ Neutral Pass-Through&#93; --> C4&#91;⚪ Neutral Bundle Wire Nut&#93;
+        S10&#91;🟢 Ground&#93; --> C5&#91;🟢 Ground Bundle Wire Nut&#93;
     end
     
     subgraph "Combined Box Connections"
-        C1 --> C6[⚫ Main SW1 COM]
-        C1 --> C7[⚫ Vanity SW2 COM]
-        C1 --> C8[⚫ Fan Switch LINE]
-        C9[🔴 Red MS1 T1] --> C10[🔴 To Main SW2 T1]
-        C11[⚫ Black MS1 T2] --> C12[⚫ To Main SW2 T2]
-        C13[⚫ Fan Switch LOAD] --> C14[⚫ Control to Fan Motor]
-        C5 --> C15[🟢 All Switch Grounds]
+        C1 --> C6&#91;⚫ Main SW1 COM&#93;
+        C1 --> C7&#91;⚫ Vanity SW2 COM&#93;
+        C1 --> C8&#91;⚫ Fan Switch LINE&#93;
+        C9&#91;🔴 Red MS1 T1&#93; --> C10&#91;🔴 To Main SW2 T1&#93;
+        C11&#91;⚫ Black MS1 T2&#93; --> C12&#91;⚫ To Main SW2 T2&#93;
+        C13&#91;⚫ Fan Switch LOAD&#93; --> C14&#91;⚫ Control to Fan Motor&#93;
+        C5 --> C15&#91;🟢 All Switch Grounds&#93;
     end
     
     subgraph "Combined Box to Main Switch 2 (14-3)"
-        C16[⚫ From Main SW1 COM] --> M1[⚫ Main SW2 COM]
-        C10 --> M2[🔴 Main SW2 T1]
-        C12 --> M3[⚫ Main SW2 T2]
-        C4 --> M4[⚪ Neutral Pass-Through]
-        C5 --> M5[🟢 Main SW2 Ground]
+        C16&#91;⚫ From Main SW1 COM&#93; --> M1&#91;⚫ Main SW2 COM&#93;
+        C10 --> M2&#91;🔴 Main SW2 T1&#93;
+        C12 --> M3&#91;⚫ Main SW2 T2&#93;
+        C4 --> M4&#91;⚪ Neutral Pass-Through&#93;
+        C5 --> M5&#91;🟢 Main SW2 Ground&#93;
     end
     
     subgraph "Main Switch 2 to Main Light (14-2)"
-        M6[⚫ Main SW2 COM Output] --> L1[⚫ Main Light Fixture + Pass-Through]
-        M4 --> L2[⚪ Main Light Neutral + Pass-Through]
-        M5 --> L3[🟢 Main Light Ground + Pass-Through]
+        M6&#91;⚫ Main SW2 COM Output&#93; --> L1&#91;⚫ Main Light Fixture + Pass-Through&#93;
+        M4 --> L2&#91;⚪ Main Light Neutral + Pass-Through&#93;
+        M5 --> L3&#91;🟢 Main Light Ground + Pass-Through&#93;
     end
     
     subgraph "Main Light to Fan (14-2)"
-        L4[⚫ Hot Pass-Through] --> F1[⚫ Fan Box Pass-Through]
-        L2 --> F2[⚪ Fan Neutral to Motor]
-        L3 --> F3[🟢 Fan Ground to Motor + Case]
+        L4&#91;⚫ Hot Pass-Through&#93; --> F1&#91;⚫ Fan Box Pass-Through&#93;
+        L2 --> F2&#91;⚪ Fan Neutral to Motor&#93;
+        L3 --> F3&#91;🟢 Fan Ground to Motor + Case&#93;
     end
     
     subgraph "Fan Control from Combined Box"
-        C14 --> F4[⚫ Fan Motor Hot from Switch]
+        C14 --> F4&#91;⚫ Fan Motor Hot from Switch&#93;
     end
     
     classDef boxPadding padding:10px 15px
