@@ -10,24 +10,24 @@ flowchart TD
     A["Electrical Panel<br/>15A Breaker"] -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| B["GFCI Outlet<br/>15A, 120V"]
      B -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| D[Vanity Switch 1<br/>3-Way Switch]
 
-    D -->|14-3 Cable<br/>⚫ Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| C[Vanity Light Fixture<br/>LED Compatible]
+    D -->|14-3 Cable<br/>⚫ Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Hot to Light: White<br/>🟢 Ground: Bare| C[Vanity Light Fixture<br/>LED Compatible]
 
-    C -->|14-3 Cable<br/>⚪ White from VS1→VS2: White<br/>🔴 Traveler: Red<br/>⚫ Black from Light→VS2: Black<br/>🟢 Ground: Green| E[Combined Switch Box<br/>Main SW1<br/>Vanity SW2<br/>Fan SW]
-
-    E -->|14-3 Cable<br/>⚫ Switched Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| F[Main Switch 2<br/>3-Way Switch]
+    C -->|14-3 Cable<br/>⚪ White to VS2: White<br/>🔴 Traveler: Red<br/>⚫ Black from Light: Black<br/>🟢 Ground: Green| F[Main Switch 2<br/>3-Way Switch]
 
     F -->|14-2 Cable<br/>⚫ Switched Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| G[Main Light Fixture<br/>LED Compatible]
 
     G -->|14-2 Cable<br/>⚫ Hot Pass-Through: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| H[Exhaust Fan<br/>CFM Rated]
     
-    H -->|14-2 Cable<br/>⚫ Hot Continuous: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| E
+    H -->|14-2 Cable<br/>⚫ Hot Continuous: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| E[Combined Switch Box<br/>Main SW1<br/>Vanity SW2<br/>Fan SW]
     
     %% Fan Control Wire
     E -.->|⚫ Switched Hot<br/>Fan Switch → Fan| H
     
-    %% 3-Way Traveler Wires - 14-3 Cable Note
-    D -.->|14-3 Cable:<br/>🔴 Red: VS1→Light→VS2<br/>⚪ White: VS1→Light→VS2| E
-    E -.->|14-3 Cable:<br/>🔴 Red: MS1↔MS2<br/>⚫ Black: MS1↔MS2| F
+    %% Main Light 3-Way Control
+    E -.->|14-3 Cable<br/>🔴 Red + ⚫ Black Travelers<br/>Main SW1 ↔ MS2| F
+    
+    %% Vanity Light 3-Way Control 
+    E -.->|14-3 Cable<br/>🔴 Red + ⚫ Black Travelers<br/>VS2 ↔ Vanity Light| C
     
     %% Styling
     classDef boxPadding padding:10px 15px
@@ -46,27 +46,27 @@ flowchart TD
 
 ## Fan Control Power Flow Explanation
 
-**Important Note**: The fan switch is located at the END of the circuit but controls the fan in the MIDDLE of the circuit. Here's how it works:
+**Important Note**: The fan switch is located at the END of the circuit and controls the fan in the MIDDLE of the circuit. Here's how it works:
 
 ### Power Path to Fan Switch:
-1. **Continuous Hot Wire**: Runs from GFCI → Vanity Light → Switch Box 1 → Main Light → **Fan (passes through)** → Switch Box 2 → Fan Switch
+1. **Continuous Hot Wire**: Runs from GFCI → Vanity Switch 1 → Vanity Light → Main Switch 2 → Main Light → **Fan (passes through)** → Combined Switch Box (Fan Switch)
 2. **Fan Switch Location**: Physical end of the circuit run  
-3. **Fan Location**: Middle of the circuit (between main light and switch box 2)
+3. **Fan Location**: Middle of the circuit (between main light and combined switch box)
 
 ### Fan Control Method:
-- **⚫ Hot Wire**: Continues past the fan to reach the fan switch
+- **⚫ Hot Wire**: Continues past the fan to reach the fan switch at the end
 - **⚫ Switched Hot**: Fan switch sends control signal BACK to fan via separate wire
-- **Result**: Fan switch can turn fan ON | OFF even though it's downstream
+- **Result**: Fan switch can turn fan ON | OFF even though the switch is downstream
 
 This is a common electrical configuration where the switch controlling a device is not physically adjacent to that device.
 
 ### Visual Flow:
 ```
-Panel → GFCI → VS1 → Vanity Light → Combined Box → MS2 → Main Light → Fan → Combined Box
-                                                                      ↑        ↓
-                                                                  Pass-Through  Control Wire
-                                                                      ↑        ↓  
-                                                                 Fan Switch ←──┘
+Panel → GFCI → VS1 → Vanity Light → MS2 → Main Light → Fan → Combined Box (End)
+                                                        ↑        ↓
+                                                    Pass-Through  Control Wire
+                                                        ↑        ↓  
+                                                   Fan Switch ←──┘
 ```
 
 ## 3-Way Switch Control Logic Diagram
@@ -133,37 +133,37 @@ flowchart TD
     end
     
     subgraph "Box 3 - Vanity Light"
-        VL_FIXTURE["Vanity Light Fixture<br/>⚪ White from VS1 (Hot)<br/>⚫ Black to VS2 (Switched Hot)<br/>🟢 Green Ground"]
-        VL_SPLICE["Wire Splices<br/>⚫ Black from VS1 COM → White to VS2<br/>⚪ White from VS1 T2 → Light Fixture (Hot)<br/>🔴 Red: VS1→VS2 Pass-Through<br/>⚫ Black from Light → Black to VS2<br/>🟢 Green: VS1→VS2 Pass-Through"]
+        VL_FIXTURE["Vanity Light Fixture<br/>⚪ White from VS1 (Hot)<br/>⚫ Black to MS2 (Pass-Through)<br/>🟢 Green Ground"]
+        VL_SPLICE["Wire Splices<br/>⚫ Black from VS1 COM → White to VS2 (via Combined Box)<br/>⚪ White from VS1 T2 → Light Fixture (Hot)<br/>🔴 Red: VS1→VS2 Pass-Through (via Combined Box)<br/>⚫ Black from Light → Continue to MS2<br/>🟢 Green: Continue to MS2"]
         VL_SPLICE -.-> VL_FIXTURE
     end
     
-    subgraph "Box 4 - Combined Switch Box"
-        direction TB
-        COMB_MAIN[Main Switch 1<br/>⚫ COM ← Hot Pigtail from White Bundle<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail]
-        COMB_VANITY["Vanity Switch 2<br/>⚪ COM ← White from Vanity Light (Hot)<br/>🔴 T1 ↔ Red Pass-Through<br/>⚫ T2 ↔ Black from Light<br/>🟢 GND ← Ground Pigtail"]
-        COMB_FAN[Fan Switch<br/>⚫ LINE ← Hot Pigtail from White Bundle<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail]
-        COMB_BUNDLES[Wire Bundles<br/>⚪ White Hot: VS2 Direct + Pigtails<br/>⚪ Neutral Pass-Through<br/>🟢 Ground Collection]
-        
-        COMB_BUNDLES -.-> COMB_MAIN
-        COMB_BUNDLES -.-> COMB_VANITY
-        COMB_BUNDLES -.-> COMB_FAN
-    end
-    
-    subgraph "Box 5 - Main Switch 2"
-        MS2_SWITCH[Main Switch 2<br/>⚫ COM → Switched Hot<br/>🔴 T1 ← Red from MS1<br/>⚫ T2 ← Black from MS1<br/>🟢 GND ← Ground]
+    subgraph "Box 4 - Main Switch 2"
+        MS2_SWITCH[Main Switch 2<br/>⚫ COM → Switched Hot<br/>🔴 T1 ← Red from MS1 (via Combined Box)<br/>⚫ T2 ← Black from MS1 (via Combined Box)<br/>🟢 GND ← Ground]
         MS2_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only]
     end
     
-    subgraph "Box 6 - Main Light"
+    subgraph "Box 5 - Main Light"
         ML_FIXTURE[Main Light Fixture<br/>⚫ Switched Hot<br/>⚪ Neutral Return<br/>🟢 Ground]
         ML_SPLICE["Wire Splices<br/>⚫ Hot: Fixture + Pass-Through<br/>⚪ Neutral: Fixture + Pass-Through<br/>🟢 Ground: Fixture + Pass-Through"]
         ML_SPLICE -.-> ML_FIXTURE
     end
     
-    subgraph "Box 7 - Exhaust Fan"
-        FAN_MOTOR["Fan Motor<br/>⚫ From Switch Control<br/>⚪ Neutral Direct<br/>🟢 Ground to Case"]
-        FAN_PASS[Pass-Through Wires<br/>⚫ Hot Continue<br/>⚪ Neutral Continue<br/>🟢 Ground Continue]
+    subgraph "Box 6 - Exhaust Fan"
+        FAN_MOTOR["Fan Motor<br/>⚫ From Switch Control (via Combined Box)<br/>⚪ Neutral Direct<br/>🟢 Ground to Case"]
+        FAN_PASS[Pass-Through Wires<br/>⚫ Hot Continue to Combined Box<br/>⚪ Neutral Continue to Combined Box<br/>🟢 Ground Continue to Combined Box]
+    end
+    
+    subgraph "Box 7 - Combined Switch Box (END OF RUN)"
+        direction TB
+        COMB_MAIN[Main Switch 1<br/>⚫ COM ← Hot from Fan Pass-Through<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail]
+        COMB_VANITY["Vanity Switch 2<br/>⚪ COM ← White from Vanity Light (Hot)<br/>🔴 T1 ↔ Red to Vanity Light<br/>⚫ T2 ↔ Black to Vanity Light<br/>🟢 GND ← Ground Pigtail"]
+        COMB_FAN[Fan Switch<br/>⚫ LINE ← Hot from Fan Pass-Through<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail]
+        COMB_BUNDLES[Wire Bundles<br/>⚫ Hot Distribution<br/>⚪ Neutral Termination<br/>🟢 Ground Collection]
+        
+        COMB_BUNDLES -.-> COMB_MAIN
+        COMB_BUNDLES -.-> COMB_VANITY
+        COMB_BUNDLES -.-> COMB_FAN
     end
     
     %% Cable Connections with Wire Colors and Travelers
@@ -171,19 +171,18 @@ flowchart TD
     GFCI_LOAD -->|"14-2 Cable<br/>⚫⚪🟢"| VS1_SWITCH
     
     %% Vanity 3-Way Circuit - 14-3 Cable with Travelers
-    VS1_SWITCH -->|"14-3 Cable Run #1<br/>⚫🔴⚪🟢<br/>🔴Red = Traveler 1<br/>⚪White = Traveler 2"| VL_FIXTURE
-    VL_FIXTURE -->|"14-3 Cable Run #2<br/>⚪🔴⚫🟢<br/>🔴Red = Traveler 1<br/>⚫Black = Traveler 2"| COMB_BUNDLES
+    VS1_SWITCH -->|"14-3 Cable Run #1<br/>⚫🔴⚪🟢<br/>🔴Red = Traveler 1<br/>⚪White = Hot to Light"| VL_FIXTURE
+    VL_FIXTURE -->|"14-3 Cable Run #2<br/>⚫⚪🟢<br/>Hot continues to MS2"| MS2_SWITCH
     
-    %% Main 3-Way Circuit - 14-3 Cable with Travelers
-    COMB_BUNDLES -->|"14-3 Cable Run #3<br/>⚫🔴⚪🟢<br/>🔴Red = Traveler 1<br/>⚫Black = Traveler 2"| MS2_SWITCH
-    
-    %% Standard 14-2 Cable Runs
+    %% Main 3-Way Circuit - 14-2 then 14-3 Cable
     MS2_SWITCH -->|"14-2 Cable<br/>⚫⚪🟢"| ML_SPLICE
     ML_SPLICE -->|"14-2 Cable<br/>⚫⚪🟢"| FAN_PASS
     FAN_PASS -->|"14-2 Cable<br/>⚫⚪🟢"| COMB_BUNDLES
     
-    %% Control Wires
+    %% Control Wires back to devices
     COMB_FAN -.->|"⚫ Switched Hot"| FAN_MOTOR
+    COMB_MAIN -.->|"14-3 Cable #3<br/>🔴Red + ⚫Black Travelers"| MS2_SWITCH
+    COMB_VANITY -.->|"14-3 Cable #4<br/>🔴Red + ⚫Black Travelers"| VL_FIXTURE
     
     classDef boxPadding padding:10px 15px
     classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
@@ -193,7 +192,7 @@ flowchart TD
     
     class PANEL,GFCI_LINE,GFCI_LOAD,VS1_SWITCH,VS1_NEUTRAL,VL_FIXTURE,COMB_MAIN,COMB_VANITY,COMB_FAN,COMB_BUNDLES,MS2_SWITCH,MS2_NEUTRAL,ML_FIXTURE,ML_SPLICE,FAN_MOTOR,FAN_PASS boxPadding
     class PANEL panelStyle
-    class GFCI_LINE,GFCI_LOAD,VL_SPLICE,VS1_SWITCH,VS1_NEUTRAL,COMB_BUNDLES,MS2_SWITCH,MS2_NEUTRAL,ML_SPLICE,FAN_PASS boxStyle
+    class GFCI_LINE,GFCI_LOAD,VL_SPLICE,VS1_SWITCH,VS1_NEUTRAL,MS2_SWITCH,MS2_NEUTRAL,ML_SPLICE,FAN_PASS,COMB_BUNDLES boxStyle
     class COMB_MAIN,COMB_VANITY,COMB_FAN deviceStyle
     class VL_FIXTURE,ML_FIXTURE,FAN_MOTOR fixtureStyle
 ```

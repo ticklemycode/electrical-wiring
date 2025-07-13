@@ -13,7 +13,7 @@ This document provides a complete wiring diagram and installation guide for a ba
 ### Quick Wire Flow Overview
 ```
 ⚫ HOT WIRE FLOW:
-Panel → GFCI → Vanity Switch 1 → Vanity Light (switched) + Combined Switch Box → Main Light (switched) → Fan Switch → Fan Motor
+Panel → GFCI → Vanity Switch 1 → Vanity Light (switched) → Main Switch 2 → Main Light (switched) → Fan → Combined Switch Box (end of run)
 
 ⚪ NEUTRAL WIRE FLOW:  
 Panel → GFCI → All Fixtures → Return to Panel
@@ -26,10 +26,10 @@ Panel → All Devices & Boxes → Return to Panel
 1. **GFCI Outlet** (Power entry point)
 2. **Vanity Switch #1** (separate box - controls vanity light)
 3. **Vanity Light Fixture** (receives hot via 14-3 cable from VS1, switching junction for VS2)
-4. **Combined Switch Box** (Main Switch #1, Vanity Switch #2, Fan Switch)
-5. **Main Light Switch #2** (separate box)
-6. **Main Light Fixture**
-7. **Exhaust Fan**
+4. **Main Switch #2** (separate box - controls main light)
+5. **Main Light Fixture**
+6. **Exhaust Fan**
+7. **Combined Switch Box** (Main Switch #1, Vanity Switch #2, Fan Switch - END of circuit run)
 
 ## Switch Box Configuration
 
