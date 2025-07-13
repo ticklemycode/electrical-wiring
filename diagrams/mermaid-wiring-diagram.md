@@ -111,8 +111,8 @@ flowchart TD
     end
     
     subgraph "Box 2 - Vanity Switch 1"
-        VS1_SWITCH[Vanity Switch 1<br/>⚫ COM ← Hot from GFCI<br/>🔴 T1 → Red Traveler<br/>⚫ T2 → Black Traveler<br/>🟢 GND ← Ground]
-        VS1_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only]
+        VS1_SWITCH[Vanity Switch 1<br/>⚫ COM ← Hot from GFCI<br/>🔴 T1 → Red Traveler<br/>⚫ T2 → Black Traveler<br/>🟢 GND ← Ground (pigtail if no screw)]
+        VS1_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only - No Pigtail]
     end
     
     subgraph "Box 3 - Vanity Light"
@@ -121,10 +121,10 @@ flowchart TD
     
     subgraph "Box 4 - Combined Switch Box"
         direction TB
-        COMB_MAIN[Main Switch 1<br/>⚫ COM ← Hot Splice<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Bundle]
-        COMB_VANITY[Vanity Switch 2<br/>⚫ COM ← Hot Splice<br/>🔴 T1 ↔ Red from VS1<br/>⚫ T2 ↔ Black from VS1<br/>🟢 GND ← Ground Bundle]
-        COMB_FAN[Fan Switch<br/>⚫ LINE ← Hot Splice<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Bundle]
-        COMB_BUNDLES[Wire Bundles<br/>⚫ Hot Distribution<br/>⚪ Neutral Pass-Through<br/>🟢 Ground Collection]
+        COMB_MAIN[Main Switch 1<br/>⚫ COM ← Hot Pigtail (3-way splice)<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail]
+        COMB_VANITY[Vanity Switch 2<br/>⚫ COM ← Hot Pigtail (3-way splice)<br/>🔴 T1 ↔ Red from VS1<br/>⚫ T2 ↔ Black from VS1<br/>🟢 GND ← Ground Pigtail]
+        COMB_FAN[Fan Switch<br/>⚫ LINE ← Hot Pigtail (3-way splice)<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail]
+        COMB_BUNDLES[Wire Bundles<br/>⚫ Hot Distribution (pigtails to 3 switches)<br/>⚪ Neutral Pass-Through<br/>🟢 Ground Collection (pigtails to 3 switches)]
         
         COMB_BUNDLES -.-> COMB_MAIN
         COMB_BUNDLES -.-> COMB_VANITY
@@ -132,8 +132,8 @@ flowchart TD
     end
     
     subgraph "Box 5 - Main Switch 2"
-        MS2_SWITCH[Main Switch 2<br/>⚫ COM → Switched Hot<br/>🔴 T1 ← Red from MS1<br/>⚫ T2 ← Black from MS1<br/>🟢 GND ← Ground]
-        MS2_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only]
+        MS2_SWITCH[Main Switch 2<br/>⚫ COM → Switched Hot<br/>🔴 T1 ← Red from MS1<br/>⚫ T2 ← Black from MS1<br/>🟢 GND ← Ground (pigtail if no screw)]
+        MS2_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only - No Pigtail]
     end
     
     subgraph "Box 6 - Main Light"
@@ -473,265 +473,41 @@ flowchart TD
     class V5,S2,S7,C2,C9,C10,M2,V6,S3,S8,C3,C11,C12,M3 travelerStyle
 ```
 
-## Switch Terminal Wire Color Connections
+## Pigtail Requirements
 
-```mermaid
-flowchart TB
-    subgraph "Vanity Switch 1 Box"
-        direction TB
-        VS1[Vanity Switch 1]
-        VS1_COM[🔴 COM ← Black Hot from Fixture]
-        VS1_T1[🔴 T1 ← Red Traveler to VS2]
-        VS1_T2[⚫ T2 ← Black Traveler to VS2]
-        VS1_GND[🟢 GND ← Bare Ground]
-        VS1_NEUTRAL[⚪ Neutral Bundle<br/>White Pass-Through Only]
-        
-        VS1 --- VS1_COM
-        VS1 --- VS1_T1
-        VS1 --- VS1_T2
-        VS1 --- VS1_GND
-    end
-    
-    subgraph "Combined Switch Box"
-        direction TB
-        
-        subgraph "Main Switch 1"
-            MS1[Main Switch 1]
-            MS1_COM[🔴 COM ← Black Hot (spliced)]
-            MS1_T1[🔴 T1 ← Red Traveler to MS2]
-            MS1_T2[⚫ T2 ← Black Traveler to MS2]
-            MS1_GND[🟢 GND ← Ground Bundle]
-            
-            MS1 --- MS1_COM
-            MS1 --- MS1_T1
-            MS1 --- MS1_T2
-            MS1 --- MS1_GND
-        end
-        
-        subgraph "Vanity Switch 2"
-            VS2[Vanity Switch 2]
-            VS2_COM[🔴 COM ← Black Hot (spliced)]
-            VS2_T1[🔴 T1 ← Red Traveler from VS1]
-            VS2_T2[⚫ T2 ← Black Traveler from VS1]
-            VS2_GND[🟢 GND ← Ground Bundle]
-            
-            VS2 --- VS2_COM
-            VS2 --- VS2_T1
-            VS2 --- VS2_T2
-            VS2 --- VS2_GND
-        end
-        
-        subgraph "Fan Switch"
-            FS[Fan Switch]
-            FS_LINE[🔴 LINE ← Black Hot (spliced)]
-            FS_LOAD[🔴 LOAD → Black to Fan Motor]
-            FS_GND[🟢 GND ← Ground Bundle]
-            
-            FS --- FS_LINE
-            FS --- FS_LOAD
-            FS --- FS_GND
-        end
-        
-        subgraph "Wire Bundles in Combined Box"
-            HOT_BUNDLE[🔴 Hot Distribution<br/>From VS1 → MS1, VS2, FS]
-            NEUTRAL_BUNDLE[⚪ Neutral Bundle<br/>Pass-Through Only]
-            GROUND_BUNDLE[🟢 Ground Bundle<br/>All Switches + Circuits]
-        end
-        
-        HOT_BUNDLE -.-> MS1_COM
-        HOT_BUNDLE -.-> VS2_COM
-        HOT_BUNDLE -.-> FS_LINE
-        GROUND_BUNDLE -.-> MS1_GND
-        GROUND_BUNDLE -.-> VS2_GND
-        GROUND_BUNDLE -.-> FS_GND
-    end
-    
-    subgraph "Main Switch 2 Box"
-        direction TB
-        MS2[Main Switch 2]
-        MS2_COM[🔴 COM → Black Switched Hot to Light]
-        MS2_T1[🔴 T1 ← Red Traveler from MS1]
-        MS2_T2[⚫ T2 ← Black Traveler from MS1]
-        MS2_GND[🟢 GND ← Bare Ground]
-        MS2_NEUTRAL[⚪ Neutral Bundle<br/>White Pass-Through Only]
-        
-        MS2 --- MS2_COM
-        MS2 --- MS2_T1
-        MS2 --- MS2_T2
-        MS2 --- MS2_GND
-    end
-    
-    %% Traveler Wire Connections
-    VS1_T1 -.->|🔴 Red Wire in 14-3 Cable| VS2_T1
-    VS1_T2 -.->|⚫ Black Wire in 14-3 Cable| VS2_T2
-    MS1_T1 -.->|🔴 Red Wire in 14-3 Cable| MS2_T1
-    MS1_T2 -.->|⚫ Black Wire in 14-3 Cable| MS2_T2
-    
-    %% Hot Feed Connections
-    VS1_COM -.->|🔴 Black Wire Continuation| HOT_BUNDLE
-    MS2_COM -.->|🔴 Black Switched Hot| MainLight[🔴 Main Light Fixture]
-    FS_LOAD -.->|🔴 Black Control Wire| FanMotor[🔴 Fan Motor]
-    
-    classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
-    classDef terminalStyle fill:#fff,stroke:#000,stroke-width:1px,color:#000
-    classDef bundleStyle fill:#e8f4fd,stroke:#000,stroke-width:2px,color:#000
-    classDef deviceStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
-    
-    class VS1,MS1,VS2,FS,MS2 switchStyle
-    class VS1_COM,VS1_T1,VS1_T2,VS1_GND,VS1_NEUTRAL,MS1_COM,MS1_T1,MS1_T2,MS1_GND,VS2_COM,VS2_T1,VS2_T2,VS2_GND,FS_LINE,FS_LOAD,FS_GND,MS2_COM,MS2_T1,MS2_T2,MS2_GND,MS2_NEUTRAL terminalStyle
-    class HOT_BUNDLE,NEUTRAL_BUNDLE,GROUND_BUNDLE bundleStyle
-    class MainLight,FanMotor deviceStyle
-```
+Pigtails are short lengths of wire used to connect devices to spliced wires. Here's where they're needed in this circuit:
 
-## Fixture and Device Wire Connections
+### Required Pigtails by Location:
 
-```mermaid
-flowchart TD
-    subgraph "GFCI Outlet Wiring"
-        direction TB
-        GFCI[GFCI Outlet]
-        
-        subgraph "LINE Side (From Panel)"
-            LINE_H[🔴 LINE Hot ← Black from Panel]
-            LINE_N[⚪ LINE Neutral ← White from Panel]
-            LINE_G[🟢 LINE Ground ← Bare from Panel]
-        end
-        
-        subgraph "LOAD Side (To Downstream)"
-            LOAD_H[🔴 LOAD Hot → Black to Vanity]
-            LOAD_N[⚪ LOAD Neutral → White to Vanity]
-            LOAD_G[🟢 LOAD Ground → Bare to Vanity]
-        end
-        
-        GFCI --- LINE_H
-        GFCI --- LINE_N
-        GFCI --- LINE_G
-        GFCI --- LOAD_H
-        GFCI --- LOAD_N
-        GFCI --- LOAD_G
-    end
-    
-    subgraph "Vanity Light Fixture Wiring"
-        direction TB
-        VF[Vanity Light Fixture]
-        
-        subgraph "Power Input (From GFCI)"
-            VF_H_IN[⚫ Hot Input ← Black from GFCI]
-            VF_N_IN[⚪ Neutral Input ← White from GFCI]
-            VF_G_IN[🟢 Ground Input ← Bare from GFCI]
-        end
-        
-        subgraph "Fixture Connections"
-            VF_H_FIX[⚫ Fixture Hot ← Black Wire]
-            VF_N_FIX[⚪ Fixture Neutral ← White Wire]
-            VF_G_FIX[🟢 Fixture Ground ← Green Wire]
-        end
-        
-        subgraph "Switch Feed (To Controls)"
-            VF_H_SW[⚫ Hot to Switches ← Black (spliced)]
-            VF_RED_SW[🔴 Red Traveler ← Pass-Through Only (NO connection to fixture)]
-            VF_N_SW[⚪ Neutral Pass-Through ← White (spliced)]
-            VF_G_SW[🟢 Ground Continue ← Bare (spliced)]
-        end
-        
-        VF_H_IN -.-> VF_H_FIX
-        VF_H_IN -.-> VF_H_SW
-        VF_N_IN -.-> VF_N_FIX
-        VF_N_IN -.-> VF_N_SW
-        VF_G_IN -.-> VF_G_FIX
-        VF_G_IN -.-> VF_G_SW
-        
-        VF --- VF_H_FIX
-        VF --- VF_N_FIX
-        VF --- VF_G_FIX
-    end
-    
-    subgraph "Main Light Fixture Wiring"
-        direction TB
-        ML[Main Light Fixture]
-        
-        subgraph "Power Input (From Main Switch 2)"
-            ML_H_IN[🔴 Switched Hot ← Black from MS2]
-            ML_N_IN[⚪ Neutral Input ← White from Circuit]
-            ML_G_IN[🟢 Ground Input ← Bare from Circuit]
-        end
-        
-        subgraph "Fixture Connections"
-            ML_H_FIX[🔴 Fixture Hot ← Black Wire]
-            ML_N_FIX[⚪ Fixture Neutral ← White Wire]
-            ML_G_FIX[🟢 Fixture Ground ← Green Wire]
-        end
-        
-        subgraph "Pass-Through (To Fan)"
-            ML_H_PASS[🔴 Hot Pass-Through → Black to Fan Box]
-            ML_N_PASS[⚪ Neutral Continue → White to Fan]
-            ML_G_PASS[🟢 Ground Continue → Bare to Fan]
-        end
-        
-        ML_H_IN -.-> ML_H_FIX
-        ML_H_IN -.-> ML_H_PASS
-        ML_N_IN -.-> ML_N_FIX
-        ML_N_IN -.-> ML_N_PASS
-        ML_G_IN -.-> ML_G_FIX
-        ML_G_IN -.-> ML_G_PASS
-        
-        ML --- ML_H_FIX
-        ML --- ML_N_FIX
-        ML --- ML_G_FIX
-    end
-    
-    subgraph "Exhaust Fan Wiring"
-        direction TB
-        FAN[Exhaust Fan Motor]
-        
-        subgraph "Pass-Through Wires (No Connection to Fan)"
-            FAN_H_PASS[🔴 Hot Pass-Through → To Combined Box]
-            FAN_N_PASS[⚪ Neutral Pass-Through → To Combined Box]
-            FAN_G_PASS[🟢 Ground Pass-Through → To Combined Box]
-        end
-        
-        subgraph "Fan Motor Connections"
-            FAN_H_MOTOR[🔴 Motor Hot ← Black from Fan Switch]
-            FAN_N_MOTOR[⚪ Motor Neutral ← White from Circuit]
-            FAN_G_MOTOR[🟢 Motor Ground ← Bare/Green to Case]
-        end
-        
-        subgraph "Control Wire (From Fan Switch)"
-            FAN_CONTROL[🔴 Switch Control ← Black from FS LOAD]
-        end
-        
-        FAN_CONTROL -.-> FAN_H_MOTOR
-        
-        FAN --- FAN_H_MOTOR
-        FAN --- FAN_N_MOTOR
-        FAN --- FAN_G_MOTOR
-    end
-    
-    %% Wire Flow Connections
-    LOAD_H -.->|14-2 Cable| VF_H_IN
-    LOAD_N -.->|14-2 Cable| VF_N_IN
-    LOAD_G -.->|14-2 Cable| VF_G_IN
-    
-    VF_H_SW -.->|14-3 Cable| VS1_HOT[⚫ Vanity Switch 1]
-    VF_RED_SW -.->|14-3 Cable| VS1_RED[🔴 VS1 Red Traveler]
-    VF_N_SW -.->|14-3 Cable| VS1_NEUTRAL[⚪ VS1 Pass-Through]
-    VF_G_SW -.->|14-3 Cable| VS1_GROUND[🟢 VS1 Ground]
-    
-    ML_H_PASS -.->|14-2 Cable| FAN_H_PASS
-    ML_N_PASS -.->|14-2 Cable| FAN_N_PASS
-    ML_G_PASS -.->|14-2 Cable| FAN_G_PASS
-    
-    FAN_H_PASS -.->|14-2 Cable| CB_HOT[🔴 Combined Box Hot]
-    FAN_N_PASS -.->|14-2 Cable| CB_NEUTRAL[⚪ Combined Box Neutral]
-    FAN_G_PASS -.->|14-2 Cable| CB_GROUND[🟢 Combined Box Ground]
-    
-    classDef deviceStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
-    classDef wireStyle fill:#fff,stroke:#000,stroke-width:1px,color:#000
-    classDef connectionStyle fill:#e8f4fd,stroke:#000,stroke-width:1px,color:#000
-    
-    class GFCI,VF,ML,FAN deviceStyle
-    class LINE_H,LINE_N,LINE_G,LOAD_H,LOAD_N,LOAD_G,VF_H_IN,VF_N_IN,VF_G_IN,VF_H_FIX,VF_N_FIX,VF_G_FIX,VF_H_SW,VF_N_SW,VF_G_SW wireStyle
-    class ML_H_IN,ML_N_IN,ML_G_IN,ML_H_FIX,ML_N_FIX,ML_G_FIX,ML_H_PASS,ML_N_PASS,ML_G_PASS wireStyle
-    class FAN_H_PASS,FAN_N_PASS,FAN_G_PASS,FAN_H_MOTOR,FAN_N_MOTOR,FAN_G_MOTOR,FAN_CONTROL wireStyle
-    class VS1_HOT,VS1_NEUTRAL,VS1_GROUND,CB_HOT,CB_NEUTRAL,CB_GROUND connectionStyle
-```
+#### Box 2 - Vanity Switch 1:
+- **Ground Pigtail**: Only if switch lacks ground screw (modern switches usually have screws)
+- **Hot/Neutral**: Direct connections, no pigtails needed
+
+#### Box 4 - Combined Switch Box (3 switches):
+**Hot Distribution (3 pigtails required):**
+- 🔴 Pigtail 1: Hot bundle → Main Switch 1 COM
+- 🔴 Pigtail 2: Hot bundle → Vanity Switch 2 COM  
+- 🔴 Pigtail 3: Hot bundle → Fan Switch LINE
+
+**Ground Distribution (3 pigtails required):**
+- 🟢 Pigtail 1: Ground bundle → Main Switch 1 GND
+- 🟢 Pigtail 2: Ground bundle → Vanity Switch 2 GND
+- 🟢 Pigtail 3: Ground bundle → Fan Switch GND
+
+**Neutral**: Pass-through only, no pigtails to switches
+
+#### Box 5 - Main Switch 2:
+- **Ground Pigtail**: Only if switch lacks ground screw
+- **Hot/Neutral**: Direct connections, no pigtails needed
+
+### Pigtail Wire Specifications:
+- **Length**: 6 inches minimum
+- **Gauge**: Same as circuit wire (14 AWG for this 15A circuit)
+- **Color**: Match the wire color being extended
+- **Connection**: Use wire nuts rated for the wire gauge
+
+### Why Pigtails Are Important:
+1. **Code Compliance**: NEC requires proper grounding of all switches
+2. **Safety**: Ensures secure connections under switch screws
+3. **Reliability**: Prevents loose connections from wire movement
+4. **Future Service**: Allows switch replacement without re-splicing
