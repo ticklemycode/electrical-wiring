@@ -12,7 +12,7 @@ flowchart TD
     
     D -->|14-2 Cable<br/>⚫ Switched Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| C[Vanity Light Fixture<br/>LED Compatible]
     
-    D -->|14-3 Cable<br/>⚫ Hot: Black → Combined Box<br/>🔴 Traveler: Red → VS2<br/>⚪ Neutral: White (pass-through)<br/>🟢 Ground: Bare (all switches)| E[Combined Switch Box<br/>Main SW1, Vanity SW2, Fan SW]
+    D -->|14-3 Cable<br/>⚫ Hot: Black → Combined Box<br/>🔴 Traveler: Red → VS2<br/>⚪ Neutral: White pass-through<br/>🟢 Ground: Bare (all switches)| E[Combined Switch Box<br/>Main SW1, Vanity SW2, Fan SW]
     
     E -->|14-3 Cable<br/>⚫ Switched Hot: Black (MS1)<br/>🔴 Traveler: Red (MS1-MS2)<br/>⚪ Neutral: White (pass-through)<br/>🟢 Ground: Bare| F[Main Switch 2<br/>3-Way Switch]
     
