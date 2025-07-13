@@ -51,23 +51,55 @@ Within each 14-3 cable, the **red wire + one other conductor** serve as the "tra
 
 ## Main Light 3-Way Wiring Configuration
 
-### Switch Box 1 (Main Switch 1):
-```
-INCOMING POWER → 14-3 Cable to Switch 2 → 14-3 Cable to Light
+**IMPORTANT**: The main light 3-way circuit uses Main Switch 1 (in Combined Box at end of run) and Main Switch 2 (separate box). Traveler wires run between these switches via 14-3 cable.
 
-Power Source (14-2):          To Switch 2 (14-3):         To Light (14-3):
-- Hot (Black)    →  COM       - Traveler 1 (Red)   →  T1  - Switched Hot → COM
-- Neutral (White) → Pigtail   - Traveler 2 (Black) →  T2  - Neutral     → Light
-- Ground (Bare)   → Switch    - Ground (Bare)      →  GND - Ground      → GND
+### Switch Box 1 (Main Switch 1 - in Combined Box):
+**This switch is at the END of the circuit run and receives continuous hot**
+```
+Incoming Power (14-2):           Main Switch 1 Connections:      To Main Switch 2 (14-3 Travelers):
+- Hot (Black)     →  COM         - Red Traveler    →  T1        - Red to MS2 T1
+- Neutral (White) →  Pass-through - Black Traveler  →  T2        - Black to MS2 T2  
+- Ground (Bare)   →  Switch GND   - Ground          →  GND       - Ground to MS2 GND
 ```
 
 ### Switch Box 2 (Main Switch 2):
+**IMPORTANT**: Main Switch 2 is located between the vanity light and the main light. It receives travelers from Main Switch 1 (in Combined Box) and also has vanity circuit wires passing through.
+
 ```
-From Switch 1 (14-3):         To Light Fixture (14-2):
-- Traveler 1 (Red)   →  T1    - Switched Hot (Black) →  COM
-- Traveler 2 (Black) →  T2    - Neutral (White)      →  Pigtail
-- Ground (Bare)      →  GND   - Ground (Bare)        →  Switch
+From Vanity Light (14-3):           Main Switch 2 Connections:        To Main Light (14-2):
+- WHITE (Hot from VS circuit) → Pass-through to Combined Box       - Switched Hot (Black) → COM output
+- Red (Traveler to VS2)       → Pass-through to Combined Box       - Neutral (White)      → Pass-through
+- Black (Hot continues)       → Pass-through to Combined Box       - Ground (Bare)        → Switch GND
+
+From Combined Box (14-3 Travelers):  Switch Terminal Connections:
+- Red from Main SW1          →  T1   (Red Traveler)
+- Black from Main SW1        →  T2   (Black Traveler)  
+- Ground from Combined Box   →  GND  (Ground)
+
+TRUE NEUTRALS in this box:
+- White from incoming 14-2 power (always neutral)
+- White continuing to main light (always neutral)
+
+WHITE WIRE CARRYING HOT (mark with black tape):
+- White from vanity light circuit (switched hot - NOT neutral)
+- This white continues to Combined Box as part of vanity circuit
 ```
+
+**Wire Identification Required**: The white wire from the vanity light circuit carries HOT and must be marked with black electrical tape at both ends per NEC 200.7(C).
+
+### Main Light Fixture Box:
+**Receives switched hot from Main Switch 2 COM terminal**
+```
+From Main Switch 2 (14-2):       Main Light Connections:        To Fan (14-2 Pass-Through):
+- Switched Hot (Black) → Light Hot + Pass-through to fan     - Hot Continue (Black)
+- Neutral (White)      → Light Neutral + Pass-through       - Neutral Continue (White)  
+- Ground (Bare)        → Light Ground + Pass-through        - Ground Continue (Bare)
+```
+
+**Important Notes:**
+- Main light only receives power when Main Switch 1 and Main Switch 2 are in correct 3-way positions
+- Hot wire continues through light fixture to feed fan downstream
+- All three conductors (hot, neutral, ground) pass through to continue the circuit
 
 ## Vanity Light 3-Way Wiring Configuration
 
@@ -234,7 +266,7 @@ Main Light Junction Box:
 Note: Main light receives switched hot from 3-way switch system
 ```
 
-#### Exhaust Fan Fixture Connections:
+### Exhaust Fan Fixture Connections:
 ```
 Fan Junction Box (Pass-Through + Control):
 ┌──────────────────────────────────────────┐
@@ -251,73 +283,6 @@ Fan Junction Box (Pass-Through + Control):
 └──────────────────────────────────────────────┘
 
 Note: Fan gets power from separate control wire from fan switch
-```
-
-### Fixture Wiring Color Code Summary:
-
-#### Standard Fixture Wire Colors:
-- **Black**: Hot (power input to fixture)
-- **White**: Neutral (return path from fixture)
-- **Green or Bare Copper**: Ground (safety connection)
-
-#### Circuit Wire Color Functions:
-1. **Always Hot Circuits** (Vanity Light):
-   - Black: Hot available at fixture + switch feed (power source)
-   - White: Direct neutral path (not switched)
-   - Bare: Ground for safety
-   - **Red: Traveler wire between switches (NOT to fixture)**
-
-2. **Switched Hot Circuits** (Main Light):
-   - Black: Switched hot from 3-way switches
-   - White: Neutral return to panel
-   - Bare: Ground for safety
-
-3. **Controlled Circuits** (Exhaust Fan):
-   - Black: Hot pass-through + switched control
-   - White: Neutral return to panel
-   - Bare: Ground for safety
-
-## Detailed Fixture Installation Steps
-
-### Vanity Light Installation:
-```
-Step-by-Step Connection:
-1. Turn OFF power at breaker
-2. Test with voltage tester
-3. Identify fixture wires:
-   - Black (or red) = Hot input
-   - White = Neutral
-   - Green/Bare = Ground
-4. Connect in junction box:
-   - Circuit black → Fixture black (wire nut)
-   - Circuit white → Fixture white (wire nut)
-   - Circuit ground → Fixture ground + box ground (wire nut)
-5. Mount fixture to box
-6. Install bulbs and test
-```
-
-### Main Light Installation:
-```
-Step-by-Step Connection:
-1. Verify switched hot available at box
-2. Connect fixture wires:
-   - Switched hot (black) → Fixture hot (black)
-   - Neutral (white) → Fixture neutral (white)  
-   - Ground (bare) → Fixture ground (green/bare)
-3. Ensure proper support for fixture weight
-4. Test 3-way switch operation from both locations
-```
-
-### Exhaust Fan Installation:
-```
-Special Fan Wiring Considerations:
-1. Fan receives power from control wire (not pass-through hot)
-2. Connection sequence:
-   - Control black from switch → Fan black
-   - Circuit neutral (white) → Fan white
-   - Circuit ground (bare) → Fan ground
-3. Pass-through hot continues to switches (no fan connection)
-4. Test fan operation from fan switch
 ```
 
 ### Junction Box Wire Management:
@@ -484,178 +449,29 @@ Combined Switch Box     →    Exhaust Fan Junction Box
 ⚪ Neutral       → Wire nut only (pass-through, not connected to switch)
 ```
 
-### Wire Function Summary by Location:
+### Main Switch 2 Box - Complete Wire Summary:
 
-#### At GFCI Outlet:
-- **LINE Black**: From panel breaker
-- **LINE White**: From panel neutral
-- **LOAD Black**: To vanity light
-- **LOAD White**: To vanity light
-- **Ground**: Panel and downstream ground
+**All wires present in this box:**
 
-#### At Vanity Light:
-- **Black**: Always hot (spliced: to fixture + to switches)
-- **White**: Neutral (spliced: to fixture + to switches)
-- **Bare**: Ground (spliced: to fixture + to switches)
+1. **14-3 Cable from Vanity Light:**
+   - ⚪ White → HOT from vanity circuit (mark with black tape) → continues to Combined Box
+   - 🔴 Red → Traveler from VS1 → continues to Combined Box for VS2
+   - ⚫ Black → Hot continuation → continues to Combined Box
+   - 🟢 Green → Ground → continues to Combined Box
 
-#### At Main Light:
-- **Black**: Switched hot from 3-way switches (to fixture + pass-through)
-- **White**: Neutral (to fixture + pass-through)
-- **Bare**: Ground (to fixture + pass-through)
+2. **14-3 Cable from Combined Box (Main Switch 1 travelers):**
+   - 🔴 Red → MS2 T1 terminal (traveler from Main Switch 1)
+   - ⚫ Black → MS2 T2 terminal (traveler from Main Switch 1)
+   - ⚪ White → TRUE neutral (pass-through only)
+   - 🟢 Green → MS2 GND terminal
 
-#### At Exhaust Fan:
-- **Black Pass-Through**: Continues to switches (not to fan motor)
-- **Black Control**: From fan switch to fan motor
-- **White**: Neutral to fan motor
-- **Bare**: Ground to fan motor and case
+3. **14-2 Cable to Main Light:**
+   - ⚫ Black → MS2 COM terminal output (switched hot to main light)
+   - ⚪ White → TRUE neutral (pass-through to main light)
+   - 🟢 Bare → Ground connection (pass-through to main light)
 
-This complete wire tracing helps ensure proper connections throughout the entire bathroom electrical circuit.
-
-## Critical Wiring Rules
-
-### 1. Common Terminal Usage:
-- **Power Side**: Hot wire connects to COM terminal
-- **Load Side**: Switched hot to fixture connects to COM terminal
-
-### 2. Traveler Wires:
-- Always use the same terminals (T1 to T1, T2 to T2) between switches
-- Traveler wires carry the switched signal between switches
-
-### 3. Neutral Handling:
-- Neutral wires pass through switch boxes but don't connect to switch terminals
-- Use wire nuts to splice neutral connections
-- Neutral must run continuously to light fixtures
-
-### 4. Ground Connections:
-- All switches, fixtures, and metal boxes must be grounded
-- **Switch grounding methods**:
-  - **Pigtail method**: Green wire from switch connects to ground wire bundle
-  - **Push-in connection**: Ground wire pushes into back of switch
-  - **Self-grounding**: Switch grounds through mounting screws (if box is grounded)
-- Bond all grounds together in each box
-
-## Testing 3-Way Switch Operation
-
-### Proper Operation:
-1. **Both switches in same position**: Light OFF
-2. **Switches in different positions**: Light ON
-3. **Either switch can turn light on/off**: Regardless of other switch position
-
-### Troubleshooting Steps:
-1. **Light doesn't work at all**:
-   - Check power at first switch
-   - Verify hot wire on COM terminal of power switch
-   - Check switched hot wire on COM terminal of load switch
-
-2. **Light works from one switch only**:
-   - Check traveler wire connections
-   - Ensure T1 connects to T1, T2 connects to T2
-   - Verify continuity of traveler wires
-
-3. **Light stays on constantly**:
-   - Check for crossed wires
-   - Verify neutral connections
-   - Check for short circuits
-
-## Switch Box Wiring Diagrams
-
-### Main Light Switch Box 1:
-```
-┌─────────────────────────────────────┐
-│  Switch Box 1 (Main Light)         │
-│                                     │
-│  14-2 FROM PANEL    14-3 TO SWITCH2│
-│  ┌─ Black (Hot)  ────── COM         │
-│  │  White (Neutral) ── Splice ──┐   │
-│  │  Ground ─────────── GND ──┐  │   │
-│  │                           │  │   │
-│  │  14-3 TO LIGHT            │  │   │
-│  └─ Red (Traveler) ────── T1 │  │   │
-│     Black (Traveler) ──── T2 │  │   │
-│     White (Neutral) ────────┘  │   │
-│     Ground ─────────────────────┘   │
-└─────────────────────────────────────┘
-```
-
-### Main Light Switch Box 2:
-```
-┌─────────────────────────────────────┐
-│  Switch Box 2 (Main Light)         │
-│                                     │
-│  14-3 FROM SWITCH1  14-2 TO LIGHT  │
-│  ┌─ Red (Traveler) ────── T1        │
-│  │  Black (Traveler) ──── T2        │
-│  │  White (Neutral) ─── Splice ──┐  │
-│  │  Ground ─────────── GND ──┐   │  │
-│  │                           │   │  │
-│  │  TO LIGHT FIXTURE         │   │  │
-│  └─ Black (Switched) ──── COM │   │  │
-│     White (Neutral) ─────────┘   │  │
-│     Ground ──────────────────────┘  │
-└─────────────────────────────────────┘
-```
-
-## Combined Switch Box Configuration
-
-**IMPORTANT**: Main Switch 1, Vanity Switch 2, and Fan Switch are all located in the same electrical box. This simplifies wiring significantly as all three switches share common neutral and ground connections.
-
-### Physical Switch Layout:
-```
-Combined Switch Box Contains:
-├─ Main Switch 1 (3-Way)     - Controls main light
-├─ Vanity Switch 2 (3-Way)   - Controls vanity light  
-└─ Fan Switch (Single Pole)  - Controls exhaust fan
-
-Shared Connections in Box:
-├─ Neutral Bundle: All white wires spliced together (not to switches)
-├─ Ground Bundle: All grounds + switch grounds spliced together
-└─ Hot Distribution: Fed from vanity switch chain
-```
-
-### Wire Routing to Combined Switch Box:
-```
-From Vanity Switch 1 → To Combined Switch Box (14-3):
-├─ Black (Hot) ────────→ Feeds all three switches
-├─ Red (Traveler) ─────→ Vanity Switch 2 T1 terminal
-├─ Black (Traveler) ───→ Vanity Switch 2 T2 terminal  
-├─ White (Neutral) ────→ Neutral bundle (wire nut)
-└─ Bare (Ground) ──────→ Ground bundle (wire nut)
-
-From Combined Switch Box → To Main Switch 2
-├─ Black (Switched) ───→ From Main Switch 1 COM terminal
-├─ Red (Traveler) ─────→ Main Switch 1 T1 terminal
-├─ Black (Traveler) ───→ Main Switch 1 T2 terminal
-├─ White (Neutral) ────→ From neutral bundle
-└─ Bare (Ground) ──────→ From ground bundle
-
-From Combined Switch Box → To Fan (14-2):
-├─ Black (Switched) ───→ From Fan Switch LOAD terminal
-├─ White (Neutral) ────→ From neutral bundle  
-└─ Bare (Ground) ──────→ From ground bundle
-```
-
-### Combined Switch Box Wire Management:
-```
-Wire Nut Connections in Combined Box:
-┌─────────────────────────────────────────┐
-│ Hot Distribution (Red Wire Nut):        │
-│ ├─ Hot from vanity switch chain         │
-│ ├─ To Main Switch 1 COM                 │
-│ ├─ To Vanity Switch 2 COM               │
-│ └─ To Fan Switch LINE                   │
-│                                         │
-│ Neutral Bundle (Yellow Wire Nut):       │
-│ ├─ Neutral from vanity switch chain     │
-│ ├─ Neutral to main light                │
-│ └─ Neutral to fan                       │
-│                                         │
-│ Ground Bundle (Green Wire Nut):         │
-│ ├─ Ground from vanity switch chain      │
-│ ├─ Ground to main light                 │
-│ ├─ Ground to fan                        │
-│ ├─ Main Switch 1 ground wire            │
-│ ├─ Vanity Switch 2 ground wire          │
-│ ├─ Fan Switch ground wire               │
-│ └─ Metal box grounding                  │
-└─────────────────────────────────────────┘
-```
+**Key Points:**
+- Main Switch 2 controls the main light via 3-way switching with Main Switch 1
+- Vanity circuit wires pass through this box but don't connect to Main Switch 2
+- The white wire from vanity circuit is HOT and must be marked
+- True neutrals never connect to any switch terminals
