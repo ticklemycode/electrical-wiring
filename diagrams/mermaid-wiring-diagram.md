@@ -431,11 +431,11 @@ These diagrams complement the ASCII art diagrams in the other documentation file
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     subgraph "Wire Color Legend"
-        ⚫HOT["⚫ Hot | Switched Hot - Black Wire"]
-        ⚪NEUT["⚪ Neutral - White Wire"]
-        🟢GND["🟢 Ground - Bare | Green Wire"]
-        🔴TRAV1["🔴 Traveler 1 - Red Wire"]
-        ⚫TRAV2["⚫ Traveler 2 - Black Wire in 14-3"]
+        ⚫HOT["Hot | Switched Hot - Black Wire"]
+        ⚪NEUT["Neutral - White Wire"]
+        🟢GND["Ground - Bare | Green Wire"]
+        🔴TRAV1["Traveler 1 - Red Wire"]
+        ⚫TRAV2["Traveler 2 - Black Wire in 14-3"]
     end
     
     subgraph "Panel to GFCI (14-2)"
