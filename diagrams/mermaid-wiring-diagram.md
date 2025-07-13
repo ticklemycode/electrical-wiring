@@ -112,7 +112,7 @@ flowchart TD
     
     subgraph "Box 2 - Vanity Light"
         VL_FIXTURE[Vanity Light Fixture<br/>⚫ Always Hot<br/>⚪ Neutral Return<br/>🟢 Ground]
-        VL_SPLICE[Wire Splices<br/>⚫ Hot: Fixture + Switch Feed<br/>⚪ Neutral: Fixture + Pass-Through<br/>🟢 Ground: Fixture + Pass-Through]
+        VL_SPLICE[Wire Splices<br/>⚫ Hot: Fixture + Switch Feed<br/>🔴 Red: Pass-Through to Switches<br/>⚪ Neutral: Fixture + Pass-Through<br/>🟢 Ground: Fixture + Pass-Through]
         VL_SPLICE -.-> VL_FIXTURE
     end
     
@@ -618,19 +618,20 @@ flowchart TD
         VF[Vanity Light Fixture]
         
         subgraph "Power Input (From GFCI)"
-            VF_H_IN[🔴 Hot Input ← Black from GFCI]
+            VF_H_IN[⚫ Hot Input ← Black from GFCI]
             VF_N_IN[⚪ Neutral Input ← White from GFCI]
             VF_G_IN[🟢 Ground Input ← Bare from GFCI]
         end
         
         subgraph "Fixture Connections"
-            VF_H_FIX[🔴 Fixture Hot ← Black Wire]
+            VF_H_FIX[⚫ Fixture Hot ← Black Wire]
             VF_N_FIX[⚪ Fixture Neutral ← White Wire]
             VF_G_FIX[🟢 Fixture Ground ← Green Wire]
         end
         
         subgraph "Switch Feed (To Controls)"
-            VF_H_SW[🔴 Hot to Switches ← Black (spliced)]
+            VF_H_SW[⚫ Hot to Switches ← Black (spliced)]
+            VF_RED_SW[🔴 Red Traveler ← Pass-Through Only (NO connection to fixture)]
             VF_N_SW[⚪ Neutral Pass-Through ← White (spliced)]
             VF_G_SW[🟢 Ground Continue ← Bare (spliced)]
         end
@@ -713,7 +714,8 @@ flowchart TD
     LOAD_N -.->|14-2 Cable| VF_N_IN
     LOAD_G -.->|14-2 Cable| VF_G_IN
     
-    VF_H_SW -.->|14-3 Cable| VS1_HOT[🔴 Vanity Switch 1]
+    VF_H_SW -.->|14-3 Cable| VS1_HOT[⚫ Vanity Switch 1]
+    VF_RED_SW -.->|14-3 Cable| VS1_RED[🔴 VS1 Red Traveler]
     VF_N_SW -.->|14-3 Cable| VS1_NEUTRAL[⚪ VS1 Pass-Through]
     VF_G_SW -.->|14-3 Cable| VS1_GROUND[🟢 VS1 Ground]
     
