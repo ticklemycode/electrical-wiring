@@ -12,9 +12,9 @@ flowchart TD
     
     D -->|14-2 Cable<br/>⚫ Switched Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| C[Vanity Light Fixture<br/>LED Compatible]
     
-    D -->|14-3 Cable<br/>⚫ Hot: Black → Combined Box<br/>🔴 Traveler: Red → VS2<br/>⚪ Neutral: White pass-through<br/>🟢 Ground: Bare (all switches)| E[Combined Switch Box<br/>Main SW1, Vanity SW2, Fan SW]
+    D -->|14-3 Cable<br/>⚫ Hot: Black → Combined Box<br/>🔴 Traveler: Red → VS2<br/>⚪ Neutral: White - pass-through<br/>🟢 Ground: Bare - all switches| E[Combined Switch Box<br/>Main SW1, Vanity SW2, Fan SW]
     
-    E -->|14-3 Cable<br/>⚫ Switched Hot: Black (MS1)<br/>🔴 Traveler: Red (MS1-MS2)<br/>⚪ Neutral: White (pass-through)<br/>🟢 Ground: Bare| F[Main Switch 2<br/>3-Way Switch]
+    E -->|14-3 Cable<br/>⚫ Switched Hot: Black - MS1<br/>🔴 Traveler: Red - MS1-MS2<br/>⚪ Neutral: White - pass-through<br/>🟢 Ground: Bare| F[Main Switch 2<br/>3-Way Switch]
     
     F -->|14-2 Cable<br/>⚫ Switched Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| G[Main Light Fixture<br/>LED Compatible]
     
@@ -120,7 +120,7 @@ flowchart TD
     end
     
     subgraph "Box 2 - Vanity Switch 1"
-        VS1_SWITCH[Vanity Switch 1<br/>⚫ COM ← Hot from GFCI<br/>🔴 T1 → Red Traveler<br/>⚫ T2 → Black Traveler<br/>🟢 GND ← Ground (pigtail if no screw)]
+        VS1_SWITCH[Vanity Switch 1<br/>⚫ COM ← Hot from GFCI<br/>🔴 T1 → Red Traveler<br/>⚫ T2 → Black Traveler<br/>🟢 GND ← Ground - pigtail if no screw]
         VS1_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only - No Pigtail]
     end
     
@@ -130,10 +130,10 @@ flowchart TD
     
     subgraph "Box 4 - Combined Switch Box"
         direction TB
-        COMB_MAIN[Main Switch 1<br/>⚫ COM ← Hot Pigtail (3-way splice)<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail]
-        COMB_VANITY[Vanity Switch 2<br/>⚫ COM ← Hot Pigtail (3-way splice)<br/>🔴 T1 ↔ Red from VS1<br/>⚫ T2 ↔ Black from VS1<br/>🟢 GND ← Ground Pigtail]
-        COMB_FAN[Fan Switch<br/>⚫ LINE ← Hot Pigtail (3-way splice)<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail]
-        COMB_BUNDLES[Wire Bundles<br/>⚫ Hot Distribution (pigtails to 3 switches)<br/>⚪ Neutral Pass-Through<br/>🟢 Ground Collection (pigtails to 3 switches)]
+        COMB_MAIN[Main Switch 1<br/>⚫ COM ← Hot Pigtail - 3-way splice<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail]
+        COMB_VANITY[Vanity Switch 2<br/>⚫ COM ← Hot Pigtail - 3-way splice<br/>🔴 T1 ↔ Red from VS1<br/>⚫ T2 ↔ Black from VS1<br/>🟢 GND ← Ground Pigtail]
+        COMB_FAN[Fan Switch<br/>⚫ LINE ← Hot Pigtail - 3-way splice<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail]
+        COMB_BUNDLES[Wire Bundles<br/>⚫ Hot Distribution - pigtails to 3 switches<br/>⚪ Neutral Pass-Through<br/>🟢 Ground Collection - pigtails to 3 switches]
         
         COMB_BUNDLES -.-> COMB_MAIN
         COMB_BUNDLES -.-> COMB_VANITY
@@ -141,7 +141,7 @@ flowchart TD
     end
     
     subgraph "Box 5 - Main Switch 2"
-        MS2_SWITCH[Main Switch 2<br/>⚫ COM → Switched Hot<br/>🔴 T1 ← Red from MS1<br/>⚫ T2 ← Black from MS1<br/>🟢 GND ← Ground (pigtail if no screw)]
+        MS2_SWITCH[Main Switch 2<br/>⚫ COM → Switched Hot<br/>🔴 T1 ← Red from MS1<br/>⚫ T2 ← Black from MS1<br/>🟢 GND ← Ground - pigtail if no screw]
         MS2_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only - No Pigtail]
     end
     
