@@ -111,7 +111,7 @@ flowchart TD
     end
     
     subgraph "Box 2 - Vanity Switch 1"
-        VS1_SWITCH[Vanity Switch 1<br/>⚫ COM ← Hot from GFCI<br/>🔴 T1 → Red Traveler<br/>⚫ T2 → Black Traveler<br/>� GND ← Ground]
+        VS1_SWITCH[Vanity Switch 1<br/>⚫ COM ← Hot from GFCI<br/>🔴 T1 → Red Traveler<br/>⚫ T2 → Black Traveler<br/>🟢 GND ← Ground]
         VS1_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only]
     end
     
