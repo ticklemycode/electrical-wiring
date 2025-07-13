@@ -39,37 +39,27 @@ From Switch 1 (14-3):         To Light Fixture (14-2):
 
 ## Vanity Light 3-Way Wiring Configuration
 
-**IMPORTANT**: The vanity light operates like a normal 3-way switched light - you can turn it ON/OFF from either switch location. The difference is that power is available at the fixture location (rather than at the first switch), but the light still switches normally.
+**IMPORTANT**: The vanity light operates like a normal 3-way switched light - you can turn it ON/OFF from either switch location. Power flows from GFCI to Vanity Switch 1 first, then to the light fixture.
 
-### Vanity Light Fixture Connections:
+### Vanity Switch 1 (Receives Power from GFCI):
 ```
-From GFCI (14-2 Cable):       Vanity Light Fixture:
-- Hot (Black)     →           - Fixture Hot (Black) - Power available
-- Neutral (White) →           - Fixture Neutral (White) - Direct to panel
-- Ground (Bare)   →           - Fixture Ground (Green)
-
-Note: NO RED WIRE connects to the vanity light fixture
-Hot wire is also tapped to feed the 3-way switch system for control
+From GFCI (14-2 Cable):          To Vanity Light (14-2):     To Combined Box (14-3):
+- Hot (Black)     →  COM         - Switched Hot → Light      - Hot Continuation  → Hot feed
+- Neutral (White) →  Pass-through - Neutral      → Light      - Traveler 1 (Red)  → T1
+- Ground (Bare)   →  Switch ground- Ground       → Light      - Traveler 2 (Black)→ T2
+                                                              - Neutral (White)   → Pass-through
+                                                              - Ground (Bare)     → Continue
 ```
 
 ### How Vanity Light Switching Works:
 The vanity light uses **standard 3-way switch control** where:
-1. **Hot wire**: Available at fixture from GFCI, also feeds first switch
-2. **Switched hot**: Controlled by the 3-way switch system through travelers
-3. **Light turns ON**: When switches complete the hot path through travelers
-4. **Light turns OFF**: When switches break the hot path
+1. **Hot wire**: From GFCI to Vanity Switch 1 COM terminal
+2. **Switched hot**: From VS1 COM output to vanity light fixture
+3. **Traveler control**: VS1 and VS2 coordinate through red/black travelers
+4. **Light turns ON**: When both switches align to complete the circuit
+5. **Light turns OFF**: When switches are in different positions
 
-**Important**: This is normal 3-way switching - the switches control the hot wire, not the neutral.
-
-### Vanity Switch 1 (Separate Box):
-```
-From Vanity Light Box (14-3):     To Combined Switch Box (14-3):  
-- Hot (Black)     →  COM          - Traveler 1 (Red)   →  T1  
-- Red (Traveler)  →  T1           - Traveler 2 (Black) →  T2  
-- Black (Traveler)→  T2           - Neutral (White)    →  Pass-through (wire nut)
-- White (Neutral) →  Pass-through (wire nut)
-- Ground (Bare)   →  Switch ground
-```
+**Important**: This is normal 3-way switching - both switches control the same light.
 
 ### Combined Switch Box (Main Switch 1, Vanity Switch 2, Fan Switch):
 
@@ -106,26 +96,29 @@ Wire Connections in Combined Box:
 
 ### Power Flow Explanation:
 ```
-1. GFCI provides HOT → Vanity Light Fixture (hot side always available)
+1. GFCI provides HOT → Vanity Switch 1 COM terminal
                     ↓
-2. Same hot wire → 3-Way Switch System (for switching control)
+2. VS1 COM output → Vanity Light Fixture (switched hot)
                     ↓
-3. When switches align → Complete hot path → Light ON
-   When switches differ → Broken hot path → Light OFF
+3. VS1 travelers → VS2 travelers (coordinate switching)
                     ↓
-4. Continuing circuit → Provides switched hot to main lights
+4. When VS1 & VS2 align → Complete circuit → Light ON
+   When VS1 & VS2 differ → Broken circuit → Light OFF
+                    ↓
+5. Hot continuation → Combined switch box for other circuits
 ```
 
 ### What Each Wire Does:
-- **Black from GFCI**: Provides hot to vanity fixture + feeds switch system  
-- **White (neutral)**: Direct path from fixture to panel (not switched)
-- **Red in 14-3 cable**: Traveler wire between switches ONLY
-- **Black in 14-3 cable**: Second traveler wire between switches ONLY
+- **Black from GFCI**: Provides hot to VS1 COM terminal  
+- **Black to vanity light**: Switched hot output from VS1 COM
+- **Red in 14-3 cable**: Traveler wire between VS1 and VS2 ONLY
+- **Black in 14-3 cable**: Second traveler wire between VS1 and VS2 ONLY
+- **White (neutral)**: Direct path from GFCI through switches to light
 - **Ground**: Safety ground for all devices
 
 ### The Switching Logic:
-- **Both switches same position**: Vanity light OFF (hot path broken)
-- **Switches different positions**: Vanity light ON (hot path complete)
+- **Both switches same position**: Circuit complete → Vanity light ON
+- **Switches different positions**: Circuit broken → Vanity light OFF
 - **Either switch can control**: Normal 3-way operation
 
 **Key Point**: The vanity light operates completely normally - you can turn it on and off from either switch location just like any other 3-way switched light.

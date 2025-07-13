@@ -8,11 +8,11 @@ This document provides a detailed Mermaid flowchart diagram of the bathroom elec
 flowchart TD
     A[Electrical Panel<br/>15A Breaker] -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| B[GFCI Outlet<br/>15A, 120V]
     
-    B -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| C[Vanity Light Fixture<br/>LED Compatible]
+    B -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| D[Vanity Switch 1<br/>3-Way Switch]
     
-    C -->|14-3 Cable<br/>⚫ Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| D[Vanity Switch 1<br/>3-Way Switch]
+    D -->|14-2 Cable<br/>⚫ Switched Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| C[Vanity Light Fixture<br/>LED Compatible]
     
-    D -->|14-3 Cable<br/>⚫ Hot: Black → 3 switches<br/>🔴 Traveler: Red → VS2<br/>⚪ Neutral: White (pass-through)<br/>🟢 Ground: Bare (all switches)| E[Combined Switch Box<br/>Main SW1, Vanity SW2, Fan SW]
+    D -->|14-3 Cable<br/>⚫ Hot: Black → Combined Box<br/>🔴 Traveler: Red → VS2<br/>⚪ Neutral: White (pass-through)<br/>🟢 Ground: Bare (all switches)| E[Combined Switch Box<br/>Main SW1, Vanity SW2, Fan SW]
     
     E -->|14-3 Cable<br/>⚫ Switched Hot: Black (MS1)<br/>🔴 Traveler: Red (MS1-MS2)<br/>⚪ Neutral: White (pass-through)<br/>🟢 Ground: Bare| F[Main Switch 2<br/>3-Way Switch]
     
@@ -110,15 +110,13 @@ flowchart TD
         GFCI_LINE -->|Internal GFCI Protection| GFCI_LOAD
     end
     
-    subgraph "Box 2 - Vanity Light"
-        VL_FIXTURE[Vanity Light Fixture<br/>⚫ Always Hot<br/>⚪ Neutral Return<br/>🟢 Ground]
-        VL_SPLICE[Wire Splices<br/>⚫ Hot: Fixture + Switch Feed<br/>🔴 Red: Pass-Through to Switches<br/>⚪ Neutral: Fixture + Pass-Through<br/>🟢 Ground: Fixture + Pass-Through]
-        VL_SPLICE -.-> VL_FIXTURE
+    subgraph "Box 2 - Vanity Switch 1"
+        VS1_SWITCH[Vanity Switch 1<br/>⚫ COM ← Hot from GFCI<br/>� T1 → Red Traveler<br/>⚫ T2 → Black Traveler<br/>� GND ← Ground]
+        VS1_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only]
     end
     
-    subgraph "Box 3 - Vanity Switch 1"
-        VS1_SWITCH[Vanity Switch 1<br/>⚫ COM ← Hot<br/>🔴 T1 → Red Traveler<br/>⚫ T2 → Black Traveler<br/>🟢 GND ← Ground]
-        VS1_NEUTRAL[⚪ Neutral Pass-Through<br/>Wire Nut Only]
+    subgraph "Box 3 - Vanity Light"
+        VL_FIXTURE[Vanity Light Fixture<br/>⚫ Switched Hot from VS1<br/>⚪ Neutral Return<br/>🟢 Ground]
     end
     
     subgraph "Box 4 - Combined Switch Box"
@@ -151,8 +149,8 @@ flowchart TD
     
     %% Cable Connections with Wire Colors
     PANEL -->|14-2 Cable<br/>⚫ Black, ⚪ White, 🟢 Ground| GFCI_LINE
-    GFCI_LOAD -->|14-2 Cable<br/>⚫ Black, ⚪ White, 🟢 Ground| VL_SPLICE
-    VL_SPLICE -->|14-3 Cable<br/>⚫ Black, 🔴 Red, ⚪ White, 🟢 Ground| VS1_SWITCH
+    GFCI_LOAD -->|14-2 Cable<br/>⚫ Black, ⚪ White, 🟢 Ground| VS1_SWITCH
+    VS1_SWITCH -->|14-2 Cable<br/>⚫ Switched Hot, ⚪ White, 🟢 Ground| VL_FIXTURE
     VS1_SWITCH -->|14-3 Cable<br/>⚫ Black, 🔴 Red, ⚪ White, 🟢 Ground| COMB_BUNDLES
     COMB_BUNDLES -->|14-3 Cable<br/>⚫ Black, 🔴 Red, ⚪ White, 🟢 Ground| MS2_SWITCH
     MS2_SWITCH -->|14-2 Cable<br/>⚫ Black, ⚪ White, 🟢 Ground| ML_SPLICE
