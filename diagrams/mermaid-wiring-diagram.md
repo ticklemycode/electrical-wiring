@@ -134,7 +134,7 @@ flowchart TD
     
     subgraph "Box 3 - Vanity Light"
         VL_FIXTURE["Vanity Light Fixture<br/>⚪ White from VS1 (Hot)<br/>⚫ Black to MS2 (Pass-Through)<br/>🟢 Green Ground"]
-        VL_SPLICE["Wire Splices<br/>⚫ Black from VS1 COM → White to VS2 (via Combined Box)<br/>⚪ White from VS1 T2 → Light Fixture (Hot)<br/>🔴 Red: VS1→VS2 Pass-Through (via Combined Box)<br/>⚫ Black from Light → Continue to MS2<br/>🟢 Green: Continue to MS2"]
+        VL_SPLICE["Wire Splices<br/>⚫ Black from VS1 COM → White to VS2 (via MS2 → Combined Box)<br/>⚪ White from VS1 T2 → Light Fixture (Hot)<br/>🔴 Red: VS1→VS2 Pass-Through (via MS2 → Combined Box)<br/>⚫ Black from Light → Continue to MS2<br/>🟢 Green: Continue to MS2"]
         VL_SPLICE -.-> VL_FIXTURE
     end
     
@@ -458,12 +458,20 @@ flowchart TD
         S5["🟢 VS1 Ground"] --> V8["🟢 Green Pass-Through to VS2"]
     end
     
-    subgraph "Vanity Light to Combined Box (14-3)"
-        V9["⚪ White from Black VS1 Junction"] --> C2["⚪ VS2 COM Terminal"]
-        V10["🔴 Red Pass-Through"] --> C3["🔴 VS2 T1 Terminal"]
-        V11["⚫ Black from Light Fixture"] --> C4["⚫ VS2 T2 Terminal"]
-        V12["⚪ Neutral Continue"] --> C5["⚪ Neutral Bundle Wire Nut"]
-        V13["🟢 Green Continue"] --> C6["🟢 Ground Bundle Wire Nut"]
+    subgraph "Vanity Light to Main Switch 2 (14-3)"
+        V9["⚪ White from Black VS1 Junction"] --> M_VS2_HOT["⚪ Hot continues to Combined Box"]
+        V10["🔴 Red Pass-Through"] --> M_VS2_RED["🔴 Red continues to Combined Box"]
+        V11["⚫ Black from Light Fixture"] --> M_VS2_BLACK["⚫ Black continues to Combined Box"]
+        V12["⚪ Neutral Continue"] --> M_VS2_NEUT["⚪ Neutral continues to Combined Box"]
+        V13["🟢 Green Continue"] --> M_VS2_GND["🟢 Ground continues to Combined Box"]
+    end
+    
+    subgraph "Main Switch 2 to Combined Box via Circuit (14-3 travelers)"
+        M_VS2_HOT --> C2["⚪ VS2 COM Terminal"]
+        M_VS2_RED --> C3["🔴 VS2 T1 Terminal"]
+        M_VS2_BLACK --> C4["⚫ VS2 T2 Terminal"]
+        M_VS2_NEUT --> C5["⚪ Neutral Bundle Wire Nut"]
+        M_VS2_GND --> C6["🟢 Ground Bundle Wire Nut"]
     end
     
     subgraph "Combined Box Connections"
@@ -506,10 +514,11 @@ flowchart TD
     classDef groundStyle fill:#90ee90,stroke:#000,stroke-width:2px,color:#000
     classDef travelerStyle fill:#ffd700,stroke:#000,stroke-width:2px,color:#000
     
-    class HOT,NEUT,GND,TRAV1,TRAV2,P1,P2,P3,G1,G2,G3,G4,G5,G6,V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11,V12,V13,S1,S2,S3,S4,S5,H1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,M1,M2,M3,M4,M5,M6,L1,L2,L3,L4,F1,F2,F3,F4 boxPadding
-    class P1,G1,G4,V1,V4,S1,H1,C7,C8,C17,M1,M6,L1,L4,F1,C14,C15,F4 hotStyle
-    class P2,G2,G5,V2,V7,S4,C5,M4,L2,F2,V9,C2 neutralStyle
-    class P3,G3,G6,V3,V8,S5,C6,C16,M5,L3,F3,V13 groundStyle
+    class HOT,NEUT,GND,TRAV1,TRAV2,P1,P2,P3,G1,G2,G3,G4,G5,G6,V1,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11,V12,V13,S1,S2,S3,S4,S5,H1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,M1,M2,M3,M4,M5,M6,L1,L2,L3,L4,F1,F2,F3,F4,M_VS2_HOT,M_VS2_RED,M_VS2_BLACK,M_VS2_NEUT,M_VS2_GND boxPadding
+    class P1,G1,G4,V1,V4,S1,H1,C7,C8,C17,M1,M6,L1,L4,F1,C14,C15,F4,M_VS2_HOT hotStyle
+    class P2,G2,G5,V2,V7,S4,C5,M4,L2,F2,V9,C2,M_VS2_NEUT neutralStyle
+    class P3,G3,G6,V3,V8,S5,C6,C16,M5,L3,F3,V13,M_VS2_GND groundStyle
+    class V5,S2,C3,C10,C11,M2,V6,S3,C4,C12,C13,M3,V10,V11,M_VS2_RED,M_VS2_BLACK travelerStyle
     class V5,S2,C3,C10,C11,M2,V6,S3,C4,C12,C13,M3,V10,V11 travelerStyle
 ```
 
