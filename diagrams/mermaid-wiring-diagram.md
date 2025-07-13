@@ -1,16 +1,6 @@
 # Bathroom Electrical Wiring - Mermaid Diagram
 
-This document provides a detailed Mer### Visual Power Flow:
-```
-VANITY CIRCUIT:
-Panel → GFCI → VS1 → Vanity Light ← VS2 (Combined Box)
-
-MAIN LIGHT CIRCUIT:  
-Panel → GFCI → VS1 → Vanity Light → MS2 ← Travelers → MS1 (Combined Box) → Main Light
-
-FAN CIRCUIT:
-Main Light → Fan ← Fan Switch (Combined Box)
-```lowchart diagram of the bathroom electrical wiring system.
+This document provides a detailed Mermaid flowchart diagram of the bathroom electrical wiring system.
 
 ## Complete Circuit Flow Diagram
 
@@ -93,11 +83,16 @@ In 3-way switch circuits, white wires from switch loops carry hot (not neutral).
 
 This configuration allows centralized control with the fan switch grouped with other switches.
 
-### Visual Flow:
+### Visual Power Flow:
 ```
-Panel → GFCI → VS1 → Vanity Light → MS2 → Combined Switch Box → Main Light → Fan
-                                            ↑                         ↓
-                                       Fan Switch ─────────────────→ Fan Control
+VANITY CIRCUIT:
+Panel → GFCI → VS1 → Vanity Light ← VS2 (Combined Box)
+
+MAIN LIGHT CIRCUIT:  
+Panel → GFCI → VS1 → Vanity Light → MS2 ← Travelers → MS1 (Combined Box) → Main Light
+
+FAN CIRCUIT:
+Main Light → Fan ← Fan Switch (Combined Box)
 ```
 
 ## 3-Way Switch Control Logic Diagram
@@ -506,7 +501,7 @@ flowchart TD
         M_VS2_BLACK --> C4_A["⚫ Cable A: Neutral to Bundle"]
         M_VS2_GND --> C6["🟢 Ground Bundle Wire Nut"]
         
-        C7_B["⚫ Cable B: From Main SW1 COM"] --> M1["� Main SW2 T1"]
+        C7_B["⚫ Cable B: From Main SW1 COM"] --> M1["🔴 Main SW2 T1"]
         C11_B["🔴 Cable B: MS1 T1"] --> M2["⚫ Main SW2 T2"]
         C12_B["⚫ Cable B: MS1 T2"] --> M3["⚪ Main SW2 T2"]
         C5_B["⚪ Cable B: Neutral"] --> M4["⚪ Neutral Pass-Through"]
