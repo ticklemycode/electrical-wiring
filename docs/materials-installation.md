@@ -76,7 +76,8 @@ GFCI Outlet Back View:
 ### Electrical Boxes
 | Item | Quantity | Specification | Usage |
 |------|----------|---------------|-------|
-| Switch Boxes | 3 | 18-22 cubic inch capacity | Multiple switches per box |
+| Single Gang Switch Box | 2 | 18 cubic inch capacity | Vanity Switch 1, Main Switch 2 |
+| Triple Gang Switch Box | 1 | 22+ cubic inch capacity | Combined box (3 switches) |
 | Outlet Box | 1 | Standard single gang | GFCI outlet |
 | Ceiling Boxes | 2 | Rated for fixture weight | Light fixtures and fan |
 | Box Connectors | 10 | 1/2" NM cable connectors | Secure cable to boxes |
@@ -169,18 +170,19 @@ Load Percentage: 430W ÷ 1800W = 24% (Well within safe limits)
 Cable Run Sequence:
 1. Panel → GFCI Outlet (14-2)
 2. GFCI → Vanity Light (14-2)
-3. Vanity Light → Switch Box 1 (14-3)
-4. Switch Box 1 → Switch Box 2 (14-3)
-5. Switch Box 2 → Main Light (14-3)
-6. Main Light → Fan (14-2, hot pass-through)
-7. Fan → Switch Box 3 (14-3)
-8. Switch Box 3 → Fan Switch control wire back to fan
+3. Vanity Light → Vanity Switch 1 (14-3)
+4. Vanity Switch 1 → Combined Switch Box (14-3)
+5. Combined Switch Box → Main Switch 2 (14-3)
+6. Main Switch 2 → Main Light (14-2)
+7. Main Light → Fan (14-2, hot pass-through)
+8. Fan → Combined Switch Box (14-2, fan control)
 
 Notes:
 - Leave 8" of cable at each box
 - Secure cable every 4.5 feet
 - Use cable staples within 12" of boxes
 - Protect cable through framing
+- Combined switch box requires larger capacity for 3 switches
 ```
 
 ### Phase 2: Device Installation

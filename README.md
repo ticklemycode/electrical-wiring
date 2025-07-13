@@ -25,13 +25,21 @@ Panel → All Devices & Boxes → Return to Panel
 ### Power Flow Sequence
 1. **GFCI Outlet** (Power entry point)
 2. **Vanity Light Fixture**
-3. **Vanity Light Switch #1**
-4. **Main Light Switch #1**
-5. **Main Light Fixture**
-6. **Exhaust Fan**
-7. **Main Light Switch #2**
-8. **Vanity Light Switch #2**
-9. **Fan Switch**
+3. **Vanity Light Switch #1** (separate box)
+4. **Combined Switch Box** (Main Switch #1, Vanity Switch #2, Fan Switch)
+5. **Main Light Switch #2** (separate box)
+6. **Main Light Fixture**
+7. **Exhaust Fan**
+
+## Switch Box Configuration
+
+### Switch Box Locations:
+- **Vanity Switch 1**: Separate single-gang box
+- **Combined Switch Box**: Triple-gang box containing:
+  - Main Switch 1 (3-way for main light)
+  - Vanity Switch 2 (3-way for vanity light)  
+  - Fan Switch (single pole for exhaust fan)
+- **Main Switch 2**: Separate single-gang box (3-way for main light)
 
 ## Detailed Wiring Diagram
 
@@ -143,11 +151,17 @@ ELECTRICAL PANEL
 
 ## Fan Control Configuration
 
-**Important**: The exhaust fan is controlled by a switch located downstream from the fan itself. Here's how this works:
+**Important**: The exhaust fan is controlled by a switch located in the combined switch box downstream from the fan itself. Here's how this works:
 
-1. **Continuous Hot Wire**: Runs from the main light → through the fan junction box → continues to the switch boxes
-2. **Fan Location**: Between the main light and the switch boxes
-3. **Fan Switch Location**: At the end of the circuit in the final switch box
+1. **Continuous Hot Wire**: Runs from the main light → through the fan junction box → continues to the combined switch box
+2. **Fan Location**: Between the main light and the combined switch box
+3. **Fan Switch Location**: In the combined switch box with Main Switch 1 and Vanity Switch 2
+
+### Combined Switch Box Benefits:
+- **Convenient Control**: All three switches in one location
+- **Simplified Wiring**: Shared neutral and ground connections
+- **Standard Installation**: Common bathroom switch configuration
+- **Proper Operation**: 3-way switches still function normally despite shared box
 4. **Control Method**: Fan switch sends switched hot wire back to the fan
 
 This configuration allows the fan switch to be grouped with other switches while the fan is positioned optimally in the ceiling.

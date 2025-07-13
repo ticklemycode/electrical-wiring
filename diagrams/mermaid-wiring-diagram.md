@@ -12,24 +12,22 @@ flowchart TD
     
     C -->|14-3 w/Ground<br/>Hot, Red Traveler, Black Traveler, Neutral, Ground| D[Vanity Switch 1<br/>3-Way Switch]
     
-    D -->|14-3 w/Ground<br/>Hot, Red Traveler, Black Traveler, Neutral, Ground| E[Main Switch 1<br/>3-Way Switch]
+    D -->|14-3 w/Ground<br/>Hot, Red Traveler, Black Traveler, Neutral, Ground| E[Combined Switch Box<br/>Main SW1, Vanity SW2, Fan SW]
     
-    E -->|14-3 w/Ground<br/>Switched Hot, Red Traveler, Black Traveler, Neutral, Ground| F[Main Light Fixture<br/>LED Compatible]
+    E -->|14-3 w/Ground<br/>Switched Hot, Red Traveler, Black Traveler, Neutral, Ground| F[Main Switch 2<br/>3-Way Switch]
     
-    F -->|14-2 w/Ground<br/>Hot Pass-Through, Neutral, Ground| G[Exhaust Fan<br/>CFM Rated]
+    F -->|14-2 w/Ground<br/>Switched Hot, Neutral, Ground| G[Main Light Fixture<br/>LED Compatible]
     
-    G -->|14-3 w/Ground<br/>Hot Pass-Through, Red Traveler, Black Traveler, Neutral, Ground| H[Main Switch 2<br/>3-Way Switch]
+    G -->|14-2 w/Ground<br/>Hot Pass-Through, Neutral, Ground| H[Exhaust Fan<br/>CFM Rated]
     
-    H -->|14-3 w/Ground<br/>Hot Continuous, Red Traveler, Black Traveler, Neutral, Ground| I[Vanity Switch 2<br/>3-Way Switch]
-    
-    I -->|14-2 w/Ground<br/>Hot Continuous, Neutral, Ground| J[Fan Switch<br/>Single Pole]
+    H -->|14-2 w/Ground<br/>Hot Pass-Through, Neutral, Ground| E
     
     %% 3-Way Control Connections
-    D -.->|Traveler Wires<br/>Control Signal| I
-    E -.->|Traveler Wires<br/>Control Signal| H
+    D -.->|Traveler Wires<br/>Control Signal| E
+    E -.->|Traveler Wires<br/>Control Signal| F
     
     %% Fan Control
-    J -.->|Switched Hot<br/>Control Wire Back to Fan| G
+    E -.->|Switched Hot<br/>Control Wire Back to Fan| H
     
     %% Styling
     classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
@@ -40,8 +38,8 @@ flowchart TD
     
     class A panelStyle
     class B gfciStyle
-    class C,F,G fixtureStyle
-    class D,E,H,I,J switchStyle
+    class C,G,H fixtureStyle
+    class D,E,F switchStyle
 ```
 
 ## Fan Control Power Flow Explanation
@@ -365,3 +363,20 @@ The diagrams use high-contrast color schemes for optimal readability:
 - **Color-coded components** for easy identification while maintaining accessibility
 
 These diagrams complement the ASCII art diagrams in the other documentation files and provide a more technical, structured view of the electrical system.
+
+## Switch Box Configuration
+
+**Important Configuration**: This bathroom wiring uses a combined switch box containing three switches:
+
+1. **Vanity Switch 1**: Located in separate box near vanity light
+2. **Combined Switch Box**: Contains three switches in one location:
+   - Main Switch 1 (3-way for main light)
+   - Vanity Switch 2 (3-way for vanity light)
+   - Fan Switch (single pole for exhaust fan)
+3. **Main Switch 2**: Located in separate box for main light control
+
+### Benefits of Combined Switch Box:
+- **Convenient Control**: All main switches in one location
+- **Simplified Wiring**: Shared neutral and ground connections reduce wire nuts
+- **Code Compliant**: Standard electrical practice for bathroom installations
+- **Cost Effective**: Fewer boxes and less complex routing
