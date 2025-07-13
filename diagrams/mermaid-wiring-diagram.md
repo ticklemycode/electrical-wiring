@@ -57,7 +57,7 @@ flowchart TD
 ### Fan Control Method:
 - **⚫ Hot Wire**: Continues past the fan to reach the fan switch
 - **⚫ Switched Hot**: Fan switch sends control signal BACK to fan via separate wire
-- **Result**: Fan switch can turn fan ON/OFF even though it's downstream
+- **Result**: Fan switch can turn fan ON | OFF even though it's downstream
 
 This is a common electrical configuration where the switch controlling a device is not physically adjacent to that device.
 
@@ -76,9 +76,9 @@ Panel → GFCI → VS1 → Vanity Light → Combined Box → MS2 → Main Light 
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart LR
     subgraph "Main Light Control"
-        MS1[Main Switch 1<br/>Position A/B] 
-        MS2[Main Switch 2<br/>Position A/B]
-        ML[Main Light<br/>ON/OFF]
+        MS1[Main Switch 1<br/>Position A | B] 
+        MS2[Main Switch 2<br/>Position A | B]
+        ML[Main Light<br/>ON | OFF]
         
         MS1 -.->|🔴 Traveler 1<br/>Red Wire| MS2
         MS1 -.->|⚫ Traveler 2<br/>Black Wire| MS2
@@ -86,9 +86,9 @@ flowchart LR
     end
     
     subgraph "Vanity Light Control"
-        VS1[Vanity Switch 1<br/>Position A/B]
-        VS2[Vanity Switch 2<br/>Position A/B]
-        VL[Vanity Light<br/>ON/OFF]
+        VS1[Vanity Switch 1<br/>Position A | B]
+        VS2[Vanity Switch 2<br/>Position A | B]
+        VL[Vanity Light<br/>ON | OFF]
         
         VS1 -.->|🔴 Traveler 1<br/>Red Wire| VS2
         VS1 -.->|⚫ Traveler 2<br/>Black Wire| VS2
@@ -96,8 +96,8 @@ flowchart LR
     end
     
     subgraph "Fan Control"
-        FS[Fan Switch<br/>ON/OFF]
-        FAN[Exhaust Fan<br/>ON/OFF]
+        FS[Fan Switch<br/>ON | OFF]
+        FAN[Exhaust Fan<br/>ON | OFF]
         
         FS -->|⚫ Switched Hot| FAN
     end
@@ -424,9 +424,9 @@ These diagrams complement the ASCII art diagrams in the other documentation file
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     subgraph "Wire Color Legend"
-        ⚫HOT[⚫ Hot/Switched Hot - Black Wire]
+        ⚫HOT[⚫ Hot | Switched Hot - Black Wire]
         ⚪NEUT[⚪ Neutral - White Wire]
-        🟢GND[🟢 Ground - Bare/Green Wire]
+        🟢GND[🟢 Ground - Bare | Green Wire]
         🔴TRAV1[🔴 Traveler 1 - Red Wire]
         ⚫TRAV2[⚫ Traveler 2 - Black Wire in 14-3]
     end
@@ -514,7 +514,7 @@ Pigtails are short lengths of wire used to connect devices to spliced wires. Her
 
 #### Box 2 - Vanity Switch 1:
 - **Ground Pigtail**: Only if switch lacks ground screw (modern switches usually have screws)
-- **Hot/Neutral**: Direct connections, no pigtails needed
+- **Hot | Neutral**: Direct connections, no pigtails needed
 
 #### Box 4 - Combined Switch Box (3 switches):
 **Hot Distribution (3 pigtails required):**
@@ -531,7 +531,7 @@ Pigtails are short lengths of wire used to connect devices to spliced wires. Her
 
 #### Box 5 - Main Switch 2:
 - **Ground Pigtail**: Only if switch lacks ground screw
-- **Hot/Neutral**: Direct connections, no pigtails needed
+- **Hot | Neutral**: Direct connections, no pigtails needed
 
 ### Pigtail Wire Specifications:
 - **Length**: 6 inches minimum
