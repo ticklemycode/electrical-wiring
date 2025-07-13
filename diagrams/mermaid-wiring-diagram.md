@@ -31,12 +31,14 @@ flowchart TD
     E -.->|14-3 Cable:<br/>🔴 Red: MS1↔MS2<br/>⚫ Black: MS1↔MS2| F
     
     %% Styling
-    classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff,padding:15px
-    classDef gfciStyle fill:#4ecdc4,stroke:#000,stroke-width:2px,color:#000,padding:15px
-    classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff,padding:15px
-    classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000,padding:15px
-    classDef wireStyle stroke:#666,stroke-width:2px,padding:15px
+    classDef boxPadding padding:10px 15px
+    classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
+    classDef gfciStyle fill:#4ecdc4,stroke:#000,stroke-width:2px,color:#000
+    classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
+    classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
+    classDef wireStyle stroke:#666,stroke-width:2px
     
+    class A,B,C,D,E,F,G,H boxPadding
     class A panelStyle
     class B gfciStyle
     class C,G,H fixtureStyle
@@ -100,9 +102,11 @@ flowchart LR
         FS -->|⚫ Switched Hot| FAN
     end
     
-    classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000,padding:15px
-    classDef deviceStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff,padding:15px
+    classDef boxPadding padding:10px 15px
+    classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
+    classDef deviceStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
     
+    class MS1,MS2,VS1,VS2,FS,ML,VL,FAN boxPadding
     class MS1,MS2,VS1,VS2,FS switchStyle
     class ML,VL,FAN deviceStyle
 ```
@@ -176,11 +180,13 @@ flowchart TD
     VS1_SWITCH -.->|🔴⚫ Travelers| COMB_VANITY
     COMB_MAIN -.->|🔴⚫ Travelers| MS2_SWITCH
     
-    classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff,padding:15px
-    classDef boxStyle fill:#e8f4fd,stroke:#000,stroke-width:2px,color:#000,padding:15px
-    classDef deviceStyle fill:#fff3cd,stroke:#000,stroke-width:2px,color:#000,padding:15px
-    classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff,padding:15px
+    classDef boxPadding padding:10px 15px
+    classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
+    classDef boxStyle fill:#e8f4fd,stroke:#000,stroke-width:2px,color:#000
+    classDef deviceStyle fill:#fff3cd,stroke:#000,stroke-width:2px,color:#000
+    classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
     
+    class PANEL,GFCI_LINE,GFCI_LOAD,VS1_SWITCH,VS1_NEUTRAL,VL_FIXTURE,COMB_MAIN,COMB_VANITY,COMB_FAN,COMB_BUNDLES,MS2_SWITCH,MS2_NEUTRAL,ML_FIXTURE,ML_SPLICE,FAN_MOTOR,FAN_PASS boxPadding
     class PANEL panelStyle
     class GFCI_LINE,GFCI_LOAD,VL_SPLICE,VS1_SWITCH,VS1_NEUTRAL,COMB_BUNDLES,MS2_SWITCH,MS2_NEUTRAL,ML_SPLICE,FAN_PASS boxStyle
     class COMB_MAIN,COMB_VANITY,COMB_FAN deviceStyle
@@ -225,10 +231,12 @@ flowchart LR
     MS1_T1 -.->|🔴 Red Wire| MS2_T1
     MS1_T2 -.->|⚫ Black Wire| MS2_T2
     
-    classDef terminalStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000,padding:15px
-    classDef wireStyle fill:#6c5ce7,stroke:#000,stroke-width:2px,color:#fff,padding:15px
-    classDef connectionStyle fill:#e8f4fd,stroke:#000,stroke-width:1px,color:#000,padding:15px
+    classDef boxPadding padding:10px 15px
+    classDef terminalStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
+    classDef wireStyle fill:#6c5ce7,stroke:#000,stroke-width:2px,color:#fff
+    classDef connectionStyle fill:#e8f4fd,stroke:#000,stroke-width:1px,color:#000
     
+    class COM,T1,T2,GND,BLACK,RED,WHITE,BARE,MS1_COM,MS1_T1,MS1_T2,MS1_GND,MS2_COM,MS2_T1,MS2_T2,MS2_GND boxPadding
     class COM,T1,T2,GND terminalStyle
     class BLACK,RED,WHITE,BARE wireStyle
     class MS1_COM,MS1_T1,MS1_T2,MS1_GND,MS2_COM,MS2_T1,MS2_T2,MS2_GND connectionStyle
@@ -269,9 +277,11 @@ flowchart TD
         SWITCH2 --> LIGHT_OUT
     end
     
-    classDef stateStyle fill:#fd79a8,stroke:#000,stroke-width:2px,color:#000,padding:15px
-    classDef pathStyle fill:#00b894,stroke:#000,stroke-width:2px,color:#fff,padding:15px
+    classDef boxPadding padding:10px 15px
+    classDef stateStyle fill:#fd79a8,stroke:#000,stroke-width:2px,color:#000
+    classDef pathStyle fill:#00b894,stroke:#000,stroke-width:2px,color:#fff
     
+    class STATE1,STATE2,STATE3,STATE4,HOT_IN,TRAV1,TRAV2,SWITCH2,LIGHT_OUT boxPadding
     class STATE1,STATE2,STATE3,STATE4 stateStyle
     class HOT_IN,TRAV1,TRAV2,SWITCH2,LIGHT_OUT pathStyle
 ```
@@ -308,10 +318,12 @@ flowchart TD
     FAN --> TOTAL
     FUTURE --> TOTAL
     
-    classDef capacityStyle fill:#e17055,stroke:#000,stroke-width:3px,color:#fff,padding:15px
-    classDef loadStyle fill:#74b9ff,stroke:#000,stroke-width:2px,color:#000,padding:15px
-    classDef summaryStyle fill:#00b894,stroke:#000,stroke-width:2px,color:#fff,padding:15px
+    classDef boxPadding padding:10px 15px
+    classDef capacityStyle fill:#e17055,stroke:#000,stroke-width:3px,color:#fff
+    classDef loadStyle fill:#74b9ff,stroke:#000,stroke-width:2px,color:#000
+    classDef summaryStyle fill:#00b894,stroke:#000,stroke-width:2px,color:#fff
     
+    class BREAKER,GFCI,VL,ML,FAN,FUTURE,TOTAL boxPadding
     class BREAKER capacityStyle
     class GFCI,VL,ML,FAN,FUTURE loadStyle
     class TOTAL summaryStyle
@@ -340,10 +352,12 @@ flowchart TD
         GFCI_TEST[GFCI Function Test<br/>Monthly Testing]
     end
     
-    classDef safetyStyle fill:#ff7675,stroke:#000,stroke-width:2px,color:#000,padding:15px
-    classDef standardStyle fill:#fdcb6e,stroke:#000,stroke-width:2px,color:#000,padding:15px
-    classDef testStyle fill:#55a3ff,stroke:#000,stroke-width:2px,color:#fff,padding:15px
+    classDef boxPadding padding:10px 15px
+    classDef safetyStyle fill:#ff7675,stroke:#000,stroke-width:2px,color:#000
+    classDef standardStyle fill:#fdcb6e,stroke:#000,stroke-width:2px,color:#000
+    classDef testStyle fill:#55a3ff,stroke:#000,stroke-width:2px,color:#fff
     
+    class GFCI_REQ,GROUND_REQ,WIRE_REQ,BOX_FILL,SWITCH_ACCESS,FIXTURE_MOUNT,VOLTAGE_TEST,CONTINUITY,GFCI_TEST boxPadding
     class GFCI_REQ,GROUND_REQ,WIRE_REQ safetyStyle
     class BOX_FILL,SWITCH_ACCESS,FIXTURE_MOUNT standardStyle
     class VOLTAGE_TEST,CONTINUITY,GFCI_TEST testStyle
@@ -479,11 +493,13 @@ flowchart TD
         C14 --> F4[⚫ Fan Motor Hot from Switch]
     end
     
-    classDef hotStyle fill:#ff9999,stroke:#000,stroke-width:2px,color:#000,padding:15px
-    classDef neutralStyle fill:#f0f0f0,stroke:#000,stroke-width:2px,color:#000,padding:15px
-    classDef groundStyle fill:#90ee90,stroke:#000,stroke-width:2px,color:#000,padding:15px
-    classDef travelerStyle fill:#ffd700,stroke:#000,stroke-width:2px,color:#000,padding:15px
+    classDef boxPadding padding:10px 15px
+    classDef hotStyle fill:#ff9999,stroke:#000,stroke-width:2px,color:#000
+    classDef neutralStyle fill:#f0f0f0,stroke:#000,stroke-width:2px,color:#000
+    classDef groundStyle fill:#90ee90,stroke:#000,stroke-width:2px,color:#000
+    classDef travelerStyle fill:#ffd700,stroke:#000,stroke-width:2px,color:#000
     
+    class ⚫HOT,⚪NEUT,🟢GND,🔴TRAV1,⚫TRAV2,P1,P2,P3,G1,G2,G3,G4,G5,G6,V1,V2,V3,V4,V5,V6,V7,V8,S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,M1,M2,M3,M4,M5,M6,L1,L2,L3,L4,F1,F2,F3,F4 boxPadding
     class P1,G1,G4,V1,V4,S1,S6,C1,C6,C7,C8,C16,M1,M6,L1,L4,F1,C13,C14,F4 hotStyle
     class P2,G2,G5,V2,V7,S4,S9,C4,M4,L2,F2 neutralStyle
     class P3,G3,G6,V3,V8,S5,S10,C5,C15,M5,L3,F3 groundStyle
