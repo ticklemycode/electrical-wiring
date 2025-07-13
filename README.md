@@ -12,7 +12,7 @@ This document provides a complete wiring diagram and installation guide for a ba
 
 ### Quick Wire Flow Overview
 ```
-🔴 HOT WIRE FLOW:
+⚫ HOT WIRE FLOW:
 Panel → GFCI → Vanity Light (always hot) → Switches → Main Light (switched) → Fan Switch → Fan Motor
 
 ⚪ NEUTRAL WIRE FLOW:  

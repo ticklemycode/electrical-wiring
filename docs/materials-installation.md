@@ -64,6 +64,21 @@ GFCI Outlet Back View:
 | Wire Nuts | 1 box each | Yellow (small), Red (medium) | Wire connections |
 | Electrical Tape | 2 rolls | 3/4" x 60' | Securing connections |
 
+#### Wire Composition Clarification
+
+**14-2 NM-B Cable contains:**
+- ⚫ **One black wire** (hot)
+- ⚪ **One white wire** (neutral)  
+- 🟢 **One bare/green wire** (ground)
+
+**14-3 NM-B Cable contains:**
+- ⚫ **One black wire** (hot or traveler)
+- 🔴 **One red wire** (traveler)
+- ⚪ **One white wire** (neutral)
+- 🟢 **One bare/green wire** (ground)
+
+**Important**: 14-3 cable has exactly **one wire of each color** - not multiple wires of the same color.
+
 ### Electrical Devices
 | Item | Quantity | Specification | Notes |
 |------|----------|---------------|-------|
@@ -394,118 +409,4 @@ Fan Switch Box Connections:
 - **3-Way**: Connecting neutral to switch terminals (causes malfunction)
 - **Single Pole**: Using wrong terminals for hot wires (no control)
 - **All switches**: Forgetting ground connections (safety hazard)
-```
-
-### Phase 3: Testing and Verification
-
-#### Step 6: Circuit Testing
-```
-Testing Sequence:
-1. Power OFF verification:
-   - Test with non-contact voltage tester
-   - Verify at panel and all devices
-
-2. Continuity testing:
-   - Test all wire connections
-   - Verify 3-way switch travelers
-   - Check ground continuity
-
-3. Insulation testing:
-   - Check for short circuits
-   - Verify proper wire separation
-   - Test GFCI function
-
-4. Load testing:
-   - Install fixtures temporarily
-   - Test all switch operations
-   - Verify proper control functions
-```
-
-#### Step 7: Final Connections
-```
-Connection Sequence:
-1. Connect fixtures to boxes
-2. Install switch and outlet devices
-3. Install cover plates
-4. Test GFCI with test/reset buttons
-5. Verify all switches control correct fixtures
-6. Check 3-way operation from both locations
-```
-
-## Safety Procedures
-
-### Before Starting Work
-- [ ] Turn OFF power at main breaker
-- [ ] Verify power is off with voltage tester
-- [ ] Post warning signs at electrical panel
-- [ ] Have flashlight or battery-powered lighting ready
-- [ ] Ensure proper ladder safety for ceiling work
-
-### During Installation
-- [ ] Double-check wire connections before energizing
-- [ ] Use proper PPE (safety glasses, gloves)
-- [ ] Never work on live circuits
-- [ ] Test voltage before touching any wires
-- [ ] Follow manufacturer instructions for all devices
-
-### After Installation
-- [ ] Test GFCI monthly with test/reset buttons
-- [ ] Verify all connections are tight
-- [ ] Keep circuit directory updated
-- [ ] Schedule electrical inspection if required
-- [ ] Provide operation instructions to users
-
-## Troubleshooting Common Issues
-
-### GFCI Won't Reset
-**Possible Causes:**
-- Ground fault in downstream wiring
-- Reversed LINE/LOAD connections
-- Damaged GFCI device
-- Moisture in connections
-
-**Solutions:**
-1. Check all downstream connections
-2. Verify LINE/LOAD wiring
-3. Test with multimeter
-4. Replace GFCI if faulty
-
-### 3-Way Switches Don't Work Properly
-**Possible Causes:**
-- Incorrect traveler connections
-- Wrong common terminal usage
-- Crossed neutral wires
-
-**Solutions:**
-1. Verify traveler wire continuity
-2. Check common terminal connections
-3. Trace neutral path
-4. Test switch operation sequence
-
-### Fan Won't Turn On
-**Possible Causes:**
-- Loose switch connections
-- Faulty fan motor
-- Incorrect neutral connections
-- Tripped GFCI upstream
-
-**Solutions:**
-1. Check switch wiring
-2. Test voltage at fan
-3. Verify neutral connections
-4. Reset GFCI if tripped
-
-## Code References
-
-### National Electrical Code (NEC) Sections:
-- **Article 210**: Branch Circuits
-- **Article 250**: Grounding and Bonding  
-- **Article 314**: Outlet, Device, Pull, and Junction Boxes
-- **Article 404**: Switches
-- **Article 406**: Receptacles, Cord Connectors, and Attachment Plugs
-
-### Local Code Considerations:
-- Check with local building department
-- May require electrical permit
-- Professional installation may be required
-- Inspection requirements vary by location
+````

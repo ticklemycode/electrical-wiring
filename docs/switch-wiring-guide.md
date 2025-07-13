@@ -132,16 +132,18 @@ Wire Connections in Combined Box:
 
 ## Wire Color Code Standards
 
-### 14-2 Cable:
-- **Black**: Hot (Line/Load)
-- **White**: Neutral
-- **Bare/Green**: Ground
+### 14-2 Cable (contains one of each):
+- **⚫ Black**: Hot (Line/Load)
+- **⚪ White**: Neutral
+- **🟢 Bare/Green**: Ground
 
-### 14-3 Cable:
-- **Black**: Hot or Traveler
-- **Red**: Traveler
-- **White**: Neutral (sometimes used as traveler when properly marked)
-- **Bare/Green**: Ground
+### 14-3 Cable (contains one of each):
+- **⚫ Black**: Hot or Traveler (used for hot lines and black traveler)
+- **🔴 Red**: Traveler (only used between 3-way switches)
+- **⚪ White**: Neutral (sometimes used as traveler when properly marked)
+- **🟢 Bare/Green**: Ground
+
+**Important**: All hot wires are black (⚫). Red (🔴) is only used for the red traveler wire in 3-way switch circuits.
 
 ## Fixture Wiring Guide
 
