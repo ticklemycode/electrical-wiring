@@ -667,18 +667,90 @@ Hot Source → Combined Box (Main Switch 1) → Main Switch 2 → Main Light
 2. **Box 4 (Main Switch 2)**: White wire from vanity light → Combined Box (**MARK BLACK**)  
 3. **Box 7 (Combined Box)**: White wire → VS2 COM terminal (**MARK BLACK**)
 
-### 📦 WIRE NUT REQUIREMENTS SUMMARY
-- **Box 1 (GFCI)**: No wire nuts - terminal connections only
-- **Box 2 (VS1)**: 2 wire nuts (neutral + ground)
-- **Box 3 (Vanity Light)**: 4 wire nuts (hot, neutral, traveler, hot marking)
-- **Box 4 (MS2)**: 6 wire nuts (hot, neutral, marked hot, red traveler, black traveler, ground)
-- **Box 5 (Main Light)**: 3 wire nuts (hot, neutral, ground distributions)
-- **Box 6 (Fan)**: 4 wire nuts (neutral, hot pass-through, fan hot, ground)
-- **Box 7 (Combined)**: 5 wire nuts (hot distribution, neutral, ground, red travelers, black travelers)
+### 📦 DETAILED WIRE NUT SPECIFICATIONS BY BOX
 
-### ⚡ POWER FLOW VERIFICATION
-✅ **Vanity Circuit**: GFCI → VS1 → Vanity Light ← VS2  
-✅ **Main Circuit**: Hot → MS1 (Combined) → Main Light (via travelers to/from MS2)  
-✅ **Fan Circuit**: Hot → Fan Switch → Fan Motor
+#### Box 4 - Main Switch 2 (DETAILED BREAKDOWN)
 
-All three circuits operate independently with proper 3-way and single-pole control logic.
+**Box Overview**: Main Switch 2 is a critical junction point where the vanity circuit passes through and connects to the Combined Box via two 14-3 cables. This box handles both pass-through wiring and 3-way switch connections.
+
+**Incoming Cables:**
+- **Cable 1**: 14-3 from Vanity Light (⚫🔴⚪🟢)
+- **Cable 2**: 14-3 Cable A to Combined Box - Vanity circuit (⚪🔴⚫🟢)  
+- **Cable 3**: 14-3 Cable B to Combined Box - Main light travelers (🔴⚫⚪🟢)
+
+**Required Wire Nuts:**
+
+**🔴 RED WIRE NUT #1 - Hot Input Distribution (3 wires)**
+- **Wire 1**: ⚫ Black hot from vanity light (incoming power)
+- **Wire 2**: ⚫ Black to MS2 COM terminal (pigtail - 6" long)
+- **Wire 3**: ⚫ Black continuing to Combined Box (Cable A)
+- **Purpose**: Distributes continuous hot power from vanity circuit
+- **Wire Nut Size**: Red (3-5 x 14 AWG capacity)
+
+**🟡 YELLOW WIRE NUT #2 - Hot to Combined Box (2 wires)**
+- **Wire 1**: ⚪ White hot from vanity light (**MARKED WITH BLACK TAPE**)
+- **Wire 2**: ⚪ White to Combined Box Cable A (**MARKED WITH BLACK TAPE**)
+- **Purpose**: Passes vanity circuit hot to VS2 COM terminal in Combined Box
+- **Wire Nut Size**: Yellow (2-4 x 14 AWG capacity)
+- **⚠️ CRITICAL**: Both white wires MUST be marked as hot per NEC 200.7
+
+**🔘 GRAY WIRE NUT #3 - Red Traveler (2 wires)**
+- **Wire 1**: 🔴 Red from vanity light (pass-through)
+- **Wire 2**: 🔴 Red to Combined Box Cable A (continues to VS2 T1)
+- **Purpose**: Passes vanity circuit red traveler through MS2 box
+- **Wire Nut Size**: Gray (2-3 x 14 AWG capacity)
+
+**🔘 GRAY WIRE NUT #4 - Main Light Red Traveler (2 wires)**
+- **Wire 1**: 🔴 Red from Combined Box Cable B (MS1 T1 traveler)
+- **Wire 2**: 🔴 Red to MS2 T1 terminal (pigtail - 6" long)
+- **Purpose**: Connects MS1 T1 to MS2 T1 (3-way traveler)
+- **Wire Nut Size**: Gray (2-3 x 14 AWG capacity)
+
+**🔘 GRAY WIRE NUT #5 - Main Light Black Traveler (2 wires)**
+- **Wire 1**: ⚫ Black from Combined Box Cable B (MS1 T2 traveler)
+- **Wire 2**: ⚫ Black to MS2 T2 terminal (pigtail - 6" long)
+- **Purpose**: Connects MS1 T2 to MS2 T2 (3-way traveler)
+- **Wire Nut Size**: Gray (2-3 x 14 AWG capacity)
+
+**🔘 GRAY WIRE NUT #6 - Neutral Pass-Through (3 wires)**
+- **Wire 1**: ⚪ White neutral from vanity light (true neutral)
+- **Wire 2**: ⚪ White neutral to Combined Box Cable A
+- **Wire 3**: ⚪ White neutral from Combined Box Cable B
+- **Purpose**: Passes neutral through to Combined Box and main light circuit
+- **Wire Nut Size**: Gray (2-3 x 14 AWG capacity)
+
+**🟢 GREEN WIRE NUT #7 - Ground Collection (4 wires)**
+- **Wire 1**: 🟢 Bare ground from vanity light
+- **Wire 2**: 🟢 Bare ground to Combined Box Cable A
+- **Wire 3**: 🟢 Bare ground to Combined Box Cable B  
+- **Wire 4**: 🟢 Green pigtail to MS2 GND terminal (6" long)
+- **Purpose**: Collects and distributes grounding for safety
+- **Wire Nut Size**: Green (3-6 x 14 AWG capacity)
+
+**Switch Terminal Connections:**
+- **MS2 COM**: ⚫ Black pigtail from Red Wire Nut #1
+- **MS2 T1**: 🔴 Red pigtail from Gray Wire Nut #4  
+- **MS2 T2**: ⚫ Black pigtail from Gray Wire Nut #5
+- **MS2 GND**: 🟢 Green pigtail from Green Wire Nut #7
+
+**Box Fill Calculation:**
+- **Total Conductors**: 12 (3 cables × 4 wires each)
+- **Switch**: Counts as 2 conductors
+- **Wire Nuts**: 7 wire nuts (no additional count)
+- **Ground Pigtail**: 1 additional conductor
+- **Total Box Fill**: 15 conductor equivalents
+- **Required Box Size**: 4" × 4" × 2-1/8" minimum (21 cubic inch capacity)
+
+**Installation Notes:**
+1. **Hot Wire Marking**: Mark white wires in Wire Nut #2 with black tape at both ends
+2. **Pigtail Length**: All pigtails should be 6" minimum for proper switch connections  
+3. **Wire Nut Torque**: Hand-tighten wire nuts until snug, no tools required
+4. **Cable Management**: Organize cables by function (vanity vs main light) for easier troubleshooting
+5. **Testing**: Verify continuity on all traveler connections before energizing
+
+**Safety Verification:**
+- ✅ All grounds properly connected and pigtailed to switch
+- ✅ Hot wires properly identified and marked per NEC 200.7
+- ✅ Neutral pass-through maintains circuit integrity
+- ✅ Traveler wires properly routed for 3-way operation
+- ✅ Box fill within code limits for safe installation
