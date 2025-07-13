@@ -12,7 +12,7 @@ flowchart TD
 
     D -->|14-3 Cable<br/>⚫ Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| C[Vanity Light Fixture<br/>LED Compatible]
 
-    C -->|14-3 Cable<br/>⚪ Hot to VS2: White<br/>🔴 Traveler: Red<br/>⚫ Neutral: Black<br/>🟢 Ground: Bare| E[Combined Switch Box<br/>Main SW1<br/>Vanity SW2<br/>Fan SW]
+    C -->|14-3 Cable<br/>⚪ White from VS1→VS2: White<br/>🔴 Traveler: Red<br/>⚫ Black from Light→VS2: Black<br/>🟢 Ground: Green| E[Combined Switch Box<br/>Main SW1<br/>Vanity SW2<br/>Fan SW]
 
     E -->|14-3 Cable<br/>⚫ Switched Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| F[Main Switch 2<br/>3-Way Switch]
 
@@ -133,15 +133,15 @@ flowchart TD
     end
     
     subgraph "Box 3 - Vanity Light"
-        VL_FIXTURE["Vanity Light Fixture<br/>⚫ Hot Wire to Junction<br/>⚪ Neutral to Neutral Bundle<br/>🟢 Ground to Ground Bundle"]
-        VL_SPLICE["Wire Splices<br/>⚫ Black from VS1 → White to VS2<br/>⚪ White from VS1 → Black to VS2<br/>🔴 Red: VS1→VS2 Pass-Through<br/>🟢 Ground: Fixture + Pass-Through"]
+        VL_FIXTURE["Vanity Light Fixture<br/>⚪ White from VS1 (Hot)<br/>⚫ Black to VS2 (Switched Hot)<br/>🟢 Green Ground"]
+        VL_SPLICE["Wire Splices<br/>⚫ Black from VS1 → White to VS2<br/>⚪ White from VS1 → White Light Fixture<br/>🔴 Red: VS1→VS2 Pass-Through<br/>⚫ Black from Light → Black to VS2<br/>🟢 Green: VS1→VS2 Pass-Through"]
         VL_SPLICE -.-> VL_FIXTURE
     end
     
     subgraph "Box 4 - Combined Switch Box"
         direction TB
         COMB_MAIN[Main Switch 1<br/>⚫ COM ← Hot Pigtail<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail]
-        COMB_VANITY[Vanity Switch 2<br/>⚪ COM ← White from Light<br/>🔴 T1 ↔ Red Pass-Through<br/>⚫ T2 ↔ Black Pass-Through<br/>🟢 GND ← Ground Pigtail]
+        COMB_VANITY[Vanity Switch 2<br/>⚪ COM ← White (from Black VS1)<br/>🔴 T1 ↔ Red Pass-Through<br/>⚫ T2 ↔ Black from Light<br/>🟢 GND ← Ground Pigtail]
         COMB_FAN[Fan Switch<br/>⚫ LINE ← Hot Pigtail<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail]
         COMB_BUNDLES[Wire Bundles<br/>⚫ Hot Distribution<br/>⚪ Neutral Pass-Through<br/>🟢 Ground Collection]
         
@@ -447,19 +447,19 @@ flowchart TD
     end
     
     subgraph "Vanity Switch 1 to Vanity Light (14-3)"
-        S1[⚫ VS1 COM Terminal] --> V4[⚫ Hot to Fixture Junction]
+        S1[⚫ VS1 COM Terminal] --> V4[⚫ Black to White VS2 Junction]
         S2[🔴 VS1 T1 Terminal] --> V5[🔴 Red Pass-Through to VS2]
-        S3[⚪ VS1 T2 Terminal] --> V6[⚪ White to VS2 via Junction]
-        S4["⚪ Neutral Pass-Through"] --> V7[⚪ Neutral to Fixture]
-        S5["🟢 VS1 Ground + Wire Nut"] --> V8[🟢 Ground to Fixture + Pass-Through]
+        S3[⚪ VS1 T2 Terminal] --> V6[⚪ White to Light Fixture Hot]
+        S4["⚪ Neutral Pass-Through"] --> V7[⚪ Neutral Continue to VS2]
+        S5["🟢 VS1 Ground"] --> V8[🟢 Green Pass-Through to VS2]
     end
     
     subgraph "Vanity Light to Combined Box (14-3)"
-        V9[⚪ Junction Output to VS2] --> C2[⚪ VS2 COM Terminal]
+        V9[⚪ White from Black VS1 Junction] --> C2[⚪ VS2 COM Terminal]
         V10[🔴 Red Pass-Through] --> C3[🔴 VS2 T1 Terminal]
-        V11[⚫ Black Pass-Through] --> C4[⚫ VS2 T2 Terminal]
+        V11[⚫ Black from Light Fixture] --> C4[⚫ VS2 T2 Terminal]
         V12[⚪ Neutral Continue] --> C5["⚪ Neutral Bundle Wire Nut"]
-        V13[🟢 Ground Continue] --> C6["🟢 Ground Bundle Wire Nut"]
+        V13[🟢 Green Continue] --> C6["🟢 Ground Bundle Wire Nut"]
     end
     
     subgraph "Combined Box Connections"
