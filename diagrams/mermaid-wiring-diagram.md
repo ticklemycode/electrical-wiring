@@ -48,6 +48,16 @@ flowchart TD
 
 **Important Note**: The fan switch is located at the END of the circuit and controls the fan in the MIDDLE of the circuit. Here's how it works:
 
+## Wire Identification Requirements (NEC 200.7)
+
+**⚠️ CRITICAL: White Wires Used as Hot**
+In 3-way switch circuits, white wires from switch loops carry hot (not neutral). These MUST be re-identified:
+- **Mark with black electrical tape** at both ends (switch and fixture)
+- **Required locations**: 
+  - White wire at vanity light fixture (switched hot from Vanity Switch 2)
+  - White wire at Main Switch 2 (carries hot to Combined Box)
+- **Why**: Prevents dangerous confusion between true neutrals and hot wires
+
 ### Power Path to Fan Switch:
 1. **Continuous Hot Wire**: Runs from GFCI → Vanity Switch 1 → Vanity Light → Main Switch 2 → Main Light → **Fan (passes through)** → Combined Switch Box (Fan Switch)
 2. **Fan Switch Location**: Physical end of the circuit run  
@@ -139,8 +149,9 @@ flowchart TD
     end
     
     subgraph "Box 4 - Main Switch 2"
-        MS2_SWITCH["Main Switch 2<br/>⚫ COM → Switched Hot<br/>🔴 T1 ← Red from MS1 (via Combined Box)<br/>⚫ T2 ← Black from MS1 (via Combined Box)<br/>🟢 GND ← Ground"]
-        MS2_NEUTRAL["⚪ Neutral Pass-Through<br/>Wire Nut Only"]
+        MS2_SWITCH["Main Switch 2<br/>⚫ COM → Switched Hot to Main Light<br/>🔴 T1 ← Red Traveler from MS1<br/>⚫ T2 ← Black Traveler from MS1<br/>🟢 GND ← Ground"]
+        MS2_NEUTRAL["⚪ TRUE Neutral Pass-Through<br/>(Always Neutral - Wire Nut Only)"]
+        MS2_HOT["⚪ WHITE HOT from Vanity Light<br/>(Switched Hot Return - NOT Neutral)<br/>Continues to Combined Box"]
     end
     
     subgraph "Box 5 - Main Light"
@@ -548,8 +559,25 @@ Pigtails are short lengths of wire used to connect devices to spliced wires. Her
 **Neutral**: Pass-through only, no pigtails to switches
 
 #### Box 5 - Main Switch 2:
-- **Ground Pigtail**: Only if switch lacks ground screw
-- **Hot | Neutral**: Direct connections, no pigtails needed
+**IMPORTANT - Wire Type Clarification:**
+
+**TRUE NEUTRALS (always neutral):**
+- White wire from incoming 14-2 cable (neutral feed)
+- White wire continuing to main light (neutral return)
+
+**WHITE WIRE THAT IS HOT (NOT neutral):**
+- White wire from vanity light fixture (this carries switched hot from vanity)
+- This white wire continues to Combined Box as part of 14-3 cable
+
+**Switch Connections:**
+- COM terminal: Connects to white hot from vanity light
+- Traveler terminals: Red and black from Main Switch 1
+- Ground: Green/bare ground wire
+
+**Wiring Notes:**
+- The white wire from the vanity light is re-identified as hot per NEC 200.7(C)
+- This wire should be marked with black tape at both ends to indicate it's hot
+- True neutrals never connect to switch terminals
 
 ### Pigtail Wire Specifications:
 - **Length**: 6 inches minimum

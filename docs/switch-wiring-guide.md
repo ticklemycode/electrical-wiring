@@ -34,6 +34,21 @@ Within each 14-3 cable, the **red wire + one other conductor** serve as the "tra
    └─────────────┘
 ```
 
+## ⚠️ Wire Identification Requirements (NEC 200.7)
+
+**CRITICAL SAFETY**: White wires used as hot conductors in switch loops MUST be re-identified with black electrical tape at both ends.
+
+**In this circuit, the following white wires carry HOT (not neutral):**
+1. **White wire from vanity light to Main Switch 2** - This carries switched hot
+2. **White wire from Main Switch 2 to Combined Box** - Continuation of above hot
+
+**Re-identification locations:**
+- At vanity light fixture box (mark white wire going to Main Switch 2)
+- At Main Switch 2 box (mark white wire from vanity light)
+- At Combined Box (mark white wire from Main Switch 2)
+
+**Why this matters**: Failure to identify switch loop conductors can result in dangerous confusion between true neutrals and hot wires.
+
 ## Main Light 3-Way Wiring Configuration
 
 ### Switch Box 1 (Main Switch 1):
