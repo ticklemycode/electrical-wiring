@@ -128,13 +128,13 @@ flowchart TD
     end
     
     subgraph "Box 2 - Vanity Switch 1"
-        VS1_SWITCH["Vanity Switch 1<br/>⚫ COM ← Hot from GFCI<br/>🔴 T1 → Red Traveler to Light<br/>⚪ T2 → White Traveler to Light<br/>🟢 GND ← Ground"]
+        VS1_SWITCH["Vanity Switch 1<br/>⚫ COM ← Hot from GFCI<br/>🔴 T1 → Red Traveler to Light<br/>⚪ T2 → White (Hot) to Light Fixture<br/>🟢 GND ← Ground"]
         VS1_NEUTRAL["⚪ Neutral Pass-Through<br/>Wire Nut Only"]
     end
     
     subgraph "Box 3 - Vanity Light"
         VL_FIXTURE["Vanity Light Fixture<br/>⚪ White from VS1 (Hot)<br/>⚫ Black to VS2 (Switched Hot)<br/>🟢 Green Ground"]
-        VL_SPLICE["Wire Splices<br/>⚫ Black from VS1 → White to VS2<br/>⚪ White from VS1 → White Light Fixture<br/>🔴 Red: VS1→VS2 Pass-Through<br/>⚫ Black from Light → Black to VS2<br/>🟢 Green: VS1→VS2 Pass-Through"]
+        VL_SPLICE["Wire Splices<br/>⚫ Black from VS1 COM → White to VS2<br/>⚪ White from VS1 T2 → Light Fixture (Hot)<br/>🔴 Red: VS1→VS2 Pass-Through<br/>⚫ Black from Light → Black to VS2<br/>🟢 Green: VS1→VS2 Pass-Through"]
         VL_SPLICE -.-> VL_FIXTURE
     end
     
