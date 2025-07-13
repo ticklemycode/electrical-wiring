@@ -4,7 +4,61 @@
 
 ### Electrical Wire
 | Item | Quantity | Specification | Usage |
-|------|----------|---------------|-------|
+|----#### Step 3: GFCI Outlet Wiring
+```
+GFCI Outlet Connections:
+┌─────────────────┐
+│      GFCI       │
+│  LINE    LOAD   │
+│ H  N  G  H  N  G│
+└─┬──┬──┬──┬──┬──┬┘
+  │  │  │  │  │  │
+  │  │  │  │  │  └─ Ground to downstream devices
+  │  │  │  │  └──── Neutral to downstream devices  
+  │  │  │  └─────── Hot to downstream devices
+  │  │  └────────── Ground from panel
+  │  └───────────── Neutral from panel
+  └──────────────── Hot from panel
+
+CRITICAL: LINE side connects to panel, LOAD side to downstream devices
+```
+
+### Detailed GFCI Outlet Wiring Guide
+
+#### GFCI Terminal Identification:
+```
+GFCI Outlet Back View:
+┌─────────────────────────┐
+│  ○ LINE ○    ○ LOAD ○  │ ← Hot terminals (brass)
+│                         │
+│  ○ LINE ○    ○ LOAD ○  │ ← Neutral terminals (silver)  
+│                         │
+│      ○ GROUND ○        │ ← Ground terminals (green)
+│                         │
+│   [TEST]    [RESET]    │ ← Test/Reset buttons
+└─────────────────────────┘
+```
+
+#### Step-by-Step GFCI Wiring:
+1. **Turn OFF power** at breaker and verify with tester
+2. **Strip wires**: 3/4" of insulation on all wires
+3. **Connect LINE side** (from electrical panel):
+   - Black (hot) wire → LINE HOT terminal
+   - White (neutral) wire → LINE NEUTRAL terminal
+   - Bare/Green (ground) wire → GROUND terminal
+4. **Connect LOAD side** (to downstream devices):
+   - Black (hot) wire → LOAD HOT terminal  
+   - White (neutral) wire → LOAD NEUTRAL terminal
+   - Bare/Green (ground) wire → GROUND terminal
+5. **Fold wires** carefully into box
+6. **Mount GFCI** flush with wall surface
+7. **Test operation** with TEST/RESET buttons
+
+#### GFCI Safety Notes:
+- **Never reverse LINE/LOAD** - this disables GFCI protection
+- **Test monthly** using TEST/RESET buttons
+- **GFCI protects** all downstream devices when wired correctly
+- **Replace immediately** if GFCI won't reset or trips frequently-----------|-------|
 | 14-2 NM-B Cable | 50 feet | 14 AWG, 2 conductor + ground | Power feeds, simple connections |
 | 14-3 NM-B Cable | 75 feet | 14 AWG, 3 conductor + ground | 3-way switch travelers |
 | Wire Nuts | 1 box each | Yellow (small), Red (medium) | Wire connections |
@@ -113,13 +167,14 @@ Load Percentage: 430W ÷ 1800W = 24% (Well within safe limits)
 #### Step 2: Run Cable Routing
 ```
 Cable Run Sequence:
-1. Panel → GFCI Outlet (12-2)
-2. GFCI → Vanity Light (12-2)
-3. Vanity Light → Switch Box 1 (12-3)
-4. Switch Box 1 → Switch Box 2 (12-3)
-5. Switch Box 2 → Main Light (12-3)
-6. Main Light → Fan (12-2)
-7. Switch Box 3 → Fan (12-2 control)
+1. Panel → GFCI Outlet (14-2)
+2. GFCI → Vanity Light (14-2)
+3. Vanity Light → Switch Box 1 (14-3)
+4. Switch Box 1 → Switch Box 2 (14-3)
+5. Switch Box 2 → Main Light (14-3)
+6. Main Light → Fan (14-2, hot pass-through)
+7. Fan → Switch Box 3 (14-3)
+8. Switch Box 3 → Fan Switch control wire back to fan
 
 Notes:
 - Leave 8" of cable at each box
@@ -151,6 +206,80 @@ CRITICAL: LINE side connects to panel, LOAD side to downstream devices
 
 #### Step 4: 3-Way Switch Wiring
 
+### Detailed 3-Way Switch Wiring Guide
+
+#### 3-Way Switch Terminal Identification:
+```
+3-Way Switch Back View:
+┌─────────────────┐
+│      COM        │ ← Common terminal (dark/black screw)
+│                 │
+│   T1      T2    │ ← Traveler terminals (brass screws)
+│                 │
+│     GROUND      │ ← Ground terminal (green screw)
+└─────────────────┘
+```
+
+#### Main Light 3-Way Switch Configuration:
+
+##### Switch Box 1 (First Main Light Switch):
+```
+Wire Connections in Box:
+┌──────────────────────────────────────┐
+│ Incoming 14-3 Cable | Outgoing 14-3  │
+│ (from prev device)   | (to switch 2)  │
+│                      |                │
+│ Hot (Black) ────→ COM terminal        │
+│ Red wire ───────→ T1 terminal         │
+│ Black wire ─────→ T2 terminal         │
+│ White (Neutral) → Wire nut splice     │
+│ Ground ─────────→ Switch + wire nut   │
+└──────────────────────────────────────┘
+```
+
+##### Switch Box 2 (Second Main Light Switch):  
+```
+Wire Connections in Box:
+┌──────────────────────────────────────┐
+│ Incoming 14-3 Cable | Outgoing 14-3  │
+│ (from switch 1)      | (to light)     │
+│                      |                │
+│ Red wire ───────→ T1 terminal         │
+│ Black wire ─────→ T2 terminal         │
+│ Hot to light ───→ COM terminal        │
+│ White (Neutral) → Wire nut splice     │
+│ Ground ─────────→ Switch + wire nut   │
+└──────────────────────────────────────┘
+```
+
+#### Vanity Light 3-Way Switch Configuration:
+
+##### Vanity Switch 1:
+```
+Wire Connections:
+- Hot from circuit ────→ COM terminal
+- Red traveler ───────→ T1 terminal  
+- Black traveler ─────→ T2 terminal
+- Neutral ────────────→ Wire nut (pass through)
+- Ground ─────────────→ Switch + wire nut
+```
+
+##### Vanity Switch 2:
+```
+Wire Connections:
+- Red traveler ───────→ T1 terminal
+- Black traveler ─────→ T2 terminal
+- Hot to vanity light ─→ COM terminal
+- Neutral ────────────→ Wire nut (pass through)  
+- Ground ─────────────→ Switch + wire nut
+```
+
+#### 3-Way Switch Wiring Rules:
+1. **COM terminal**: Always connects to hot source OR switched hot to load
+2. **T1 and T2**: Connect traveler wires between switches (T1 to T1, T2 to T2)
+3. **Neutral**: Never connects to 3-way switch terminals (wire nut splice only)
+4. **Ground**: Always connect to switch ground screw and splice with other grounds
+
 ##### Main Light Switches:
 ```
 Switch 1 (Power Source):        Switch 2 (Load Side):
@@ -171,16 +300,98 @@ Switch 1 (Power Source):        Switch 2 (Load Side):
 Similar configuration but with separate hot source from main circuit
 ```
 
-#### Step 5: Single Pole Fan Switch
+#### Step 5: Single Pole Fan Switch Wiring
+
+### Detailed Single Pole Switch Wiring Guide
+
+#### Single Pole Switch Terminal Identification:
 ```
-Fan Switch Connections:
+Single Pole Switch Back View:
 ┌─────────────────┐
-│  SINGLE POLE    │
-│  Hot  Load  Gnd │
-└───┬────┬────┬───┘
-    │    │    └─ Ground to fan and box
-    │    └────── Control wire to fan
-    └─────────── Hot from power source
+│    HOT IN       │ ← Input terminal (brass screw)
+│                 │
+│   HOT OUT       │ ← Output terminal (brass screw)  
+│                 │
+│    GROUND       │ ← Ground terminal (green screw)
+└─────────────────┘
+```
+
+#### Fan Switch Wiring Configuration:
+```
+Fan Switch Box Connections:
+┌────────────────────────────────────────┐
+│ Incoming 14-2 Cable | Control to Fan   │
+│ (continuous power)   | (switched hot)   │
+│                      |                  │
+│ Hot (Black) ────→ HOT IN terminal       │
+│ Switch Hot ─────→ HOT OUT terminal      │
+│ Neutral (White) → Wire nut (no switch)  │
+│ Ground ─────────→ Switch + wire nut     │
+└────────────────────────────────────────┘
+```
+
+#### Step-by-Step Fan Switch Wiring:
+1. **Identify wires** in switch box:
+   - Continuous hot (black) from circuit
+   - Neutral (white) - does NOT connect to switch
+   - Ground (bare/green)
+   - Control wire (black) going back to fan
+
+2. **Make connections**:
+   - Continuous hot → HOT IN terminal
+   - Control wire to fan → HOT OUT terminal  
+   - Neutral → wire nut splice (bypass switch)
+   - Ground → switch ground screw + wire nut with other grounds
+
+3. **Fan control operation**:
+   - Switch OFF: No power to fan
+   - Switch ON: Hot power sent to fan via control wire
+
+#### Important Fan Switch Notes:
+- **Hot pass-through**: Continuous power flows through fan location to reach switch
+- **Control wire**: Separate wire carries switched power back to fan
+- **Neutral handling**: Neutral never connects to single pole switch terminals
+- **Switch location**: At end of circuit but controls fan in middle of circuit
+
+**Important**: The fan switch receives continuous hot power from the circuit that passes through the fan location. The switch then sends switched hot back to the fan for control.
+
+### Switch Wiring Comparison Chart
+
+#### Quick Reference Guide:
+```
+┌─────────────────┬─────────────────┬─────────────────┐
+│   GFCI OUTLET   │   3-WAY SWITCH  │ SINGLE POLE SW  │
+├─────────────────┼─────────────────┼─────────────────┤
+│ LINE: Hot In    │ COM: Hot/Load   │ HOT IN: Source  │
+│ LINE: Neutral   │ T1: Traveler 1  │ HOT OUT: Load   │
+│ LINE: Ground    │ T2: Traveler 2  │ GROUND: Safety  │
+│ LOAD: Hot Out   │ GND: Safety     │                 │
+│ LOAD: Neutral   │                 │                 │
+│ LOAD: Ground    │                 │                 │
+└─────────────────┴─────────────────┴─────────────────┘
+```
+
+#### Terminal Connection Rules:
+1. **GFCI Outlet**:
+   - LINE side: Connects to electrical panel
+   - LOAD side: Connects to downstream devices
+   - Provides protection for entire downstream circuit
+
+2. **3-Way Switches**:
+   - COM terminal: Hot input (first switch) OR switched output (second switch)
+   - T1 & T2: Traveler wires between switches
+   - Neutral: Never connects to switch (wire nut splice only)
+
+3. **Single Pole Switch**:
+   - Hot terminals: Input and output (both brass colored)
+   - Neutral: Bypasses switch via wire nut
+   - Controls one device from one location
+
+#### Common Wiring Mistakes to Avoid:
+- **GFCI**: Reversing LINE/LOAD connections (disables protection)
+- **3-Way**: Connecting neutral to switch terminals (causes malfunction)
+- **Single Pole**: Using wrong terminals for hot wires (no control)
+- **All switches**: Forgetting ground connections (safety hazard)
 ```
 
 ### Phase 3: Testing and Verification

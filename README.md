@@ -64,7 +64,7 @@ ELECTRICAL PANEL
       | 14-2 w/Ground
       ↓
 ┌─────────────────┐
-│  EXHAUST FAN    │
+│  EXHAUST FAN    │ ← Hot wire passes through; controlled by switch downstream
 └─────────────────┘
       |
       | 14-3 w/Ground
@@ -122,10 +122,23 @@ ELECTRICAL PANEL
 - **Ground**: Green/bare ground wire
 
 ### Single Pole Fan Switch:
-- **Hot In**: Black wire from power source
-- **Hot Out**: Black wire to fan
+- **Hot In**: Black wire from continuous circuit power
+- **Hot Out**: Black wire back to fan (control wire)
 - **Neutral**: White wire (pigtailed in box)
 - **Ground**: Green/bare ground wire
+
+**Note**: The fan switch receives continuous power from the circuit but sends switched power back to the fan location.
+
+## Fan Control Configuration
+
+**Important**: The exhaust fan is controlled by a switch located downstream from the fan itself. Here's how this works:
+
+1. **Continuous Hot Wire**: Runs from the main light → through the fan junction box → continues to the switch boxes
+2. **Fan Location**: Between the main light and the switch boxes
+3. **Fan Switch Location**: At the end of the circuit in the final switch box
+4. **Control Method**: Fan switch sends switched hot wire back to the fan
+
+This configuration allows the fan switch to be grouped with other switches while the fan is positioned optimally in the ceiling.
 
 ## Installation Notes
 

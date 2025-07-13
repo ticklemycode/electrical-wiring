@@ -16,20 +16,20 @@ flowchart TD
     
     E -->|14-3 w/Ground<br/>Switched Hot, Red Traveler, Black Traveler, Neutral, Ground| F[Main Light Fixture<br/>LED Compatible]
     
-    F -->|14-2 w/Ground<br/>Hot, Neutral, Ground| G[Exhaust Fan<br/>CFM Rated]
+    F -->|14-2 w/Ground<br/>Hot Pass-Through, Neutral, Ground| G[Exhaust Fan<br/>CFM Rated]
     
-    G -->|14-3 w/Ground<br/>Hot, Red Traveler, Black Traveler, Neutral, Ground| H[Main Switch 2<br/>3-Way Switch]
+    G -->|14-3 w/Ground<br/>Hot Pass-Through, Red Traveler, Black Traveler, Neutral, Ground| H[Main Switch 2<br/>3-Way Switch]
     
-    H -->|14-3 w/Ground<br/>Red Traveler, Black Traveler, Neutral, Ground| I[Vanity Switch 2<br/>3-Way Switch]
+    H -->|14-3 w/Ground<br/>Hot Continuous, Red Traveler, Black Traveler, Neutral, Ground| I[Vanity Switch 2<br/>3-Way Switch]
     
-    I -->|14-2 w/Ground<br/>Hot, Neutral, Ground| J[Fan Switch<br/>Single Pole]
+    I -->|14-2 w/Ground<br/>Hot Continuous, Neutral, Ground| J[Fan Switch<br/>Single Pole]
     
     %% 3-Way Control Connections
     D -.->|Traveler Wires<br/>Control Signal| I
     E -.->|Traveler Wires<br/>Control Signal| H
     
     %% Fan Control
-    J -.->|Switched Hot<br/>Control Wire| G
+    J -.->|Switched Hot<br/>Control Wire Back to Fan| G
     
     %% Styling
     classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
@@ -43,6 +43,22 @@ flowchart TD
     class C,F,G fixtureStyle
     class D,E,H,I,J switchStyle
 ```
+
+## Fan Control Power Flow Explanation
+
+**Important Note**: The fan switch is located at the END of the circuit but controls the fan in the MIDDLE of the circuit. Here's how it works:
+
+### Power Path to Fan Switch:
+1. **Continuous Hot Wire**: Runs from GFCI → Vanity Light → Switch Box 1 → Main Light → **Fan (passes through)** → Switch Box 2 → Fan Switch
+2. **Fan Switch Location**: Physical end of the circuit run
+3. **Fan Location**: Middle of the circuit (between main light and switch box 2)
+
+### Fan Control Method:
+- **Hot Wire**: Continues past the fan to reach the fan switch
+- **Switched Hot**: Fan switch sends control signal BACK to fan via separate wire
+- **Result**: Fan switch can turn fan ON/OFF even though it's downstream
+
+This is a common electrical configuration where the switch controlling a device is not physically adjacent to that device.
 
 ## 3-Way Switch Control Logic Diagram
 
