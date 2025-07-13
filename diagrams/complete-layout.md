@@ -24,7 +24,7 @@ BATHROOM ELECTRICAL LAYOUT
     │  │  (3-way)    │                                       │
     │  └─────────────┘                                       │
     │         │                                               │
-    │         │ 14-2 w/Ground (switched hot)                │
+    │         │ 14-3 w/Ground (3-way switching via fixture)   │
     │         ↓                                               │
     │  ┌─────────────┐                                       │
     │  │ VANITY LIGHT│                                       │

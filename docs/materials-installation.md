@@ -185,8 +185,8 @@ Load Percentage: 430W ÷ 1800W = 24% (Well within safe limits)
 Cable Run Sequence:
 1. Panel → GFCI Outlet (14-2)
 2. GFCI → Vanity Switch 1 (14-2)
-3. Vanity Switch 1 → Vanity Light (14-2, switched hot)
-4. Vanity Switch 1 → Combined Switch Box (14-3)
+3. Vanity Switch 1 → Vanity Light (14-3, switching junction)
+4. Vanity Light → Combined Switch Box (14-3, switching completion)
 5. Combined Switch Box → Main Switch 2 (14-3)
 6. Main Switch 2 → Main Light (14-2)
 7. Main Light → Fan (14-2, hot pass-through)
@@ -275,24 +275,24 @@ Wire Connections in Box:
 ```
 Wire Connections:
 - Hot from GFCI ──────→ COM terminal (input)
-- Switched hot ───────→ TO VANITY LIGHT (output from COM)
-- Red traveler ───────→ T1 terminal (to VS2)
-- Black traveler ─────→ T2 terminal (to VS2)
-- Neutral ────────────→ Wire nut (pass through)
+- Black to light ─────→ Connected to white going to VS2 (at fixture)
+- White to light ─────→ T2 terminal (direct hot feed to fixture)
+- Red traveler ───────→ T1 terminal (pass-through to VS2 via fixture)
+- Neutral ────────────→ Wire nut (pass through to circuit)
 - Ground ─────────────→ Switch + wire nut
 ```
 
 ##### Vanity Switch 2 (in combined switch box):
 ```
 Wire Connections:
-- Hot from circuit ───→ COM terminal (spliced from incoming hot)
-- Red traveler ───────→ T1 terminal (from VS1)
-- Black traveler ─────→ T2 terminal (from VS1)
-- Neutral ────────────→ Wire nut (pass through)  
+- White from fixture ─→ COM terminal (carries hot from VS1 black junction)
+- Red traveler ───────→ T1 terminal (from VS1 via fixture)
+- Black from fixture ─→ T2 terminal (switched hot return from light)
+- Neutral ────────────→ Wire nut (pass through to circuit)  
 - Ground ─────────────→ Switch + wire nut
 ```
 
-**Key Point**: VS1 outputs switched hot directly to vanity light fixture. The 3-way switching works through the traveler coordination between VS1 and VS2.
+**Key Point**: The switching junction occurs AT THE VANITY LIGHT FIXTURE. VS1 black connects to white going to VS2, VS1 white feeds the light directly, and the light's black returns to VS2.
 
 #### 3-Way Switch Wiring Rules:
 1. **COM terminal**: Always connects to hot source OR switched hot to load

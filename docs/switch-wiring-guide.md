@@ -39,25 +39,26 @@ From Switch 1 (14-3):         To Light Fixture (14-2):
 
 ## Vanity Light 3-Way Wiring Configuration
 
-**IMPORTANT**: The vanity light operates like a normal 3-way switched light - you can turn it ON/OFF from either switch location. Power flows from GFCI to Vanity Switch 1 first, then to the light fixture.
+**IMPORTANT**: The vanity light operates as a 3-way switched light where the switching junction occurs **at the light fixture**. Power flows from GFCI to Vanity Switch 1, then through the vanity light fixture to create the switching junction for Vanity Switch 2.
 
 ### Vanity Switch 1 (Receives Power from GFCI):
 ```
-From GFCI (14-2 Cable):          To Vanity Light (14-2):        To Combined Box (14-3):
-- Hot (Black)     →  COM         - Switched Hot → Light        - Hot Continuation  → Hot feed
-- Neutral (White) →  Pass-through - Neutral      → Light        - 🔴 Traveler 1 (Red)  → T1
-- Ground (Bare)   →  Switch ground- Ground       → Light        - ⚫ Traveler 2 (Black)→ T2
-                                                                - Neutral (White)   → Pass-through
-                                                                - Ground (Bare)     → Continue
+From GFCI (14-2 Cable):          To Vanity Light (14-3):        
+- Hot (Black)     →  COM         - Black (from COM) → White to VS2 junction
+- Neutral (White) →  Pass-through - White (from T2)  → Light fixture hot
+- Ground (Bare)   →  Switch ground- Red (from T1)    → Red pass-through to VS2
+                                 - Neutral (White)   → Pass-through to circuit
+                                 - Ground (Green)    → Continue to VS2
 ```
 
 ### How Vanity Light Switching Works:
-The vanity light uses **standard 3-way switch control** where:
+The vanity light uses **3-way switch control through the fixture** where:
 1. **Hot wire**: From GFCI to Vanity Switch 1 COM terminal
-2. **Switched hot**: From VS1 COM output to vanity light fixture
-3. **Traveler control**: VS1 and VS2 coordinate through red/black travelers
-4. **Light turns ON**: When both switches align to complete the circuit
-5. **Light turns OFF**: When switches are in different positions
+2. **Black from VS1**: Connected to white wire going to VS2 in light fixture
+3. **White from VS1**: Direct hot feed to vanity light fixture
+4. **Red wire**: Pass-through traveler between VS1 and VS2 via light fixture
+5. **Black from light**: Switched hot return to VS2 T2 terminal
+6. **Light turns ON**: When switch positions complete the circuit through VS2
 
 **Important**: This is normal 3-way switching - both switches control the same light.
 
@@ -75,10 +76,10 @@ Wire Connections in Combined Box:
 #### Vanity Switch 2 (3-Way for Vanity Light):
 ```
 Wire Connections in Combined Box:
-- Hot (spliced from incoming) →  COM      - Hot (spliced)      →  COM (vanity control)
-- Traveler 1 (Red)           →  T1        - Traveler 2 (Black) →  T2
-- From Vanity Switch 1        →  T1,T2    - To vanity circuit   →  Controlled output
-- Ground (from ground bundle) →  Switch ground
+- White from Light Fixture   →  COM      - This carries hot from VS1 black
+- Red (from Vanity Switch 1) →  T1       - Red traveler pass-through
+- Black (from Light Fixture)→  T2       - Black switched hot from fixture
+- Ground (from ground bundle)→  Switch ground
 ```
 
 #### Fan Switch (Single Pole):
@@ -98,22 +99,25 @@ Wire Connections in Combined Box:
 ```
 1. GFCI provides HOT → Vanity Switch 1 COM terminal
                     ↓
-2. VS1 COM output → Vanity Light Fixture (switched hot)
+2. VS1 black output → Connected to white wire to VS2 (at light fixture)
                     ↓
-3. VS1 travelers → VS2 travelers (coordinate switching)
+3. VS1 white output → Direct to vanity light fixture (hot feed)
                     ↓
-4. When VS1 & VS2 align → Complete circuit → Light ON
-   When VS1 & VS2 differ → Broken circuit → Light OFF
+4. Light fixture black → VS2 T2 terminal (switched hot return)
                     ↓
-5. Hot continuation → Combined switch box for other circuits
+5. VS1 red traveler → VS2 red traveler (switching control)
+                    ↓
+6. When VS1 & VS2 positions complete path → Light ON
+   When positions break path → Light OFF
 ```
 
 ### What Each Wire Does:
 - **Black from GFCI**: Provides hot to VS1 COM terminal  
-- **Black to vanity light**: Switched hot output from VS1 COM
-- **Red in 14-3 cable**: Traveler wire between VS1 and VS2 ONLY
-- **Black in 14-3 cable**: Second traveler wire between VS1 and VS2 ONLY
-- **White (neutral)**: Direct path from GFCI through switches to light
+- **Black from VS1**: Connected to white wire going to VS2 (switching junction)
+- **White from VS1**: Direct hot feed to vanity light fixture
+- **Red in 14-3 cable**: Traveler wire pass-through between VS1 and VS2 via fixture
+- **Black from light fixture**: Switched hot output to VS2 T2 terminal  
+- **White (neutral)**: Direct path through circuit for other devices
 - **Ground**: Safety ground for all devices
 
 ### The Switching Logic:
@@ -152,31 +156,28 @@ GFCI LOAD Side → Vanity Light Junction Box:
 
 #### Vanity Light Fixture Connections:
 ```
-Junction Box Connections (Switch Loop Method):
-┌──────────────────────────────────────────┐
-│ From GFCI (14-2) │ To Switch 1 (14-3)   │
-│                  │                       │
-│ Hot (Black) ─────┼→ Hot to switch (Black) │
-│       │          │   (for control)       │
-│       └─────────→ Fixture Hot (Black)    │
-│                  │   (power available)   │
-│ Neutral (White) ─┼→ Switch pass-through    │
-│       │          │   (wire nut - not to   │
-│       │          │    switch terminals)   │
-│       └─────────→ Fixture Neutral (White)│
-│                  │   (direct to panel)    │
-│                  │                       │
-│ Ground (Bare) ───┼→ Ground (Bare)        │
-│       │          │                       │
-│       └─────────→ Fixture Ground (Green) │
-│                  │                       │
-│                  │ Red Wire: ONLY between │
-│                  │ switches - NOT to      │
-│                  │ fixture!              │
-└──────────────────────────────────────────┘
+Junction Box Connections (3-Way Switching Junction):
+┌────────────────────────────────────────────────────────────┐
+│ From VS1 (14-3)        │ To VS2 (14-3)     │ To Fixture    │
+│                        │                   │               │
+│ Black (from VS1 COM) ──┼→ White to VS2 ────┼→ (junction)   │
+│                        │   (switching hot) │               │
+│ White (from VS1 T2) ───┼→ Fixture Hot ─────┼→ Light Hot    │
+│                        │   (direct feed)   │               │
+│ Red (from VS1 T1) ─────┼→ Red to VS2 ──────┼→ (pass-thru)  │
+│                        │   (traveler)      │               │
+│ Fixture Black ─────────┼→ Black to VS2 ────┼→ Light Return │
+│   (switched return)    │   (to T2 terminal)│               │
+│                        │                   │               │
+│ Neutral (White) ───────┼→ Neutral continue ─┼→ Fixture Neut │
+│                        │   (to circuit)    │               │
+│                        │                   │               │
+│ Ground (Green) ────────┼→ Ground continue ──┼→ Fixture Grnd │
+│                        │   (to circuit)    │               │
+└────────────────────────────────────────────────────────────┘
 
-Note: Vanity light operates normally (ON/OFF control from both switches).
-      The hot path is switched by the 3-way system.
+Note: Vanity light switching junction occurs AT THE FIXTURE.
+      VS1 and VS2 coordinate through this junction point.
 ```
 
 #### Main Light Fixture Connections:

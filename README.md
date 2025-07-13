@@ -25,7 +25,7 @@ Panel → All Devices & Boxes → Return to Panel
 ### Power Flow Sequence
 1. **GFCI Outlet** (Power entry point)
 2. **Vanity Switch #1** (separate box - controls vanity light)
-3. **Vanity Light Fixture** (switched from VS1)
+3. **Vanity Light Fixture** (receives hot via 14-3 cable from VS1, switching junction for VS2)
 4. **Combined Switch Box** (Main Switch #1, Vanity Switch #2, Fan Switch)
 5. **Main Light Switch #2** (separate box)
 6. **Main Light Fixture**
@@ -127,10 +127,12 @@ ELECTRICAL PANEL
 - **Ground (Bare/Green)**: Connects all switches and fixtures
 
 ### Vanity Light 3-Way Switches:
-- **Hot (Black)**: Tapped from main power feed
-- **Traveler Wires (Red & Black)**: Run between both vanity 3-way switches  
-- **Switched Hot**: From common terminal to vanity light fixture
-- **Neutral (White)**: Runs continuously to vanity light fixture
+- **Hot (Black)**: From GFCI to VS1 COM terminal
+- **Black from VS1**: Connected to white wire going to VS2 in vanity light fixture
+- **White from VS1**: Direct hot feed to vanity light fixture  
+- **Red Traveler**: Pass-through between VS1 and VS2 via vanity light
+- **Black from Light**: Switched hot output to VS2 T2 terminal
+- **Neutral (White)**: Runs continuously through circuit for other devices
 - **Ground (Bare/Green)**: Connects all switches and fixtures
 
 ## Switch Terminal Connections
@@ -262,8 +264,8 @@ Panel → GFCI → Vanity Switch 1 → Vanity Light (switched)
 
 **Cable Types by Connection:**
 - GFCI → Vanity Switch 1: **14-2** (hot, neutral, ground)
-- Vanity Switch 1 → Vanity Light: **14-2** (switched hot, neutral, ground)  
-- Vanity Switch 1 → Combined Box: **14-3** (hot continuation, travelers, neutral, ground)
+- Vanity Switch 1 → Vanity Light: **14-3** (hot to VS2, travelers, neutral, ground)  
+- Vanity Light → Combined Box: **14-3** (white from VS1 black, red pass-through, black from fixture, neutral, ground)
 - Combined Box → Main Switch 2: **14-3** (switched hot, travelers, neutral, ground)
 - Main Switch 2 → Main Light: **14-2** (switched hot, neutral, ground)
 - Main Light → Fan → Combined Box: **14-2** (pass-through + control)

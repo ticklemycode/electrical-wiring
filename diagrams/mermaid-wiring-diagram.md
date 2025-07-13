@@ -7,7 +7,7 @@ This document provides a detailed Mermaid flowchart diagram of the bathroom elec
 ```mermaid
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
-    A[Electrical Panel<br/>15A Breaker] -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| B[GFCI Outlet<br/>15A, 120V]
+    A["Electrical Panel<br/>15A Breaker"] -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| B["GFCI Outlet<br/>15A, 120V"]
      B -->|14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| D[Vanity Switch 1<br/>3-Way Switch]
 
     D -->|14-3 Cable<br/>⚫ Hot: Black<br/>🔴 Traveler: Red<br/>⚪ Neutral: White<br/>🟢 Ground: Bare| C[Vanity Light Fixture<br/>LED Compatible]
@@ -118,7 +118,7 @@ flowchart LR
 %%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     subgraph "Electrical Panel"
-        PANEL[15A Breaker<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare]
+        PANEL["15A Breaker<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare"]
     end
     
     subgraph "Box 1 - GFCI Outlet"
@@ -141,7 +141,7 @@ flowchart TD
     subgraph "Box 4 - Combined Switch Box"
         direction TB
         COMB_MAIN[Main Switch 1<br/>⚫ COM ← Hot Pigtail<br/>🔴 T1 ↔ Red to MS2<br/>⚫ T2 ↔ Black to MS2<br/>🟢 GND ← Ground Pigtail]
-        COMB_VANITY[Vanity Switch 2<br/>⚪ COM ← White (from Black VS1)<br/>🔴 T1 ↔ Red Pass-Through<br/>⚫ T2 ↔ Black from Light<br/>🟢 GND ← Ground Pigtail]
+        COMB_VANITY["Vanity Switch 2<br/>⚪ COM ← White (from Black VS1)<br/>🔴 T1 ↔ Red Pass-Through<br/>⚫ T2 ↔ Black from Light<br/>🟢 GND ← Ground Pigtail"]
         COMB_FAN[Fan Switch<br/>⚫ LINE ← Hot Pigtail<br/>⚫ LOAD → Fan Control<br/>🟢 GND ← Ground Pigtail]
         COMB_BUNDLES[Wire Bundles<br/>⚫ Hot Distribution<br/>⚪ Neutral Pass-Through<br/>🟢 Ground Collection]
         
@@ -253,10 +253,10 @@ flowchart TD
     subgraph "3-Way Switch Logic - Main Light"
         direction TB
         
-        STATE1[Switch 1: ↑ UP<br/>Switch 2: ↑ UP<br/>Result: 💡 LIGHT OFF]
-        STATE2[Switch 1: ↑ UP<br/>Switch 2: ↓ DOWN<br/>Result: 🔆 LIGHT ON]
-        STATE3[Switch 1: ↓ DOWN<br/>Switch 2: ↑ UP<br/>Result: 🔆 LIGHT ON]
-        STATE4[Switch 1: ↓ DOWN<br/>Switch 2: ↓ DOWN<br/>Result: 💡 LIGHT OFF]
+        STATE1["Switch 1: ↑ UP<br/>Switch 2: ↑ UP<br/>Result: 💡 LIGHT OFF"]
+        STATE2["Switch 1: ↑ UP<br/>Switch 2: ↓ DOWN<br/>Result: 🔆 LIGHT ON"]
+        STATE3["Switch 1: ↓ DOWN<br/>Switch 2: ↑ UP<br/>Result: 🔆 LIGHT ON"]
+        STATE4["Switch 1: ↓ DOWN<br/>Switch 2: ↓ DOWN<br/>Result: 💡 LIGHT OFF"]
         
         STATE1 --> STATE2
         STATE2 --> STATE3
@@ -307,7 +307,7 @@ flowchart TD
     end
     
     subgraph "Load Summary"
-        TOTAL[📊 Total Load: 430W<br/>Circuit Usage: 24%<br/>Available: 1370W]
+        TOTAL["📊 Total Load: 430W<br/>Circuit Usage: 24%<br/>Available: 1370W"]
     end
     
     BREAKER --> GFCI
@@ -455,7 +455,7 @@ flowchart TD
     end
     
     subgraph "Vanity Light to Combined Box (14-3)"
-        V9[⚪ White from Black VS1 Junction] --> C2[⚪ VS2 COM Terminal]
+        V9["⚪ White from Black VS1 Junction"] --> C2["⚪ VS2 COM Terminal"]
         V10[🔴 Red Pass-Through] --> C3[🔴 VS2 T1 Terminal]
         V11[⚫ Black from Light Fixture] --> C4[⚫ VS2 T2 Terminal]
         V12[⚪ Neutral Continue] --> C5["⚪ Neutral Bundle Wire Nut"]
