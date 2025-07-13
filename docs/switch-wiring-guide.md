@@ -43,12 +43,12 @@ From Switch 1 (14-3):         To Light Fixture (14-2):
 
 ### Vanity Switch 1 (Receives Power from GFCI):
 ```
-From GFCI (14-2 Cable):          To Vanity Light (14-2):     To Combined Box (14-3):
-- Hot (Black)     →  COM         - Switched Hot → Light      - Hot Continuation  → Hot feed
-- Neutral (White) →  Pass-through - Neutral      → Light      - Traveler 1 (Red)  → T1
-- Ground (Bare)   →  Switch ground- Ground       → Light      - Traveler 2 (Black)→ T2
-                                                              - Neutral (White)   → Pass-through
-                                                              - Ground (Bare)     → Continue
+From GFCI (14-2 Cable):          To Vanity Light (14-2):        To Combined Box (14-3):
+- Hot (Black)     →  COM         - Switched Hot → Light        - Hot Continuation  → Hot feed
+- Neutral (White) →  Pass-through - Neutral      → Light        - 🔴 Traveler 1 (Red)  → T1
+- Ground (Bare)   →  Switch ground- Ground       → Light        - ⚫ Traveler 2 (Black)→ T2
+                                                                - Neutral (White)   → Pass-through
+                                                                - Ground (Bare)     → Continue
 ```
 
 ### How Vanity Light Switching Works:
@@ -160,7 +160,6 @@ Junction Box Connections (Switch Loop Method):
 │       │          │   (for control)       │
 │       └─────────→ Fixture Hot (Black)    │
 │                  │   (power available)   │
-│                  │                       │
 │ Neutral (White) ─┼→ Switch pass-through    │
 │       │          │   (wire nut - not to   │
 │       │          │    switch terminals)   │
@@ -442,6 +441,16 @@ Combined Switch Box     →    Exhaust Fan Junction Box
 └─ Bare (Ground)        →    Green to fan motor + fan housing
 ```
 
+### Vanity Switch 1 Terminal Connections:
+```
+⚫ COM Terminal  ← Black hot wire from GFCI (input)
+⚫ COM Terminal  → Black switched hot to vanity light (output)
+🔴 T1 Terminal   → Red traveler wire to VS2 T1 (14-3 cable)
+⚫ T2 Terminal   → Black traveler wire to VS2 T2 (14-3 cable)  
+🟢 Ground Screw  ← Bare ground wire (spliced)
+⚪ Neutral       → Wire nut only (pass-through, not connected to switch)
+```
+
 ### Wire Function Summary by Location:
 
 #### At GFCI Outlet:
@@ -579,7 +588,7 @@ From Vanity Switch 1 → To Combined Switch Box (14-3):
 ├─ White (Neutral) ────→ Neutral bundle (wire nut)
 └─ Bare (Ground) ──────→ Ground bundle (wire nut)
 
-From Combined Switch Box → To Main Light (14-3):
+From Combined Switch Box → To Main Switch 2
 ├─ Black (Switched) ───→ From Main Switch 1 COM terminal
 ├─ Red (Traveler) ─────→ Main Switch 1 T1 terminal
 ├─ Black (Traveler) ───→ Main Switch 1 T2 terminal
