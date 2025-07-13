@@ -149,9 +149,10 @@ flowchart TD
     end
     
     subgraph "Box 4 - Main Switch 2"
-        MS2_SWITCH["Main Switch 2<br/>⚫ COM → Switched Hot to Main Light<br/>🔴 T1 ← Red Traveler from MS1<br/>⚫ T2 ← Black Traveler from MS1<br/>🟢 GND ← Ground"]
-        MS2_NEUTRAL["⚪ TRUE Neutral Pass-Through<br/>(Always Neutral - Wire Nut Only)"]
+        MS2_SWITCH["Main Switch 2<br/>⚫ COM INPUT ← Black Hot from Vanity Circuit<br/>⚫ COM OUTPUT → Switched Hot to Main Light<br/>🔴 T1 ← Red Traveler from MS1<br/>⚫ T2 ← Black Traveler from MS1<br/>🟢 GND ← Ground"]
+        MS2_NEUTRAL["⚪ TRUE Neutral Pass-Through<br/>(From Combined Box to Main Light)"]
         MS2_HOT["⚪ WHITE HOT from Vanity Light<br/>(Switched Hot Return - NOT Neutral)<br/>Continues to Combined Box"]
+        MS2_POWER["⚫ Hot Power Flow<br/>Vanity Circuit → MS2 COM → Main Light"]
     end
     
     subgraph "Box 5 - Main Light"
@@ -561,18 +562,25 @@ Pigtails are short lengths of wire used to connect devices to spliced wires. Her
 #### Box 5 - Main Switch 2:
 **IMPORTANT - Wire Type Clarification:**
 
+**Main Switch 2 Terminal Connections:**
+- **COM INPUT**: Black hot wire from vanity circuit (continuous hot power)
+- **COM OUTPUT**: Black switched hot wire to main light fixture  
+- **T1**: Red traveler from Main Switch 1 (Combined Box)
+- **T2**: Black traveler from Main Switch 1 (Combined Box)
+- **Ground**: Green/bare ground wire
+
 **TRUE NEUTRALS (always neutral):**
-- White wire from incoming 14-2 cable (neutral feed)
+- White wire from Combined Box (neutral feed via travelers)
 - White wire continuing to main light (neutral return)
 
 **WHITE WIRE THAT IS HOT (NOT neutral):**
 - White wire from vanity light fixture (this carries switched hot from vanity)
 - This white wire continues to Combined Box as part of 14-3 cable
 
-**Switch Connections:**
-- COM terminal: Connects to white hot from vanity light
-- Traveler terminals: Red and black from Main Switch 1
-- Ground: Green/bare ground wire
+**Power Flow:**
+- Hot power enters MS2 COM from vanity circuit (black wire)
+- When 3-way switches are in correct position, hot exits MS2 COM to main light
+- Main light is controlled by Main Switch 1 + Main Switch 2 working together
 
 **Wiring Notes:**
 - The white wire from the vanity light is re-identified as hot per NEC 200.7(C)
