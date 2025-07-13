@@ -230,6 +230,21 @@ For complete implementation details, see:
 - 1x Vanity light fixture  
 - 1x Exhaust fan
 
+## Important Cable and Traveler Wire Notes
+
+### Understanding Traveler Wires in 3-Way Circuits
+**Key Point**: Traveler wires are NOT separate wires - they are part of the physical 14-3 cable runs between switches and fixtures.
+
+- **Vanity 3-Way Circuit**: Uses one 14-3 cable from VS1 → Vanity Light, then another 14-3 cable from Vanity Light → Combined Box (VS2)
+- **Main 3-Way Circuit**: Uses one 14-3 cable from Combined Box (MS1) → Main Switch 2
+- **Traveler Function**: The red and either black or white wire in the 14-3 cable carry the switching signals between the two 3-way switches
+- **Physical Installation**: You run complete 14-3 cables, not individual traveler wires
+
+### Cable Run Summary
+- **3 runs of 14-3 cable**: Vanity circuit (2 runs) + Main circuit (1 run)
+- **4 runs of 14-2 cable**: Panel→GFCI, GFCI→VS1, MS2→Main Light, Main Light→Fan→Combined Box
+- **Travelers are embedded**: Red wire + one other wire in each 14-3 cable serve as the traveler pair
+
 ## Troubleshooting Guide
 
 ### 3-Way Switches Not Working:

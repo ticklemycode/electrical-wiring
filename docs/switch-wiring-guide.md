@@ -1,5 +1,22 @@
 # 3-Way Switch Wiring Guide
 
+## Critical Understanding: Traveler Wires and Cable Runs
+
+**IMPORTANT**: Before diving into specific switch connections, understand that "traveler wires" are not separate wires running between switches. They are specific conductors within the 14-3 cables that connect the components.
+
+### Physical Cable Installation
+- **Vanity 3-Way Circuit**: Install two complete 14-3 cables
+  - Cable #1: Vanity Switch 1 → Vanity Light Fixture  
+  - Cable #2: Vanity Light Fixture → Combined Switch Box (Vanity Switch 2)
+- **Main 3-Way Circuit**: Install one complete 14-3 cable
+  - Cable #3: Combined Switch Box (Main Switch 1) → Main Switch 2
+
+### Traveler Wire Function
+Within each 14-3 cable, the **red wire + one other conductor** serve as the "traveler pair":
+- **Red wire**: Always functions as Traveler 1 in 3-way circuits
+- **Black or White wire**: Functions as Traveler 2 (depends on circuit configuration)
+- **Remaining conductor**: Carries either hot power or neutral, depending on location in circuit
+
 ## Understanding 3-Way Switches
 
 3-way switches allow you to control a single light fixture from two different locations. This is essential for the main light and vanity light in your bathroom configuration.
