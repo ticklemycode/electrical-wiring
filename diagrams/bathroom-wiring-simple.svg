@@ -62,27 +62,28 @@
     <text x="423" y="188" style="font: 7px Arial;">GND</text>
     
     <!-- Vanity Light with Junction Box Detail -->
-    <rect x="500" y="100" width="100" height="150" class="fixture" rx="5"/>
+    <rect x="500" y="100" width="100" height="170" class="fixture" rx="5"/>
     <text x="550" y="120" class="label">Vanity Light</text>
-    <text x="550" y="135" class="small">LED Multi-Bulb</text>
+    <text x="550" y="125" class="small">LED Multi-Bulb</text>
     <circle cx="550" cy="150" r="20" fill="#ffeb3b" stroke="#ff8f00" stroke-width="2"/>
     <text x="550" y="155" style="font: 10px Arial; text-anchor: middle;">💡</text>
     <text x="550" y="180" class="small">3-Way Load End</text>
     
-    <!-- Individual bulb representation -->
-    <circle cx="535" cy="145" r="4" fill="#fff300"/>
-    <circle cx="550" cy="145" r="4" fill="#fff300"/>
-    <circle cx="565" cy="145" r="4" fill="#fff300"/>
+    <!-- Individual bulb representation - moved outside main circle -->
+    <circle cx="520" cy="140" r="4" fill="#fff300"/>
+    <circle cx="535" cy="140" r="4" fill="#fff300"/>
+    <circle cx="565" cy="140" r="4" fill="#fff300"/>
+    <circle cx="580" cy="140" r="4" fill="#fff300"/>
     
-    <!-- Wire nuts in junction -->
-    <circle cx="530" cy="200" r="3" fill="#ff5722"/>
-    <text x="525" y="215" style="font: 6px Arial;">Hot</text>
-    <circle cx="550" cy="200" r="3" fill="#ffeb3b"/>
-    <text x="545" y="215" style="font: 6px Arial;">SW</text>
-    <circle cx="570" cy="200" r="3" fill="#9e9e9e"/>
-    <text x="565" y="215" style="font: 6px Arial;">Neut</text>
-    <text x="550" y="230" style="font: 7px Arial; text-anchor: middle;">3 Wire Nuts</text>
-    <text x="550" y="240" style="font: 6px Arial; text-anchor: middle;">Load Connection</text>
+    <!-- Wire nuts in junction - moved down for better spacing -->
+    <circle cx="530" cy="220" r="3" fill="#ff5722"/>
+    <text x="525" y="235" style="font: 6px Arial;">Hot</text>
+    <circle cx="550" cy="220" r="3" fill="#ffeb3b"/>
+    <text x="545" y="235" style="font: 6px Arial;">SW</text>
+    <circle cx="570" cy="220" r="3" fill="#9e9e9e"/>
+    <text x="565" y="235" style="font: 6px Arial;">Neut</text>
+    <text x="550" y="250" style="font: 7px Arial; text-anchor: middle;">3 Wire Nuts</text>
+    <text x="550" y="260" style="font: 6px Arial; text-anchor: middle;">Load Connection</text>
     
     <!-- Main Switch 2 - Critical Junction Box -->
     <rect x="650" y="300" width="120" height="180" class="switch" rx="5"/>
@@ -151,115 +152,120 @@
         <line x1="720" y1="455" x2="710" y2="400" stroke="#4caf50"/>
     </g>
     
-    <!-- Combined Switch Box with Detailed Internal Wiring -->
-    <rect x="850" y="450" width="150" height="200" class="switch" rx="5"/>
+    <!-- Combined Switch Box with Detailed Internal Wiring - Redesigned Layout -->
+    <rect x="850" y="450" width="150" height="220" class="switch" rx="5"/>
     <text x="925" y="470" class="label">Combined Box</text>
     <text x="925" y="485" class="small">4"×4"×2-1/8" Box</text>
     
-    <!-- Detailed Wire Nuts -->
-    <g id="wire-nuts-combined">
+    <!-- Wire Nuts - Reorganized with better spacing -->
+    <g id="wire-nuts-combined-spaced">
+        <!-- Top row: Main wire nuts -->
         <!-- Hot Distribution (RED) -->
-        <circle cx="920" cy="505" r="6" fill="#ff5722" stroke="#000" stroke-width="1"/>
-        <text x="930" y="508" style="font: 6px Arial; font-weight: bold;">RED</text>
-        <text x="920" y="495" style="font: 6px Arial; text-anchor: middle;">Hot Dist</text>
-        <text x="920" y="518" style="font: 5px Arial; text-anchor: middle;">4-Wire</text>
+        <circle cx="870" cy="505" r="6" fill="#ff5722" stroke="#000" stroke-width="1"/>
+        <text x="870" y="495" style="font: 6px Arial; text-anchor: middle; font-weight: bold;">RED</text>
+        <text x="870" y="490" style="font: 5px Arial; text-anchor: middle;">Hot Dist</text>
+        <text x="870" y="520" style="font: 5px Arial; text-anchor: middle;">4-Wire</text>
         
         <!-- Neutral Bundle (GRAY) -->
-        <circle cx="945" cy="505" r="6" fill="#9e9e9e" stroke="#000" stroke-width="1"/>
-        <text x="955" y="508" style="font: 6px Arial; font-weight: bold;">GRAY</text>
-        <text x="945" y="495" style="font: 6px Arial; text-anchor: middle;">Neutral</text>
-        <text x="945" y="518" style="font: 5px Arial; text-anchor: middle;">5-Wire</text>
+        <circle cx="925" cy="505" r="6" fill="#9e9e9e" stroke="#000" stroke-width="1"/>
+        <text x="925" y="495" style="font: 6px Arial; text-anchor: middle; font-weight: bold;">GRAY</text>
+        <text x="925" y="490" style="font: 5px Arial; text-anchor: middle;">Neutral</text>
+        <text x="925" y="520" style="font: 5px Arial; text-anchor: middle;">5-Wire</text>
         
         <!-- Ground Bundle (GREEN) -->
-        <circle cx="970" cy="505" r="6" fill="#4caf50" stroke="#000" stroke-width="1"/>
-        <text x="980" y="508" style="font: 6px Arial; font-weight: bold;">GRN</text>
-        <text x="970" y="495" style="font: 6px Arial; text-anchor: middle;">Ground</text>
-        <text x="970" y="518" style="font: 5px Arial; text-anchor: middle;">6-Wire</text>
+        <circle cx="980" cy="505" r="6" fill="#4caf50" stroke="#000" stroke-width="1"/>
+        <text x="980" y="495" style="font: 6px Arial; text-anchor: middle; font-weight: bold;">GRN</text>
+        <text x="980" y="490" style="font: 5px Arial; text-anchor: middle;">Ground</text>
+        <text x="980" y="520" style="font: 5px Arial; text-anchor: middle;">6-Wire</text>
         
-        <!-- Traveler 1 (GRAY) -->
-        <circle cx="920" cy="530" r="5" fill="#9e9e9e" stroke="#000" stroke-width="1"/>
-        <text x="930" y="533" style="font: 6px Arial; font-weight: bold;">GRAY</text>
-        <text x="920" y="520" style="font: 6px Arial; text-anchor: middle;">Red Trav</text>
-        <text x="920" y="543" style="font: 5px Arial; text-anchor: middle;">3-Wire</text>
+        <!-- Bottom row: Traveler wire nuts -->
+        <!-- Red Traveler (GRAY) -->
+        <circle cx="890" cy="535" r="5" fill="#9e9e9e" stroke="#000" stroke-width="1"/>
+        <text x="890" y="525" style="font: 5px Arial; text-anchor: middle; font-weight: bold;">GRAY</text>
+        <text x="890" y="548" style="font: 5px Arial; text-anchor: middle;">Red Trav</text>
         
-        <!-- Traveler 2 (GRAY) -->
-        <circle cx="950" cy="530" r="5" fill="#9e9e9e" stroke="#000" stroke-width="1"/>
-        <text x="960" y="533" style="font: 6px Arial; font-weight: bold;">GRAY</text>
-        <text x="950" y="520" style="font: 6px Arial; text-anchor: middle;">Blk Trav</text>
-        <text x="950" y="543" style="font: 5px Arial; text-anchor: middle;">3-Wire</text>
+        <!-- Black Traveler (GRAY) -->
+        <circle cx="960" cy="535" r="5" fill="#9e9e9e" stroke="#000" stroke-width="1"/>
+        <text x="960" y="525" style="font: 5px Arial; text-anchor: middle; font-weight: bold;">GRAY</text>
+        <text x="960" y="548" style="font: 5px Arial; text-anchor: middle;">Blk Trav</text>
     </g>
     
-    <!-- Detailed Switch Terminals -->
-    <g id="switches-detailed">
+    <!-- Switches - Moved lower with better spacing -->
+    <g id="switches-detailed-spaced">
         <!-- Main Switch 1 (3-way) -->
-        <rect x="860" y="555" width="35" height="25" fill="#ffc107" rx="2" stroke="#000"/>
-        <text x="877" y="570" style="font: 8px Arial; text-anchor: middle; font-weight: bold;">MS1</text>
-        <text x="877" y="579" style="font: 6px Arial; text-anchor: middle;">3-Way</text>
+        <rect x="860" y="575" width="35" height="25" fill="#ffc107" rx="2" stroke="#000"/>
+        <text x="877" y="588" style="font: 7px Arial; text-anchor: middle; font-weight: bold;">MS1</text>
+        <text x="877" y="597" style="font: 5px Arial; text-anchor: middle;">3-Way</text>
         <!-- Terminal screws -->
-        <circle cx="865" cy="560" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
-        <text x="868" y="563" style="font: 4px Arial;">COM</text>
-        <circle cx="877" cy="560" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
-        <text x="880" y="563" style="font: 4px Arial;">T1</text>
-        <circle cx="889" cy="560" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
-        <text x="892" y="563" style="font: 4px Arial;">T2</text>
-        <circle cx="877" cy="574" r="1.5" fill="#4caf50" stroke="#000" stroke-width="0.5"/>
-        <text x="880" y="577" style="font: 4px Arial;">GND</text>
+        <circle cx="865" cy="580" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
+        <text x="860" y="572" style="font: 4px Arial;">COM</text>
+        <circle cx="877" cy="580" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
+        <text x="872" y="572" style="font: 4px Arial;">T1</text>
+        <circle cx="889" cy="580" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
+        <text x="884" y="572" style="font: 4px Arial;">T2</text>
+        <circle cx="877" cy="592" r="1.5" fill="#4caf50" stroke="#000" stroke-width="0.5"/>
+        <text x="872" y="610" style="font: 4px Arial;">GND</text>
         
         <!-- Vanity Switch 2 (3-way) -->
-        <rect x="905" y="555" width="35" height="25" fill="#ffc107" rx="2" stroke="#000"/>
-        <text x="922" y="570" style="font: 8px Arial; text-anchor: middle; font-weight: bold;">VS2</text>
-        <text x="922" y="579" style="font: 6px Arial; text-anchor: middle;">3-Way</text>
+        <rect x="907" y="575" width="35" height="25" fill="#ffc107" rx="2" stroke="#000"/>
+        <text x="924" y="588" style="font: 7px Arial; text-anchor: middle; font-weight: bold;">VS2</text>
+        <text x="924" y="597" style="font: 5px Arial; text-anchor: middle;">3-Way</text>
         <!-- Terminal screws -->
-        <circle cx="910" cy="560" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
-        <text x="913" y="563" style="font: 4px Arial;">COM</text>
-        <circle cx="922" cy="560" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
-        <text x="925" y="563" style="font: 4px Arial;">T1</text>
-        <circle cx="934" cy="560" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
-        <text x="937" y="563" style="font: 4px Arial;">T2</text>
-        <circle cx="922" cy="574" r="1.5" fill="#4caf50" stroke="#000" stroke-width="0.5"/>
-        <text x="925" y="577" style="font: 4px Arial;">GND</text>
+        <circle cx="912" cy="580" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
+        <text x="907" y="572" style="font: 4px Arial;">COM</text>
+        <circle cx="924" cy="580" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
+        <text x="919" y="572" style="font: 4px Arial;">T1</text>
+        <circle cx="936" cy="580" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
+        <text x="931" y="572" style="font: 4px Arial;">T2</text>
+        <circle cx="924" cy="592" r="1.5" fill="#4caf50" stroke="#000" stroke-width="0.5"/>
+        <text x="919" y="610" style="font: 4px Arial;">GND</text>
         
         <!-- Fan Switch (single pole) -->
-        <rect x="950" y="555" width="35" height="25" fill="#ffc107" rx="2" stroke="#000"/>
-        <text x="967" y="570" style="font: 8px Arial; text-anchor: middle; font-weight: bold;">FAN</text>
-        <text x="967" y="579" style="font: 6px Arial; text-anchor: middle;">1-Pole</text>
+        <rect x="954" y="575" width="35" height="25" fill="#ffc107" rx="2" stroke="#000"/>
+        <text x="971" y="588" style="font: 7px Arial; text-anchor: middle; font-weight: bold;">FAN</text>
+        <text x="971" y="597" style="font: 5px Arial; text-anchor: middle;">1-Pole</text>
         <!-- Terminal screws -->
-        <circle cx="955" cy="560" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
-        <text x="958" y="563" style="font: 4px Arial;">LINE</text>
-        <circle cx="979" cy="560" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
-        <text x="982" y="563" style="font: 4px Arial;">LOAD</text>
-        <circle cx="967" cy="574" r="1.5" fill="#4caf50" stroke="#000" stroke-width="0.5"/>
-        <text x="970" y="577" style="font: 4px Arial;">GND</text>
+        <circle cx="959" cy="580" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
+        <text x="954" y="572" style="font: 4px Arial;">LINE</text>
+        <circle cx="983" cy="580" r="1.5" fill="#b8860b" stroke="#000" stroke-width="0.5"/>
+        <text x="978" y="572" style="font: 4px Arial;">LOAD</text>
+        <circle cx="971" cy="592" r="1.5" fill="#4caf50" stroke="#000" stroke-width="0.5"/>
+        <text x="966" y="610" style="font: 4px Arial;">GND</text>
     </g>
     
-    <!-- Detailed Pigtail Connections -->
-    <g id="pigtails-detailed" stroke-width="1">
-        <!-- Hot pigtails -->
-        <line x1="920" y1="511" x2="865" y2="560" stroke="#000"/>
-        <line x1="920" y1="511" x2="955" y2="560" stroke="#000"/>
-        <text x="890" y="535" style="font: 5px Arial;" transform="rotate(-45 890 535)">Hot</text>
+    <!-- Curved Pigtail Connections - More realistic wiring -->
+    <g id="pigtails-curved" stroke-width="1" fill="none">
+        <!-- Hot pigtails with curves -->
+        <path d="M 870 511 Q 867 540 865 580" stroke="#000"/>
+        <path d="M 870 511 Q 915 540 959 580" stroke="#000"/>
         
-        <!-- Traveler pigtails -->
-        <line x1="920" y1="535" x2="877" y2="560" stroke="#dc3545"/>
-        <line x1="920" y1="535" x2="922" y2="560" stroke="#dc3545"/>
-        <line x1="950" y1="535" x2="889" y2="560" stroke="#000"/>
-        <line x1="950" y1="535" x2="934" y2="560" stroke="#000"/>
-        <text x="920" y="545" style="font: 5px Arial;">Trav</text>
+        <!-- Red Traveler pigtails with curves -->
+        <path d="M 890 530 Q 885 550 877 580" stroke="#dc3545"/>
+        <path d="M 890 530 Q 907 550 924 580" stroke="#dc3545"/>
         
-        <!-- Ground pigtails -->
-        <line x1="970" y1="511" x2="877" y2="574" stroke="#4caf50"/>
-        <line x1="970" y1="511" x2="922" y2="574" stroke="#4caf50"/>
-        <line x1="970" y1="511" x2="967" y2="574" stroke="#4caf50"/>
+        <!-- Black Traveler pigtails with curves -->
+        <path d="M 960 530 Q 925 550 889 580" stroke="#000"/>
+        <path d="M 960 530 Q 948 550 936 580" stroke="#000"/>
         
-        <!-- VS2 neutral connection -->
-        <line x1="945" y1="511" x2="910" y2="560" stroke="#9e9e9e" stroke-dasharray="2,2"/>
-        <text x="930" y="538" style="font: 5px Arial;">Neut</text>
+        <!-- Ground pigtails with curves -->
+        <path d="M 980 511 Q 930 550 877 592" stroke="#4caf50"/>
+        <path d="M 980 511 Q 952 550 924 592" stroke="#4caf50"/>
+        <path d="M 980 511 Q 975 550 971 592" stroke="#4caf50"/>
+        
+        <!-- VS2 special connection (marked white wire) with curve -->
+        <path d="M 925 511 Q 918 540 912 580" stroke="#9e9e9e" stroke-dasharray="2,2"/>
     </g>
     
-    <!-- Box capacity annotation -->
-    <text x="925" y="595" style="font: 7px Arial; text-anchor: middle; font-weight: bold;">5 Wire Nuts, 3 Switches, 12 Pigtails</text>
-    <text x="925" y="605" style="font: 7px Arial; text-anchor: middle;">END OF RUN - 18 Conductor Equivalents</text>
-    <text x="925" y="615" style="font: 6px Arial; text-anchor: middle; font-style: italic;">Box Fill: 18/21 (85%) - Code Compliant</text>
+    <!-- Wire connection labels - positioned to avoid overlap -->
+    <text x="855" y="558" style="font: 5px Arial;">Hot</text>
+    <text x="900" y="558" style="font: 5px Arial;">Trav</text>
+    <text x="945" y="558" style="font: 5px Arial;">Neut</text>
+    <text x="985" y="558" style="font: 5px Arial;">Gnd</text>
+    
+    <!-- Box capacity annotation - moved lower -->
+    <text x="925" y="620" style="font: 7px Arial; text-anchor: middle; font-weight: bold;">5 Wire Nuts, 3 Switches, 12 Pigtails</text>
+    <text x="925" y="632" style="font: 7px Arial; text-anchor: middle;">END OF RUN - 18 Conductor Equivalents</text>
+    <text x="925" y="644" style="font: 6px Arial; text-anchor: middle; font-style: italic;">Box Fill: 18/21 (85%) - Code Compliant</text>
     
     <!-- Main Light with Detailed Connections -->
     <rect x="650" y="500" width="100" height="120" class="fixture" rx="5"/>
@@ -283,24 +289,24 @@
     <line x1="700" y1="570" x2="720" y2="595" stroke="#4caf50" stroke-width="1"/>
     
     <!-- Exhaust Fan with Motor Details -->
-    <rect x="450" y="500" width="100" height="120" class="fixture" rx="5"/>
+    <rect x="450" y="500" width="100" height="140" class="fixture" rx="5"/>
     <text x="500" y="520" class="label">Exhaust Fan</text>
-    <text x="500" y="535" class="small">110 CFM Motor</text>
+    <text x="500" y="525" class="small">110 CFM Motor</text>
     <circle cx="500" cy="550" r="20" fill="#90a4ae" stroke="#37474f" stroke-width="2"/>
     <text x="500" y="555" style="font: 10px Arial; text-anchor: middle;">🌪️</text>
     <text x="500" y="580" class="small">Switch Controlled</text>
     
-    <!-- Motor terminal connections -->
-    <circle cx="480" cy="595" r="3" fill="#000"/>
-    <text x="475" y="607" style="font: 6px Arial;">Hot</text>
-    <circle cx="500" cy="595" r="3" fill="#fff" stroke="#000"/>
-    <text x="495" y="607" style="font: 6px Arial;">Neut</text>
-    <circle cx="520" cy="595" r="3" fill="#4caf50"/>
-    <text x="515" y="607" style="font: 6px Arial;">Gnd</text>
+    <!-- Motor terminal connections - moved down for better spacing -->
+    <circle cx="480" cy="610" r="3" fill="#000"/>
+    <text x="475" y="622" style="font: 6px Arial;">Hot</text>
+    <circle cx="500" cy="610" r="3" fill="#fff" stroke="#000"/>
+    <text x="495" y="622" style="font: 6px Arial;">Neut</text>
+    <circle cx="520" cy="610" r="3" fill="#4caf50"/>
+    <text x="515" y="622" style="font: 6px Arial;">Gnd</text>
     
-    <!-- Motor winding representation -->
-    <circle cx="500" cy="550" r="8" fill="none" stroke="#37474f" stroke-width="1" stroke-dasharray="2,2"/>
-    <text x="500" y="554" style="font: 6px Arial; text-anchor: middle;">Motor</text>
+    <!-- Motor winding representation - moved to avoid text overlap -->
+    <circle cx="500" cy="545" r="8" fill="none" stroke="#37474f" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="500" y="575" style="font: 6px Arial; text-anchor: middle;">Motor Winding</text>
     
     <!-- Cable runs -->
     <path class="cable" d="M 150 375 L 200 375"/>
@@ -310,7 +316,7 @@
     <path class="cable" d="M 770 425 Q 800 425 800 525 Q 800 550 850 550"/>
     <path class="cable" d="M 850 575 L 750 575"/>
     <path class="cable" d="M 650 575 L 550 575"/>
-    <path class="cable" d="M 925 650 Q 925 700 500 700 Q 500 650 500 620"/>
+    <path class="cable" d="M 925 650 Q 925 700 500 700 Q 500 650 500 635"/>
     
     <!-- Individual wires -->
     <line class="wire-hot" x1="150" y1="360" x2="200" y2="360"/>
@@ -358,9 +364,9 @@
     </g>
     
     <!-- Safety notes -->
-    <g transform="translate(300, 50)">
-        <rect x="0" y="0" width="350" height="100" fill="#ffebee" stroke="#f44336" stroke-width="2" rx="3"/>
-        <text x="175" y="20" style="font: bold 11px Arial; text-anchor: middle; fill: #d32f2f;">⚠️ Critical Safety Notes</text>
+    <g transform="translate(650, 50)">
+        <rect x="0" y="0" width="320" height="100" fill="#ffebee" stroke="#f44336" stroke-width="2" rx="3"/>
+        <text x="160" y="20" style="font: bold 11px Arial; text-anchor: middle; fill: #d32f2f;">⚠️ Critical Safety Notes</text>
         <text x="10" y="40" class="warning">• Main Switch 2 has 7 wire nuts - most complex junction</text>
         <text x="10" y="55" class="warning">• White wires from vanity carry HOT - mark with black tape</text>
         <text x="10" y="70" class="warning">• Vanity switching junction occurs at the light fixture</text>
