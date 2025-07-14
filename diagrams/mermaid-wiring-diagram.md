@@ -26,7 +26,7 @@ flowchart TD
     E -.->|"⚫ Switched Hot<br/>Fan Switch → Fan"| H
     
     %% Styling
-    classDef boxPadding padding:15px 25px
+    classDef boxPadding padding:10px 10px
     classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
     classDef gfciStyle fill:#4ecdc4,stroke:#000,stroke-width:2px,color:#000
     classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
@@ -129,7 +129,7 @@ flowchart LR
         FS -->|"⚫ Switched Hot"| FAN
     end
     
-    classDef boxPadding padding:15px 25px
+    classDef boxPadding padding:10px 10px
     classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
     classDef deviceStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
     
@@ -216,7 +216,7 @@ flowchart TD
     COMB_BUNDLES -.-> COMB_VANITY
     COMB_BUNDLES -.-> COMB_FAN
     
-    classDef boxPadding padding:15px 25px
+    classDef boxPadding padding:10px 10px
     classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
     classDef boxStyle fill:#e8f4fd,stroke:#000,stroke-width:2px,color:#000
     classDef deviceStyle fill:#fff3cd,stroke:#000,stroke-width:2px,color:#000
@@ -267,7 +267,7 @@ flowchart LR
     MS1_T1 -.->|"🔴 Red Wire"| MS2_T1
     MS1_T2 -.->|"⚫ Black Wire"| MS2_T2
     
-    classDef boxPadding padding:15px 25px
+    classDef boxPadding padding:10px 10px
     classDef terminalStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
     classDef wireStyle fill:#6c5ce7,stroke:#000,stroke-width:2px,color:#fff
     classDef connectionStyle fill:#e8f4fd,stroke:#000,stroke-width:1px,color:#000
@@ -313,7 +313,7 @@ flowchart TD
         SWITCH2 --> LIGHT_OUT
     end
     
-    classDef boxPadding padding:15px 25px
+    classDef boxPadding padding:10px 10px
     classDef stateStyle fill:#fd79a8,stroke:#000,stroke-width:2px,color:#000
     classDef pathStyle fill:#00b894,stroke:#000,stroke-width:2px,color:#fff
     
@@ -354,7 +354,7 @@ flowchart TD
     FAN --> TOTAL
     FUTURE --> TOTAL
     
-    classDef boxPadding padding:15px 25px
+    classDef boxPadding padding:10px 10px
     classDef capacityStyle fill:#e17055,stroke:#000,stroke-width:3px,color:#fff
     classDef loadStyle fill:#74b9ff,stroke:#000,stroke-width:2px,color:#000
     classDef summaryStyle fill:#00b894,stroke:#000,stroke-width:2px,color:#fff
@@ -388,7 +388,7 @@ flowchart TD
         GFCI_TEST[GFCI Function Test<br/>Monthly Testing]
     end
     
-    classDef boxPadding padding:15px 25px
+    classDef boxPadding padding:10px 10px
     classDef safetyStyle fill:#ff7675,stroke:#000,stroke-width:2px,color:#000
     classDef standardStyle fill:#fdcb6e,stroke:#000,stroke-width:2px,color:#000
     classDef testStyle fill:#55a3ff,stroke:#000,stroke-width:2px,color:#fff
@@ -534,7 +534,7 @@ flowchart TD
         C15 --> F4["⚫ Fan Motor Hot from Switch"]
     end
     
-    classDef boxPadding padding:15px 25px
+    classDef boxPadding padding:10px 10px
     classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
     classDef boxStyle fill:#e8f4fd,stroke:#000,stroke-width:2px,color:#000
     classDef deviceStyle fill:#fff3cd,stroke:#000,stroke-width:2px,color:#000
