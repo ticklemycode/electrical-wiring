@@ -12,7 +12,8 @@
         .tiny { font: 7px Arial; text-anchor: middle; fill: #333; }
         .spec { font: 8px Arial; fill: #666; }
         .wire-hot { stroke: #000; stroke-width: 2.5; fill: none; }
-        .wire-neutral { stroke: #fff; stroke-width: 2.5; fill: none; stroke-dasharray: 4,2; }
+        .wire-neutral { stroke: #000; stroke-width: 3; fill: none; }
+        .wire-neutral-inner { stroke: #fff; stroke-width: 2; fill: none; stroke-dasharray: 3,2; }
         .wire-ground { stroke: #4caf50; stroke-width: 2.5; fill: none; }
         .wire-red { stroke: #f44336; stroke-width: 2.5; fill: none; }
         .wire-white-hot { stroke: #fff; stroke-width: 2.5; fill: none; }
@@ -321,45 +322,80 @@
     <!-- Vanity Switch 1 to Vanity Light (14-3) -->
     <path class="cable" d="M 450 175 L 500 175"/>
     
-    <!-- Vanity Light to Main Switch 2 (14-3) - via cable pass-through -->
-    <path class="cable" d="M 600 175 Q 625 175 625 390 L 650 390"/>
+    <!-- Vanity Light to Main Switch 2 (14-3) - pass-through for vanity circuit -->
+    <path class="cable" d="M 600 175 Q 625 175 625 350 Q 625 390 650 390"/>
     
-    <!-- Main Switch 2 to Combined Box (14-3 travelers) -->
+    <!-- Main Switch 2 to Combined Box (14-3 travelers for main light) -->
     <path class="cable" d="M 770 390 Q 800 390 800 525 L 850 525"/>
     
     <!-- Main Switch 2 to Main Light (14-2 switched output) -->
     <path class="cable" d="M 710 480 L 710 500"/>
     
-    <!-- Combined Box to Main Light (return path for main light control) -->
-    <path class="cable" d="M 850 575 L 750 575"/>
-    
     <!-- Main Light to Exhaust Fan (14-2 pass-through) -->
-    <path class="cable" d="M 700 620 Q 650 620 550 620"/>
+    <path class="cable" d="M 700 620 Q 575 620 550 620"/>
+    
+    <!-- Combined Box back to Main Light (for main light control) -->
+    <path class="cable" d="M 850 575 Q 825 575 825 560 Q 800 560 750 560"/>
     
     <!-- Combined Box to Exhaust Fan (14-2 fan control) -->
-    <path class="cable" d="M 925 650 Q 925 700 500 700 Q 500 650 500 635"/>
+    <path class="cable" d="M 925 650 Q 925 680 500 680 Q 500 650 500 635"/>
+    
+    <!-- Additional connection: Vanity Light to Combined Box (completing vanity 3-way) -->
+    <path class="cable" d="M 550 270 Q 650 270 650 350 Q 750 350 750 450 Q 850 450 850 500"/>
+    
+    <!-- Additional individual wires for vanity light to combined box -->
+    <line class="wire-red" x1="550" y1="260" x2="580" y2="260"/>
+    <line class="wire-hot" x1="550" y1="270" x2="580" y2="270"/>
+    <line class="wire-neutral" x1="550" y1="280" x2="580" y2="280"/>
     
     <!-- Individual wires -->
     <!-- Panel to GFCI individual conductors -->
     <line class="wire-hot" x1="150" y1="360" x2="200" y2="360"/>
     <line class="wire-neutral" x1="150" y1="380" x2="200" y2="380"/>
+    <line class="wire-neutral-inner" x1="150" y1="380" x2="200" y2="380"/>
     <line class="wire-ground" x1="150" y1="400" x2="200" y2="400"/>
     
     <!-- GFCI to Vanity Switch 1 individual conductors -->
     <line class="wire-hot" x1="300" y1="360" x2="325" y2="360"/>
     <line class="wire-neutral" x1="300" y1="380" x2="325" y2="380"/>
+    <line class="wire-neutral-inner" x1="300" y1="380" x2="325" y2="380"/>
+    <line class="wire-ground" x1="300" y1="400" x2="325" y2="400"/>
     <line class="wire-hot" x1="325" y1="165" x2="350" y2="165"/>
     <line class="wire-neutral" x1="325" y1="185" x2="350" y2="185"/>
+    <line class="wire-neutral-inner" x1="325" y1="185" x2="350" y2="185"/>
+    <line class="wire-ground" x1="325" y1="195" x2="350" y2="195"/>
     
     <!-- Vanity Switch 1 to Vanity Light (14-3 cable) -->
     <line class="wire-hot" x1="450" y1="165" x2="500" y2="165"/>
     <line class="wire-red" x1="450" y1="175" x2="500" y2="175"/>
     <line class="wire-neutral" x1="450" y1="185" x2="500" y2="185"/>
+    <line class="wire-neutral-inner" x1="450" y1="185" x2="500" y2="185"/>
+    <line class="wire-ground" x1="450" y1="195" x2="500" y2="195"/>
     
-    <!-- Additional individual wire connections between major components -->
+    <!-- Vanity Light to Main Switch 2 (14-3 cable) -->
     <line class="wire-red" x1="600" y1="165" x2="625" y2="165"/>
     <line class="wire-hot" x1="600" y1="175" x2="625" y2="175"/>
     <line class="wire-neutral" x1="600" y1="185" x2="625" y2="185"/>
+    <line class="wire-neutral-inner" x1="600" y1="185" x2="625" y2="185"/>
+    <line class="wire-ground" x1="600" y1="195" x2="625" y2="195"/>
+    
+    <!-- Main Switch 2 to Combined Box (travelers) -->
+    <line class="wire-red" x1="770" y1="380" x2="800" y2="380"/>
+    <line class="wire-hot" x1="770" y1="390" x2="800" y2="390"/>
+    <line class="wire-neutral" x1="770" y1="400" x2="800" y2="400"/>
+    <line class="wire-neutral-inner" x1="770" y1="400" x2="800" y2="400"/>
+    
+    <!-- Main Switch 2 to Main Light (switched output) -->
+    <line class="wire-hot" x1="700" y1="480" x2="700" y2="500"/>
+    <line class="wire-neutral" x1="710" y1="480" x2="710" y2="500"/>
+    <line class="wire-neutral-inner" x1="710" y1="480" x2="710" y2="500"/>
+    <line class="wire-ground" x1="720" y1="480" x2="720" y2="500"/>
+    
+    <!-- Combined Box to Fan (fan control) -->
+    <line class="wire-hot" x1="925" y1="650" x2="925" y2="680"/>
+    <line class="wire-neutral" x1="935" y1="650" x2="935" y2="680"/>
+    <line class="wire-neutral-inner" x1="935" y1="650" x2="935" y2="680"/>
+    <line class="wire-ground" x1="945" y1="650" x2="945" y2="680"/>
     
     <!-- Legend -->
     <g transform="translate(50, 50)">
@@ -370,6 +406,7 @@
         <text x="50" y="39" style="font: 9px Arial;">Hot (Black)</text>
         
         <line class="wire-neutral" x1="15" y1="50" x2="45" y2="50"/>
+        <line class="wire-neutral-inner" x1="15" y1="50" x2="45" y2="50"/>
         <text x="50" y="54" style="font: 9px Arial;">Neutral (White)</text>
         
         <line class="wire-ground" x1="15" y1="65" x2="45" y2="65"/>
@@ -409,6 +446,7 @@
     <text x="325" y="270" style="font: 8px Arial; text-anchor: middle; writing-mode: tb;">14-2</text>
     <text x="475" y="170" style="font: 8px Arial; text-anchor: middle;">14-3</text>
     <text x="625" y="285" style="font: 8px Arial; text-anchor: middle; writing-mode: tb;">14-3</text>
+    <text x="700" y="300" style="font: 8px Arial; text-anchor: middle;">14-3 (Vanity)</text>
     <text x="800" y="455" style="font: 8px Arial; text-anchor: middle;">14-3A + 14-3B</text>
     <text x="710" y="490" style="font: 8px Arial; text-anchor: middle; writing-mode: tb;">14-2</text>
     <text x="800" y="570" style="font: 8px Arial; text-anchor: middle;">14-2</text>
