@@ -388,7 +388,7 @@ flowchart TD
         GFCI_TEST[GFCI Function Test<br/>Monthly Testing]
     end
     
-    classDef boxPadding padding:10px 15px
+    classDef boxPadding padding:10px 25px
     classDef safetyStyle fill:#ff7675,stroke:#000,stroke-width:2px,color:#000
     classDef standardStyle fill:#fdcb6e,stroke:#000,stroke-width:2px,color:#000
     classDef testStyle fill:#55a3ff,stroke:#000,stroke-width:2px,color:#fff
@@ -534,7 +534,7 @@ flowchart TD
         C15 --> F4["⚫ Fan Motor Hot from Switch"]
     end
     
-    classDef boxPadding padding:10px 15px
+    classDef boxPadding padding:10px 25px
     classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
     classDef boxStyle fill:#e8f4fd,stroke:#000,stroke-width:2px,color:#000
     classDef deviceStyle fill:#fff3cd,stroke:#000,stroke-width:2px,color:#000
