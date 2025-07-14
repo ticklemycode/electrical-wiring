@@ -5,7 +5,7 @@ This document provides a detailed Mermaid flowchart diagram of the bathroom elec
 ## Complete Circuit Flow Diagram
 
 ```mermaid
-%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
+%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 100, 'padding': 30}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     A["Electrical Panel<br/>15A Breaker"] -->|"14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare"| B["GFCI Outlet<br/>15A, 120V"]
      B -->|"14-2 Cable<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare"| D["Vanity Switch 1<br/>3-Way Switch"]
@@ -26,7 +26,7 @@ flowchart TD
     E -.->|"⚫ Switched Hot<br/>Fan Switch → Fan"| H
     
     %% Styling
-    classDef boxPadding padding:10px 25px
+    classDef boxPadding padding:15px 25px
     classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
     classDef gfciStyle fill:#4ecdc4,stroke:#000,stroke-width:2px,color:#000
     classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
@@ -98,7 +98,7 @@ Main Light → Fan ← Fan Switch (Combined Box)
 ## 3-Way Switch Control Logic Diagram
 
 ```mermaid
-%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
+%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 100, 'padding': 30}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart LR
     subgraph "Main Light Control"
         MS1["Main Switch 1<br/>(Combined Box)<br/>Position A | B"] 
@@ -129,7 +129,7 @@ flowchart LR
         FS -->|"⚫ Switched Hot"| FAN
     end
     
-    classDef boxPadding padding:10px 15px
+    classDef boxPadding padding:15px 25px
     classDef switchStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
     classDef deviceStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
     
@@ -141,7 +141,7 @@ flowchart LR
 ## Wire Routing and Box Connections
 
 ```mermaid
-%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
+%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 100, 'padding': 30}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     subgraph "Electrical Panel"
         PANEL["15A Breaker<br/>⚫ Hot: Black<br/>⚪ Neutral: White<br/>🟢 Ground: Bare"]
@@ -216,7 +216,7 @@ flowchart TD
     COMB_BUNDLES -.-> COMB_VANITY
     COMB_BUNDLES -.-> COMB_FAN
     
-    classDef boxPadding padding:10px 15px
+    classDef boxPadding padding:15px 25px
     classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
     classDef boxStyle fill:#e8f4fd,stroke:#000,stroke-width:2px,color:#000
     classDef deviceStyle fill:#fff3cd,stroke:#000,stroke-width:2px,color:#000
@@ -232,7 +232,7 @@ flowchart TD
 ## Terminal Connection Diagram
 
 ```mermaid
-%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
+%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 100, 'padding': 30}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart LR
     subgraph "3-Way Switch Terminals"
         direction TB
@@ -267,7 +267,7 @@ flowchart LR
     MS1_T1 -.->|"🔴 Red Wire"| MS2_T1
     MS1_T2 -.->|"⚫ Black Wire"| MS2_T2
     
-    classDef boxPadding padding:10px 15px
+    classDef boxPadding padding:15px 25px
     classDef terminalStyle fill:#f9ca24,stroke:#000,stroke-width:2px,color:#000
     classDef wireStyle fill:#6c5ce7,stroke:#000,stroke-width:2px,color:#fff
     classDef connectionStyle fill:#e8f4fd,stroke:#000,stroke-width:1px,color:#000
@@ -281,7 +281,7 @@ flowchart LR
 ## Switch Position Logic Table
 
 ```mermaid
-%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
+%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 100, 'padding': 30}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     subgraph "3-Way Switch Logic - Main Light"
         direction TB
@@ -313,7 +313,7 @@ flowchart TD
         SWITCH2 --> LIGHT_OUT
     end
     
-    classDef boxPadding padding:10px 15px
+    classDef boxPadding padding:15px 25px
     classDef stateStyle fill:#fd79a8,stroke:#000,stroke-width:2px,color:#000
     classDef pathStyle fill:#00b894,stroke:#000,stroke-width:2px,color:#fff
     
@@ -325,7 +325,7 @@ flowchart TD
 ## Circuit Load Analysis
 
 ```mermaid
-%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
+%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 100, 'padding': 30}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     subgraph "Circuit Capacity"
         BREAKER[⚡ 15A Circuit Breaker<br/>1800W Capacity]
@@ -354,7 +354,7 @@ flowchart TD
     FAN --> TOTAL
     FUTURE --> TOTAL
     
-    classDef boxPadding padding:10px 25px
+    classDef boxPadding padding:15px 25px
     classDef capacityStyle fill:#e17055,stroke:#000,stroke-width:3px,color:#fff
     classDef loadStyle fill:#74b9ff,stroke:#000,stroke-width:2px,color:#000
     classDef summaryStyle fill:#00b894,stroke:#000,stroke-width:2px,color:#fff
@@ -368,7 +368,7 @@ flowchart TD
 ## Safety and Code Compliance
 
 ```mermaid
-%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
+%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 100, 'padding': 30}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     subgraph "Safety Requirements"
         GFCI_REQ[GFCI Protection<br/>NEC 210.8<br/>Required for Bathroom]
@@ -388,7 +388,7 @@ flowchart TD
         GFCI_TEST[GFCI Function Test<br/>Monthly Testing]
     end
     
-    classDef boxPadding padding:10px 25px
+    classDef boxPadding padding:15px 25px
     classDef safetyStyle fill:#ff7675,stroke:#000,stroke-width:2px,color:#000
     classDef standardStyle fill:#fdcb6e,stroke:#000,stroke-width:2px,color:#000
     classDef testStyle fill:#55a3ff,stroke:#000,stroke-width:2px,color:#fff
@@ -457,7 +457,7 @@ These diagrams complement the ASCII art diagrams in the other documentation file
 ## Detailed Wire Color Flow Diagram
 
 ```mermaid
-%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 60, 'rankSpacing': 80, 'padding': 20}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
+%%{init: {'theme':'default', 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 100, 'padding': 30}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'sectionBkgColor': '#ffffff', 'altSectionBkgColor': '#f9f9f9', 'gridColor': '#cccccc', 'c0': '#ffffff', 'c1': '#ffffff', 'c2': '#ffffff', 'c3': '#ffffff', 'c4': '#ffffff'}}}%%
 flowchart TD
     subgraph "Wire Color Legend"
         HOT["⚫ Hot | Switched Hot - Black Wire"]
@@ -534,7 +534,7 @@ flowchart TD
         C15 --> F4["⚫ Fan Motor Hot from Switch"]
     end
     
-    classDef boxPadding padding:10px 25px
+    classDef boxPadding padding:15px 25px
     classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
     classDef boxStyle fill:#e8f4fd,stroke:#000,stroke-width:2px,color:#000
     classDef deviceStyle fill:#fff3cd,stroke:#000,stroke-width:2px,color:#000
