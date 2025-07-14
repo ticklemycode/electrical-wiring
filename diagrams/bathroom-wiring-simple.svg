@@ -309,26 +309,54 @@
     <text x="500" y="575" style="font: 6px Arial; text-anchor: middle;">Motor Winding</text>
     
     <!-- Cable runs -->
+    <!-- Panel to GFCI (14-2) -->
     <path class="cable" d="M 150 375 L 200 375"/>
-    <path class="cable" d="M 300 375 Q 325 375 325 225 Q 325 175 350 175"/>
+    
+    <!-- GFCI to Vanity Switch 1 (14-2) -->
+    <path class="cable" d="M 300 375 Q 325 375 325 175 L 350 175"/>
+    
+    <!-- Vanity Switch 1 to Vanity Light (14-3) -->
     <path class="cable" d="M 450 175 L 500 175"/>
-    <path class="cable" d="M 600 175 Q 625 175 625 390 Q 625 425 650 425"/>
-    <path class="cable" d="M 770 425 Q 800 425 800 525 Q 800 550 850 550"/>
+    
+    <!-- Vanity Light to Main Switch 2 (14-3) - via cable pass-through -->
+    <path class="cable" d="M 600 175 Q 625 175 625 390 L 650 390"/>
+    
+    <!-- Main Switch 2 to Combined Box (14-3 travelers) -->
+    <path class="cable" d="M 770 390 Q 800 390 800 525 L 850 525"/>
+    
+    <!-- Main Switch 2 to Main Light (14-2 switched output) -->
+    <path class="cable" d="M 710 480 L 710 500"/>
+    
+    <!-- Combined Box to Main Light (return path for main light control) -->
     <path class="cable" d="M 850 575 L 750 575"/>
-    <path class="cable" d="M 650 575 L 550 575"/>
+    
+    <!-- Main Light to Exhaust Fan (14-2 pass-through) -->
+    <path class="cable" d="M 700 620 Q 650 620 550 620"/>
+    
+    <!-- Combined Box to Exhaust Fan (14-2 fan control) -->
     <path class="cable" d="M 925 650 Q 925 700 500 700 Q 500 650 500 635"/>
     
     <!-- Individual wires -->
+    <!-- Panel to GFCI individual conductors -->
     <line class="wire-hot" x1="150" y1="360" x2="200" y2="360"/>
     <line class="wire-neutral" x1="150" y1="380" x2="200" y2="380"/>
     <line class="wire-ground" x1="150" y1="400" x2="200" y2="400"/>
     
+    <!-- GFCI to Vanity Switch 1 individual conductors -->
     <line class="wire-hot" x1="300" y1="360" x2="325" y2="360"/>
-    <line class="wire-hot" x1="325" y1="225" x2="350" y2="225"/>
+    <line class="wire-neutral" x1="300" y1="380" x2="325" y2="380"/>
+    <line class="wire-hot" x1="325" y1="165" x2="350" y2="165"/>
+    <line class="wire-neutral" x1="325" y1="185" x2="350" y2="185"/>
     
+    <!-- Vanity Switch 1 to Vanity Light (14-3 cable) -->
     <line class="wire-hot" x1="450" y1="165" x2="500" y2="165"/>
     <line class="wire-red" x1="450" y1="175" x2="500" y2="175"/>
     <line class="wire-neutral" x1="450" y1="185" x2="500" y2="185"/>
+    
+    <!-- Additional individual wire connections between major components -->
+    <line class="wire-red" x1="600" y1="165" x2="625" y2="165"/>
+    <line class="wire-hot" x1="600" y1="175" x2="625" y2="175"/>
+    <line class="wire-neutral" x1="600" y1="185" x2="625" y2="185"/>
     
     <!-- Legend -->
     <g transform="translate(50, 50)">
@@ -377,10 +405,11 @@
     <text x="175" y="370" style="font: 8px Arial; text-anchor: middle;">14-2</text>
     <text x="325" y="270" style="font: 8px Arial; text-anchor: middle; writing-mode: tb;">14-2</text>
     <text x="475" y="170" style="font: 8px Arial; text-anchor: middle;">14-3</text>
-    <text x="625" y="300" style="font: 8px Arial; text-anchor: middle; writing-mode: tb;">14-3</text>
-    <text x="800" y="490" style="font: 8px Arial; text-anchor: middle;">14-3A + 14-3B</text>
+    <text x="625" y="285" style="font: 8px Arial; text-anchor: middle; writing-mode: tb;">14-3</text>
+    <text x="800" y="455" style="font: 8px Arial; text-anchor: middle;">14-3A + 14-3B</text>
+    <text x="710" y="490" style="font: 8px Arial; text-anchor: middle; writing-mode: tb;">14-2</text>
     <text x="800" y="570" style="font: 8px Arial; text-anchor: middle;">14-2</text>
-    <text x="600" y="570" style="font: 8px Arial; text-anchor: middle;">14-2</text>
+    <text x="575" y="615" style="font: 8px Arial; text-anchor: middle;">14-2</text>
     <text x="700" y="675" style="font: 8px Arial; text-anchor: middle;">14-2 (Fan Control)</text>
     
     <!-- Technical Specifications and Safety Notes -->
