@@ -24,8 +24,11 @@
         .screw { fill: #c0c0c0; stroke: #808080; stroke-width: 1; }
     </style>
     
+    <!-- Background -->
+    <rect x="0" y="0" width="1000" height="970" fill="#f8f9fa" stroke="none"/>
+    
     <!-- Title -->
-    <text x="600" y="25" class="title">Bathroom Electrical Wiring Diagram</text>
+    <text x="500" y="25" class="title">Bathroom Electrical Wiring Diagram</text>
     
     <!-- Panel -->
     <rect x="50" y="300" width="100" height="150" class="panel" rx="5"/>
