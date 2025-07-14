@@ -564,15 +564,15 @@ CABLE ENTRY POINTS:
 │                                                                                 │
 │  FROM PANEL (14-2)              GFCI OUTLET                TO VANITY SWITCH 1   │
 │  ┌─────────────┐                ┌───────────┐             ┌─────────────────┐   │
-│  │ ⚫ Hot       │───────────────→│ LINE Hot  │             │                 │   │
-│  │ ⚪ Neutral   │───────────────→│ LINE Neut │             │                 │   │
-│  │ 🟢 Ground   │──────────┬────→│ Ground    │             │                 │   │
+│  │ (B) Hot     │───────────────→│ LINE Hot  │             │                 │   │
+│  │ (W) Neutral │───────────────→│ LINE Neut │             │                 │   │
+│  │ (G) Ground  │──────────┬────→│ Ground    │             │                 │   │
 │  └─────────────┘          │     └───────────┘             │                 │   │
 │                           │                               │                 │   │
 │                           │     ┌───────────┐             │                 │   │
-│                           │     │ LOAD Hot  │────────────→│ ⚫ Hot to VS1   │   │
-│                           │     │ LOAD Neut │────────────→│ ⚪ Neut to VS1  │   │
-│                           └────→│ Ground    │────────────→│ 🟢 Grnd to VS1  │   │
+│                           │     │ LOAD Hot  │────────────→│ (B) Hot to VS1  │   │
+│                           │     │ LOAD Neut │────────────→│ (W) Neut to VS1 │   │
+│                           └────→│ Ground    │────────────→│ (G) Grnd to VS1 │   │
 │                                 └───────────┘             └─────────────────┘   │
 │                                                                                 │
 │ ⚠️  GFCI provides protection for entire bathroom circuit                        │
@@ -595,17 +595,17 @@ CABLE ENTRY POINTS:
 │                                                                                 │
 │  FROM GFCI (14-2)               VANITY SWITCH 1              TO VANITY LIGHT    │
 │  ┌─────────────┐                ┌───────────┐               ┌─────────────────┐ │
-│  │ ⚫ Hot       │───────────────→│ COM (⚫)  │──────────────→│ ⚫ Black (Hot   │ │
+│  │ (B) Hot     │───────────────→│ COM (B)   │──────────────→│ (B) Black (Hot  │ │
 │  │             │                │           │               │    to VS2)      │ │
-│  │             │                │ T1 (🟡)  │──────────────→│ 🔴 Red (Trav 1) │ │
+│  │             │                │ T1 (Y)    │──────────────→│ (R) Red (Trav 1)│ │
 │  │             │                │           │               │                 │ │
-│  │             │                │ T2 (🟡)  │──────────────→│ ⚪ White (Hot   │ │
+│  │             │                │ T2 (Y)    │──────────────→│ (W) White (Hot  │ │
 │  │             │                │           │               │    to Light)    │ │
-│  │             │                │ GND (🟢) │──┐            │                 │ │
-│  │ ⚪ Neutral   │──────────┬─────┘           │  │            │ ⚪ Neutral       │ │
+│  │             │                │ GND (G)   │──┐            │                 │ │
+│  │ (W) Neutral │──────────┬─────┘           │  │            │ (W) Neutral     │ │
 │  │             │          │  ┌─ WIRE NUT ──┘  │            │    (continue)    │ │
-│  │ 🟢 Ground   │──────────┼──┤  (YELLOW)      │            │                 │ │
-│  │             │          │  │ ⚪ Neutral      │            │ 🟢 Green        │ │
+│  │ (G) Ground  │──────────┼──┤  (YELLOW)      │            │                 │ │
+│  │             │          │  │ (W) Neutral    │            │ (G) Green       │ │
 │  │             │          │  │   Pass-Thru    │            │    (continue)    │ │
 │  └─────────────┘          │  └────────────────┼───────────→│                 │ │
 │                           │                   │            └─────────────────┘ │
@@ -634,33 +634,33 @@ CABLE ENTRY POINTS:
 │                                                                                 │
 │  FROM VS1 (14-3)         VANITY LIGHT FIXTURE & JUNCTION         TO MAIN SW2   │
 │  ┌─────────────┐                                                ┌─────────────┐ │
-│  │ ⚫ Black     │──┬─── WIRE NUT #1 (RED) ────────────────────→│ ⚪ White    │ │
+│  │ (B) Black   │──┬─── WIRE NUT #1 (RED) ────────────────────→│ (W) White   │ │
 │  │   (from COM)│  │    • Black from VS1 COM                   │   (Hot cont)│ │
 │  │             │  │    • White to VS2 (via MS2)               │             │ │
-│  │ 🔴 Red      │──┼─── WIRE NUT #2 (YELLOW) ──────────────→│ 🔴 Red      │ │
+│  │ (R) Red     │──┼─── WIRE NUT #2 (YELLOW) ──────────────→│ (R) Red     │ │
 │  │   (Trav 1)  │  │    • Red pass-through to VS2             │   (Trav 1)  │ │
 │  │             │  │                                           │             │ │
-│  │ ⚪ White     │──┼─── WIRE NUT #3 (YELLOW) ──────────────┐  │             │ │
+│  │ (W) White   │──┼─── WIRE NUT #3 (YELLOW) ──────────────┐  │             │ │
 │  │   (Hot to   │  │    • White to light fixture (hot)     │  │             │ │
 │  │    fixture) │  │                                       │  │             │ │
 │  │             │  │                                       │  │             │ │
-│  │ ⚪ Neutral   │──┼─── WIRE NUT #4 (YELLOW) ──────────────┼─→│ ⚪ Neutral   │ │
-│  │   (circuit) │  │    • Neutral to fixture               │  │   (continue) │ │
+│  │ (W) Neutral │──┼─── WIRE NUT #4 (YELLOW) ──────────────┼─→│ (W) Neutral │ │
+│  │   (circuit) │  │    • Neutral to fixture               │  │   (continue)│ │
 │  │             │  │    • Neutral continue to circuit      │  │             │ │
 │  │             │  │                                       │  │             │ │
-│  │ 🟢 Green    │──┼─── WIRE NUT #5 (YELLOW) ──────────────┼─→│ 🟢 Green    │ │
-│  │   (ground)  │  │    • Ground to fixture                │  │   (continue) │ │
+│  │ (G) Green   │──┼─── WIRE NUT #5 (YELLOW) ──────────────┼─→│ (G) Green   │ │
+│  │   (ground)  │  │    • Ground to fixture                │  │   (continue)│ │
 │  │             │  │    • Ground continue to circuit       │  │             │ │
 │  └─────────────┘  │                                       │  └─────────────┘ │
 │                   │                                       │                  │
 │                   │    ┌─────────────────────────────┐    │                  │
 │                   │    │     VANITY LIGHT FIXTURE    │    │                  │
 │                   │    │                             │    │                  │
-│                   └───→│ ⚫ Hot from Wire Nut #3     │    │                  │
-│                        │ ⚪ Neutral from Wire Nut #4 │    │                  │
-│                        │ 🟢 Ground from Wire Nut #5  │    │                  │
+│                   └───→│ (B) Hot from Wire Nut #3   │    │                  │
+│                        │ (W) Neutral from Wire Nut #4│    │                  │
+│                        │ (G) Ground from Wire Nut #5 │    │                  │
 │                        │                             │    │                  │
-│                        │ ⚫ Black Return ─────────────┼────┘                  │
+│                        │ (B) Black Return ───────────┼────┘                  │
 │                        │   (to VS2 via Wire Nut #6)  │                       │
 │                        └─────────────────────────────┘                       │
 │                                     │                                        │
@@ -693,14 +693,14 @@ CABLE ENTRY POINTS:
 │                                                                                 │
 │  FROM VANITY LIGHT (14-3)        MAIN SWITCH 2 & JUNCTIONS        TO COMBINED  │
 │  ┌─────────────────┐                                             ┌─────────────┐ │
-│  │ ⚪ White (HOT)   │──┬─ WIRE NUT #1 (RED) ────────────────────→│ ⚪ White    │ │
+│  │ (W) White (HOT) │──┬─ WIRE NUT #1 (RED) ────────────────────→│ (W) White   │ │
 │  │   **MARK BLACK**│  │  • White from vanity (hot)               │   (marked)  │ │
 │  │                 │  │  • White to Combined Box Cable A         │   Cable A   │ │
-│  │ 🔴 Red (Trav)   │──┼─ WIRE NUT #2 (YELLOW) ──────────────────→│ 🔴 Red      │ │
+│  │ (R) Red (Trav)  │──┼─ WIRE NUT #2 (YELLOW) ──────────────────→│ (R) Red     │ │
 │  │                 │  │  • Red to VS2 via Combined Box Cable A   │   Cable A   │ │
-│  │ ⚫ Black (Neut)  │──┼─ WIRE NUT #3 (YELLOW) ──────────────────→│ ⚫ Black    │ │
+│  │ (B) Black (Neut)│──┼─ WIRE NUT #3 (YELLOW) ──────────────────→│ (B) Black   │ │
 │  │                 │  │  • Neutral to Combined Box Cable A       │   Cable A   │ │
-│  │ 🟢 Green (Grnd) │──┼─ WIRE NUT #4 (GREEN) ────────────────────┼─→│ 🟢 Green    │ │
+│  │ (G) Green (Grnd)│──┼─ WIRE NUT #4 (GREEN) ────────────────────┼─→│ (G) Green   │ │
 │  └─────────────────┘  │  • Ground distribution                   │  │   Cable A   │ │
 │                       │                                          │  └─────────────┘ │
 │                       │                                          │                  │
@@ -708,16 +708,16 @@ CABLE ENTRY POINTS:
 │                       │  │        MAIN SWITCH 2            │     │  │ Cable B     │ │
 │                       │  │        (3-Way Switch)           │     │  │ TO COMBINED │ │
 │                       │  │                                 │     │  └─────────────┘ │
-│                       │  │ COM (⚫) ←─ Wire Nut #5         │     │  🔴 Red ←─ MS2  │ │
-│                       │  │ T1 (🟡)  ←─ Wire Nut #6        │     │ ← T1 (Trav 1)  │ │
-│                       │  │ T2 (🟡)  ←─ Wire Nut #7        │     │                 │ │
-│                       │  │ GND (🟢) ←─ Wire Nut #4        │     │ ⚫ Black ←─ MS2 │ │
+│                       │  │ COM (B) ←─ Wire Nut #5         │     │  (R) Red ←─ MS2 │ │
+│                       │  │ T1 (Y)  ←─ Wire Nut #6         │     │ ← T1 (Trav 1)  │ │
+│                       │  │ T2 (Y)  ←─ Wire Nut #7         │     │                 │ │
+│                       │  │ GND (G) ←─ Wire Nut #4         │     │ (B) Black ←─ MS2│ │
 │                       │  └─────────────────────────────────┘     │ ← T2 (Trav 2)  │ │
 │                       │                                          │                 │ │
-│                       │─ WIRE NUT #5 (YELLOW) ──────────────────→│ ⚪ White        │ │
+│                       │─ WIRE NUT #5 (YELLOW) ──────────────────→│ (W) White       │ │
 │                       │  • Hot from vanity circuit              │ ← True Neutral  │ │
 │                       │  • To Main Switch 2 COM terminal        │                 │ │
-│                       │  • To main light via COM output         │ 🟢 Green        │ │
+│                       │  • To main light via COM output         │ (G) Green       │ │
 │                       │                                          │ ← Ground        │ │
 │                       │─ WIRE NUT #6 (YELLOW) ──────────────────→└─────────────────┘ │
 │                       │  • Red traveler to/from MS1 T1                            │ │
@@ -728,12 +728,12 @@ CABLE ENTRY POINTS:
 │                       └─ WIRE NUT #4 (GREEN) ─────────────────────────────────────┼─┘
 │                          • All grounds connected                     TO MAIN LIGHT │
 │                                                                     ┌─────────────┐ │
-│                                                                     │ ⚫ Switched  │ │
+│                                                                     │ (B) Switched│ │
 │                                                                     │   Hot from  │ │
 │                                                                     │   MS2 COM   │ │
-│                                                                     │ ⚪ Neutral   │ │
+│                                                                     │ (W) Neutral │ │
 │                                                                     │   Continue  │ │
-│                                                                     │ 🟢 Ground   │ │
+│                                                                     │ (G) Ground  │ │
 │                                                                     │   Continue  │ │
 │                                                                     └─────────────┘ │
 │                                                                                     │
