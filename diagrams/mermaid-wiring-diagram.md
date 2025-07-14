@@ -547,9 +547,138 @@ flowchart TD
     class VL_FIXTURE,ML_FIXTURE,FAN_MOTOR fixtureStyle
 ```
 
-## Main Switch 2 - Physical Wiring Diagram
+## Physical Wiring Diagrams - All Electrical Boxes
 
-### ASCII Art - Main Switch 2 Box Wiring Layout
+### Box 1 - GFCI Outlet Box
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                          BOX 1 - GFCI OUTLET (Single Gang)                     │
+│                            Power Source from Panel                              │
+└─────────────────────────────────────────────────────────────────────────────────┘
+
+CABLE ENTRY POINTS:
+                Cable from Panel (14-2)               Cable to Vanity (14-2)
+
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                 │
+│  FROM PANEL (14-2)              GFCI OUTLET                TO VANITY SWITCH 1   │
+│  ┌─────────────┐                ┌───────────┐             ┌─────────────────┐   │
+│  │ ⚫ Hot       │───────────────→│ LINE Hot  │             │                 │   │
+│  │ ⚪ Neutral   │───────────────→│ LINE Neut │             │                 │   │
+│  │ 🟢 Ground   │──────────┬────→│ Ground    │             │                 │   │
+│  └─────────────┘          │     └───────────┘             │                 │   │
+│                           │                               │                 │   │
+│                           │     ┌───────────┐             │                 │   │
+│                           │     │ LOAD Hot  │────────────→│ ⚫ Hot to VS1   │   │
+│                           │     │ LOAD Neut │────────────→│ ⚪ Neut to VS1  │   │
+│                           └────→│ Ground    │────────────→│ 🟢 Grnd to VS1  │   │
+│                                 └───────────┘             └─────────────────┘   │
+│                                                                                 │
+│ ⚠️  GFCI provides protection for entire bathroom circuit                        │
+│ ⚠️  Test monthly using TEST/RESET buttons                                       │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Box 2 - Vanity Switch 1 Box
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                      BOX 2 - VANITY SWITCH 1 (Single Gang)                     │
+│                         3-Way Switch for Vanity Light                          │
+└─────────────────────────────────────────────────────────────────────────────────┘
+
+CABLE ENTRY POINTS:
+                Cable from GFCI (14-2)               Cable to Vanity Light (14-3)
+
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                 │
+│  FROM GFCI (14-2)               VANITY SWITCH 1              TO VANITY LIGHT     │
+│  ┌─────────────┐                ┌───────────┐               ┌─────────────────┐ │
+│  │ ⚫ Hot       │───────────────→│ COM (⚫)  │──────────────→│ ⚫ Black (Hot   │ │
+│  │             │                │           │               │    to VS2)      │ │
+│  │             │                │ T1 (🟡)  │──────────────→│ 🔴 Red (Trav 1) │ │
+│  │             │                │           │               │                 │ │
+│  │             │                │ T2 (🟡)  │──────────────→│ ⚪ White (Hot   │ │
+│  │             │                │           │               │    to Light)    │ │
+│  │             │                │ GND (🟢) │──┐            │                 │ │
+│  │ ⚪ Neutral   │──────────┬─────┘           │  │            │ ⚪ Neutral       │ │
+│  │             │          │  ┌─ WIRE NUT ──┘  │            │    (continue)    │ │
+│  │ 🟢 Ground   │──────────┼──┤  (YELLOW)      │            │                 │ │
+│  │             │          │  │ ⚪ Neutral      │            │ 🟢 Green        │ │
+│  │             │          │  │   Pass-Thru    │            │    (continue)    │ │
+│  └─────────────┘          │  └────────────────┼───────────→│                 │ │
+│                           │                   │            └─────────────────┘ │
+│                           └───────────────────┘                                │
+│                                                                                 │
+│ WIRE CONNECTIONS:                                                               │
+│ • COM Terminal: Always receives hot from GFCI                                  │
+│ • T1 Terminal: Red traveler to vanity light                                    │
+│ • T2 Terminal: White wire (hot to light fixture)                               │
+│ • Neutral: Pass-through only (not connected to switch)                         │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Box 3 - Vanity Light Fixture Box
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                    BOX 3 - VANITY LIGHT FIXTURE (Round/Octagon)                │
+│                        Critical 3-Way Switching Junction                       │
+└─────────────────────────────────────────────────────────────────────────────────┘
+
+CABLE ENTRY POINTS:
+        Cable from VS1 (14-3)                           Cable to Main SW2 (14-3)
+
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                 │
+│  FROM VS1 (14-3)         VANITY LIGHT FIXTURE & JUNCTION         TO MAIN SW2   │
+│  ┌─────────────┐                                                ┌─────────────┐ │
+│  │ ⚫ Black     │──┬─── WIRE NUT #1 (RED) ────────────────────→│ ⚪ White    │ │
+│  │   (from COM)│  │    • Black from VS1 COM                   │   (Hot cont)│ │
+│  │             │  │    • White to VS2 (via MS2)               │             │ │
+│  │ 🔴 Red      │──┼─── WIRE NUT #2 (YELLOW) ──────────────→│ 🔴 Red      │ │
+│  │   (Trav 1)  │  │    • Red pass-through to VS2             │   (Trav 1)  │ │
+│  │             │  │                                           │             │ │
+│  │ ⚪ White     │──┼─── WIRE NUT #3 (YELLOW) ──────────────┐  │             │ │
+│  │   (Hot to   │  │    • White to light fixture (hot)     │  │             │ │
+│  │    fixture) │  │                                       │  │             │ │
+│  │             │  │                                       │  │             │ │
+│  │ ⚪ Neutral   │──┼─── WIRE NUT #4 (YELLOW) ──────────────┼─→│ ⚪ Neutral   │ │
+│  │   (circuit) │  │    • Neutral to fixture               │  │   (continue) │ │
+│  │             │  │    • Neutral continue to circuit      │  │             │ │
+│  │             │  │                                       │  │             │ │
+│  │ 🟢 Green    │──┼─── WIRE NUT #5 (YELLOW) ──────────────┼─→│ 🟢 Green    │ │
+│  │   (ground)  │  │    • Ground to fixture                │  │   (continue) │ │
+│  │             │  │    • Ground continue to circuit       │  │             │ │
+│  └─────────────┘  │                                       │  └─────────────┘ │
+│                   │                                       │                  │
+│                   │    ┌─────────────────────────────┐     │  ┌─────────────┐ │
+│                   │    │     VANITY LIGHT FIXTURE    │     │  │ Cable B     │ │
+│                   │    │                             │     │  │ TO COMBINED │ │
+│                   └───→│ ⚫ Hot from Wire Nut #3     │    │  └─────────────┘ │
+│                        │ ⚪ Neutral from Wire Nut #4 │    │  ⚫ From MS2    │ │
+│                        │ 🟢 Ground from Wire Nut #5  │    │ ← COM (to ML)  │ │
+│                        │                             │    │                 │ │
+│                        │ ⚫ Black Return ─────────────┼────┘                  │
+│                        │   (to VS2 via Wire Nut #6)  │                       │
+│                        └─────────────────────────────┘                       │
+│                                     │                                        │
+│                        ┌─ WIRE NUT #6 (YELLOW) ──────────────────────────────┘ │
+│                        │  • Black from light fixture                           │
+│                        │  • Black to VS2 (via MS2 → Combined Box)             │
+│                        └──────────────────────────────────────────────────────┘ │
+│                                                                                 │
+│ JUNCTION EXPLANATION:                                                           │
+│ • VS1 sends hot via black to white junction (Wire Nut #1)                     │
+│ • VS1 sends direct hot to light via white wire (Wire Nut #3)                  │
+│ • Light returns via black wire to VS2 (Wire Nut #6)                           │
+│ • Red traveler passes through to coordinate with VS2                           │
+│ • Switching occurs at this junction - controlled by both VS1 and VS2          │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Box 4 - Main Switch 2 Box (Enhanced)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────┐
@@ -558,172 +687,138 @@ flowchart TD
 └─────────────────────────────────────────────────────────────────────────────────┘
 
 CABLE ENTRY POINTS:
-                Cable 1 (14-3)           Cable 2 (14-3)           Cable 3 (14-3)
-                From Vanity Light        To Combined Box A        To Combined Box B
-                     │                        │                        │
-                ⚫🔴⚪🟢                   ⚪🔴⚫🟢                   🔴⚫⚪🟢
-                     │                        │                        │
-                     ▼                        ▼                        ▼
+      Cable from Vanity (14-3)    Cable A to Combined (14-3)    Cable B to Combined (14-3)    Cable to Main Light (14-2)
 
 ┌─────────────────────────────────────────────────────────────────────────────────┐
-│  ┌─ WIRE NUT #1 (RED) ──┐    ┌─ WIRE NUT #2 (YELLOW) ─┐                        │
-│  │ Hot Distribution      │    │ Vanity Hot Continue    │                        │
-│  │ ⚫ From Vanity Light  │    │ ⚪ From VL (HOT-TAPE)  │                        │
-│  │ ⚫ To MS2 COM (6")    │    │ ⚪ To Comb Box (TAPE)  │                        │
-│  │ ⚫ To Combined Box A  │    └─ ⚠️ MARK BLACK TAPE ─┘                        │
-│  └─ 3 WIRES - RED NUT ──┘                                                       │
-│                                                                                  │
-│  ┌─ WIRE NUT #3 (GRAY) ─┐    ┌─ WIRE NUT #4 (GRAY) ──┐                        │
-│  │ Vanity Red Traveler   │    │ Main Red Traveler      │                        │
-│  │ 🔴 From Vanity Light │    │ 🔴 From Combined Box B │                        │
-│  │ 🔴 To Combined Box A │    │ 🔴 To MS2 T1 (6")     │                        │
-│  └─ 2 WIRES - GRAY NUT ─┘    └─ 2 WIRES - GRAY NUT ──┘                        │
-│                                                                                  │
-│  ┌─ WIRE NUT #5 (GRAY) ─┐    ┌─ WIRE NUT #6 (GRAY) ──┐                        │
-│  │ Main Black Traveler   │    │ Neutral Pass-Through   │                        │
-│  │ ⚫ From Combined Box B│    │ ⚪ From Vanity Light   │                        │
-│  │ ⚫ To MS2 T2 (6")     │    │ ⚪ To Combined Box A   │                        │
-│  └─ 2 WIRES - GRAY NUT ─┘    │ ⚪ To Combined Box B   │                        │
-│                                └─ 3 WIRES - GRAY NUT ──┘                        │
-│                                                                                  │
-│              ┌─ WIRE NUT #7 (GREEN) ────────────────────┐                       │
-│              │ Ground Collection                         │                       │
-│              │ 🟢 From Vanity Light                     │                       │
-│              │ 🟢 To Combined Box A                     │                       │
-│              │ 🟢 To Combined Box B                     │                       │
-│              │ 🟢 To MS2 GND Terminal (6")             │                       │
-│              └─ 4 WIRES - GREEN NUT ─────────────────────┘                       │
-│                                                                                  │
-│    ┌─────────────────────────────────────────────────────────────────┐          │
-│    │                    MAIN SWITCH 2 (3-WAY)                        │          │
-│    │                                                                  │          │
-│    │  ⚫ COM ←─ Black Pigtail (6") from Wire Nut #1                  │          │
-│    │         (Hot Input from Vanity Circuit)                         │          │
-│    │                                                                  │          │
-│    │  🔴 T1  ←─ Red Pigtail (6") from Wire Nut #4                   │          │
-│    │         (Red Traveler to/from Main Switch 1)                    │          │
-│    │                                                                  │          │
-│    │  ⚫ T2  ←─ Black Pigtail (6") from Wire Nut #5                  │          │
-│    │         (Black Traveler to/from Main Switch 1)                  │          │
-│    │                                                                  │          │
-│    │  🟢 GND ←─ Green Pigtail (6") from Wire Nut #7                 │          │
-│    │         (Grounding for Safety)                                   │          │
-│    │                                                                  │          │
-│    └─────────────────────────────────────────────────────────────────┘          │
-│                                                                                  │
-└─────────────────────────────────────────────────────────────────────────────────┘
-
-POWER FLOW EXPLANATION:
-┌─────────────────────────────────────────────────────────────────────┐
-│ MS2 receives HOT POWER from vanity circuit (via Wire Nut #1)        │
-│ MS2 works with MS1 (Combined Box) via TRAVELERS (Wire Nuts #4 & #5) │
-│ When 3-way switches align: MS1 COM → Main Light                     │
-│ Vanity circuit power continues to Combined Box (Wire Nut #1)        │
-│ Vanity hot signal continues to Combined Box (Wire Nut #2)           │
-│ All neutrals pass through safely (Wire Nut #6)                      │
-│ All grounds properly connected with pigtail (Wire Nut #7)           │
-└─────────────────────────────────────────────────────────────────────┘
-
-CRITICAL SAFETY NOTES:
-⚠️  WHITE WIRES in Wire Nut #2 carry HOT, not neutral
-⚠️  MUST mark with BLACK ELECTRICAL TAPE at both ends
-⚠️  Wire Nut #6 contains TRUE NEUTRALS only
-⚠️  Box requires 4" × 4" × 2-1/8" minimum for 18 conductor equivalents
-⚠️  All pigtails must be 6" minimum length
-⚠️  Test all 3-way combinations before energizing circuit
+│                                                                                 │
+│  FROM VANITY LIGHT (14-3)        MAIN SWITCH 2 & JUNCTIONS        TO COMBINED  │
+│  ┌─────────────────┐                                             ┌─────────────┐ │
+│  │ ⚪ White (HOT)   │──┬─ WIRE NUT #1 (RED) ────────────────────→│ ⚪ White    │ │
+│  │   **MARKED**    │  │  • White hot from vanity circuit                    │  │ │
+│  │                 │  │  • White to Combined Box Cable A         │  │ │
+│  │ 🔴 Red (VS Trav)│──┼─ WIRE NUT #2 (YELLOW) ──────────────────→│ 🔴 Red      │ │
+│  │                 │  │  • Red traveler to Vanity Switch 2 T1               │ ││ │
+│  │ ⚫ Black (Neut)  │──┼─ WIRE NUT #3 (BLUE) ───────────────────────────────┼─┼┼─┐
+│  │                 │  │  • Neutral bundle (all neutrals)                    │ │││ │
+│  │ 🟢 Green (Grnd) │──┼─ WIRE NUT #4 (GREEN) ─────────────────────────────┼─┼┼─┼┐
+│  └─────────────────┘  │  • Ground bundle (all grounds)                     │ │││ ││
+│                       │                                                    │ │││ ││
+│                       │  ┌─────────────────────────────────────────────────┘ │││ ││
+│                       │  │ VANITY SWITCH 2 (3-Way)                           │││ ││
+│                       │  │ COM (⚫) ←─ Wire Nut #1 (white hot)              │││ ││
+│                       │  │ T1 (🟡)  ←─ Wire Nut #2 (red traveler)          │││ ││
+│                       │  │ T2 (🟡)  ←─ Wire Nut #5 (black to neutral)      │││ ││
+│                       │  │ GND (🟢) ←─ Wire Nut #4 (ground bundle)         │││ ││
+│                       │  └─────────────────────────────────────────────────┐  │││ ││
+│                       │                                                    │  │││ ││
+│                       │─ WIRE NUT #5 (YELLOW) ────────────────────────────┘  │││ ││
+│                       │  • Black from Cable A (neutral)                      │││ ││
+│                       │  • To Vanity Switch 2 T2 terminal                    │││ ││
+│                       │                                                       │││ ││
+│  ┌─────────────────────┘                                                      │││ ││ │
+│  │ 🔴 Red (MS Trav 1)   ──┬─ WIRE NUT #6 (YELLOW) ──────────────────────────┘││ ││ │
+│  │                       │  • Red traveler to Main Switch 1 T1               ││ ││ │
+│  │ ⚫ Black (MS Trav 2)  ──┼─ WIRE NUT #7 (YELLOW) ───────────────────────────┘│ ││ │
+│  │                       │  • Black traveler to Main Switch 1 T2              │ ││ │
+│  │ ⚪ White (True Neut)  ──┼─ WIRE NUT #3 (BLUE) ────────────────────────────┘ ││ │
+│  │                       │  • True neutral to neutral bundle                   ││ │
+│  │ 🟢 Green (Ground)     ──┼─ WIRE NUT #4 (GREEN) ──────────────────────────────┘│ │
+│  └─────────────────────   │  • Ground to ground bundle                           │ │
+│                           │                                                      │ │
+│                           │  ┌─────────────────────────────────────────────────┐  │ │
+│                           │  │ MAIN SWITCH 1 (3-Way)                           │  │ │
+│                           │  │ COM (⚫) ←─ Wire Nut #8 (hot distribution)      │  │ │
+│                           │  │ T1 (🟡)  ←─ Wire Nut #6 (red traveler)         │  │ │
+│                           │  │ T2 (🟡)  ←─ Wire Nut #7 (black traveler)       │  │ │
+│                           │  │ GND (🟢) ←─ Wire Nut #4 (ground bundle)        │  │ │
+│                           │  └─────────────────────────────────────────────────┘  │ │
+│                           │                                                       │ │
+│                           │─ WIRE NUT #8 (RED) ─────────────────────────────────┐ │ │
+│                           │  • Hot distribution to Main Switch 1 COM            │ │ │
+│                           │  • Hot distribution to Fan Switch LINE              │ │ │
+│                           │                                                     │ │ │
+│  FROM FAN (14-2)          │                                                     │ │ │
+│  ┌─────────────────┐      │  ┌─────────────────────────────────────────────────┘ │ │
+│  │ ⚫ Hot (to sw)   │──────┼─→│ WIRE NUT #8 (continued)                           │ │
+│  │ ⚪ Neutral       │──────┼─→│ WIRE NUT #3 (BLUE) (neutral bundle)             │ │
+│  │ 🟢 Ground       │──────┼─→│ WIRE NUT #4 (GREEN) (ground bundle)             │ │
+│  └─────────────────┘      │  └───────────────────────────────────────────────────┘ │
+│                           │                                                        │ │
+│                           │  ┌─────────────────────────────────────────────────┐   │ │
+│                           │  │ FAN SWITCH (Single Pole)                        │   │ │
+│                           │  │ LINE (⚫) ←─ Wire Nut #8 (hot distribution)     │   │ │
+│                           │  │ LOAD (⚫) ←─ Wire Nut #9 (switched hot to fan)  │   │ │
+│                           │  │ GND (🟢)  ←─ Wire Nut #4 (ground bundle)       │   │ │
+│                           │  └─────────────────────────────────────────────────┘   │ │
+│                           │                                                        │ │
+│                           └─ WIRE NUT #9 (YELLOW) ──────────────────────────────┐  │ │
+│                              • Switched hot from Fan Switch LOAD                │  │ │
+│                              • Returns to fan motor                             │  │ │
+│                                                                                 │  │ │
+│                           ┌─ WIRE NUT #10 (YELLOW) ─────────────────────────────┘  │ │
+│                           │  • Switched hot to Main Light                          │ │
+│                           │  • From Main Switch 1 COM terminal                     │ │
+│                           │                                                        │ │
+│                           └─ TO MAIN LIGHT (via Main Switch 2)                     │ │
+│                              • Main Switch 1 sends switched hot to Main Switch 2   │ │
+│                              • Main Switch 2 sends to Main Light fixture           │ │
+│                                                                                     │ │
+│ WIRE NUT SUMMARY:                                                                   │ │
+│ #1: White hot from vanity to VS2 COM                                               │ │
+│ #2: Red traveler VS1 ↔ VS2                                                         │ │
+│ #3: All neutrals (blue wire nut)                                                   │ │
+│ #4: All grounds (green wire nut)                                                   │ │
+│ #5: Black neutral from Cable A to VS2 T2                                           │ │
+│ #6: Red traveler MS1 ↔ MS2                                                         │ │
+│ #7: Black traveler MS1 ↔ MS2                                                       │ │
+│ #8: Hot distribution (MS1 COM, Fan Switch LINE)                                    │ │
+│ #9: Switched hot from Fan Switch to fan motor                                      │ │
+│ #10: Switched hot from MS1 COM to Main Light (via MS2)                            │ │
+└─────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Main Switch 2 Terminal Identification
+## Box Fill Calculations (NEC 314.16)
 
-```
-3-WAY SWITCH TERMINAL LAYOUT:
-                                   
-        🟢 GND                     
-         │                         
-    ┌────┴────┐                   
-    │    ⚫    │ ← COM (Dark/Black Screw)
-    │         │   (Hot Input from Vanity Circuit)
-    │    🔴    │ ← T1 (Brass Screw)  
-    │         │   (Red Traveler to Main Switch 1)
-    │    ⚫    │ ← T2 (Brass Screw)
-    │         │   (Black Traveler to Main Switch 1)
-    └─────────┘
-     3-Way Switch
-```
+### Wire Count per Box:
 
-### Wire Color and Function Reference
+**Box 1 - GFCI Outlet (Single Gang):**
+- Conductors: 4 (2 hot + 2 neutral)
+- Grounds: 2 
+- Device: 2 (GFCI outlet)
+- **Total: 8 conductors** ✅ (within single gang limits)
 
-```
-WIRE COLORS IN MAIN SWITCH 2 BOX:
+**Box 2 - Vanity Switch 1 (Single Gang):**
+- Conductors: 5 (2 hot + 2 traveler + 1 neutral pass-through)
+- Grounds: 2
+- Device: 2 (3-way switch)
+- **Total: 9 conductors** ✅ (within single gang limits)
 
-⚫ BLACK WIRES:
-   • Hot from vanity light (continuous power)
-   • Pigtail to MS2 COM terminal
-   • To Combined Box Cable A (power continues)
-   • Black traveler from Combined Box Cable B
-   • Pigtail to MS2 T2 terminal
+**Box 3 - Vanity Light (4" Round):**
+- Conductors: 8 (multiple splice connections)
+- Grounds: 3
+- Device: 2 (light fixture)
+- **Total: 13 conductors** ✅ (4" round box adequate)
 
-🔴 RED WIRES:
-   • Red traveler from vanity light (pass-through)
-   • To Combined Box Cable A (vanity red traveler)
-   • Red traveler from Combined Box Cable B
-   • Pigtail to MS2 T1 terminal
+**Box 4 - Main Switch 2 (4" × 4" × 2-1/8"):**
+- Conductors: 12 (complex junction)
+- Grounds: 4
+- Device: 2 (3-way switch)
+- **Total: 18 conductors** ✅ (4×4 deep box adequate)
 
-⚪ WHITE WIRES:
-   • From vanity light (HOT - MARK WITH TAPE)
-   • To Combined Box Cable A (HOT - MARK WITH TAPE)
-   • True neutral from vanity light (Wire Nut #6)
-   • True neutral to Combined Box Cable A (Wire Nut #6)
-   • True neutral to Combined Box Cable B (Wire Nut #6)
+**Box 5 - Main Light (4" Round):**
+- Conductors: 6 (pass-through + fixture)
+- Grounds: 3
+- Device: 2 (light fixture)
+- **Total: 11 conductors** ✅ (4" round box adequate)
 
-🟢 GREEN/BARE WIRES:
-   • From vanity light (pass-through)
-   • To Combined Box Cable A (pass-through)
-   • To Combined Box Cable B (pass-through)
-   • Pigtail to MS2 GND terminal
-```
+**Box 6 - Exhaust Fan (4" Round):**
+- Conductors: 8 (pass-through + fan connections)
+- Grounds: 3
+- Device: 2 (fan motor)
+- **Total: 13 conductors** ✅ (4" round box adequate)
 
-### Installation Sequence
-
-```
-STEP-BY-STEP WIRING PROCEDURE:
-
-1. ⚡ TURN OFF BREAKER - Verify with voltage tester
-2. 📦 Install 4" × 4" × 2-1/8" deep box minimum
-3. 🔌 Run three 14-3 cables to box locations
-4. 🔗 Strip wire ends 3/4" for wire nut connections
-
-5. WIRE NUT #1 (RED) - Hot Distribution:
-   Connect: Black from VL + Black pigtail (6") + Black to Comb A
-
-6. WIRE NUT #2 (YELLOW) - Vanity Hot (MARK WIRES):
-   Connect: White from VL (TAPE) + White to Comb A (TAPE)
-
-7. WIRE NUT #3 (GRAY) - Vanity Red Traveler:
-   Connect: Red from VL + Red to Comb A
-
-8. WIRE NUT #4 (GRAY) - Main Red Traveler:
-   Connect: Red from Comb B + Red pigtail (6")
-
-9. WIRE NUT #5 (GRAY) - Main Black Traveler:
-   Connect: Black from Comb B + Black pigtail (6")
-
-10. WIRE NUT #6 (GRAY) - Neutral Pass-Through:
-    Connect: White from VL + White to Comb A + White to Comb B
-
-11. WIRE NUT #7 (GREEN) - Ground Collection:
-    Connect: Bare from VL + Bare to Comb A + Bare to Comb B + Green pigtail (6")
-
-12. 🔧 CONNECT SWITCH TERMINALS:
-    • COM ← Black pigtail from Wire Nut #1
-    • T1 ← Red pigtail from Wire Nut #4
-    • T2 ← Black pigtail from Wire Nut #5
-    • GND ← Green pigtail from Wire Nut #7
-
-13. ✅ VERIFICATION:
-    • Tug test all wire nut connections
-    • Verify hot wire markings (black tape)
-    • Check switch terminal tightness
-    • Confirm box fill within limits
-    • Test 3-way operation with Main Switch 1
-```
+**Box 7 - Combined Switch Box (4" × 4" × 2-1/8"):**
+- Conductors: 15 (3 switches + multiple circuits)
+- Grounds: 4
+- Devices: 6 (three switches)
+- **Total: 25 conductors** ✅ (4×4 deep box adequate)
