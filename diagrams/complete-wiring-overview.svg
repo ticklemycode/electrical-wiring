@@ -1,0 +1,384 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" width="1400" height="1000" font-family="Arial, sans-serif" font-size="10px">
+    <defs>
+        <style>
+            .box-outline { fill: #f8f9fa; stroke: #2c3e50; stroke-width: 2; }
+            .switch-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; }
+            .fixture-box { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; }
+            .panel-box { fill: #ffebee; stroke: #f44336; stroke-width: 3; }
+            .gfci-box { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; }
+            
+            .wire-hot { stroke: #000; stroke-width: 3; fill: none; }
+            .wire-neutral { stroke: #fff; stroke-width: 3; fill: none; stroke-dasharray: 3,3; }
+            .wire-ground { stroke: #4caf50; stroke-width: 3; fill: none; }
+            .wire-red { stroke: #f44336; stroke-width: 3; fill: none; }
+            .wire-white-hot { stroke: #fff; stroke-width: 3; fill: none; }
+            .tape-mark { fill: #000; stroke: none; }
+            
+            .wire-nut-red { fill: #ff5722; stroke: #bf360c; stroke-width: 1; }
+            .wire-nut-yellow { fill: #ffeb3b; stroke: #f57f17; stroke-width: 1; }
+            .wire-nut-gray { fill: #9e9e9e; stroke: #424242; stroke-width: 1; }
+            .wire-nut-green { fill: #4caf50; stroke: #1b5e20; stroke-width: 1; }
+            
+            .cable-14-2 { stroke: #607d8b; stroke-width: 8; fill: none; opacity: 0.7; }
+            .cable-14-3 { stroke: #795548; stroke-width: 10; fill: none; opacity: 0.7; }
+            
+            .title-text { font-size: 18px; font-weight: bold; text-anchor: middle; fill: #2c3e50; }
+            .box-label { font-size: 12px; font-weight: bold; text-anchor: middle; fill: #2c3e50; }
+            .component-label { font-size: 9px; text-anchor: middle; fill: #555; }
+            .wire-label { font-size: 8px; fill: #333; }
+            .terminal-label { font-size: 7px; fill: #000; text-anchor: middle; }
+            .safety-warning { font-size: 8px; fill: #f44336; font-weight: bold; }
+        </style>
+        
+        <!-- Patterns for different wire types -->
+        <pattern id="neutralPattern" patternUnits="userSpaceOnUse" width="6" height="3">
+            <rect width="6" height="3" fill="#fff"/>
+            <rect width="3" height="3" fill="#e0e0e0"/>
+        </pattern>
+    </defs>
+
+    <!-- Title -->
+    <text x="700" y="25" class="title-text">Detailed Bathroom Electrical Wiring - Internal Box Connections</text>
+
+    <!-- ELECTRICAL PANEL -->
+    <g id="panel">
+        <rect x="50" y="400" width="140" height="200" class="panel-box" rx="5"/>
+        <text x="120" y="420" class="box-label">ELECTRICAL PANEL</text>
+        <text x="120" y="435" class="component-label">15A Breaker</text>
+        
+        <!-- Panel terminals -->
+        <rect x="70" y="450" width="80" height="15" fill="#34495e" rx="2"/>
+        <text x="110" y="460" class="terminal-label" fill="#fff">HOT BUS</text>
+        <rect x="70" y="470" width="80" height="15" fill="#ecf0f1" rx="2"/>
+        <text x="110" y="480" class="terminal-label">NEUTRAL BUS</text>
+        <rect x="70" y="490" width="80" height="15" fill="#27ae60" rx="2"/>
+        <text x="110" y="500" class="terminal-label" fill="#fff">GROUND BUS</text>
+        
+        <!-- Outgoing wires -->
+        <circle cx="160" cy="520" r="3" class="wire-hot"/>
+        <circle cx="160" cy="530" r="3" fill="#fff" stroke="#000"/>
+        <circle cx="160" cy="540" r="3" class="wire-ground"/>
+        <text x="170" y="525" class="wire-label">⚫ Hot</text>
+        <text x="170" y="535" class="wire-label">⚪ Neutral</text>
+        <text x="170" y="545" class="wire-label">🟢 Ground</text>
+    </g>
+
+    <!-- GFCI OUTLET -->
+    <g id="gfci">
+        <rect x="250" y="400" width="140" height="200" class="gfci-box" rx="5"/>
+        <text x="320" y="420" class="box-label">GFCI OUTLET</text>
+        <text x="320" y="435" class="component-label">15A, 120V</text>
+        
+        <!-- GFCI LINE terminals -->
+        <rect x="260" y="450" width="50" height="40" fill="#1976d2" rx="2"/>
+        <text x="285" y="465" class="terminal-label" fill="#fff">LINE</text>
+        <text x="285" y="475" class="terminal-label" fill="#fff">⚫ ⚪ 🟢</text>
+        
+        <!-- GFCI LOAD terminals -->
+        <rect x="320" y="450" width="50" height="40" fill="#4caf50" rx="2"/>
+        <text x="345" y="465" class="terminal-label" fill="#fff">LOAD</text>
+        <text x="345" y="475" class="terminal-label" fill="#fff">⚫ ⚪ 🟢</text>
+        
+        <!-- Test/Reset buttons -->
+        <rect x="275" y="510" width="30" height="12" fill="#f44336" rx="2"/>
+        <text x="290" y="518" class="terminal-label" fill="#fff">TEST</text>
+        <rect x="315" y="510" width="30" height="12" fill="#2196f3" rx="2"/>
+        <text x="330" y="518" class="terminal-label" fill="#fff">RESET</text>
+        
+        <!-- Wire connections -->
+        <circle cx="400" cy="520" r="3" class="wire-hot"/>
+        <circle cx="400" cy="530" r="3" fill="#fff" stroke="#000"/>
+        <circle cx="400" cy="540" r="3" class="wire-ground"/>
+    </g>
+
+    <!-- VANITY SWITCH 1 -->
+    <g id="vs1">
+        <rect x="500" y="100" width="140" height="200" class="switch-box" rx="5"/>
+        <text x="570" y="120" class="box-label">VANITY SWITCH 1</text>
+        <text x="570" y="135" class="component-label">3-Way Switch</text>
+        
+        <!-- Switch terminals -->
+        <rect x="520" y="160" width="100" height="80" fill="#ffc107" stroke="#ff8f00" stroke-width="1" rx="3"/>
+        <circle cx="540" cy="180" r="4" fill="#000"/>
+        <text x="548" y="184" class="terminal-label">COM</text>
+        <circle cx="540" cy="200" r="4" fill="#d4af37"/>
+        <text x="548" y="204" class="terminal-label">T1</text>
+        <circle cx="540" cy="220" r="4" fill="#d4af37"/>
+        <text x="548" y="224" class="terminal-label">T2</text>
+        <circle cx="580" cy="230" r="4" fill="#4caf50"/>
+        <text x="588" y="234" class="terminal-label">GND</text>
+        
+        <!-- Wire nuts -->
+        <circle cx="590" cy="260" r="6" class="wire-nut-gray"/>
+        <text x="600" y="265" class="component-label">Neutral</text>
+        <text x="600" y="275" class="component-label">Pass-thru</text>
+    </g>
+
+    <!-- VANITY LIGHT FIXTURE -->
+    <g id="vanity-light">
+        <rect x="700" y="100" width="140" height="200" class="fixture-box" rx="5"/>
+        <text x="770" y="120" class="box-label">VANITY LIGHT</text>
+        <text x="770" y="135" class="component-label">LED Fixture</text>
+        
+        <!-- Light fixture -->
+        <circle cx="770" cy="160" r="25" fill="#ffeb3b" stroke="#ff8f00" stroke-width="2"/>
+        <path d="M 755,160 L 785,160 M 770,145 L 770,175 M 762,152 L 778,168 M 778,152 L 762,168" stroke="#ff8f00" stroke-width="2"/>
+        
+        <!-- Junction box wiring -->
+        <rect x="710" y="200" width="120" height="80" fill="#e8f5e8" stroke="#4caf50" stroke-width="1" rx="2"/>
+        <text x="770" y="215" class="component-label">3-Way Junction</text>
+        
+        <!-- Wire nuts in fixture -->
+        <circle cx="730" cy="230" r="4" class="wire-nut-red"/>
+        <text x="738" y="234" class="wire-label">Hot Dist</text>
+        <circle cx="770" cy="230" r="4" class="wire-nut-yellow"/>
+        <text x="778" y="234" class="wire-label">To Light</text>
+        <circle cx="810" cy="230" r="4" class="wire-nut-gray"/>
+        <text x="818" y="234" class="wire-label">Travelers</text>
+        <circle cx="730" cy="250" r="4" class="wire-nut-gray"/>
+        <text x="738" y="254" class="wire-label">Neutral</text>
+        <circle cx="810" cy="250" r="4" class="wire-nut-green"/>
+        <text x="818" y="254" class="wire-label">Ground</text>
+    </g>
+
+    <!-- MAIN SWITCH 2 (Critical Junction) -->
+    <g id="ms2">
+        <rect x="950" y="350" width="200" height="250" class="switch-box" rx="5"/>
+        <text x="1050" y="370" class="box-label">MAIN SWITCH 2</text>
+        <text x="1050" y="385" class="component-label">3-Way Switch + Junction</text>
+        <text x="1050" y="395" class="safety-warning">⚠️ CRITICAL JUNCTION BOX</text>
+        
+        <!-- Switch terminals -->
+        <rect x="970" y="420" width="80" height="60" fill="#ffc107" stroke="#ff8f00" stroke-width="1" rx="3"/>
+        <circle cx="990" cy="440" r="4" fill="#000"/>
+        <text x="998" y="444" class="terminal-label">COM</text>
+        <circle cx="990" cy="455" r="4" fill="#d4af37"/>
+        <text x="998" y="459" class="terminal-label">T1</text>
+        <circle cx="990" cy="470" r="4" fill="#d4af37"/>
+        <text x="998" y="474" class="terminal-label">T2</text>
+        <circle cx="1030" cy="470" r="4" fill="#4caf50"/>
+        <text x="1038" y="474" class="terminal-label">GND</text>
+        
+        <!-- Wire nuts (7 total) -->
+        <circle cx="1070" cy="420" r="5" class="wire-nut-red"/>
+        <text x="1080" y="425" class="wire-label">WN#1 Hot Dist</text>
+        <circle cx="1110" cy="420" r="5" class="wire-nut-yellow"/>
+        <text x="1120" y="425" class="wire-label">WN#2 Hot</text>
+        <text x="1120" y="435" class="safety-warning">TAPE!</text>
+        
+        <circle cx="1070" cy="450" r="5" class="wire-nut-gray"/>
+        <text x="1080" y="455" class="wire-label">WN#3 Van Red</text>
+        <circle cx="1110" cy="450" r="5" class="wire-nut-gray"/>
+        <text x="1120" y="455" class="wire-label">WN#4 Main Red</text>
+        
+        <circle cx="1070" cy="480" r="5" class="wire-nut-gray"/>
+        <text x="1080" y="485" class="wire-label">WN#5 Main Blk</text>
+        <circle cx="1110" cy="480" r="5" class="wire-nut-gray"/>
+        <text x="1120" y="485" class="wire-label">WN#6 Neutral</text>
+        
+        <circle cx="1090" cy="510" r="5" class="wire-nut-green"/>
+        <text x="1100" y="515" class="wire-label">WN#7 Ground</text>
+        
+        <!-- Cable entries -->
+        <rect x="960" y="540" width="60" height="20" fill="#795548" rx="2"/>
+        <text x="990" y="552" class="component-label" fill="#fff">From VL</text>
+        <rect x="1030" y="540" width="60" height="20" fill="#795548" rx="2"/>
+        <text x="1060" y="552" class="component-label" fill="#fff">To Comb A</text>
+        <rect x="1100" y="540" width="60" height="20" fill="#795548" rx="2"/>
+        <text x="1130" y="552" class="component-label" fill="#fff">To Comb B</text>
+    </g>
+
+    <!-- COMBINED SWITCH BOX -->
+    <g id="combined">
+        <rect x="700" y="650" width="200" height="300" class="switch-box" rx="5"/>
+        <text x="800" y="670" class="box-label">COMBINED SWITCH BOX</text>
+        <text x="800" y="685" class="component-label">3 Switches in One Box</text>
+        
+        <!-- Main Switch 1 -->
+        <rect x="720" y="700" width="70" height="50" fill="#ffc107" stroke="#ff8f00" stroke-width="1" rx="2"/>
+        <text x="755" y="715" class="terminal-label">MAIN SW1</text>
+        <circle cx="735" cy="725" r="3" fill="#000"/>
+        <text x="740" y="729" class="terminal-label">COM</text>
+        <circle cx="750" cy="725" r="3" fill="#d4af37"/>
+        <text x="755" y="729" class="terminal-label">T1</text>
+        <circle cx="765" cy="725" r="3" fill="#d4af37"/>
+        <text x="770" y="729" class="terminal-label">T2</text>
+        <circle cx="780" cy="740" r="3" fill="#4caf50"/>
+        <text x="785" y="744" class="terminal-label">G</text>
+        
+        <!-- Vanity Switch 2 -->
+        <rect x="720" y="760" width="70" height="50" fill="#ffc107" stroke="#ff8f00" stroke-width="1" rx="2"/>
+        <text x="755" y="775" class="terminal-label">VAN SW2</text>
+        <circle cx="735" cy="785" r="3" fill="#000"/>
+        <text x="740" y="789" class="terminal-label">COM</text>
+        <circle cx="750" cy="785" r="3" fill="#d4af37"/>
+        <text x="755" y="789" class="terminal-label">T1</text>
+        <circle cx="765" cy="785" r="3" fill="#d4af37"/>
+        <text x="770" y="789" class="terminal-label">T2</text>
+        <circle cx="780" cy="800" r="3" fill="#4caf50"/>
+        <text x="785" y="804" class="terminal-label">G</text>
+        
+        <!-- Fan Switch -->
+        <rect x="720" y="820" width="70" height="50" fill="#ffc107" stroke="#ff8f00" stroke-width="1" rx="2"/>
+        <text x="755" y="835" class="terminal-label">FAN SW</text>
+        <circle cx="735" cy="845" r="3" fill="#000"/>
+        <text x="740" y="849" class="terminal-label">LINE</text>
+        <circle cx="765" cy="845" r="3" fill="#000"/>
+        <text x="770" y="849" class="terminal-label">LOAD</text>
+        <circle cx="780" cy="860" r="3" fill="#4caf50"/>
+        <text x="785" y="864" class="terminal-label">G</text>
+        
+        <!-- Wire nuts -->
+        <circle cx="820" cy="720" r="5" class="wire-nut-red"/>
+        <text x="830" y="725" class="wire-label">Hot Bundle</text>
+        <circle cx="820" cy="750" r="5" class="wire-nut-gray"/>
+        <text x="830" y="755" class="wire-label">Neutral Bundle</text>
+        <circle cx="820" cy="780" r="5" class="wire-nut-green"/>
+        <text x="830" y="785" class="wire-label">Ground Bundle</text>
+    </g>
+
+    <!-- MAIN LIGHT -->
+    <g id="main-light">
+        <rect x="500" y="650" width="140" height="150" class="fixture-box" rx="5"/>
+        <text x="570" y="670" class="box-label">MAIN LIGHT</text>
+        <text x="570" y="685" class="component-label">LED Fixture</text>
+        
+        <!-- Light fixture -->
+        <circle cx="570" cy="720" r="25" fill="#ffeb3b" stroke="#ff8f00" stroke-width="2"/>
+        <path d="M 555,720 L 585,720 M 570,705 L 570,735 M 562,712 L 578,728 M 578,712 L 562,728" stroke="#ff8f00" stroke-width="2"/>
+        
+        <!-- Pass-through connections -->
+        <rect x="510" y="750" width="120" height="40" fill="#e8f5e8" stroke="#4caf50" stroke-width="1" rx="2"/>
+        <text x="570" y="765" class="component-label">Pass-Through to Fan</text>
+        <circle cx="530" cy="775" r="4" class="wire-nut-red"/>
+        <text x="538" y="779" class="wire-label">Hot</text>
+        <circle cx="570" cy="775" r="4" class="wire-nut-gray"/>
+        <text x="578" y="779" class="wire-label">Neutral</text>
+        <circle cx="610" cy="775" r="4" class="wire-nut-green"/>
+        <text x="618" y="779" class="wire-label">Ground</text>
+    </g>
+
+    <!-- EXHAUST FAN -->
+    <g id="fan">
+        <rect x="300" y="650" width="140" height="150" class="fixture-box" rx="5"/>
+        <text x="370" y="670" class="box-label">EXHAUST FAN</text>
+        <text x="370" y="685" class="component-label">CFM Rated Motor</text>
+        
+        <!-- Fan motor -->
+        <circle cx="370" cy="720" r="25" fill="#90a4ae" stroke="#37474f" stroke-width="2"/>
+        <path d="M 355,710 Q 370,700 385,710 Q 375,720 385,730 Q 370,740 355,730 Q 365,720 355,710" fill="#607d8b"/>
+        <circle cx="370" cy="720" r="8" fill="#263238"/>
+        
+        <!-- Motor connections -->
+        <rect x="310" y="750" width="120" height="40" fill="#e8f5e8" stroke="#4caf50" stroke-width="1" rx="2"/>
+        <text x="370" y="765" class="component-label">Motor Terminals</text>
+        <circle cx="330" cy="775" r="3" fill="#000"/>
+        <text x="338" y="779" class="wire-label">Hot from SW</text>
+        <circle cx="370" cy="775" r="3" fill="#fff" stroke="#000"/>
+        <text x="378" y="779" class="wire-label">Neutral</text>
+        <circle cx="410" cy="775" r="3" fill="#4caf50"/>
+        <text x="418" y="779" class="wire-label">Ground</text>
+    </g>
+
+    <!-- CABLE RUNS -->
+    <!-- Panel to GFCI -->
+    <path class="cable-14-2" d="M 190 520 Q 220 520 250 520"/>
+    <text x="220" y="515" class="component-label">14-2 Cable</text>
+    
+    <!-- GFCI to VS1 -->
+    <path class="cable-14-2" d="M 400 520 Q 450 520 450 300 Q 450 200 500 200"/>
+    <text x="425" y="360" class="component-label" transform="rotate(-90 425 360)">14-2 Cable</text>
+    
+    <!-- VS1 to Vanity Light -->
+    <path class="cable-14-3" d="M 640 200 L 700 200"/>
+    <text x="670" y="195" class="component-label">14-3 Cable</text>
+    
+    <!-- Vanity Light to MS2 -->
+    <path class="cable-14-3" d="M 840 200 Q 900 200 900 500 Q 900 550 950 550"/>
+    <text x="870" y="375" class="component-label" transform="rotate(-90 870 375)">14-3 Cable</text>
+    
+    <!-- MS2 to Combined (Cable A - Vanity) -->
+    <path class="cable-14-3" d="M 1050 600 Q 1050 625 850 625 Q 825 625 825 650"/>
+    <text x="937" y="620" class="component-label">14-3 Cable A (Vanity)</text>
+    
+    <!-- MS2 to Combined (Cable B - Main) -->
+    <path class="cable-14-3" d="M 1150 500 Q 1200 500 1200 800 Q 1200 825 900 825"/>
+    <text x="1050" y="662" class="component-label" transform="rotate(-90 1050 662)">14-3 Cable B (Main)</text>
+    
+    <!-- Combined to Main Light -->
+    <path class="cable-14-2" d="M 700 725 L 640 725"/>
+    <text x="670" y="720" class="component-label">14-2 Cable</text>
+    
+    <!-- Main Light to Fan -->
+    <path class="cable-14-2" d="M 500 725 L 440 725"/>
+    <text x="470" y="720" class="component-label">14-2 Cable</text>
+    
+    <!-- Combined to Fan (Control) -->
+    <path class="cable-14-2" d="M 750 950 Q 750 980 370 980 Q 370 950 370 800"/>
+    <text x="560" y="975" class="component-label">14-2 Cable (Fan Control)</text>
+
+    <!-- INDIVIDUAL WIRES -->
+    <!-- Panel to GFCI wires -->
+    <line class="wire-hot" x1="190" y1="520" x2="250" y2="520"/>
+    <line class="wire-neutral" x1="190" y1="530" x2="250" y2="530"/>
+    <line class="wire-ground" x1="190" y1="540" x2="250" y2="540"/>
+    
+    <!-- Key/Legend -->
+    <g transform="translate(50, 50)">
+        <rect x="0" y="0" width="300" height="300" class="box-outline" fill="#fafafa"/>
+        <text x="150" y="20" class="box-label">Wiring Legend & Standards</text>
+        
+        <!-- Wire types -->
+        <line class="wire-hot" x1="20" y1="40" x2="60" y2="40"/>
+        <text x="70" y="44" class="wire-label">⚫ Hot (Black) - 14 AWG</text>
+        
+        <line class="wire-neutral" x1="20" y1="55" x2="60" y2="55"/>
+        <text x="70" y="59" class="wire-label">⚪ Neutral (White) - 14 AWG</text>
+        
+        <line class="wire-ground" x1="20" y1="70" x2="60" y2="70"/>
+        <text x="70" y="74" class="wire-label">🟢 Ground (Bare/Green) - 14 AWG</text>
+        
+        <line class="wire-red" x1="20" y1="85" x2="60" y2="85"/>
+        <text x="70" y="89" class="wire-label">🔴 Traveler (Red) - 14 AWG</text>
+        
+        <line class="wire-white-hot" x1="20" y1="100" x2="60" y2="100"/>
+        <rect x="38" y="98" width="6" height="4" class="tape-mark"/>
+        <text x="70" y="104" class="wire-label">⚪ White as Hot (TAPE MARKED)</text>
+        
+        <!-- Wire nuts -->
+        <circle cx="40" cy="125" r="5" class="wire-nut-red"/>
+        <text x="50" y="129" class="wire-label">Red Wire Nut (3-4 wires)</text>
+        
+        <circle cx="40" cy="145" r="5" class="wire-nut-yellow"/>
+        <text x="50" y="149" class="wire-label">Yellow Wire Nut (2-3 wires)</text>
+        
+        <circle cx="40" cy="165" r="5" class="wire-nut-gray"/>
+        <text x="50" y="169" class="wire-label">Gray Wire Nut (2 wires)</text>
+        
+        <circle cx="40" cy="185" r="5" class="wire-nut-green"/>
+        <text x="50" y="189" class="wire-label">Green Wire Nut (Grounds)</text>
+        
+        <!-- Cables -->
+        <rect x="20" y="205" width="40" height="8" class="cable-14-2" rx="4"/>
+        <text x="70" y="212" class="wire-label">14-2 Cable (3 conductors)</text>
+        
+        <rect x="20" y="220" width="40" height="10" class="cable-14-3" rx="5"/>
+        <text x="70" y="228" class="wire-label">14-3 Cable (4 conductors)</text>
+        
+        <!-- Safety notes -->
+        <text x="20" y="250" class="safety-warning">⚠️ SAFETY REQUIREMENTS:</text>
+        <text x="20" y="265" class="wire-label">• Mark white wires used as hot with black tape</text>
+        <text x="20" y="280" class="wire-label">• All connections must be in approved boxes</text>
+        <text x="20" y="295" class="wire-label">• Test GFCI monthly, replace every 10 years</text>
+    </g>
+    
+    <!-- Critical Safety Notes -->
+    <g transform="translate(450, 50)">
+        <rect x="0" y="0" width="400" height="100" fill="#ffebee" stroke="#f44336" stroke-width="2" rx="5"/>
+        <text x="200" y="20" class="box-label" fill="#d32f2f">⚠️ CRITICAL INSTALLATION NOTES</text>
+        <text x="10" y="40" class="safety-warning">1. Main Switch 2 has 7 wire nuts - most complex junction</text>
+        <text x="10" y="55" class="safety-warning">2. White wires from vanity circuit carry HOT - MUST be marked</text>
+        <text x="10" y="70" class="safety-warning">3. Vanity light junction occurs AT THE FIXTURE</text>
+        <text x="10" y="85" class="safety-warning">4. Combined box has 3 switches sharing neutrals and grounds</text>
+    </g>
+</svg>
