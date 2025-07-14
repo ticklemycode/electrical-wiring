@@ -597,7 +597,7 @@ CABLE ENTRY POINTS:
 │  ┌─────────────┐                ┌───────────┐               ┌─────────────────┐ │
 │  │ (B) Hot     │───────────────→│ COM (B)   │──────────────→│ (B) Black (Hot  │ │
 │  │             │                │           │               │    to VS2)      │ │
-│  │             │                │ T1 (Y)    │──────────────→│ (R) Red (Trav 1)│ │
+│  │             │                │ T1 (Y)    │──────────────→│ (R) Red (Trav 1) │ │
 │  │             │                │           │               │                 │ │
 │  │             │                │ T2 (Y)    │──────────────→│ (W) White (Hot  │ │
 │  │             │                │           │               │    to Light)    │ │
@@ -637,7 +637,7 @@ CABLE ENTRY POINTS:
 │  │ (B) Black   │──┬─── WIRE NUT #1 (RED) ────────────────────→│ (W) White   │ │
 │  │   (from COM)│  │    • Black from VS1 COM                   │   (Hot cont)│ │
 │  │             │  │    • White to VS2 (via MS2)               │             │ │
-│  │ (R) Red     │──┼─── WIRE NUT #2 (YELLOW) ──────────────→│ (R) Red     │ │
+│  │ (R) Red     │──┼─── WIRE NUT #2 (YELLOW) ──────────────→ │ (R) Red     │ │
 │  │   (Trav 1)  │  │    • Red pass-through to VS2             │   (Trav 1)  │ │
 │  │             │  │                                           │             │ │
 │  │ (W) White   │──┼─── WIRE NUT #3 (YELLOW) ──────────────┐  │             │ │
@@ -711,8 +711,8 @@ CABLE ENTRY POINTS:
 │                       │  │ COM (B) ←─ Wire Nut #5         │     │  (R) Red ←─ MS2 │ │
 │                       │  │ T1 (Y)  ←─ Wire Nut #6         │     │ ← T1 (Trav 1)  │ │
 │                       │  │ T2 (Y)  ←─ Wire Nut #7         │     │                 │ │
-│                       │  │ GND (G) ←─ Wire Nut #4         │     │ (B) Black ←─ MS2│ │
-│                       │  └─────────────────────────────────┘     │ ← T2 (Trav 2)  │ │
+│                       │  │ GND (G) ←─ Wire Nut #4         │     │ (B) Black ←─ MS2 │ │
+│                       │  └─────────────────────────────────┘     │ ← T2 (Trav 2)   │ │
 │                       │                                          │                 │ │
 │                       │─ WIRE NUT #5 (YELLOW) ──────────────────→│ (W) White       │ │
 │                       │  • Hot from vanity circuit              │ ← True Neutral  │ │
@@ -728,13 +728,13 @@ CABLE ENTRY POINTS:
 │                       └─ WIRE NUT #4 (GREEN) ─────────────────────────────────────┼─┘
 │                          • All grounds connected                     TO MAIN LIGHT │
 │                                                                     ┌─────────────┐ │
-│                                                                     │ (B) Switched│ │
-│                                                                     │   Hot from  │ │
-│                                                                     │   MS2 COM   │ │
-│                                                                     │ (W) Neutral │ │
-│                                                                     │   Continue  │ │
-│                                                                     │ (G) Ground  │ │
-│                                                                     │   Continue  │ │
+│                                                                     │ (B) Switched │ │
+│                                                                     │   Hot from   │ │
+│                                                                     │   MS2 COM    │ │
+│                                                                     │ (W) Neutral  │ │
+│                                                                     │   Continue   │ │
+│                                                                     │ (G) Ground   │ │
+│                                                                     │   Continue   │ │
 │                                                                     └─────────────┘ │
 │                                                                                     │
 │ CRITICAL FUNCTIONS:                                                                 │
