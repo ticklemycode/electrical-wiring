@@ -26,7 +26,7 @@ flowchart TD
     E -.->|"⚫ Switched Hot<br/>Fan Switch → Fan"| H
     
     %% Styling
-    classDef boxPadding padding:10px 15px
+    classDef boxPadding padding:10px 25px
     classDef panelStyle fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
     classDef gfciStyle fill:#4ecdc4,stroke:#000,stroke-width:2px,color:#000
     classDef fixtureStyle fill:#45b7d1,stroke:#000,stroke-width:2px,color:#fff
@@ -354,7 +354,7 @@ flowchart TD
     FAN --> TOTAL
     FUTURE --> TOTAL
     
-    classDef boxPadding padding:10px 15px
+    classDef boxPadding padding:10px 25px
     classDef capacityStyle fill:#e17055,stroke:#000,stroke-width:3px,color:#fff
     classDef loadStyle fill:#74b9ff,stroke:#000,stroke-width:2px,color:#000
     classDef summaryStyle fill:#00b894,stroke:#000,stroke-width:2px,color:#fff
