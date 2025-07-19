@@ -1,75 +1,127 @@
-# 3-Way Switch Wiring Guide (Updated for Optimal Design)
+# Comprehensive Wiring Guide (Box-by-Box)
 
-This guide provides detailed instructions for wiring the 3-way switches in the optimized bathroom circuit. In this design, **Box 2 is the central distribution hub**.
+This guide provides detailed, step-by-step wiring instructions for each electrical box in the optimized bathroom circuit.
 
-## Core Concepts for This Design
-
-1.  **Power Distribution**: Power flows from the GFCI (Box 1) to Box 2. Box 2 then distributes power and travelers to Box 4 (for the main light) and Box 7 (for the vanity light and fan).
-2.  **Traveler Wires**: These wires run between two 3-way switches, allowing either switch to control the light. They are always contained within a single 14-3 cable.
-3.  **Wire Re-identification (NEC 200.7)**: When a white wire is used as a hot conductor (like a traveler), it **MUST** be re-identified by wrapping it with black or red electrical tape at both ends. This is a critical safety step.
-
----
-
-## 1. Vanity Light Circuit Wiring (Box 2 ↔ Box 7)
-
-This circuit controls the vanity light (Box 3) using 3-way switches in Box 2 and Box 7.
-
-### Cable Run: 14-3 from Box 2 to Box 7
--   **Black Wire**: **Constant Hot**. This wire is NOT a traveler. It provides the always-on power needed for the fan switch in Box 7.
--   **Red Wire**: **Traveler 1**. Connects the T1 terminals of the two switches.
--   **White Wire**: **Traveler 2**. Connects the T2 terminals. **MUST BE RE-IDENTIFIED WITH BLACK TAPE.**
--   **Bare Ground**: Connects the ground screws.
-
-### Wiring at Box 2 (Vanity Switch 1)
--   **Incoming Hot (from GFCI)**: Connect to a pigtail that feeds:
-    1.  The **COM (Common) terminal** of the vanity 3-way switch.
-    2.  The **Black Wire** in the 14-3 cable going to Box 4 (for the main light circuit).
--   **Red Wire (to Box 7)**: Connect to the **T1 terminal**.
--   **White Wire (to Box 7)**: **Mark with black tape**, then connect to the **T2 terminal**.
--   **Neutrals**: All white neutral wires are bundled together in a wire nut. **They do not connect to the switch.**
--   **Grounds**: All bare ground wires are bundled together with a pigtail to the switch's ground screw.
-
-### Wiring at Box 7 (Vanity Switch 2)
--   **Incoming Black Wire (from Box 2)**: This is **Constant Hot**. Pigtail it to feed:
-    1.  The **LINE terminal** of the single-pole fan switch.
--   **Incoming Red Wire (from Box 2)**: Connect to the **T1 terminal** of the vanity 3-way switch.
--   **Incoming White Wire (from Box 2)**: **Mark with black tape**, then connect to the **T2 terminal**.
--   **Outgoing Switched Hot (to Vanity Light)**: Connect a black wire to the **COM terminal**. This wire runs in the 14-2 cable to the vanity light fixture (Box 3).
--   **Neutrals**: All white neutral wires are bundled together.
--   **Grounds**: All bare ground wires are bundled together with pigtails to both switches' ground screws.
+## ⚠️ Critical Safety Reminders
+- **Turn off power** at the breaker before beginning any work.
+- **Use a voltage tester** to confirm the power is off.
+- **Re-identify wires** as required by the NEC. In this project, the white wire in the 14-3 cable between Box 2 and Box 7 is a traveler and must be marked with black or red tape at both ends.
+- **Pigtails**: Use 6-inch pigtails of the same color wire to connect devices when multiple wires are spliced in a wire nut. This improves organization and safety.
 
 ---
 
-## 2. Main Light Circuit Wiring (Box 2 ↔ Box 4)
+### Box 1: GFCI Outlet
+*   **Purpose**: Provides GFCI protection for the entire circuit.
+*   **Cables**: 14-2 from Panel (IN), 14-2 to Box 2 (OUT).
 
-This circuit controls the main light (Box 5) using 3-way switches in Box 2 and Box 4.
-
-### Cable Run: 14-3 from Box 2 to Box 4
--   **Black Wire**: **Traveler 1**.
--   **Red Wire**: **Traveler 2**.
--   **White Wire**: **Neutral**. This is a true neutral, providing the return path for the main light.
--   **Bare Ground**: Connects the ground screws.
-
-### Wiring at Box 2 (Main Switch 1)
--   **Incoming Hot (from GFCI)**: The same pigtail that feeds the vanity switch also connects to the **COM terminal** of this main light 3-way switch.
--   **Black Wire (to Box 4)**: Connect to the **T1 terminal**.
--   **Red Wire (to Box 4)**: Connect to the **T2 terminal**.
--   **Neutrals**: The white wire from the 14-3 cable joins the main neutral bundle in the box.
--   **Grounds**: The bare ground wire joins the main ground bundle.
-
-### Wiring at Box 4 (Main Switch 2)
--   **Incoming Black Wire (from Box 2)**: Connect to the **T1 terminal**.
--   **Incoming Red Wire (from Box 2)**: Connect to the **T2 terminal**.
--   **Outgoing Switched Hot (to Main Light)**: Connect a black wire to the **COM terminal**. This wire runs in the 14-2 cable to the main light fixture (Box 5).
--   **Neutrals**: The incoming white wire (from Box 2) is bundled with the outgoing white wire (to Box 5).
--   **Grounds**: All bare ground wires are bundled together with a pigtail to the switch's ground screw.
+| Connection Point | Wire To Connect                               | Notes                                     |
+| :--------------- | :-------------------------------------------- | :---------------------------------------- |
+| **LINE (Brass)** | Black wire from Panel                         | Incoming Hot                              |
+| **LINE (Silver)**| White wire from Panel                         | Incoming Neutral                          |
+| **LOAD (Brass)** | Black wire to Box 2                           | Outgoing (Protected) Hot                  |
+| **LOAD (Silver)**| White wire to Box 2                           | Outgoing (Protected) Neutral              |
+| **Ground Screw** | Pigtail from ground wire nut                  |                                           |
+| **Wire Nut #1**  | Bare grounds from both cables + pigtail       | Connects all grounds together.            |
 
 ---
 
-## 3. Fan Circuit Wiring (in Box 7)
+### Box 2: The Distribution Hub
+*   **Purpose**: The most important box. It houses two 3-way switches and distributes power to the rest of the circuit.
+*   **Cables**: 14-2 from Box 1 (IN), 14-3 to Box 4 (OUT), 14-3 to Box 7 (OUT).
 
-The fan is controlled by a simple single-pole switch in Box 7.
+#### Wire Nut Connections in Box 2
+-   **Wire Nut #1 (HOT)**:
+    -   Black wire from Box 1 (Incoming Hot)
+    -   Pigtail to Vanity SW 1 (COM terminal)
+    -   Pigtail to Main SW 1 (COM terminal)
+-   **Wire Nut #2 (NEUTRAL)**:
+    -   White wire from Box 1 (Incoming Neutral)
+    -   White wire from 14-3 to Box 4
+    -   White wire from 14-3 to Box 7
+-   **Wire Nut #3 (GROUND)**:
+    -   Bare ground from Box 1
+    -   Bare ground from 14-3 to Box 4
+    -   Bare ground from 14-3 to Box 7
+    -   Pigtail to Vanity SW 1 (Ground Screw)
+    -   Pigtail to Main SW 1 (Ground Screw)
 
--   **Constant Hot**: The black wire from Box 2 provides constant power. Connect it to one terminal of the fan switch.
--   **Switched Hot**: Connect a black wire to the other terminal of the fan switch. This wire runs in the 14-2 cable to the fan (Box 6).
--   **Neutral & Ground**: The neutral and ground for the fan are provided by the bundles in Box 7.
+#### Device Connections in Box 2
+-   **Vanity Switch 1 (3-Way)**:
+    -   **COM**: Pigtail from HOT wire nut.
+    -   **T1**: Red wire from 14-3 to Box 7 (Traveler).
+    -   **T2**: White wire from 14-3 to Box 7 (**Re-identified with black tape**).
+    -   **Ground**: Pigtail from GROUND wire nut.
+-   **Main Switch 1 (3-Way)**:
+    -   **COM**: Pigtail from HOT wire nut.
+    -   **T1**: Black wire from 14-3 to Box 4 (Traveler).
+    -   **T2**: Red wire from 14-3 to Box 4 (Traveler).
+    -   **Ground**: Pigtail from GROUND wire nut.
+
+---
+
+### Box 4: Main Light Switch 2
+*   **Purpose**: Houses the second 3-way switch for the main light.
+*   **Cables**: 14-3 from Box 2 (IN), 14-2 to Box 5 (Main Light) (OUT).
+
+#### Wire Nut Connections in Box 4
+-   **Wire Nut #1 (NEUTRAL)**:
+    -   White wire from Box 2.
+    -   White wire to Box 5.
+-   **Wire Nut #2 (GROUND)**:
+    -   Bare ground from Box 2.
+    -   Bare ground to Box 5.
+    -   Pigtail to the switch's ground screw.
+
+#### Device Connections in Box 4
+-   **Main Switch 2 (3-Way)**:
+    -   **COM**: Black wire to Box 5 (Switched Hot to light).
+    -   **T1**: Black wire from Box 2 (Traveler).
+    -   **T2**: Red wire from Box 2 (Traveler).
+    -   **Ground**: Pigtail from GROUND wire nut.
+
+---
+
+### Box 7: Combined Switch Box
+*   **Purpose**: Houses the second vanity switch and the fan switch.
+*   **Cables**: 14-3 from Box 2 (IN), 14-2 to Box 3 (Vanity Light) (OUT), 14-2 to Box 6 (Fan) (OUT).
+
+#### Wire Nut Connections in Box 7
+-   **Wire Nut #1 (HOT)**:
+    -   Black wire from Box 2 (Constant Hot).
+    -   Pigtail to Fan Switch (LINE terminal).
+-   **Wire Nut #2 (NEUTRAL)**:
+    -   White wire from Box 2.
+    -   White wire to Box 3.
+    -   White wire to Box 6.
+-   **Wire Nut #3 (GROUND)**:
+    -   Bare ground from Box 2.
+    -   Bare ground to Box 3.
+    -   Bare ground to Box 6.
+    -   Pigtail to Vanity SW 2 (Ground Screw).
+    -   Pigtail to Fan Switch (Ground Screw).
+
+#### Device Connections in Box 7
+-   **Vanity Switch 2 (3-Way)**:
+    -   **COM**: Black wire to Box 3 (Switched Hot to light).
+    -   **T1**: Red wire from Box 2 (Traveler).
+    -   **T2**: White wire from Box 2 (**Re-identified with black tape**).
+    -   **Ground**: Pigtail from GROUND wire nut.
+-   **Fan Switch (Single-Pole)**:
+    -   **Top Terminal**: Pigtail from HOT wire nut.
+    -   **Bottom Terminal**: Black wire to Box 6 (Switched Hot to fan).
+    -   **Ground**: Pigtail from GROUND wire nut.
+
+---
+
+### Boxes 3, 5, and 6: Fixture Boxes
+These boxes are for the light fixtures and the fan. The wiring is straightforward.
+
+-   **Box 3 (Vanity Light)**:
+    -   Connect the black and white wires from the 14-2 cable (from Box 7) to the corresponding wires on the light fixture.
+    -   Connect the bare ground wire to the fixture's ground screw/wire.
+-   **Box 5 (Main Light)**:
+    -   Connect the black and white wires from the 14-2 cable (from Box 4) to the corresponding wires on the light fixture.
+    -   Connect the bare ground wire to the fixture's ground screw/wire.
+-   **Box 6 (Exhaust Fan)**:
+    -   Connect the black and white wires from the 14-2 cable (from Box 7) to the corresponding wires on the fan.
+    -   Connect the bare ground wire to the fan's ground screw/wire.
