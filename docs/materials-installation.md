@@ -8,28 +8,29 @@
 ```
 GFCI Outlet C#### Step 2: Run Cable Routing
 ```
-Cable Run Sequence:
+Cable Run Sequence (UPDATED OPTIMAL DESIGN):
 1. Panel → GFCI Outlet (14-2)
-2. GFCI → Vanity Switch 1 (14-2)
-3. Vanity Switch 1 → Vanity Light (14-3, switching junction)
-4. Vanity Light → Main Switch 2 (14-3, vanity circuit pass-through)
-5. Main Switch 2 → Combined Switch Box (14-3, vanity circuit Cable A)
-6. Main Switch 2 → Combined Switch Box (14-3, main light travelers Cable B)
-7. Combined Switch Box → Main Light (14-2, switched hot)
-8. Main Light → Fan (14-2, hot pass-through)
+2. GFCI → Box 2 (Vanity Switch 1) (14-2)
+3. Box 2 → Box 4 (Main Switch 2) (14-2, main circuit continuation)
+4. Box 2 → Box 7 (Combined Switch Box) (14-3, vanity switching only)
+5. Box 4 → Box 7 (Combined Switch Box) (14-3, main switching + neutral feed)
+6. Box 4 → Box 5 (Main Light) (14-2, switched hot)
+7. Box 5 → Box 6 (Fan) (14-2, hot pass-through)
+8. Box 6 → Box 7 (Combined Switch Box) (14-2, fan control)
+9. Box 7 → Box 3 (Vanity Light) (14-2, vanity power)
 
-Key Changes in New Design:
-- TWO separate 14-3 cables from Main Switch 2 to Combined Box
-- Cable A: Vanity circuit (white=hot marked, red=traveler, black=neutral)
-- Cable B: Main light travelers (red=traveler1, black=traveler2, white=neutral)
-- Cleaner separation between vanity and main light circuits
+Key Design Features:
+- Box 2 feeds both main circuit (Box 4) and vanity switching (Box 7)
+- Box 7 powered by Box 4, controls vanity light directly
+- Simple, straightforward routing with proper neutral flow
+- Each 14-3 cable has specific purpose (no complex multi-function cables)
 
 Notes:
 - Leave 8" of cable at each box
 - Secure cable every 4.5 feet
 - Use cable staples within 12" of boxes
 - Protect cable through framing
-- Combined switch box requires larger capacity for 3 switches
+- Box 7 requires adequate capacity for multiple switches
 ````───────────┐
 │      GFCI       │
 │  LINE    LOAD   │

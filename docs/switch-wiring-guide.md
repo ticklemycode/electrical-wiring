@@ -5,17 +5,21 @@
 **IMPORTANT**: Before diving into specific switch connections, understand that "traveler wires" are not separate wires running between switches. They are specific conductors within the 14-3 cables that connect the components.
 
 ### Physical Cable Installation
-- **Vanity 3-Way Circuit**: Install two complete 14-3 cables
-  - Cable #1: Vanity Switch 1 → Vanity Light Fixture  
-  - Cable #2: Vanity Light Fixture → Combined Switch Box (Vanity Switch 2)
-- **Main 3-Way Circuit**: Install one complete 14-3 cable
-  - Cable #3: Combined Switch Box (Main Switch 1) → Main Switch 2
+- **Vanity 3-Way Circuit**: Box 2 (VS1) connects to Box 7 (VS2) via 14-3 cable
+  - Box 7 powers vanity light directly via 14-2 cable
+- **Main 3-Way Circuit**: Box 4 (MS2) connects to Box 7 (MS1) via 14-3 cable
+  - Box 4 powers main light directly via 14-2 cable
 
 ### Traveler Wire Function
-Within each 14-3 cable, the **red wire + one other conductor** serve as the "traveler pair":
-- **Red wire**: Always functions as Traveler 1 in 3-way circuits
-- **Black or White wire**: Functions as Traveler 2 (depends on circuit configuration)
-- **Remaining conductor**: Carries either hot power or neutral, depending on location in circuit
+**Vanity Circuit (Box 2 → Box 7):**
+- **Red wire**: Traveler 1 (VS1 T1 ↔ VS2 T1)
+- **White wire**: Traveler 2 (VS1 T2 ↔ VS2 T2) **MARK BLACK TAPE**
+- **Black wire**: Always hot from VS1 COM to power Box 7 circuits
+
+**Main Circuit (Box 4 → Box 7):**
+- **Red wire**: Traveler 1 (MS2 T1 ↔ MS1 T1)  
+- **Black wire**: Traveler 2 (MS2 T2 ↔ MS1 T2)
+- **White wire**: Neutral feed from Box 4 to Box 7
 
 ## Understanding 3-Way Switches
 
@@ -39,13 +43,11 @@ Within each 14-3 cable, the **red wire + one other conductor** serve as the "tra
 **CRITICAL SAFETY**: White wires used as hot conductors in switch loops MUST be re-identified with black electrical tape at both ends.
 
 **In this circuit, the following white wires carry HOT (not neutral):**
-1. **White wire from vanity light to Main Switch 2** - This carries switched hot
-2. **White wire from Main Switch 2 to Combined Box** - Continuation of above hot
+1. **White wire from Box 2 to Box 7** - Vanity Traveler 2 (VS1 T2 to VS2 T2)
 
 **Re-identification locations:**
-- At vanity light fixture box (mark white wire going to Main Switch 2)
-- At Main Switch 2 box (mark white wire from vanity light)
-- At Combined Box (mark white wire from Main Switch 2)
+- At Box 2 (mark white wire going to Box 7 T2 terminal)
+- At Box 7 (mark white wire from Box 2 going to VS2 T2 terminal)
 
 **Why this matters**: Failure to identify switch loop conductors can result in dangerous confusion between true neutrals and hot wires.
 

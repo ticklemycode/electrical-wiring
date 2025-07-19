@@ -13,10 +13,14 @@ This document provides a complete wiring diagram and installation guide for a ba
 ### Quick Wire Flow Overview
 ```
 ⚫ HOT WIRE FLOW:
-Panel → GFCI → Vanity Switch 1 → Vanity Light (switched) → Main Switch 2 → Combined Switch Box → Main Light (switched) → Fan
+Panel → GFCI → Box 2 (VS1) → Box 4 (MS2) → Box 5 (Main Light) → Box 6 (Fan)
+                     ↓
+                  Box 7 (Combined) → Box 3 (Vanity Light)
 
 ⚪ NEUTRAL WIRE FLOW:  
-Panel → GFCI → All Fixtures → Return to Panel
+Panel → GFCI → Box 2 → Box 4 → Box 7 → Box 3 (Vanity Light)
+                  ↓
+                Box 5 (Main Light) → Box 6 (Fan)
 
 🟢 GROUND WIRE FLOW:
 Panel → All Devices & Boxes → Return to Panel
@@ -24,14 +28,14 @@ Panel → All Devices & Boxes → Return to Panel
 
 ### Power Flow Sequence
 1. **GFCI Outlet** (Power entry point)
-2. **Vanity Switch #1** (separate box - controls vanity light)
-3. **Vanity Light Fixture** (receives hot via 14-3 cable from VS1, switching junction for VS2)
-4. **Main Switch #2** (separate box - passes power to Combined Box, provides 3-way travelers)
-5. **Combined Switch Box** (controls main light and fan)
-6. **Main Light Fixture**
-7. **Exhaust Fan**
+2. **Vanity Switch #1** (Box 2 - distributes power and vanity switching)
+3. **Main Switch #2** (Box 4 - main circuit hub and main light switching)
+4. **Combined Switch Box** (Box 7 - receives power from Box 4, controls vanity and fan)
+5. **Vanity Light Fixture** (Box 3 - powered from Combined Switch Box)
+6. **Main Light Fixture** (Box 5 - powered from Main Switch #2)
+7. **Exhaust Fan** (Box 6 - powered via main light pass-through)
 
-**Note**: Combined Switch Box contains Main Switch #1, Vanity Switch #2, and Fan Switch
+**Updated Circuit Flow**: Box 2 feeds both Box 4 (main circuit) and Box 7 (vanity switching). Box 7 powers vanity light directly. Box 4 powers main light and provides neutral to Box 7.
 
 ## Switch Box Configuration
 

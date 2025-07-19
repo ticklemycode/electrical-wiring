@@ -549,224 +549,86 @@ flowchart TD
     class VL_FIXTURE,ML_FIXTURE,FAN_MOTOR fixtureStyle
 ```
 
-## Wire Connection Summary - STRAIGHTFORWARD OPTIMAL DESIGN
+## Box 2 - Vanity Switch 1 Detailed Wiring Instructions
 
-### Box 1 - GFCI Outlet
-**INCOMING (from Panel):**
-- Black: Hot from 15A breaker
-- White: Neutral return to panel
-- Bare: Ground to panel
+### Box 2 - Vanity Switch 1 (Single Gang Box)
 
-**OUTGOING (to Box 2):**
-- Black: Hot (GFCI protected)
-- White: Neutral (GFCI protected)  
-- Bare: Ground
-
-### Box 2 - Vanity Switch 1 (3-Way)
-**INCOMING (from Box 1 - 14-2):**
-- Black: Hot → connects to switch COM terminal
-- White: Neutral → continues to Box 4 via wire nut
-- Bare: Ground → wire nut with pigtail to switch
-
-**OUTGOING (to Box 4 - 14-2):**
-- Black: Always hot from switch COM (main circuit feed)
-- White: **NEUTRAL** continuation (main circuit neutral)
-- Bare: Ground continuation
-
-**OUTGOING (to Box 7 - 14-3 Vanity Switching):**
-- Black: Always hot from switch COM (for vanity switching)
-- Red: Traveler 1 from switch T1
-- White: Traveler 2 from switch T2 **MARK BLACK** 
-- Bare: Ground
-
-### Box 3 - Vanity Light Fixture  
-**INCOMING (from Box 7 - 14-2):**
-- Black: Switched hot from VS2 COM (when switches align)
-- White: **NEUTRAL** from Box 7 main circuit
-- Bare: Ground
-
-**FIXTURE CONNECTIONS:**
-- Hot: Black wire from VS2 switched output
-- Neutral: White wire from Box 7 neutral bundle
-- Ground: Ground bundle
-
-### Box 4 - Main Switch 2 & Main Junction Hub
-**INCOMING (from Box 2 - 14-2):**
-- Black: Always hot from circuit → distributes to all main circuits
-- White: **MAIN NEUTRAL** → distributes to main light circuit
-- Bare: Ground → distributes to all circuits
-
-**OUTGOING (to Box 7 - 14-3 Cable B Main):**
-- Black: Main Traveler 2 from MS2 T2
-- Red: Main Traveler 1 from MS2 T1  
-- White: **NEUTRAL** for combined box circuits
-- Bare: Ground
-
-**OUTGOING (to Box 5 - 14-2):**
-- Black: Switched hot from MS2 COM
-- White: **NEUTRAL** for main light
-- Bare: Ground
-
-### Box 5 - Main Light Fixture
-**INCOMING (from Box 4 - 14-2):**
-- Black: Switched hot from Main Switch 2
-- White: **NEUTRAL** from main circuit
-- Bare: Ground
-
-**OUTGOING (to Box 6 Fan - 14-2):**
-- Black: Hot pass-through (always on)
-- White: **NEUTRAL** pass-through  
-- Bare: Ground pass-through
-
-### Box 6 - Exhaust Fan
-**INCOMING (from Box 5 - 14-2):**
-- Black: Always hot for fan motor
-- White: **NEUTRAL** for fan motor
-- Bare: Ground
-
-**OUTGOING (to Box 7 Combined - 14-2):**
-- Black: Hot for fan switch
-- White: **NEUTRAL** return
-- Bare: Ground
-
-### Box 7 - Combined Switch Box (MAIN SWITCHING HUB)
-**INCOMING Cables:**
-
-**Cable A from Box 2 (14-3 Vanity Switching):**
-- Black: Always hot from VS1 COM → to hot distribution
-- Red: Vanity Traveler 1 → to VS2 T1
-- White: Vanity Traveler 2 → to VS2 T2 **MARK BLACK**
-- Bare: Ground
-
-**Cable B from Box 4 (14-3 Main):**
-- Black: Main Traveler 2 → to MS1 T2  
-- Red: Main Traveler 1 → to MS1 T1
-- White: **NEUTRAL** for all Box 7 circuits
-- Bare: Ground
-
-**Cable C from Box 6 (14-2 Fan):**
-- Black: Hot for fan → to Fan Switch
-- White: **NEUTRAL** return from fan
-- Bare: Ground
-
-**OUTGOING (to Box 3 - 14-2 Vanity Power):**
-- Black: Switched hot from VS2 COM
-- White: **NEUTRAL** from Cable B neutral bundle
-- Bare: Ground
-
-**SWITCH CONNECTIONS:**
-- **Main Switch 1**: T1=Cable B Red, T2=Cable B Black, COM=Hot to main light circuit
-- **Vanity Switch 2**: T1=Cable A Red, T2=Cable A White, COM=Hot to vanity light  
-- **Fan Switch**: Hot=Cable C Black, Switched=Fan control
-
-### Box 5 - Main Light Fixture
-**INCOMING (from Box 4 - 14-2):**
-- Black: Switched hot from Main Switch 2
-- White: **NEUTRAL** from main circuit
-- Bare: Ground
-
-**OUTGOING (to Box 6 Fan - 14-2):**
-- Black: Hot pass-through (always on)
-- White: **NEUTRAL** pass-through  
-- Bare: Ground pass-through
-
-### Box 6 - Exhaust Fan
-**INCOMING (from Box 5 - 14-2):**
-- Black: Always hot → continues to Combined Box for fan switch
-- White: **NEUTRAL** from circuit
-- Bare: Ground
-
-**OUTGOING (to Box 7 Combined - 14-2):**
-- Black: Hot for fan switch
-- White: **NEUTRAL** for fan return
-- Bare: Ground
-
-### Box 7 - Combined Switch Box (Main SW1, Vanity SW2, Fan SW)
-**INCOMING Cables:**
-
-**Cable A from Box 4 (14-3 Vanity Return):**
-- Black: Switched return from vanity light → to VS2 COM
-- Red: Vanity Traveler 1 → to VS2 T1
-- White: Vanity Traveler 2 → to VS2 T2 **MARK BLACK**
-- Bare: Ground
-
-**Cable B from Box 4 (14-3 Main):**
-- Black: Main Traveler 2 → to MS1 T2  
-- Red: Main Traveler 1 → to MS1 T1
-- White: **NEUTRAL** for circuits
-- Bare: Ground
-
-**Cable C from Box 6 (14-2 Fan):**
-- Black: Hot for fan → to Fan Switch
-- White: **NEUTRAL** return from fan
-- Bare: Ground
-
-**SWITCH CONNECTIONS:**
-- **Main Switch 1**: T1=Cable B Red, T2=Cable B Black, COM=Hot distribution
-- **Vanity Switch 2**: T1=Cable A Red, T2=Cable A White, COM=Cable A Black  
-- **Fan Switch**: Hot=Cable C Black, Switched=Fan return
-
-## ⚡ CORRECTED NEUTRAL FLOW PATH
-
-### **Complete Neutral Circuit Path:**
 ```
-Panel → GFCI → Box 2 → Box 4 (Main Junction Hub)
-                         ↓
-                    Distributes to:
-                    • Vanity Light (Box 3) via separate neutral
-                    • Combined Box (Box 7) via Cable B white
-                    • Main Light (Box 5) via 14-2 white
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                         BOX 2 - VANITY SWITCH 1 (Single Gang)                  │
+│                              3-Way Switch for Vanity Light                      │
+└─────────────────────────────────────────────────────────────────────────────────┘
+
+CABLE ENTRY POINTS:
+        Cable from GFCI (14-2)                     Cable to Box 4 (14-2)
+                                Cable to Box 7 (14-3 Vanity Switching)
+
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                 │
+│  FROM GFCI (14-2)        VANITY SWITCH 1 (3-WAY)         OUTGOING CABLES       │
+│  ┌─────────────┐         ┌─────────────────┐             ┌─────────────────────┐ │
+│  │ (B) Black   │────────→│ COM Terminal    │─────────────│ TO BOX 4 (14-2)    │ │
+│  │   (Hot)     │         │ (Always Hot)    │             │ (B) Black (Hot)     │ │
+│  │             │         │                 │             │ (W) White (Neutral) │ │
+│  │             │         │ T1 Terminal     │─────────────│ TO BOX 7 (14-3)    │ │
+│  │             │         │ (Brass Screw)   │             │ (R) Red (Traveler1) │ │
+│  │             │         │                 │             │                     │ │
+│  │             │         │ T2 Terminal     │─────────────│ TO BOX 7 (14-3)    │ │
+│  │             │         │ (Brass Screw)   │             │ (W) White (Trav 2)  │ │
+│  │             │         │                 │             │ **MARK BLACK TAPE** │ │
+│  │ (W) White   │──┬──────┤ [NOT CONNECTED  │             │                     │ │
+│  │   (Neutral) │  │      │  TO SWITCH]     │             │ TO BOX 7 (14-3)    │ │
+│  │             │  │      │                 │             │ (B) Black (Hot from │ │
+│  │             │  │      │ Ground Screw    │──┐          │     COM Terminal)   │ │
+│  │ (G) Ground  │──┼──────┤ (Green Screw)   │  │          │                     │ │
+│  └─────────────┘  │                           │          │ TO BOX 4 (14-2)    │ │
+│                   │                           │          │ (G) Green (Ground)  │ │
+│                   │ ┌─ WIRE NUT #1 (YELLOW) ──┼──────────│ TO BOX 7 (14-3)    │ │
+│                   │ │  • White from GFCI     │          │ (G) Green (Ground)  │ │
+│                   │ │  • White to Box 4       │          │                     │ │
+│                   │ │    (Neutral Continuation)│          └─────────────────────┘ │
+│                   │ └─────────────────────────┘                                  │
+│                   │                                                              │
+│                   │ ┌─ WIRE NUT #2 (GREEN) ──────────────────────────────────┐  │
+│                   │ │  • Ground from GFCI                                    │  │
+│                   │ │  • Ground to Box 4                                     │  │
+│                   │ │  • Ground to Box 7                                     │  │
+│                   │ │  • Pigtail to switch ground screw                     │  │
+│                   │ └─────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### **Key Design Changes:**
-1. **Box 2 → Box 4**: Changed to 14-2 cable (carries neutral properly)
-2. **Box 4 = Main Hub**: All power distribution happens here
-3. **Vanity Light Neutral**: Fed from Box 4 main neutral bundle (separate from switching)
-4. **All Fixtures**: Now have proper hot, neutral, and ground connections
+### Wire Connection Details for Box 2:
 
-### **Why This Works:**
-✅ **Continuous neutral path**: Panel → GFCI → Box 2 → Box 4 → all fixtures  
-✅ **3-way switching maintained**: Both vanity and main lights work properly  
-✅ **Code compliant**: Every fixture has proper hot, neutral, ground  
-✅ **Uses only 14-2 and 14-3**: No specialty cables required  
-✅ **Box 4 as junction**: Proper electrical design with main distribution point
+#### **INCOMING FROM GFCI (14-2 Cable):**
+- **Black Wire**: Hot from GFCI → connects to switch COM terminal (dark screw)
+- **White Wire**: Neutral from GFCI → goes to Wire Nut #1 (does NOT connect to switch)
+- **Bare Ground**: From GFCI → goes to Wire Nut #2
 
-## Critical Implementation Notes:
-- **White wire re-identification**: Mark white travelers with BLACK TAPE
-- **Box 4 sizing**: Must be large enough for all junction connections
-- **Neutral bonding**: All neutrals properly connected in junction boxes
-- **Ground continuity**: Maintained throughout entire circuit
+#### **OUTGOING TO BOX 4 (14-2 Cable):**
+- **Black Wire**: Always hot from switch COM terminal → continues main circuit
+- **White Wire**: Neutral continuation from Wire Nut #1 → main circuit neutral
+- **Bare Ground**: From Wire Nut #2 → continues circuit grounding
 
----
+#### **OUTGOING TO BOX 7 (14-3 Vanity Switching Cable):**
+- **Black Wire**: Always hot from switch COM terminal → power for vanity switching
+- **Red Wire**: Traveler 1 from switch T1 terminal → to VS2 T1 in Box 7
+- **White Wire**: Traveler 2 from switch T2 terminal → to VS2 T2 in Box 7 **MARK WITH BLACK TAPE**
+- **Bare Ground**: From Wire Nut #2 → continues circuit grounding
 
-# 🎯 STRAIGHTFORWARD OPTIMAL DESIGN - VERIFIED ✅
+#### **SWITCH TERMINAL CONNECTIONS:**
+- **COM Terminal (Dark Screw)**: Black wire from GFCI (always hot)
+- **T1 Terminal (Brass Screw)**: Red wire to Box 7 (Traveler 1)
+- **T2 Terminal (Brass Screw)**: White wire to Box 7 (Traveler 2) **MARK BLACK**
+- **Ground Screw (Green)**: Pigtail from ground wire nut
 
-## **Neutral Flow Verification:**
-**Panel → GFCI → Box 2 → Box 4 → Box 7 → Box 3 (Vanity)**
-**Panel → GFCI → Box 2 → Box 4 → Box 5 → Box 6 (Main/Fan)**
+#### **WIRE NUT CONNECTIONS:**
+- **Wire Nut #1 (Yellow)**: Neutral pass-through (GFCI white + Box 4 white)
+- **Wire Nut #2 (Green)**: All grounds (GFCI + Box 4 + Box 7 + switch pigtail)
 
-## **Circuit Layout:**
-1. **Box 2 (VS1)** sends switching signals to **Box 7** (14-3)
-2. **Box 7** powers vanity light directly (14-2 with neutral) 
-3. **Box 4** powers main light circuit (14-2 with neutral)
-4. **Box 4** sends neutral to Box 7 for vanity circuit (14-3 Cable B)
-
-## **Cable Requirements:**
-- **Box 1→Box 2**: 14-2 (hot, neutral, ground)
-- **Box 2→Box 4**: 14-2 (hot, neutral, ground) 
-- **Box 2→Box 7**: 14-3 (vanity switching only)
-- **Box 4→Box 7**: 14-3 (main switching + neutral feed)
-- **Box 4→Box 5**: 14-2 (main light with neutral)
-- **Box 5→Box 6**: 14-2 (fan feed with neutral)
-- **Box 6→Box 7**: 14-2 (fan control with neutral)
-- **Box 7→Box 3**: 14-2 (vanity power with neutral)
-
-## **Why This Works Best:**
-✅ **Vanity light gets neutral** from Box 7 (14-2 cable)  
-✅ **All fixtures have neutral** (main light, fan, vanity)  
-✅ **3-way switching works** (travelers route properly)  
-✅ **Uses only 14-2 and 14-3** (as requested)  
-✅ **Straightforward routing** (no complex reverse flows)  
-✅ **Code compliant** (every fixture has hot, neutral, ground)  
-
-**This design is electrically sound and ready for installation! 🎉**
+### Critical Installation Notes for Box 2:
+1. **White Wire Re-identification**: The white wire going to Box 7 T2 terminal MUST be marked with black electrical tape at both ends - it carries hot voltage, not neutral
+2. **Neutral Pass-Through**: White neutral wires pass through in wire nut - do NOT connect to switch terminals
+3. **Ground Continuity**: All ground wires connect together with pigtail to switch ground screw
+4. **Switch Orientation**: COM terminal receives always-hot, T1 and T2 send travelers to Box 7
+5. **Box Fill**: Verify adequate space for all wire nuts and connections
