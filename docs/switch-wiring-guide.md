@@ -5,7 +5,7 @@ This guide provides detailed, step-by-step wiring instructions for each electric
 ## ⚠️ Critical Safety Reminders
 - **Turn off power** at the breaker before beginning any work.
 - **Use a voltage tester** to confirm the power is off.
-- **Re-identify wires** as required by the NEC. In this project, the white wire in the 14-3 cable between Box 2 and Box 7 is a traveler and must be marked with black or red tape at both ends.
+- **Re-identify wires** as required by the NEC. In this corrected design, all white wires carry neutrals - no white wire re-identification is required.
 - **Pigtails**: Use 6-inch pigtails of the same color wire to connect devices when multiple wires are spliced in a wire nut. This improves organization and safety.
 
 ---
