@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800">
+    <style>
+        .panel { fill: #ffebee; stroke: #f44336; stroke-width: 2; }
+        .gfci { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; }
+        .switch { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; }
+        .fixture { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; }
+        .title { font: bold 18px Arial; text-anchor: middle; fill: #2c3e50; }
+        .label { font: bold 12px Arial; text-anchor: middle; fill: #2c3e50; }
+        .small { font: 9px Arial; text-anchor: middle; fill: #555; }
+        .spec { font: 8px Arial; fill: #666; }
+        .wire-hot { stroke: #000; stroke-width: 2.5; fill: none; }
+        .wire-neutral { stroke: #000; stroke-width: 3; fill: none; }
+        .wire-neutral-inner { stroke: #fff; stroke-width: 2; fill: none; stroke-dasharray: 3,2; }
+        .wire-ground { stroke: #4caf50; stroke-width: 2.5; fill: none; }
+        .wire-red { stroke: #f44336; stroke-width: 2.5; fill: none; }
+        .cable { stroke: #607d8b; stroke-width: 6; fill: none; opacity: 0.4; }
+        .warning { font: bold 9px Arial; fill: #f44336; }
+    </style>
+    
+    <!-- Background -->
+    <rect x="0" y="0" width="1000" height="800" fill="#f8f9fa" stroke="none"/>
+    
+    <!-- Title -->
+    <text x="500" y="25" class="title">Bathroom Electrical Wiring - Updated Design</text>
+    <text x="500" y="45" class="small">Box 2 (Vanity Switch 1) as Main Distribution Hub</text>
+    
+    <!-- Panel Box -->
+    <rect x="50" y="200" width="80" height="120" class="panel" rx="5"/>
+    <text x="90" y="220" class="label">Panel</text>
+    <text x="90" y="235" class="small">15A Breaker</text>
+    <circle cx="110" cy="260" r="2" fill="#000"/>
+    <circle cx="110" cy="280" r="2" fill="#fff" stroke="#000"/>
+    <circle cx="110" cy="300" r="2" fill="#4caf50"/>
+    
+    <!-- GFCI Outlet (Box 1) -->
+    <rect x="200" y="200" width="100" height="120" class="gfci" rx="5"/>
+    <text x="250" y="220" class="label">Box 1 - GFCI</text>
+    <text x="250" y="235" class="small">15A Outlet</text>
+    <rect x="220" y="250" width="60" height="40" fill="#1976d2" rx="2"/>
+    <text x="235" y="265" style="font: 7px Arial; fill: white;">LINE</text>
+    <text x="265" y="265" style="font: 7px Arial; fill: white;">LOAD</text>
+    
+    <!-- Box 2 - Vanity Switch 1 (Main Distribution Hub) -->
+    <rect x="380" y="180" width="120" height="160" class="switch" rx="5"/>
+    <text x="440" y="200" class="label">Box 2 - Vanity SW1</text>
+    <text x="440" y="215" class="small">MAIN DISTRIBUTION HUB</text>
+    <text x="440" y="230" class="warning">⚠️ 5 Wire Nuts</text>
+    
+    <!-- Switch in Box 2 -->
+    <rect x="400" y="250" width="80" height="30" fill="#ffc107" rx="3"/>
+    <text x="440" y="270" style="font: 8px Arial; text-anchor: middle; font-weight: bold;">3-Way Switch</text>
+    <circle cx="410" cy="260" r="2" fill="#000"/>
+    <text x="415" y="255" style="font: 6px Arial;">COM</text>
+    <circle cx="440" cy="260" r="2" fill="#d4af37"/>
+    <text x="445" y="255" style="font: 6px Arial;">T1</text>
+    <circle cx="470" cy="260" r="2" fill="#d4af37"/>
+    <text x="475" y="255" style="font: 6px Arial;">T2</text>
+    
+    <!-- Wire nuts in Box 2 -->
+    <g transform="translate(390, 290)">
+        <circle cx="20" cy="10" r="3" fill="#ff5722"/>
+        <text x="20" y="22" style="font: 5px Arial; text-anchor: middle;">Hot In</text>
+        
+        <circle cx="40" cy="10" r="3" fill="#ff5722"/>
+        <text x="40" y="22" style="font: 5px Arial; text-anchor: middle;">Hot Out</text>
+        
+        <circle cx="60" cy="10" r="3" fill="#9e9e9e"/>
+        <text x="60" y="22" style="font: 5px Arial; text-anchor: middle;">Neutral</text>
+        
+        <circle cx="80" cy="10" r="3" fill="#4caf50"/>
+        <text x="80" y="22" style="font: 5px Arial; text-anchor: middle;">Ground</text>
+        
+        <circle cx="100" cy="10" r="3" fill="#9e9e9e"/>
+        <text x="100" y="22" style="font: 5px Arial; text-anchor: middle;">Travelers</text>
+    </g>
+    
+    <!-- Box 4 - Main Switch 2 -->
+    <rect x="580" y="300" width="100" height="120" class="switch" rx="5"/>
+    <text x="630" y="320" class="label">Box 4 - Main SW2</text>
+    <text x="630" y="335" class="small">3-Way Switch</text>
+    
+    <!-- Switch in Box 4 -->
+    <rect x="600" y="350" width="60" height="25" fill="#ffc107" rx="3"/>
+    <text x="630" y="365" style="font: 7px Arial; text-anchor: middle;">3-Way</text>
+    <circle cx="610" cy="355" r="2" fill="#000"/>
+    <circle cx="630" cy="355" r="2" fill="#d4af37"/>
+    <circle cx="650" cy="355" r="2" fill="#d4af37"/>
+    
+    <!-- Wire nuts in Box 4 -->
+    <g transform="translate(590, 385)">
+        <circle cx="15" cy="5" r="3" fill="#9e9e9e"/>
+        <text x="15" y="15" style="font: 5px Arial; text-anchor: middle;">Neutral</text>
+        <circle cx="35" cy="5" r="3" fill="#4caf50"/>
+        <text x="35" y="15" style="font: 5px Arial; text-anchor: middle;">Ground</text>
+        <circle cx="55" cy="5" r="3" fill="#9e9e9e"/>
+        <text x="55" y="15" style="font: 5px Arial; text-anchor: middle;">Travelers</text>
+    </g>
+    
+    <!-- Box 7 - Combined Switch Box -->
+    <rect x="750" y="380" width="120" height="140" class="switch" rx="5"/>
+    <text x="810" y="400" class="label">Box 7 - Combined</text>
+    <text x="810" y="415" class="small">Vanity SW2 + Fan SW</text>
+    
+    <!-- Switches in Box 7 -->
+    <rect x="765" y="430" width="30" height="20" fill="#ffc107" rx="2"/>
+    <text x="780" y="442" style="font: 6px Arial; text-anchor: middle;">VS2</text>
+    <rect x="805" y="430" width="30" height="20" fill="#ffc107" rx="2"/>
+    <text x="820" y="442" style="font: 6px Arial; text-anchor: middle;">FAN</text>
+    
+    <!-- Wire nuts in Box 7 -->
+    <g transform="translate(765, 460)">
+        <circle cx="15" cy="10" r="3" fill="#9e9e9e"/>
+        <text x="15" y="22" style="font: 5px Arial; text-anchor: middle;">Neutral</text>
+        <circle cx="35" cy="10" r="3" fill="#4caf50"/>
+        <text x="35" y="22" style="font: 5px Arial; text-anchor: middle;">Ground</text>
+        <circle cx="55" cy="10" r="3" fill="#9e9e9e"/>
+        <text x="55" y="22" style="font: 5px Arial; text-anchor: middle;">Travelers</text>
+    </g>
+    
+    <!-- Vanity Light (Box 3) -->
+    <rect x="600" y="100" width="100" height="100" class="fixture" rx="5"/>
+    <text x="650" y="120" class="label">Box 3 - Vanity Light</text>
+    <text x="650" y="135" class="small">LED Fixture</text>
+    <circle cx="650" cy="155" r="15" fill="#ffeb3b" stroke="#ff8f00" stroke-width="2"/>
+    <text x="650" y="160" style="font: 8px Arial; text-anchor: middle;">💡</text>
+    <circle cx="630" cy="180" r="2" fill="#000"/>
+    <circle cx="650" cy="180" r="2" fill="#fff" stroke="#000"/>
+    <circle cx="670" cy="180" r="2" fill="#4caf50"/>
+    
+    <!-- Main Light (Box 5) -->
+    <rect x="450" y="450" width="100" height="100" class="fixture" rx="5"/>
+    <text x="500" y="470" class="label">Box 5 - Main Light</text>
+    <text x="500" y="485" class="small">LED Fixture</text>
+    <circle cx="500" cy="505" r="15" fill="#ffeb3b" stroke="#ff8f00" stroke-width="2"/>
+    <text x="500" y="510" style="font: 8px Arial; text-anchor: middle;">💡</text>
+    <circle cx="480" cy="530" r="2" fill="#000"/>
+    <circle cx="500" cy="530" r="2" fill="#fff" stroke="#000"/>
+    <circle cx="520" cy="530" r="2" fill="#4caf50"/>
+    
+    <!-- Exhaust Fan (Box 6) -->
+    <rect x="250" y="450" width="100" height="100" class="fixture" rx="5"/>
+    <text x="300" y="470" class="label">Box 6 - Fan</text>
+    <text x="300" y="485" class="small">Exhaust Motor</text>
+    <circle cx="300" cy="505" r="15" fill="#90a4ae" stroke="#37474f" stroke-width="2"/>
+    <text x="300" y="510" style="font: 8px Arial; text-anchor: middle;">🌪️</text>
+    <circle cx="280" cy="530" r="2" fill="#000"/>
+    <circle cx="300" cy="530" r="2" fill="#fff" stroke="#000"/>
+    <circle cx="320" cy="530" r="2" fill="#4caf50"/>
+    
+    <!-- Cable runs -->
+    <!-- Panel to GFCI (14-2) -->
+    <path class="cable" d="M 130 260 L 200 260"/>
+    
+    <!-- GFCI to Box 2 (14-2) -->
+    <path class="cable" d="M 300 260 L 380 260"/>
+    
+    <!-- Box 2 to Box 4 (14-3) -->
+    <path class="cable" d="M 500 300 Q 540 300 580 350"/>
+    
+    <!-- Box 2 to Box 7 (14-2) -->
+    <path class="cable" d="M 500 260 Q 625 260 625 300 Q 750 300 750 450"/>
+    
+    <!-- Box 4 to Box 5 (14-2) -->
+    <path class="cable" d="M 630 420 Q 630 440 550 500"/>
+    
+    <!-- Box 4 to Box 3 (14-3) -->
+    <path class="cable" d="M 630 300 Q 630 250 650 200"/>
+    
+    <!-- Box 7 to Box 6 (14-2) -->
+    <path class="cable" d="M 750 500 Q 525 500 350 500"/>
+    
+    <!-- Individual wires -->
+    <line class="wire-hot" x1="130" y1="260" x2="200" y2="260"/>
+    <line class="wire-neutral" x1="130" y1="280" x2="200" y2="280"/>
+    <line class="wire-neutral-inner" x1="130" y1="280" x2="200" y2="280"/>
+    <line class="wire-ground" x1="130" y1="300" x2="200" y2="300"/>
+    
+    <!-- Legend -->
+    <g transform="translate(50, 600)">
+        <rect x="0" y="0" width="900" height="150" fill="#f8f9fa" stroke="#2c3e50" stroke-width="1" rx="3"/>
+        <text x="450" y="20" class="title">Updated Design - Key Features</text>
+        
+        <text x="20" y="40" style="font: 10px Arial; font-weight: bold;">SIMPLIFIED DESIGN FEATURES:</text>
+        <text x="20" y="55" style="font: 9px Arial;">• Box 2 (Vanity Switch 1) is now the main distribution hub</text>
+        <text x="20" y="70" style="font: 9px Arial;">• Box 7 powers vanity light directly with 14-2 cable</text>
+        <text x="20" y="85" style="font: 9px Arial;">• Box 4 serves main light and fan circuits with minimal complexity</text>
+        <text x="20" y="100" style="font: 9px Arial;">• All neutrals properly routed - no missing neutral issues</text>
+        <text x="20" y="115" style="font: 9px Arial;">• Uses only standard 14-2 and 14-3 cables throughout</text>
+        
+        <text x="500" y="40" style="font: 10px Arial; font-weight: bold;">CABLE ROUTING:</text>
+        <text x="500" y="55" style="font: 9px Arial;">Panel → GFCI (14-2)</text>
+        <text x="500" y="70" style="font: 9px Arial;">GFCI → Box 2 (14-2)</text>
+        <text x="500" y="85" style="font: 9px Arial;">Box 2 → Box 4 (14-3)</text>
+        <text x="500" y="100" style="font: 9px Arial;">Box 2 → Box 7 (14-2)</text>
+        <text x="500" y="115" style="font: 9px Arial;">Box 4 → Lights (14-2 & 14-3)</text>
+        <text x="500" y="130" style="font: 9px Arial;">Box 7 → Fan (14-2)</text>
+    </g>
+    
+    <!-- Cable labels -->
+    <text x="165" y="250" style="font: 8px Arial; text-anchor: middle;">14-2</text>
+    <text x="340" y="250" style="font: 8px Arial; text-anchor: middle;">14-2</text>
+    <text x="540" y="320" style="font: 8px Arial; text-anchor: middle;">14-3</text>
+    <text x="625" y="280" style="font: 8px Arial; text-anchor: middle;">14-2</text>
+    <text x="590" y="460" style="font: 8px Arial; text-anchor: middle;">14-2</text>
+    <text x="640" y="250" style="font: 8px Arial; text-anchor: middle;">14-3</text>
+    <text x="550" y="490" style="font: 8px Arial; text-anchor: middle;">14-2</text>
+    
+    <!-- Safety notes -->
+    <g transform="translate(50, 80)">
+        <rect x="0" y="0" width="900" height="80" fill="#ffebee" stroke="#f44336" stroke-width="2" rx="3"/>
+        <text x="450" y="20" style="font: bold 12px Arial; text-anchor: middle; fill: #d32f2f;">⚠️ UPDATED DESIGN ADVANTAGES</text>
+        <text x="20" y="40" class="warning">✓ Box 2 as main hub eliminates complex wiring at Box 4</text>
+        <text x="20" y="55" class="warning">✓ All fixtures have proper hot, neutral, and ground connections</text>
+        <text x="500" y="40" class="warning">✓ Simplified traveler wire routing between 3-way switches</text>
+        <text x="500" y="55" class="warning">✓ Code-compliant box fill in all locations</text>
+    </g>
+</svg>
