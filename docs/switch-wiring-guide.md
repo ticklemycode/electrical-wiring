@@ -34,10 +34,11 @@ This guide provides detailed, step-by-step wiring instructions for each electric
     -   Black wire from Box 1 (Incoming Hot)
     -   Pigtail to Vanity SW 1 (COM terminal)
     -   Pigtail to Main SW 1 (COM terminal)
+    -   Black wire from 14-3 to Box 7 (Constant Hot for Fan)
 -   **Wire Nut #2 (NEUTRAL)**:
     -   White wire from Box 1 (Incoming Neutral)
-    -   White wire from 14-3 to Box 4
-    -   White wire from 14-3 to Box 7
+    -   White wire from 14-3 to Box 4 (Neutral for Main Light)
+    -   White wire from 14-3 to Box 7 (Neutral for Vanity Light & Fan)
 -   **Wire Nut #3 (GROUND)**:
     -   Bare ground from Box 1
     -   Bare ground from 14-3 to Box 4
@@ -49,12 +50,12 @@ This guide provides detailed, step-by-step wiring instructions for each electric
 -   **Vanity Switch 1 (3-Way)**:
     -   **COM**: Pigtail from HOT wire nut.
     -   **T1**: Red wire from 14-3 to Box 7 (Traveler).
-    -   **T2**: White wire from 14-3 to Box 7 (**Re-identified with black tape**).
+    -   **T2**: **NOT CONNECTED** (single traveler design).
     -   **Ground**: Pigtail from GROUND wire nut.
 -   **Main Switch 1 (3-Way)**:
     -   **COM**: Pigtail from HOT wire nut.
-    -   **T1**: Black wire from 14-3 to Box 4 (Traveler).
-    -   **T2**: Red wire from 14-3 to Box 4 (Traveler).
+    -   **T1**: Black wire from 14-3 to Box 4 (Traveler 1).
+    -   **T2**: Red wire from 14-3 to Box 4 (Traveler 2).
     -   **Ground**: Pigtail from GROUND wire nut.
 
 ---
@@ -90,9 +91,9 @@ This guide provides detailed, step-by-step wiring instructions for each electric
     -   Black wire from Box 2 (Constant Hot).
     -   Pigtail to Fan Switch (LINE terminal).
 -   **Wire Nut #2 (NEUTRAL)**:
-    -   White wire from Box 2.
-    -   White wire to Box 3.
-    -   White wire to Box 6.
+    -   White wire from Box 2 (Neutral).
+    -   White wire to Box 3 (Vanity Light Neutral).
+    -   White wire to Box 6 (Fan Neutral).
 -   **Wire Nut #3 (GROUND)**:
     -   Bare ground from Box 2.
     -   Bare ground to Box 3.
@@ -102,9 +103,9 @@ This guide provides detailed, step-by-step wiring instructions for each electric
 
 #### Device Connections in Box 7
 -   **Vanity Switch 2 (3-Way)**:
-    -   **COM**: Black wire to Box 3 (Switched Hot to light).
-    -   **T1**: Red wire from Box 2 (Traveler).
-    -   **T2**: White wire from Box 2 (**Re-identified with black tape**).
+    -   **COM**: Black wire to Box 3 (Switched Hot to vanity light).
+    -   **T1**: Red wire from Box 2 (Traveler from Vanity SW 1).
+    -   **T2**: **NOT CONNECTED** (single traveler design).
     -   **Ground**: Pigtail from GROUND wire nut.
 -   **Fan Switch (Single-Pole)**:
     -   **Top Terminal**: Pigtail from HOT wire nut.

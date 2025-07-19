@@ -59,30 +59,36 @@ BATHROOM ELECTRICAL LAYOUT (OPTIMAL DESIGN)
 This diagram illustrates the flow of power and the purpose of each cable.
 
 ```text
-WIRING LOGIC & CABLE ROUTING
+WIRING LOGIC & CABLE ROUTING (CORRECTED)
 ═══════════════════════════════════════════════════════════════
 
 [PANEL] → 14-2 → [BOX 1: GFCI] → 14-2 → [BOX 2: VANITY SW 1 (HUB)]
                                              │
                                              ├─(14-3 to Box 4)─→ • Black: Traveler 1 (Main Light)
                                              │                     • Red:   Traveler 2 (Main Light)
-                                             │                     • White: Neutral
+                                             │                     • White: Neutral for Main Light
                                              │
-                                             └─(14-3 to Box 7)─→ • Black: Constant Hot for Fan
+                                             └─(14-3 to Box 7)─→ • Black: Constant Hot for Fan Switch
                                                                  • Red:   Traveler 1 (Vanity Light)
-                                                                 • White: Traveler 2 (Vanity Light) - Re-identified as HOT
+                                                                 • White: Neutral for Vanity Light & Fan
 
 [BOX 4: MAIN SW 2] → 14-2 → [BOX 5: MAIN LIGHT]
-   • Receives switched hot from 3-way logic.
-   • Neutral is fed from Box 2 via the 14-3 cable.
+   • Black: Switched hot from 3-way logic
+   • White: Neutral from Box 2 (via 14-3 cable)
+
+[BOX 4: MAIN SW 2] → 14-2 → [BOX 6: EXHAUST FAN]
+   • Black: Constant hot (spliced in Box 4)
+   • White: Neutral from Box 2 (spliced in Box 4)
 
 [BOX 7: COMBINED BOX] → 14-2 → [BOX 3: VANITY LIGHT]
-   • Receives switched hot from vanity 3-way logic.
-   • Neutral is fed from Box 2 via the 14-3 cable.
+   • Black: Switched hot from vanity 3-way logic (Vanity SW 2)
+   • White: Neutral from Box 2 (via 14-3 cable)
 
-[BOX 7: COMBINED BOX] → 14-2 → [BOX 6: EXHAUST FAN]
-   • Receives switched hot from the single-pole fan switch.
-   • Neutral is fed from Box 2 via the 14-3 cable.
+VANITY 3-WAY SWITCHING:
+Box 2 (Vanity SW 1) ←→ Box 7 (Vanity SW 2) via RED traveler wire only
+• Uses single traveler + switched hot method (not traditional 2-traveler method)
+• Vanity SW 1 sends constant hot to Vanity SW 2
+• Vanity SW 2 provides switched hot to vanity light
 ```
 
 ## Installation Sequence (Updated)

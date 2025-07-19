@@ -35,7 +35,7 @@ Panel → All Devices & Boxes → Return to Panel
 6. **Main Light Fixture** (Box 5 - powered from Main Switch #2)
 7. **Exhaust Fan** (Box 6 - powered via main light pass-through)
 
-**Updated Circuit Flow**: Box 2 feeds both Box 4 (main circuit) and Box 7 (vanity switching). Box 7 powers vanity light directly. Box 4 powers main light and provides neutral to Box 7.
+**Updated Circuit Flow**: Box 2 feeds both Box 4 (main circuit) and Box 7 (vanity switching). Box 7 powers vanity light directly with neutral from Box 2. Box 4 powers main light and fan with neutrals from Box 2.
 
 ## Switch Box Configuration
 
