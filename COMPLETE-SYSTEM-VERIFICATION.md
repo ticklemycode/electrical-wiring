@@ -74,7 +74,20 @@ Reference Reference Reference Reference Reference
 
 ---
 
-## 💡 3-Way Switch Operation Analysis
+## � Critical: 3-Way Switching Implementation
+
+### **How White Wires Carry Switched Hot**
+In our linear design, the 3-way switches in Box 7 must return switched hot **back to the originating switch boxes** via the **WHITE wire in each 14-3 traveler cable**. This is because the lights are fed from Box 2 and Box 4, not directly from Box 7.
+
+#### **Wire Re-identification Required**
+- **Vanity Circuit**: White wire in Box 2↔Box 7 14-3 cable carries switched hot
+- **Main Circuit**: White wire in Box 4↔Box 7 14-3 cable carries switched hot  
+- **Safety**: Both white wires must be re-identified with BLACK tape at both ends
+- **Code Compliance**: NEC 200.7(C) requires re-identification of white wires used as hot
+
+---
+
+## �💡 3-Way Switch Operation Analysis
 
 ### **Vanity Light 3-Way Circuit**
 
@@ -86,7 +99,7 @@ Reference Reference Reference Reference Reference
 - **Box 7 (Vanity SW 2)**:
   - T1: Black traveler from Box 2  
   - T2: Red traveler from Box 2
-  - COM: Switched hot return to Box 2 → Box 3
+  - COM: Switched hot return via WHITE wire in 14-3 cable (re-identified as hot) → Box 2 Wire Nut #4 → Box 3
 
 #### **All Switch Position Combinations**
 
@@ -95,7 +108,7 @@ Reference Reference Reference Reference Reference
 Box 2 Switch: UP → COM connected to T1 (Black)
 Box 7 Switch: UP → T1 (Black) connected to COM
 Result: Complete circuit through black traveler
-Hot Flow: Panel → Box 1 → Box 2 SW1-COM → T1(Black) → Box 7 SW2-T1 → SW2-COM → Return to Box 2 → Box 3 (Vanity Light)
+Hot Flow: Panel → Box 1 → Box 2 SW1-COM → T1(Black) → Box 7 SW2-T1 → SW2-COM → WHITE wire (re-identified) → Box 2 Wire Nut #4 → Box 3 (Vanity Light)
 Neutral Flow: Panel → Box 1 → Box 2 → Box 3 (Vanity Light)
 VANITY LIGHT: 💡 ON (120V across fixture)
 ```
@@ -123,7 +136,7 @@ VANITY LIGHT: ⚫ OFF (No complete circuit)
 Box 2 Switch: DOWN → COM connected to T2 (Red)
 Box 7 Switch: DOWN → T2 (Red) connected to COM
 Result: Complete circuit through red traveler
-Hot Flow: Panel → Box 1 → Box 2 SW1-COM → T2(Red) → Box 7 SW2-T2 → SW2-COM → Return to Box 2 → Box 3 (Vanity Light)
+Hot Flow: Panel → Box 1 → Box 2 SW1-COM → T2(Red) → Box 7 SW2-T2 → SW2-COM → WHITE wire (re-identified) → Box 2 Wire Nut #4 → Box 3 (Vanity Light)
 Neutral Flow: Panel → Box 1 → Box 2 → Box 3 (Vanity Light)
 VANITY LIGHT: 💡 ON (120V across fixture)
 ```
@@ -140,7 +153,7 @@ VANITY LIGHT: 💡 ON (120V across fixture)
 - **Box 7 (Main SW 2)**:
   - T1: Black traveler from Box 4
   - T2: Red traveler from Box 4  
-  - COM: Switched hot return to Box 4 → Box 5
+  - COM: Switched hot return via WHITE wire in 14-3 cable (re-identified as hot) → Box 4 Wire Nut #4 → Box 5
 
 #### **All Switch Position Combinations**
 
@@ -149,7 +162,7 @@ VANITY LIGHT: 💡 ON (120V across fixture)
 Box 4 Switch: UP → COM connected to T1 (Black)
 Box 7 Switch: UP → T1 (Black) connected to COM
 Result: Complete circuit through black traveler
-Hot Flow: Panel → Box 1 → Box 2 → Box 4 SW1-COM → T1(Black) → Box 7 SW2-T1 → SW2-COM → Return to Box 4 → Box 5 (Main Light)
+Hot Flow: Panel → Box 1 → Box 2 → Box 4 SW1-COM → T1(Black) → Box 7 SW2-T1 → SW2-COM → WHITE wire (re-identified) → Box 4 Wire Nut #4 → Box 5 (Main Light)
 Neutral Flow: Panel → Box 1 → Box 2 → Box 4 → Box 5 (Main Light)
 MAIN LIGHT: 💡 ON (120V across fixture)
 ```
@@ -177,7 +190,7 @@ MAIN LIGHT: ⚫ OFF (No complete circuit)
 Box 4 Switch: DOWN → COM connected to T2 (Red)
 Box 7 Switch: DOWN → T2 (Red) connected to COM
 Result: Complete circuit through red traveler
-Hot Flow: Panel → Box 1 → Box 2 → Box 4 SW1-COM → T2(Red) → Box 7 SW2-T2 → SW2-COM → Return to Box 4 → Box 5 (Main Light)
+Hot Flow: Panel → Box 1 → Box 2 → Box 4 SW1-COM → T2(Red) → Box 7 SW2-T2 → SW2-COM → WHITE wire (re-identified) → Box 4 Wire Nut #4 → Box 5 (Main Light)
 Neutral Flow: Panel → Box 1 → Box 2 → Box 4 → Box 5 (Main Light)  
 MAIN LIGHT: 💡 ON (120V across fixture)
 ```
@@ -233,13 +246,14 @@ EXHAUST FAN: ⚫ OFF (No complete circuit)
 ✅ **Linear Distribution**: Hot flows Panel → Box 1 → Box 2 → Box 4 → Box 7  
 ✅ **Proper Branching**: Each switch gets constant hot from the feed chain  
 ✅ **3-Way Operation**: Travelers carry switching signals, COM terminals connect properly  
-✅ **Switched Hot Returns**: Both lights get switched hot from their first switch boxes  
+✅ **Switched Hot Returns**: Box 7 switches return switched hot via WHITE wires in 14-3 cables (re-identified)
+✅ **Light Feeds**: Box 2 and Box 4 distribute switched hot to their respective lights via Wire Nut #4  
 
 ### **Neutral Wire Flow - VERIFIED CORRECT**  
 ✅ **Continuous Path**: Neutral flows uninterrupted through entire system  
-✅ **Never Switched**: Neutrals bypass all switches (code-compliant)  
-✅ **Proper Distribution**: Each fixture gets neutral from nearest switch box  
-✅ **Complete Circuits**: Every fixture has both hot and neutral available  
+✅ **Never Switched**: Neutrals always provide return path for fixtures  
+✅ **Direct Distribution**: Each fixture gets neutral from its feeding box  
+✅ **White Wire Exception**: Only white wires carrying switched hot are re-identified  
 
 ### **Ground Wire Flow - VERIFIED CORRECT**
 ✅ **Equipment Grounding**: All boxes, switches, and fixtures properly grounded  
@@ -247,12 +261,13 @@ EXHAUST FAN: ⚫ OFF (No complete circuit)
 ✅ **Safety Compliance**: Meets NEC grounding requirements  
 
 ### **3-Way Switch Logic - VERIFIED CORRECT**
-✅ **Standard Operation**: Both circuits use textbook 3-way switch wiring  
-✅ **Proper Control**: Either switch can turn lights on/off regardless of other switch  
-✅ **No Interference**: 3-way circuits operate independently  
+✅ **Standard Operation**: Either switch can control its respective light  
+✅ **Traveler Function**: Black and red travelers provide switching communication  
+✅ **Return Path Logic**: WHITE wires carry switched hot back to originating boxes  
+✅ **Wire Re-identification**: All switched hot white wires properly marked with black tape  
 
 ### **Code Compliance - VERIFIED CORRECT**  
-✅ **Wire Usage**: All wires used for standard purposes (no re-identification)  
+✅ **Wire Re-identification**: NEC 200.7(C) compliance for white wires used as hot  
 ✅ **GFCI Protection**: Entire circuit properly protected  
 ✅ **Conductor Sizing**: 14 AWG appropriate for 15A circuit  
 ✅ **Box Fill**: All connections within NEC limits  

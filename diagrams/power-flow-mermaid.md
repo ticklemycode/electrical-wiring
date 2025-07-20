@@ -34,12 +34,12 @@ graph TB
     
     %% Vanity Light 3-Way Circuit (Green - Powered)
     VanityBox2 ==>|"🟢 POWERED PATH<br/>SW1-COM → T1 → SW2-T1 → SW2-COM<br/>Switched Hot (120V)"| ControlBox7
-    ControlBox7 ==>|"🟢 SWITCHED HOT<br/>Returns via 14-3 Cable<br/>120V to Light"| VanityLight
+    ControlBox7 ==>|"🟢 SWITCHED HOT<br/>Returns via WHITE wire in 14-3<br/>(re-identified as hot) → Box 2 → Light"| VanityLight
     VanityBox2 -.->|"⚪ Neutral Feed<br/>14-2 Cable Direct"| VanityLight
     
     %% Main Light 3-Way Circuit (Blue - Powered)
     MainBox4 ==>|"🔵 POWERED PATH<br/>SW1-COM → T1 → SW2-T1 → SW2-COM<br/>Switched Hot (120V)"| ControlBox7
-    ControlBox7 ==>|"🔵 SWITCHED HOT<br/>Returns via 14-3 Cable<br/>120V to Light"| MainLight
+    ControlBox7 ==>|"🔵 SWITCHED HOT<br/>Returns via WHITE wire in 14-3<br/>(re-identified as hot) → Box 4 → Light"| MainLight
     MainBox4 -.->|"⚪ Neutral Feed<br/>14-2 Cable Direct"| MainLight
     
     %% Fan Circuit (Purple - Powered)
@@ -89,7 +89,7 @@ graph TB
     
     %% Vanity Light 3-Way Circuit (Green - Powered)
     VanityBox2 ==>|"🟢 POWERED PATH<br/>Both Switches UP<br/>SW1-COM → T1 → SW2-T1 → SW2-COM"| ControlBox7
-    ControlBox7 ==>|"🟢 SWITCHED HOT<br/>Returns via 14-3 Cable<br/>120V to Light"| VanityLight
+    ControlBox7 ==>|"🟢 SWITCHED HOT<br/>Returns via WHITE wire in 14-3<br/>(re-identified as hot) → Box 2 → Light"| VanityLight
     VanityBox2 -.->|"⚪ Neutral Feed<br/>14-2 Cable Direct"| VanityLight
     
     %% Main Light 3-Way Circuit (Gray - No Power - Switches Mismatched)

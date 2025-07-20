@@ -41,9 +41,9 @@ flowchart TD
     ControlBox7["📦 BOX 7: CONTROL CENTER<br/>🔘 Main Light Switch 2 (3-Way)<br/>🔘 Vanity Light Switch 2 (3-Way)<br/>🔘 Fan Switch (Single-Pole)<br/>📍 Triple Gang Box"]
     
     %% 3-WAY CONTROL CABLES (TRAVELERS)
-    VanityBox2 -.->|"🔵 14-3 NM-B Cable<br/>⚫ Black: Traveler 1<br/>🔴 Red: Traveler 2<br/>⚪ White: NOT USED<br/>🟢 Bare: Ground"| ControlBox7
+    VanityBox2 -.->|"🔵 14-3 NM-B Cable<br/>⚫ Black: Traveler 1<br/>🔴 Red: Traveler 2<br/>⚪ White: SWITCHED HOT RETURN (re-identify)<br/>🟢 Bare: Ground"| ControlBox7
     
-    MainBox4 -.->|"🔵 14-3 NM-B Cable<br/>⚫ Black: Traveler 1<br/>🔴 Red: Traveler 2<br/>⚪ White: NOT USED<br/>🟢 Bare: Ground"| ControlBox7
+    MainBox4 -.->|"🔵 14-3 NM-B Cable<br/>⚫ Black: Traveler 1<br/>🔴 Red: Traveler 2<br/>⚪ White: SWITCHED HOT RETURN (re-identify)<br/>🟢 Bare: Ground"| ControlBox7
     
     %% FIXTURE CONNECTIONS
     VanityBox2 -->|"🔴 14-2 NM-B Cable<br/>⚫ Black: Switched Hot<br/>⚪ White: Neutral<br/>🟢 Bare: Ground"| VanityFixture
@@ -86,10 +86,10 @@ flowchart TD
 ### **3-Way Control Cables (14-3 NM-B)**
 | Cable Run | Purpose | Black Wire | Red Wire | White Wire | Bare Wire |
 |-----------|---------|------------|----------|------------|-----------|
-| Box 2 ↔ Box 7 | Vanity 3-way control | Traveler 1 | Traveler 2 | **NOT USED** | Ground |
-| Box 4 ↔ Box 7 | Main 3-way control | Traveler 1 | Traveler 2 | **NOT USED** | Ground |
+| Box 2 ↔ Box 7 | Vanity 3-way control | Traveler 1 | Traveler 2 | **SWITCHED HOT RETURN** (re-identify with black tape) | Ground |
+| Box 4 ↔ Box 7 | Main 3-way control | Traveler 1 | Traveler 2 | **SWITCHED HOT RETURN** (re-identify with black tape) | Ground |
 
-**Note**: The white wires in the 14-3 cables are not used in this configuration. All fixture neutrals come from the main power feed chain.
+**Note**: The white wires in the 14-3 cables carry switched hot back from Box 7 to the originating switch boxes and must be re-identified with black electrical tape at both ends.
 
 ### **Fixture Feed Cables (14-2 NM-B)**
 | Cable Run | Purpose | Black Wire | White Wire | Bare Wire |
@@ -110,14 +110,14 @@ flowchart TD
 
 #### **Vanity Light 3-Way Circuit**
 - **Box 2**: Vanity Switch 1 (COM gets constant hot, sends travelers to Box 7)
-- **Box 7**: Vanity Switch 2 (receives travelers, COM sends switched hot back to Box 2)
-- **Switched Hot Path**: Box 7 → Box 2 → Box 3 (Vanity Light)
+- **Box 7**: Vanity Switch 2 (receives travelers, COM sends switched hot back to Box 2 via WHITE wire in 14-3 cable)
+- **Switched Hot Path**: Box 7 → Box 2 (via white wire, re-identified) → Box 3 (Vanity Light)
 - **Neutral Path**: Box 2 → Box 3 (direct from power feed chain)
 
 #### **Main Light 3-Way Circuit**  
 - **Box 4**: Main Switch 1 (COM gets constant hot, sends travelers to Box 7)
-- **Box 7**: Main Switch 2 (receives travelers, COM sends switched hot back to Box 4)
-- **Switched Hot Path**: Box 7 → Box 4 → Box 5 (Main Light)
+- **Box 7**: Main Switch 2 (receives travelers, COM sends switched hot back to Box 4 via WHITE wire in 14-3 cable)
+- **Switched Hot Path**: Box 7 → Box 4 (via white wire, re-identified) → Box 5 (Main Light)
 - **Neutral Path**: Box 4 → Box 5 (direct from power feed chain)
 
 #### **Fan Single-Pole Circuit**
@@ -133,7 +133,7 @@ flowchart TD
 ✅ **Standard Practice**: Most common residential wiring approach  
 ✅ **Easy Installation**: Install boxes in order, no complex backtracking  
 ✅ **Clear Power Path**: Easy to trace and troubleshoot  
-✅ **Code Compliant**: All white wires remain neutrals  
+✅ **Code Compliant**: White wires carrying switched hot are properly re-identified with black tape  
 
 ### **User Experience Benefits**
 ✅ **Convenient Control**: Box 7 has all primary switches in one location  
@@ -144,7 +144,7 @@ flowchart TD
 ✅ **Minimal Cable Runs**: Efficient use of cable lengths  
 ✅ **Standard Materials**: Only 14-2 and 14-3 NM-B cables used  
 ✅ **Clear Documentation**: Each wire purpose explicitly defined  
-✅ **No Wire Re-identification**: All conductors used for standard purposes  
+✅ **Wire Re-identification**: White wires in 14-3 traveler cables properly re-identified as switched hot  
 
 ## 📋 Cable Summary
 
