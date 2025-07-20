@@ -2,291 +2,93 @@
 
 ## Project Overview
 This document provides a complete wiring diagram and installation guide for a bathroom electrical system featuring:
-- GFCI outlet (main power entry point)
-- Main light with 3-way switch control
-- Vanity light with 3-way switch control  
-- Exhaust fan with single switch control
-- Proper wire configurations (2-wire and 3-wire)
+- **GFCI Protection**: A 15A GFCI outlet provides power and protection for the entire circuit.
+- **3-Way Switches**: For independent control of the main and vanity lights from two locations each.
+- **Single-Pole Switch**: For the exhaust fan.
+- **Centralized Distribution**: A main switch box (Box 2) acts as a hub for distributing power.
 
-## Circuit Configuration
+## Final Circuit Configuration
+
+### Power Flow Sequence
+The circuit follows a logical, hub-based design for safety and simplicity.
+1.  **Power Source**: A 15A breaker at the electrical panel feeds the circuit.
+2.  **Box 1 (GFCI Outlet)**: Power enters the bathroom here. The GFCI outlet protects all downstream devices.
+3.  **Box 2 (Distribution Hub)**: A 14-2 cable from the GFCI's LOAD terminals feeds this box. Inside, hot and neutral wires are distributed to the switch legs controlling the various fixtures. This box contains:
+    - **Main Switch 1** (3-Way)
+    - **Vanity Switch 1** (3-Way)
+4.  **Box 4 (Main Light Control)**: Contains **Main Switch 2** (3-Way). It's connected to Box 2 via a 14-3 cable.
+5.  **Box 7 (Vanity & Fan Control)**: Contains **Vanity Switch 2** (3-Way) and the **Fan Switch** (Single-Pole). It's connected to Box 2 via a 14-3 cable.
+6.  **Fixtures**: Each light and the fan is fed directly from its final control switch.
 
 ### Quick Wire Flow Overview
 ```
 ⚫ HOT WIRE FLOW:
-Panel → GFCI → Box 2 (VS1) → Box 4 (MS2) → Box 5 (Main Light) → Box 6 (Fan)
-                     ↓
-                  Box 7 (Combined) → Box 3 (Vanity Light)
+Panel → GFCI → Box 2 (Hot/Neutral Hub)
+   ↓
+   ├─ (via 14-3) → Box 4 (Main SW 2) → Main Light
+   └─ (via 14-3) → Box 7 (Vanity SW 2 & Fan SW) → Vanity Light & Fan
 
 ⚪ NEUTRAL WIRE FLOW:  
-Panel → GFCI → Box 2 → Box 4 → Box 7 → Box 3 (Vanity Light)
-                  ↓
-                Box 5 (Main Light) → Box 6 (Fan)
+Panel → GFCI → Box 2 (Neutral Hub)
+   ↓
+   ├─ (via 14-3) → Box 4 → Main Light
+   └─ (via 14-3) → Box 7 → Vanity Light & Fan
 
 🟢 GROUND WIRE FLOW:
-Panel → All Devices & Boxes → Return to Panel
+Panel → All Boxes & Devices (continuous)
 ```
 
-### Power Flow Sequence
-1. **GFCI Outlet** (Power entry point)
-2. **Vanity Switch #1** (Box 2 - distributes power and vanity switching)
-3. **Main Switch #2** (Box 4 - main circuit hub and main light switching)
-4. **Combined Switch Box** (Box 7 - receives power from Box 4, controls vanity and fan)
-5. **Vanity Light Fixture** (Box 3 - powered from Combined Switch Box)
-6. **Main Light Fixture** (Box 5 - powered from Main Switch #2)
-7. **Exhaust Fan** (Box 6 - powered via main light pass-through)
+## Detailed Wiring Diagram (ASCII)
 
-**Updated Circuit Flow**: Box 2 feeds both Box 4 (main circuit) and Box 7 (vanity switching). Box 7 powers vanity light directly with neutral from Box 2. Box 4 powers main light and fan with neutrals from Box 2.
-
-## Switch Box Configuration
-
-### Switch Box Locations:
-- **Vanity Switch 1**: Separate single-gang box
-- **Combined Switch Box**: Triple-gang box containing:
-  - Main Switch 1 (3-way for main light)
-  - Vanity Switch 2 (3-way for vanity light)  
-  - Fan Switch (single pole for exhaust fan)
-- **Main Switch 2**: Separate single-gang box (3-way for main light)
-
-## Detailed Wiring Diagram
+This diagram illustrates the physical layout and cable runs for the final design.
 
 ```
-ELECTRICAL PANEL
-      |
-      | 14-2 w/Ground (15A Circuit)
-      ↓
-┌─────────────────┐
-│   GFCI OUTLET   │ ← Main power entry point
-│   (15A, 120V)   │
-└─────────────────┘
-      |
-      | 14-2 w/Ground
-      ↓
-┌─────────────────┐
-│ VANITY SWITCH 1 │ ← First 3-way switch for vanity
-│   (3-way)       │
-└─────────────────┘
-      |
-      | 14-3 w/Ground (for 3-way switching via fixture)
-      ↓
-┌─────────────────┐
-│  VANITY LIGHT   │ ← Switching junction for VS1 & VS2
-│   FIXTURE       │
-└─────────────────┘
-      |
-      | 14-3 w/Ground (vanity circuit continues)
-      ↓
-┌─────────────────┐
-│ MAIN SWITCH 2   │ ← Second 3-way switch for main light
-│   (3-way)       │   (also vanity circuit pass-through)
-└─────────────────┘
-      |           |
-      |           | TWO 14-3 Cables to Combined Box:
-      |           | • Cable A: Vanity circuit
-      |           | • Cable B: Main light travelers
-      ↓           ↓
-┌─────────────────┐
-│  MAIN LIGHT     │ ← Controlled by Main SW1 & Main SW2
-│   FIXTURE       │
-└─────────────────┘
-      |
-      | 14-2 w/Ground
-      ↓
-┌─────────────────┐
-│  EXHAUST FAN    │ ← Hot wire passes through; controlled by switch downstream
-└─────────────────┘
-      |
-      | 14-2 w/Ground
-      ↓
-┌─────────────────────────────────────┐
-│        COMBINED SWITCH BOX          │
-│ ┌─────────┐┌─────────┐┌───────────┐ │
-│ │MAIN SW1 ││VANITY SW2││FAN SWITCH │ │
-│ │(3-way)  ││(3-way)  ││(single)   │ │
-│ └─────────┘└─────────┘└───────────┘ │
-└─────────────────────────────────────┘
-│   (3-way)       │
-└─────────────────┘
-      |
-      | 14-2 w/Ground
-      ↓
-┌─────────────────┐
-│   FAN SWITCH    │ ← Single pole switch for fan
-│  (Single Pole)  │
-└─────────────────┘
+      ELECTRICAL PANEL
+             |
+             | 14-2 Cable
+             ↓
+      ┌────────────────┐
+(BOX 1) │  GFCI OUTLET   │
+      └────────────────┘
+             |
+             | 14-2 Cable
+             ↓
+      ┌──────────────────────────┐
+(BOX 2) │   DISTRIBUTION HUB       │
+      │  - Main Switch 1 (3-Way) │
+      │  - Vanity Switch 1 (3-Way) │
+      └──────────────────────────┘
+        |                      |
+14-3 Cable             14-3 Cable
+        |                      |
+        ↓                      ↓
+┌────────────────┐   ┌──────────────────────────┐
+│ MAIN SWITCH 2  │   │  VANITY SWITCH 2 (3-Way) │ (BOX 7)
+│   (3-Way)      │   │  FAN SWITCH (Single-Pole)│
+└────────────────┘   └──────────────────────────┘
+        |                      |           |
+14-2 Cable             14-2 Cable  14-2 Cable
+        |                      |           |
+        ↓                      ↓           ↓
+┌────────────┐         ┌──────────────┐  ┌─────────────┐
+│ MAIN LIGHT │         │ VANITY LIGHT │  │ EXHAUST FAN │
+└────────────┘         └──────────────┘  └─────────────┘
 ```
 
 ## Wire Configuration Details
 
 ### Wire Types Used:
-- **14-2 w/Ground**: 2 conductor + ground (Hot, Neutral, Ground)
-- **14-3 w/Ground**: 3 conductor + ground (Hot, Traveler 1, Traveler 2, Neutral, Ground)
+- **14-2 NM-B w/Ground**: Contains one hot (black), one neutral (white), and one ground (bare copper).
+- **14-3 NM-B w/Ground**: Contains two travelers/hots (black, red), one neutral (white), and one ground (bare copper).
 
-### Wire Gauge: 14 AWG (15 Amp circuit)
+### Wire Gauge: 14 AWG for a 15-Amp circuit.
 
-## 3-Way Switch Wiring Details
+## 3-Way Switch Wiring (Correct & Simplified)
 
-### Main Light 3-Way Switches:
-- **Hot (Black)**: Connects to common terminal of first 3-way switch
-- **Traveler Wires (Red & Black)**: Run between both 3-way switches
-- **Switched Hot**: From common terminal of second switch to light fixture
-- **Neutral (White)**: Runs continuously to light fixture
-- **Ground (Bare/Green)**: Connects all switches and fixtures
+In this design, the wiring is straightforward and code-compliant, with no re-identified white wires.
 
-### Vanity Light 3-Way Switches:
-- **Hot (Black)**: From GFCI to VS1 COM terminal
-- **Black from VS1**: Connected to white wire going to VS2 in vanity light fixture
-- **White from VS1**: Direct hot feed to vanity light fixture  
-- **Red Traveler**: Pass-through between VS1 and VS2 via vanity light
-- **Black from Light**: Switched hot output to VS2 T2 terminal
-- **Neutral (White)**: Runs continuously through circuit for other devices
-- **Ground (Bare/Green)**: Connects all switches and fixtures
-
-## Switch Terminal Connections
-
-### 3-Way Switch Terminals:
-- **Common (COM)**: Hot wire input or switched hot output
-- **Traveler 1**: First traveler wire (typically red)
-- **Traveler 2**: Second traveler wire (typically black)
-- **Ground**: Green/bare ground wire
-
-### Single Pole Fan Switch:
-- **Hot In**: Black wire from continuous circuit power
-- **Hot Out**: Black wire back to fan (control wire)
-- **Neutral**: White wire (pigtailed in box)
-- **Ground**: Green/bare ground wire
-
-**Note**: The fan switch receives continuous power from the circuit but sends switched power back to the fan location.
-
-## Fan Control Configuration
-
-**Important**: The exhaust fan is controlled by a switch located in the combined switch box downstream from the fan itself. Here's how this works:
-
-1. **Continuous Hot Wire**: Runs from the main light → through the fan junction box → continues to the combined switch box
-2. **Fan Location**: Between the main light and the combined switch box
-3. **Fan Switch Location**: In the combined switch box with Main Switch 1 and Vanity Switch 2
-
-### Combined Switch Box Benefits:
-- **Convenient Control**: All three switches in one location
-- **Simplified Wiring**: Shared neutral and ground connections
-- **Standard Installation**: Common bathroom switch configuration
-- **Proper Operation**: 3-way switches still function normally despite shared box
-4. **Control Method**: Fan switch sends switched hot wire back to the fan
-
-This configuration allows the fan switch to be grouped with other switches while the fan is positioned optimally in the ceiling.
-
-## Installation Notes
-
-⚠️ **SAFETY WARNING**: All electrical work should be performed by a licensed electrician and must comply with local electrical codes.
-
-### Key Installation Points:
-1. **GFCI Protection**: Required for all bathroom outlets and must be first in the circuit
-2. **Circuit Rating**: 15A circuit recommended for bathroom with multiple fixtures
-3. **Wire Gauge**: 14 AWG wire required for 15A circuit
-4. **Grounding**: All metal fixtures and switch boxes must be properly grounded
-5. **Box Fill**: Ensure electrical boxes are large enough for wire connections
-6. **Code Compliance**: Installation must meet NEC (National Electrical Code) requirements
-
-### Testing:
-1. Test GFCI outlet with test/reset buttons
-2. Verify all switches operate their intended fixtures
-3. Check that 3-way switches work from both locations
-4. Confirm proper grounding with multimeter
-
-## Detailed Documentation
-
-For complete implementation details, see:
-
-📋 **[Materials & Installation Guide](docs/materials-installation.md)**
-- Complete materials list with specifications  
-- Step-by-step installation instructions
-- GFCI wiring details and safety procedures
-
-🔧 **[Switch Wiring Guide](docs/switch-wiring-guide.md)**
-- Detailed 3-way switch terminal connections
-- Point-to-point wire routing
-- Fixture installation steps
-- Quick reference charts and troubleshooting
-
-📊 **[Complete Layout Diagram](diagrams/complete-layout.md)**  
-- Physical layout and wire routing
-- Junction box details
-- Switch box configurations
-
-🔀 **[Mermaid Wiring Diagram](diagrams/mermaid-wiring-diagram.md)**
-- Interactive flowchart diagram
-- Visual circuit flow representation
-
----
-
-## Materials List
-
-### Wire:
-- 14-2 w/Ground NM-B cable (approximately 50 feet)
-- 14-3 w/Ground NM-B cable (approximately 75 feet)
-
-### Devices:
-- 1x GFCI outlet (15A, 120V)
-- 4x 3-way switches
-- 1x Single pole switch
-- Wire nuts (assorted sizes)
-- Electrical boxes (appropriate sizes)
-
-### Fixtures:
-- 1x Main light fixture
-- 1x Vanity light fixture  
-- 1x Exhaust fan
-
-## Important Cable and Traveler Wire Notes
-
-### Understanding Traveler Wires in 3-Way Circuits
-**Key Point**: Traveler wires are NOT separate wires - they are part of the physical 14-3 cable runs between switches and fixtures.
-
-- **Vanity 3-Way Circuit**: Uses one 14-3 cable from VS1 → Vanity Light, then another 14-3 cable from Vanity Light → Combined Box (VS2)
-- **Main 3-Way Circuit**: Uses one 14-3 cable from Combined Box (MS1) → Main Switch 2
-- **Traveler Function**: The red and either black or white wire in the 14-3 cable carry the switching signals between the two 3-way switches
-- **Physical Installation**: You run complete 14-3 cables, not individual traveler wires
-
-### Cable Run Summary
-- **3 runs of 14-3 cable**: Vanity circuit (2 runs) + Main circuit (1 run)
-- **4 runs of 14-2 cable**: Panel→GFCI, GFCI→VS1, MS2→Main Light, Main Light→Fan→Combined Box
-- **Travelers are embedded**: Red wire + one other wire in each 14-3 cable serve as the traveler pair
-
-## Troubleshooting Guide
-
-### 3-Way Switches Not Working:
-1. Check traveler wire connections
-2. Verify common terminal connections
-3. Ensure hot wire is on correct common terminal
-
-### GFCI Tripping:
-1. Check for ground faults
-2. Verify neutral connections
-3. Test load balance
-
-### Fan Not Working:
-1. Check single pole switch connections
-2. Verify power to fan
-3. Check fan motor connections
-
-### Corrected Circuit Flow Logic
-
-**New Logical Path:**
-```
-Panel → GFCI → Vanity Switch 1 → Vanity Light (switched)
-                     ↓
-              Combined Switch Box → Main Switch 2 → Main Light → Fan → Back to Combined
-```
-
-**Key Improvements:**
-1. **Simplified Vanity Light Wiring**: No red traveler wire passes through light fixture
-2. **Standard 3-Way Operation**: VS1 directly switches hot to vanity light
-3. **Cleaner Cable Routing**: Each fixture gets appropriate cable type (14-2 or 14-3)
-4. **Logical Power Flow**: Power goes to switch first, then to controlled device
-
-**Cable Types by Connection:**
-- GFCI → Vanity Switch 1: **14-2** (hot, neutral, ground)
-- Vanity Switch 1 → Vanity Light: **14-3** (hot to VS2, travelers, neutral, ground)  
-- Vanity Light → Combined Box: **14-3** (white from VS1 black, red pass-through, black from fixture, neutral, ground)
-- Combined Box → Main Switch 2: **14-3** (switched hot, travelers, neutral, ground)
-- Main Switch 2 → Main Light: **14-2** (switched hot, neutral, ground)
-- Main Light → Fan → Combined Box: **14-2** (pass-through + control)
+- **Hot Source**: The constant hot (black) from the power source connects to the **common (COM) terminal** of the *first* 3-way switch in each pair (both located in Box 2).
+- **Travelers**: The red and black wires in the 14-3 cables run between the traveler terminals of the two 3-way switches for each light.
+- **Switched Hot**: The **common (COM) terminal** of the *second* 3-way switch connects to the hot terminal of the light fixture it controls.
+- **Neutral**: The white neutral wire is passed through all switch boxes and connects directly to the neutral terminal of each fixture. **Neutrals are never connected to switches.**
+- **Ground**: The bare copper ground wire connects to the green ground screw on all switches, boxes, and fixtures.
