@@ -51,7 +51,7 @@ flowchart TD
     classDef fixture fill:#e1d5e7,stroke:#9673a6,stroke-width:2px
 
     class Panel source
-    class GFCI protection  
+    class GFCI protection
     class HubBox hub
     class MainBox,VanityBox switchbox
     class MainLight,VanityLight,Fan fixture
