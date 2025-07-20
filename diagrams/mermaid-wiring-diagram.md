@@ -1,4 +1,4 @@
-# Bathroom Electrical Wiring - Clear & Code-Compliant Design
+# Bathroom Electrical Wiring     VanityFixture["📦 BOX 3:<br/>💡 VANITY LIGHT FIXTURE"] Clear & Code-Compliant Design
 
 This document provides a clear, understandable wiring diagram that shows exactly how the bathroom electrical system works.
 
@@ -16,8 +16,8 @@ flowchart TD
     %% POWER SOURCE
     Panel["⚡ Electrical Panel<br/>15A Breaker"]
     
-    %% PROTECTION
-    GFCI["📦 BOX 1: GFCI OUTLET<br/>Protects entire circuit"]
+    %% GFCI PROTECTION & POWER DISTRIBUTION
+    GFCI["📦 BOX 1: GFCI & POWER HUB<br/>🔌 GFCI Outlet<br/>⚡ Uses wire nuts to distribute<br/>protected power to 3 circuits"]
     
     %% INDIVIDUAL SWITCHES
     VanityBox2["📦 BOX 2: VANITY SWITCH 1<br/>🔘 Vanity Light SW 1 (3-way)"]
@@ -48,13 +48,13 @@ flowchart TD
 
     %% STYLING
     classDef source fill:#fff2cc,stroke:#d6b656,stroke-width:3px
-    classDef protection fill:#d5e8d4,stroke:#82b366,stroke-width:2px
+    classDef gfciHub fill:#d5e8d4,stroke:#82b366,stroke-width:3px
     classDef switch fill:#dae8fc,stroke:#6c8ebf,stroke-width:2px
     classDef hub fill:#f8cecc,stroke:#b85450,stroke-width:3px
     classDef fixture fill:#e1d5e7,stroke:#9673a6,stroke-width:2px
 
     class Panel source
-    class GFCI protection
+    class GFCI gfciHub
     class VanityBox2,MainBox4 switch
     class HubBox7 hub
     class VanityFixture,MainFixture,FanFixture fixture
@@ -63,9 +63,9 @@ flowchart TD
 ## 🔧 How The Wiring Works
 
 ### **Power Distribution Strategy**
-1. **Box 7 is the Control Center**: The triple-gang box houses all the "second" switches and controls all fixtures
-2. **Distributed First Switches**: Box 2 and Box 4 each house one "first" 3-way switch
-3. **GFCI Hub**: Box 1 distributes protected power to all switch locations
+1. **Box 1 is the Power Hub**: GFCI outlet uses wire nuts to distribute protected power to three separate circuits
+2. **Box 7 is the Control Center**: Triple-gang box houses all "second" switches and controls all fixtures
+3. **Standard 3-Way Circuits**: Both lights get proper 2-traveler wiring between their switch pairs
 
 ### **3-Way Switch Circuits Explained**
 
@@ -132,7 +132,7 @@ flowchart TD
 ## 🛠️ Installation Notes
 
 1. **Start with GFCI**: Install and test Box 1 first
-2. **Wire Box 2 Hub**: This is the most complex box - follow guide carefully  
+2. **Wire Box 7 Carefully**: This is the most complex box with 3 switches and multiple cable connections - follow guide carefully  
 3. **Test Continuity**: Verify all connections before energizing
 4. **Final Testing**: Test all switch combinations and GFCI function
 
