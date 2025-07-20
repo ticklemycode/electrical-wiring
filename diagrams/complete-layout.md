@@ -117,7 +117,7 @@ Follow this sequence to ensure a logical and correct installation.
 -   **Box 2 (Main Hub)**: This box is the key to the simplified design.
     -   The incoming hot from the GFCI is spliced to provide constant power to both 3-way circuits.
     -   All neutrals are bundled here, providing the return path for all fixtures.
--   **Re-identifying Wires**: In the 14-3 cable from Box 2 to Box 7, the white wire is used as a traveler. It **must be re-identified** with black or red electrical tape on both ends to indicate it carries a hot charge.
+-   **Re-identifying Wires**: In this design, all white wires are used as neutrals. No re-identification is required, which simplifies the installation and enhances safety.
 -   **Grounding**: Ensure all ground wires are properly connected in every box and to every device. A continuous ground path is required for safety.
 
 ## Switch Control Logic

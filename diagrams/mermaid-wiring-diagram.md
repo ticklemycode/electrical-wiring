@@ -62,30 +62,26 @@ flowchart TD
 
 ## Wire Identification Requirements (NEC 200.7)
 
-**⚠️ CRITICAL: White Wires Used as Hot**
-In our design, these white wires carry hot voltage (not neutral) and MUST be re-identified with black electrical tape:
-
-1. **Vanity Switching Circuit**: White wire from Vanity Switch 1 T2 terminal (Box 2) to Vanity Switch 2 T2 terminal (Box 7)
-2. **Vanity Return Circuit**: White wire from Vanity Light area (via Box 4) carrying switched hot return to Vanity Switch 2 COM terminal (Box 7)
+**✅ Correct Wiring Practice**: In this optimized design, all white wires function as **neutrals**. No white wires carry hot voltage, so no re-identification with electrical tape is necessary. This aligns with modern code best practices for clarity and safety.
 
 ### Neutral Flow in Our Design:
-- **One true neutral per cable**: Each 14-2 and 14-3 cable contains exactly one white neutral wire
-- **Neutral hub at Box 2**: All neutrals pass through Box 2 via wire nuts, continuing to supply all fixtures
-- **No neutral switching**: All white wires marked with black tape are hot conductors, not neutrals
+- **One true neutral per cable**: Each 14-2 and 14-3 cable contains exactly one white neutral wire.
+- **Neutral hub at Box 2**: All neutrals from the GFCI (Box 1), the 14-3 to Box 4, and the 14-3 to Box 7 are joined in a wire nut. This hub provides the neutral path for all fixtures.
+- **No neutral switching**: Switches only control hot conductors.
 
 ### Power Path Summary:
 ```
 MAIN CIRCUIT FLOW:
-Panel → GFCI → Box 2 (VS1) → Vanity Light → Box 4 (MS2) → Box 7 (Combined) → Main Light → Fan
+Panel → GFCI → Box 2 (Distribution Hub) → Other Boxes & Fixtures
 
-VANITY LIGHT CONTROL:
-Box 2 (VS1) ←→ Vanity Light ←→ Box 7 (VS2) via travelers
+VANITY LIGHT CONTROL (3-Way):
+Box 2 (SW 1) ←→ Box 7 (SW 2) via RED traveler → Vanity Light
 
-MAIN LIGHT CONTROL:  
-Box 4 (MS2) ←→ Box 7 (MS1) via travelers → Main Light
+MAIN LIGHT CONTROL (3-Way):  
+Box 2 (SW 1) ←→ Box 4 (SW 2) via BLACK & RED travelers → Main Light
 
-FAN CONTROL:
-Box 7 (Fan Switch) → Fan (single-pole control)
+FAN CONTROL (Single-Pole):
+Box 7 (Fan Switch) → Fan
 ```
 
 ## 3-Way Switch Control Logic Diagram
@@ -571,17 +567,18 @@ CABLE ENTRY POINTS:
 │  │             │         │ T2 Terminal     │─────────────│ TO VANITY SWITCH    │ │
 │  │             │         │ (Brass Screw)   │             │ (14-3): (W) White   │ │
 │  │             │         │                 │             │ (Trav 2 - MARK     │ │
-│  │ (W) White   │──┬──────┤ [NOT CONNECTED  │             │  BLACK TAPE)        │ │
-│  │   (Neutral) │  │      │  TO SWITCH]     │             │                     │ │
-│  │             │  │      │                 │             │ TO MAIN CIRCUIT     │ │
-│  │             │  │      │ Ground Screw    │──┐          │ (14-3): (W) White   │ │
-│  │ (G) Ground  │──┼──────┤ (Green Screw)   │  │          │ (Neutral)           │ │
-│  └─────────────┘  │                           │          │ TO VANITY SWITCH    │ │
-│                   │                           │          │ (14-3): (G) Ground  │ │
-│                   │ ┌─ WIRE NUT #1 (YELLOW) ──┼──────────│                     │ │
-│                   │ │  • White from GFCI     │          │ TO MAIN CIRCUIT     │ │
-│                   │ │  • White to Main Circuit│          │ (14-3): (G) Ground  │ │
-│                   │ │    (Neutral Continue)   │          │                     │ │
+│  │             │         │                 │             │  BLACK TAPE)        │ │
+│  │ (W) White   │──┬──────┤ [NOT CONNECTED  │             │                     │ │
+│  │   (Neutral) │  │      │  TO SWITCH]     │             │ TO MAIN CIRCUIT     │ │
+│  │             │  │      │                 │             │ (14-3): (W) White   │ │
+│  │             │  │      │ Ground Screw    │──┐          │ (Neutral)           │ │
+│  │ (G) Ground  │──┼──────┤ (Green Screw)   │  │          │ TO VANITY SWITCH    │ │
+│  └─────────────┘  │                           │          │ (14-3): (G) Ground  │ │
+│                   │                           │          │                     │ │
+│                   │ ┌─ WIRE NUT #1 (YELLOW) ──┼──────────│ TO MAIN CIRCUIT     │ │
+│                   │ │  • White from GFCI     │          │ (14-3): (G) Ground  │ │
+│                   │ │  • White to Main Circuit│          │                     │ │
+│                   │ │    (Neutral Continue)   │          │ TO VANITY SWITCH    │ │
 │                   │ └─────────────────────────┘          └─────────────────────┘ │
 │                   │                                                              │
 │                   │ ┌─ WIRE NUT #2 (GREEN) ──────────────────────────────────┐  │
