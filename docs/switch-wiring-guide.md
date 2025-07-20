@@ -10,107 +10,122 @@ This guide provides detailed, step-by-step wiring instructions for each electric
 
 ---
 
-### Box 1: GFCI Outlet
-*   **Purpose**: Provides GFCI protection for the entire circuit.
-*   **Cables**: 14-2 from Panel (IN), 14-2 to Box 2 (OUT).
+### Box 1: GFCI Outlet & Distribution
+*   **Purpose**: Provides GFCI protection and distributes power to all circuits.
+*   **Cables**: 14-2 from Panel (IN), 14-2 to Box 2 (OUT), 14-2 to Box 4 (OUT), 14-2 to Box 7 (OUT).
 
 | Connection Point | Wire To Connect                               | Notes                                     |
 | :--------------- | :-------------------------------------------- | :---------------------------------------- |
 | **LINE (Brass)** | Black wire from Panel                         | Incoming Hot                              |
 | **LINE (Silver)**| White wire from Panel                         | Incoming Neutral                          |
-| **LOAD (Brass)** | Black wire to Box 2                           | Outgoing (Protected) Hot                  |
-| **LOAD (Silver)**| White wire to Box 2                           | Outgoing (Protected) Neutral              |
-| **Ground Screw** | Pigtail from ground wire nut                  |                                           |
-| **Wire Nut #1**  | Bare grounds from both cables + pigtail       | Connects all grounds together.            |
+| **LOAD (Brass)** | Pigtail from HOT wire nut                     | Protected Hot to all circuits             |
+| **LOAD (Silver)**| Pigtail from NEUTRAL wire nut                 | Protected Neutral to all circuits         |
+| **Ground Screw** | Pigtail from GROUND wire nut                  |                                           |
+
+#### Wire Nut Connections in Box 1
+-   **Wire Nut #1 (HOT)**: 
+    -   GFCI LOAD Hot wire
+    -   Black wire to Box 2 (Vanity circuit)
+    -   Black wire to Box 4 (Main circuit)  
+    -   Black wire to Box 7 (Fan circuit)
+-   **Wire Nut #2 (NEUTRAL)**:
+    -   GFCI LOAD Neutral wire
+    -   White wire to Box 2 (Vanity circuit)
+    -   White wire to Box 4 (Main circuit)
+    -   White wire to Box 7 (Fan circuit)
+-   **Wire Nut #3 (GROUND)**:
+    -   Bare ground from Panel
+    -   Bare ground to Box 2
+    -   Bare ground to Box 4  
+    -   Bare ground to Box 7
+    -   Pigtail to GFCI Ground Screw
 
 ---
 
-### Box 2: The Distribution Hub
-*   **Purpose**: The most important box. It houses the first switches for both lights and distributes power.
-*   **Cables**: 14-2 from Box 1 (IN), 14-3 to Box 4 (OUT), 14-3 to Box 7 (OUT).
+### Box 2: Vanity Switch 1
+*   **Purpose**: Houses the first 3-way switch for the vanity light.
+*   **Cables**: 14-2 from Box 1 (IN), 14-3 to Box 7 (OUT).
 
 #### Wire Nut Connections in Box 2
--   **Wire Nut #1 (HOT)**:
-    -   Black wire from Box 1 (Incoming Hot)
-    -   Pigtail to Main SW 1 (COM terminal)
-    -   Pigtail to Vanity SW 1 (COM terminal)
-    -   Black wire from 14-3 to Box 7 (Constant Hot for Fan)
--   **Wire Nut #2 (NEUTRAL)**:
+-   **Wire Nut #1 (NEUTRAL)**:
     -   White wire from Box 1 (Incoming Neutral)
-    -   White wire from 14-3 to Box 4 (Neutral for Main Light)
-    -   White wire from 14-3 to Box 7 (Neutral for Vanity Light & Fan)
--   **Wire Nut #3 (GROUND)**:
+    -   White wire to Box 7 (Neutral for Vanity Light circuit)
+-   **Wire Nut #2 (GROUND)**:
     -   Bare ground from Box 1
-    -   Bare ground from 14-3 to Box 4
-    -   Bare ground from 14-3 to Box 7
-    -   Pigtail to Main SW 1 (Ground Screw)
+    -   Bare ground to Box 7
     -   Pigtail to Vanity SW 1 (Ground Screw)
 
 #### Device Connections in Box 2
--   **Main Switch 1 (3-Way)**:
-    -   **COM**: Pigtail from HOT wire nut.
-    -   **T1**: Black wire from 14-3 to Box 4 (Traveler 1).
-    -   **T2**: Red wire from 14-3 to Box 4 (Traveler 2).
-    -   **Ground**: Pigtail from GROUND wire nut.
 -   **Vanity Switch 1 (3-Way)**:
-    -   **COM**: Pigtail from HOT wire nut.
-    -   **T1**: Red wire from 14-3 to Box 7 (Traveler).
-    -   **T2**: **NOT CONNECTED**. The black wire in this cable is used for constant hot, not a traveler.
-    -   **Ground**: Pigtail from GROUND wire nut.
+    -   **COM**: Black wire from Box 1 (Constant Hot)
+    -   **T1**: Black wire to Box 7 (Traveler 1)
+    -   **T2**: Red wire to Box 7 (Traveler 2)
+    -   **Ground**: Pigtail from GROUND wire nut
 
 ---
 
-### Box 4: Main Light Switch 2
-*   **Purpose**: Houses the second 3-way switch for the main light.
-*   **Cables**: 14-3 from Box 2 (IN), 14-2 to Main Light (OUT).
+### Box 4: Main Light Switch 1
+*   **Purpose**: Houses the first 3-way switch for the main light.
+*   **Cables**: 14-2 from Box 1 (IN), 14-3 to Box 7 (OUT).
 
 #### Wire Nut Connections in Box 4
 -   **Wire Nut #1 (NEUTRAL)**:
-    -   White wire from Box 2.
-    -   White wire to Main Light.
+    -   White wire from Box 1 (Incoming Neutral)
+    -   White wire to Box 7 (Neutral for Main Light circuit)
 -   **Wire Nut #2 (GROUND)**:
-    -   Bare ground from Box 2.
-    -   Bare ground to Main Light.
-    -   Pigtail to the switch's ground screw.
+    -   Bare ground from Box 1
+    -   Bare ground to Box 7
+    -   Pigtail to Main SW 1 (Ground Screw)
 
 #### Device Connections in Box 4
--   **Main Switch 2 (3-Way)**:
-    -   **COM**: Black wire to Main Light (Switched Hot to light).
-    -   **T1**: Black wire from Box 2 (Traveler).
-    -   **T2**: Red wire from Box 2 (Traveler).
-    -   **Ground**: Pigtail from GROUND wire nut.
+-   **Main Switch 1 (3-Way)**:
+    -   **COM**: Black wire from Box 1 (Constant Hot)
+    -   **T1**: Black wire to Box 7 (Traveler 1)
+    -   **T2**: Red wire to Box 7 (Traveler 2)
+    -   **Ground**: Pigtail from GROUND wire nut
 
 ---
 
-### Box 7: Combined Switch Box
-*   **Purpose**: Houses the second vanity switch and the fan switch.
-*   **Cables**: 14-3 from Box 2 (IN), 14-2 to Vanity Light (OUT), 14-2 to Fan (OUT).
+### Box 7: Control Center (Triple Gang Box)
+*   **Purpose**: Houses all the second switches and controls all fixtures.
+*   **Cables**: 14-2 from Box 1 (IN), 14-3 from Box 2 (IN), 14-3 from Box 4 (IN), 14-2 to Box 3 (OUT), 14-2 to Box 5 (OUT), 14-2 to Box 6 (OUT).
 
 #### Wire Nut Connections in Box 7
 -   **Wire Nut #1 (HOT for Fan)**:
-    -   Black wire from Box 2 (Constant Hot).
-    -   Pigtail to Fan Switch (Top Terminal).
+    -   Black wire from Box 1 (Constant Hot for Fan)
+    -   Pigtail to Fan Switch (Top Terminal)
 -   **Wire Nut #2 (NEUTRAL)**:
-    -   White wire from Box 2 (Neutral).
-    -   White wire to Vanity Light.
-    -   White wire to Fan.
+    -   White wire from Box 2 (Neutral from Vanity circuit)
+    -   White wire from Box 4 (Neutral from Main circuit)
+    -   White wire to Box 3 (Vanity Light)
+    -   White wire to Box 5 (Main Light)
+    -   White wire to Box 6 (Fan)
 -   **Wire Nut #3 (GROUND)**:
-    -   Bare ground from Box 2.
-    -   Bare ground to Vanity Light.
-    -   Bare ground to Fan.
-    -   Pigtail to Vanity SW 2 (Ground Screw).
-    -   Pigtail to Fan Switch (Ground Screw).
+    -   Bare ground from Box 1
+    -   Bare ground from Box 2
+    -   Bare ground from Box 4
+    -   Bare ground to Box 3 (Vanity Light)
+    -   Bare ground to Box 5 (Main Light)
+    -   Bare ground to Box 6 (Fan)
+    -   Pigtail to Main SW 2 (Ground Screw)
+    -   Pigtail to Vanity SW 2 (Ground Screw)
+    -   Pigtail to Fan Switch (Ground Screw)
 
 #### Device Connections in Box 7
+-   **Main Switch 2 (3-Way)**:
+    -   **COM**: Black wire to Box 5 (Switched Hot to Main Light)
+    -   **T1**: Black wire from Box 4 (Traveler 1)
+    -   **T2**: Red wire from Box 4 (Traveler 2)
+    -   **Ground**: Pigtail from GROUND wire nut
 -   **Vanity Switch 2 (3-Way)**:
-    -   **COM**: Black wire to Vanity Light (Switched Hot).
-    -   **T1**: Red wire from Box 2 (Traveler from Vanity SW 1).
-    -   **T2**: **NOT CONNECTED**.
-    -   **Ground**: Pigtail from GROUND wire nut.
+    -   **COM**: Black wire to Box 3 (Switched Hot to Vanity Light)
+    -   **T1**: Black wire from Box 2 (Traveler 1)
+    -   **T2**: Red wire from Box 2 (Traveler 2)
+    -   **Ground**: Pigtail from GROUND wire nut
 -   **Fan Switch (Single-Pole)**:
-    -   **Top Terminal**: Pigtail from HOT wire nut.
-    -   **Bottom Terminal**: Black wire to Fan (Switched Hot).
-    -   **Ground**: Pigtail from GROUND wire nut.
+    -   **Hot Terminal**: Pigtail from HOT wire nut
+    -   **Load Terminal**: Black wire to Box 6 (Switched Hot to Fan)
+    -   **Ground**: Pigtail from GROUND wire nut
 
 ---
 

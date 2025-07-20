@@ -1,13 +1,11 @@
-# Complete Bathroom Wiring Layout (Final Design)
+# Complete Bathroom Wiring Layout (Corrected Design)
 
-This document provides a detailed physical and logical layout for the optimized bathroom wiring circuit. The design uses **Box 2 as the central distribution hub** to simplify wiring, ensure code compliance, and provide clear, safe power distribution.
+This document provides the corrected physical and logical layout for the bathroom wiring circuit. The design uses **Box 7 as both the control center AND power distribution hub** to ensure code compliance and proper GFCI protection.
 
 ## Physical Layout Diagram
 
-This diagram shows the physical placement of each box and the cable runs between them.
-
 ```text
-BATHROOM ELECTRICAL LAYOUT (HUB-BASED DESIGN)
+BATHROOM ELECTRICAL LAYOUT (BOX 7 HUB DESIGN)
 ═══════════════════════════════════════════════════════════════
 
                     ┌────────────────────────┐
@@ -20,66 +18,62 @@ BATHROOM ELECTRICAL LAYOUT (HUB-BASED DESIGN)
                               └───────────┬────────────┘
                                           │ 14-2 Cable
                                           ↓
-                              ┌────────────────────────┐
-                              │ Box 2: DISTRIBUTION HUB│
-                              │ • Main Switch 1        │
-                              │ • Vanity Switch 1      │
-                              └───────────┬────────────┘
-                                          │
-                  ┌───────────────────────┴───────────────────────┐
-                  │ 14-3 Cable                                    │ 14-3 Cable
-                  ↓                                               ↓
-    WALL 2 (Shower Side)      ┌────────────────────────┐    WALL 3 (Vanity Side)
-    ───────────────────       │ Box 4: Main Switch 2   │    ───────────────────
-                              │ (3-way)                │          ┌────────────────────────┐
-                              └───────────┬────────────┘          │ Box 7: Combined Box    │
-                                          │ 14-2 Cable            │ • Vanity SW 2 (3-way)  │
-                                          ↓                       │ • Fan Switch (1-pole)  │
-                              ┌────────────────────────┐          └─┬──────────┬───────────┘
-                              │ Box 5: Main Light      │            │ 14-2     │ 14-2
-                              └────────────────────────┘            ↓          ↓
-                                                              ┌─────────┐  ┌─────────┐
-                                                              │ Vanity  │  │ Fan     │
-                                                              │ Light   │  │         │
-                                                              └─────────┘  └─────────┘
+                              ┌──────────────────────────────┐
+                              │ Box 7: CONTROL CENTER & HUB │
+                              │ • Main Switch 2 (3-Way)     │
+                              │ • Vanity Switch 2 (3-Way)   │
+                              │ • Fan Switch (Single-Pole)  │
+                              │ • Power Distribution         │
+                              └─┬─────────────┬──────────────┘
+                                │ 14-3 Cable  │ 14-3 Cable
+                                ↓             ↓
+           ┌─────────────────────────┐   ┌─────────────────────────┐
+           │ Box 2: Vanity Switch 1  │   │ Box 4: Main Switch 1    │
+           │ (3-Way)                 │   │ (3-Way)                 │
+           └─────────────────────────┘   └─────────────────────────┘
+
+    FIXTURES (All fed from Box 7):
+    ┌─────────────┐  ┌─────────────┐  ┌─────────────┐
+    │ Box 3:      │  │ Box 5:      │  │ Box 6:      │
+    │ Vanity      │  │ Main        │  │ Exhaust     │
+    │ Light       │  │ Light       │  │ Fan         │
+    └─────────────┘  └─────────────┘  └─────────────┘
+         ↑                 ↑                 ↑
+         └─────14-2────────┼─────14-2───────┘
+                          14-2
 ```
 
 ## Wire Routing and Logic
 
-This diagram illustrates the flow of power and the purpose of each conductor within the cables.
-
 ```text
-WIRING LOGIC & CABLE ROUTING (FINAL)
+POWER & CONTROL FLOW (CORRECTED)
 ═══════════════════════════════════════════════════════════════
 
-[PANEL] → 14-2 → [BOX 1: GFCI] → 14-2 → [BOX 2: DISTRIBUTION HUB]
+[PANEL] → 14-2 → [BOX 1: GFCI] → 14-2 → [BOX 7: CONTROL CENTER & HUB]
                                              │
-                                             ├─(14-3 to Box 4)─→ • Black: Traveler 1 (Main Light)
-                                             │                     • Red:   Traveler 2 (Main Light)
-                                             │                     • White: Neutral for Main Light
+                                             ├─(14-3 to Box 2)─→ • Black: Traveler 1 (Vanity)
+                                             │                    • Red:   Traveler 2 (Vanity)  
+                                             │                    • White: Hot Power + Neutral
                                              │
-                                             └─(14-3 to Box 7)─→ • Black: Constant Hot for Fan Switch
-                                                                 • Red:   Traveler (Vanity Light)
-                                                                 • White: Neutral for Vanity & Fan
+                                             ├─(14-3 to Box 4)─→ • Black: Traveler 1 (Main)
+                                             │                    • Red:   Traveler 2 (Main)
+                                             │                    • White: Hot Power + Neutral
+                                             │
+                                             ├─(14-2 to Box 3)─→ • Black: Switched Hot (Vanity Light)
+                                             │                    • White: Neutral
+                                             │
+                                             ├─(14-2 to Box 5)─→ • Black: Switched Hot (Main Light)
+                                             │                    • White: Neutral
+                                             │
+                                             └─(14-2 to Box 6)─→ • Black: Switched Hot (Fan)
+                                                                 • White: Neutral
 
-[BOX 4: MAIN SW 2] → 14-2 → [BOX 5: MAIN LIGHT]
-   • Black: Switched hot from 3-way logic
-   • White: Neutral from Box 2 (passed through Box 4)
+3-WAY SWITCHING:
+Box 2 (Vanity SW 1) ←→ Box 7 (Vanity SW 2) via RED & BLACK travelers
+Box 4 (Main SW 1) ←→ Box 7 (Main SW 2) via RED & BLACK travelers
 
-[BOX 7: COMBINED BOX]
-   ├─(14-2 to Vanity Light)─→ • Black: Switched hot from Vanity SW 2
-   │                           • White: Neutral from Box 2 (passed through Box 7)
-   │
-   └─(14-2 to Fan)──────────→ • Black: Switched hot from Fan Switch
-                               • White: Neutral from Box 2 (passed through Box 7)
-
-VANITY 3-WAY SWITCHING:
-Box 2 (Vanity SW 1) ←→ Box 7 (Vanity SW 2) via RED traveler wire.
-• Standard 3-way circuit.
-
-MAIN 3-WAY SWITCHING:
-Box 2 (Main SW 1) ←→ Box 4 (Main SW 2) via BLACK & RED traveler wires.
-• Standard 3-way circuit.
+NEUTRAL FLOW:
+Panel → GFCI → Box 7 → distributed to all fixtures and remote switches
 ```
 
 ## Installation Sequence (Final)

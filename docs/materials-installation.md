@@ -21,11 +21,10 @@
 ### Electrical Boxes
 | Item                   | Quantity | Specification         | Usage                                     |
 | ---------------------- | -------- | --------------------- | ----------------------------------------- |
-| Single/Double Gang Box | 1        | 22+ cubic inch        | Box 2 (Distribution Hub)                  |
-| Single Gang Box        | 1        | 18 cubic inch         | Box 4 (Main Switch 2)                     |
-| Triple Gang Box        | 1        | 32+ cubic inch        | Box 7 (Combined Switches)                 |
+| Single Gang Box        | 2        | 18 cubic inch         | Box 2 (Vanity SW 1), Box 4 (Main SW 1)   |
+| Triple Gang Box        | 1        | 40+ cubic inch        | Box 7 (Control Center - 3 switches)      |
 | Outlet Box             | 1        | Standard single gang  | Box 1 (GFCI)                              |
-| Ceiling Boxes          | 3        | Rated for fixture weight | Main Light, Vanity Light, Fan             |
+| Ceiling/Wall Boxes     | 3        | Rated for fixture weight | Box 3, Box 5, Box 6 (Fixtures)        |
 
 ## Installation Guide
 
@@ -34,17 +33,17 @@
 - Use a non-contact voltage tester to confirm power is off at the circuit.
 - Always follow local electrical codes and NEC guidelines.
 
-### Step 2: Cable Routing (Final Plan)
-Run cables according to the physical layout diagram.
+### Step 2: Cable Routing (Corrected Design)
+Run cables according to the revised layout.
 1.  **Panel → Box 1 (GFCI)**: Run one **14-2** cable.
-2.  **Box 1 → Box 2 (Hub)**: Run one **14-2** cable from the GFCI's LOAD terminals.
-3.  **Box 2 → Box 4 (Main SW 2)**: Run one **14-3** cable.
-4.  **Box 2 → Box 7 (Combined Box)**: Run one **14-3** cable.
-5.  **Box 4 → Main Light**: Run one **14-2** cable.
-6.  **Box 7 → Vanity Light**: Run one **14-2** cable.
-7.  **Box 7 → Fan**: Run one **14-2** cable.
+2.  **Box 1 → Box 7 (Control Center)**: Run one **14-2** cable from the GFCI's LOAD terminals.
+3.  **Box 7 → Box 2 (Vanity SW 1)**: Run one **14-3** cable (Hot + 2 Travelers + Neutral).
+4.  **Box 7 → Box 4 (Main SW 1)**: Run one **14-3** cable (Hot + 2 Travelers + Neutral).
+5.  **Box 7 → Box 3 (Vanity Light)**: Run one **14-2** cable.
+6.  **Box 7 → Box 5 (Main Light)**: Run one **14-2** cable.
+7.  **Box 7 → Box 6 (Fan)**: Run one **14-2** cable.
 
-**Key Design Feature**: Box 2 acts as the central distribution hub. It receives power from the GFCI and distributes it via the 14-3 cables to the downstream switch boxes (Box 4 and Box 7), which then control the fixtures. This design ensures a clear and safe separation of circuits and simplifies wiring.
+**Key Design Feature**: Box 7 acts as both the control center AND power distribution hub. It receives power from the GFCI and distributes it to the remote switches (Box 2 and Box 4) while also controlling all fixtures directly. This design ensures proper GFCI protection for all circuits.
 
 ### Step 3: GFCI Outlet Wiring (Box 1)
 - Connect the incoming 14-2 cable from the panel to the **LINE** terminals.
