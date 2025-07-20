@@ -5,7 +5,7 @@ This guide provides detailed, step-by-step wiring instructions for each electric
 ## ⚠️ Critical Safety Reminders
 - **Turn off power** at the breaker before beginning any work.
 - **Use a voltage tester** to confirm the power is off.
-- **No Re-identification Needed**: In this design, all wires are used for their standard purpose (black/red for hot, white for neutral). No re-identifying of wires with tape is necessary.
+- **Wire Re-identification Required**: The white wires in the 14-3 traveler cables carry switched hot, not neutral. These must be identified with black electrical tape at both ends to indicate they carry hot.
 - **Pigtails**: Use 6-inch pigtails of the same color wire to connect devices when multiple wires are spliced in a wire nut. This improves organization and safety.
 
 ---
@@ -42,9 +42,11 @@ This guide provides detailed, step-by-step wiring instructions for each electric
 -   **Wire Nut #2 (NEUTRAL)**:
     -   White wire from Box 1 (Incoming Neutral)
     -   White wire to Box 4 (Neutral continuation)
-    -   White wire from Box 7 (via 14-3 - Neutral for vanity light)
     -   White wire to Box 3 (Vanity Light neutral)
--   **Wire Nut #3 (GROUND)**:
+-   **Wire Nut #3 (SWITCHED HOT TO VANITY LIGHT)**:
+    -   White wire from Box 7 (via 14-3 - Switched Hot return from Vanity SW 2)
+    -   Black wire to Box 3 (Vanity Light switched hot)
+-   **Wire Nut #4 (GROUND)**:
     -   Bare ground from Box 1
     -   Bare ground to Box 4
     -   Bare ground to/from Box 7
@@ -72,9 +74,11 @@ This guide provides detailed, step-by-step wiring instructions for each electric
 -   **Wire Nut #2 (NEUTRAL)**:
     -   White wire from Box 2 (Incoming Neutral)
     -   White wire to Box 7 (Neutral continuation) 
-    -   White wire from Box 7 (via 14-3 - Neutral for main light)
     -   White wire to Box 5 (Main Light neutral)
--   **Wire Nut #3 (GROUND)**:
+-   **Wire Nut #3 (SWITCHED HOT TO MAIN LIGHT)**:
+    -   White wire from Box 7 (via 14-3 - Switched Hot return from Main SW 2)
+    -   Black wire to Box 5 (Main Light switched hot)
+-   **Wire Nut #4 (GROUND)**:
     -   Bare ground from Box 2
     -   Bare ground to Box 7 (via 14-2)
     -   Bare ground to/from Box 7 (via 14-3)
@@ -100,8 +104,6 @@ This guide provides detailed, step-by-step wiring instructions for each electric
     -   Pigtail to Fan Switch (Hot terminal)
 -   **Wire Nut #2 (NEUTRAL)**:
     -   White wire from Box 4 (Incoming Neutral)
-    -   White wire to Box 2 (via 14-3 - for vanity light return)
-    -   White wire to Box 4 (via 14-3 - for main light return)
     -   White wire to Box 6 (Fan neutral)
 -   **Wire Nut #3 (GROUND)**:
     -   Bare ground from Box 4 (via 14-2)
@@ -114,12 +116,12 @@ This guide provides detailed, step-by-step wiring instructions for each electric
 
 #### Device Connections in Box 7
 -   **Vanity Switch 2 (3-Way)**:
-    -   **COM**: Black wire to Box 3 (Switched Hot - routed back through Box 2)
+    -   **COM**: White wire to Box 2 (via 14-3 - Switched Hot return)
     -   **T1**: Black wire from Box 2 (Traveler 1)
     -   **T2**: Red wire from Box 2 (Traveler 2)
     -   **Ground**: Pigtail from GROUND wire nut
 -   **Main Switch 2 (3-Way)**:
-    -   **COM**: Black wire to Box 5 (Switched Hot - routed back through Box 4)
+    -   **COM**: White wire to Box 4 (via 14-3 - Switched Hot return)
     -   **T1**: Black wire from Box 4 (Traveler 1)
     -   **T2**: Red wire from Box 4 (Traveler 2)
     -   **Ground**: Pigtail from GROUND wire nut
