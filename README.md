@@ -1,94 +1,163 @@
-# Bathroom Electrical Wiring Diagram
+# Bathroom Electrical Wiring Diagram - Linear Feed-Through Design
 
-## Project Overview
-This document provides a complete wiring diagram and installation guide for a bathroom electrical system featuring:
-- **GFCI Protection**: A 15A GFCI outlet provides power and protection for the entire circuit.
-- **3-Way Switches**: For independent control of the main and vanity lights from two locations each.
-- **Single-Pole Switch**: For the exhaust fan.
-- **Power Distribution Hub**: Box 1 (GFCI) acts as the power distribution hub using wire nuts to feed three separate switch locations.
+[![Code Compliant](https://img.shields.io/badge/NEC-Compliant-green.svg)](https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=70)
+[![Safety](https://img.shields.io/badge/Safety-GFCI_Protected-blue.svg)](#safety-considerations)
+[![Design](https://img.shields.io/badge/Design-Linear_Feed_Through-orange.svg)](#design-overview)
 
-## Final Circuit Configuration
+## 🏠 Project Overview
 
-### Power Flow Sequence
-The circuit follows a logical, GFCI-hub design for safety and code compliance.
-1.  **Power Source**: A 15A breaker at the electrical panel feeds the circuit.
-2.  **Box 1 (GFCI & Power Hub)**: Power enters here. The GFCI outlet protects all downstream devices AND uses wire nuts to distribute power to three switch locations.
-3.  **Box 2 (Vanity Switch 1)**: Single-gang box with first 3-way switch for vanity light.
-4.  **Box 4 (Main Switch 1)**: Single-gang box with first 3-way switch for main light.
-5.  **Box 7 (Control Center)**: Triple-gang box containing:
-    - **Main Switch 2** (3-Way)
-    - **Vanity Switch 2** (3-Way)
-    - **Fan Switch** (Single-Pole)
-6.  **Fixtures**: Each light and the fan is fed directly from Box 7 (control center).
+This project documents a **complete bathroom electrical wiring system** using a **linear feed-through design** that provides:
 
-### Quick Wire Flow Overview
+- ⚡ **GFCI Protection** for the entire bathroom circuit
+- 💡 **Main Light** with 3-way switch control (2 locations)  
+- 🪩 **Vanity Light** with 3-way switch control (2 locations)
+- 🌀 **Exhaust Fan** with single-pole switch control
+- 🔌 **GFCI Outlet** for bathroom electrical needs
+
+## 🎯 System Features
+
+### **Linear Power Flow**
+Power flows efficiently through the physical box layout:
 ```
-⚫ HOT WIRE FLOW:
-Panel → GFCI (Box 1) → Distributed to Boxes 2, 4, & 7
-   ↓
-   ├─ Box 2 (Vanity SW 1) ←→ Box 7 (Vanity SW 2) → Vanity Light
-   ├─ Box 4 (Main SW 1) ←→ Box 7 (Main SW 2) → Main Light
-   └─ Box 7 (Fan SW) → Fan
-
-⚪ NEUTRAL WIRE FLOW:  
-Panel → GFCI (Box 1) → Distributed to all switches → All fixtures
-
-🟢 GROUND WIRE FLOW:
-Panel → All Boxes & Devices (continuous)
+Box 1 (GFCI) → Box 2 (Vanity SW) → Box 4 (Main SW) → Box 7 (Control Center)
 ```
 
-## Detailed Wiring Diagram (ASCII)
+### **Smart Control Layout**
+- **Box 2**: Vanity Light Switch 1 (3-way)
+- **Box 4**: Main Light Switch 1 (3-way) 
+- **Box 7**: Control Center with all secondary switches:
+  - Main Light Switch 2 (3-way)
+  - Vanity Light Switch 2 (3-way)
+  - Fan Switch (single-pole)
 
-This diagram illustrates the physical layout and cable runs for the final design.
+### **Code-Compliant Design**
+✅ All white wires used only as neutrals  
+✅ Proper GFCI protection throughout  
+✅ Standard 14 AWG wire for 15A circuit  
+✅ Equipment grounding for all devices  
+✅ NEC-compliant box fill calculations  
+
+## 📁 Project Structure
 
 ```
-      ELECTRICAL PANEL
-             |
-             | 14-2 Cable
-             ↓
-      ┌──────────────────────────┐
-(BOX 1) │ GFCI OUTLET & POWER HUB │
-      └─┬──────────┬─────────────┘
-        |          |      |
-  14-2 Cable  14-2 Cable 14-2 Cable
-        |          |      |
-        ↓          ↓      ↓
-┌────────────┐ ┌───────┐ ┌──────────────────────────────┐
-│ VANITY     │ │ MAIN  │ │      CONTROL CENTER          │ (BOX 7)
-│ SWITCH 1   │ │ SW 1  │ │ - Main Switch 2 (3-Way)      │
-│ (3-Way)    │ │(3-Way)│ │ - Vanity Switch 2 (3-Way)    │
-└──────┬─────┘ └───┬───┘ │ - Fan Switch (Single-Pole)   │
-       |14-3       |14-3 └─┬──────────┬──────────┬──────┘
-       |Travelers  |Travel | 14-2     | 14-2     | 14-2
-       └───────────┼──────└┤          |          |
-                   └───────┘          ↓          ↓
-                                ┌──────────┐  ┌─────────────┐
-                                │MAIN LIGHT│  │ EXHAUST FAN │
-                                └──────────┘  └─────────────┘
-                                      ↓
-                              ┌──────────────┐
-                              │ VANITY LIGHT │
-                              └──────────────┘
+bathroom-wire-diagram/
+├── README.md                           # Project overview (this file)
+├── diagrams/
+│   └── linear-design-mermaid.md        # Complete wiring diagram with Mermaid
+├── docs/
+│   └── switch-wiring-guide.md          # Box-by-box wiring instructions
+└── LINEAR-INSTALLATION-MATERIALS.md    # Materials list & installation guide
 ```
 
-## Wire Configuration Details
+## 🚀 Quick Start
 
-### Wire Types Used:
-- **14-2 NM-B w/Ground**: Contains one hot (black), one neutral (white), and one ground (bare copper).
-- **14-3 NM-B w/Ground**: Contains two travelers/hots (black, red), one neutral (white), and one ground (bare copper).
+### **1. View the Complete Wiring Diagram**
+📄 **[Linear Design Mermaid Diagram](diagrams/linear-design-mermaid.md)**
+- Visual flowchart showing all connections
+- Color-coded cable specifications  
+- Wire-by-wire breakdown
+- System operation explanation
 
-### Wire Gauge: 14 AWG for a 15-Amp circuit.
+### **2. Get Materials & Installation Guide**  
+📄 **[Linear Installation Materials](LINEAR-INSTALLATION-MATERIALS.md)**
+- Complete materials list with quantities
+- Cable run specifications table
+- Step-by-step installation sequence
+- Box fill calculations
 
-## 3-Way Switch Wiring (Code Compliant Design)
+### **3. Wire the Switches**
+📄 **[Switch Wiring Guide](docs/switch-wiring-guide.md)**
+- Box-by-box connection instructions
+- Wire nut groupings for each box
+- Device terminal connections
+- Testing procedures
 
-In this design, the wiring is straightforward and code-compliant, with no re-identified white wires.
+## 🔧 System Specifications
 
-- **Power Distribution**: Box 1 (GFCI) distributes protected power to all three switch locations using wire nuts.
-- **3-Way Circuits**: Both lights use standard 2-traveler wiring between their switch pairs:
-  - **Main Light**: Box 4 (SW 1) ←→ Box 7 (SW 2) via 14-3 cable
-  - **Vanity Light**: Box 2 (SW 1) ←→ Box 7 (SW 2) via 14-3 cable
-- **Hot Source**: Each first switch gets constant hot from Box 1 (GFCI).
-- **Travelers**: The red and black wires in the 14-3 cables carry the two travelers between switch pairs.
-- **Switched Hot**: Box 7 (control center) sends switched hot to all three fixtures.
-- **Neutral**: White neutral wires run continuously from GFCI through all switches to all fixtures. **Neutrals are never connected to switches.**
-- **Ground**: The bare copper ground wire connects to all switches, boxes, and fixtures.
+| Component | Specification | Notes |
+|-----------|---------------|-------|
+| **Circuit** | 15A, 120V | Standard bathroom circuit |
+| **Wire Gauge** | 14 AWG | NM-B cable throughout |
+| **GFCI Protection** | Box 1 LINE/LOAD | Protects entire circuit |
+| **Total Cables** | 8 cables | 6 × 14-2 + 2 × 14-3 |
+| **Total Boxes** | 7 boxes | 4 switches + 1 outlet + 2 fixtures |
+| **Switch Types** | 4 × 3-way, 1 × single-pole | All 15A rated |
+
+## 🎮 How It Works
+
+### **Power Distribution**
+1. **Panel** → **Box 1**: Main 15A feed to GFCI outlet
+2. **Box 1** → **Box 2**: Protected power continues to vanity switch  
+3. **Box 2** → **Box 4**: Power continues to main light switch
+4. **Box 4** → **Box 7**: Final power feed to control center
+
+### **3-Way Switch Operation**
+
+#### **Vanity Light Control**
+- **Switch 1** (Box 2): Controls vanity light via travelers to Box 7
+- **Switch 2** (Box 7): Receives travelers, sends switched hot back to vanity
+
+#### **Main Light Control**  
+- **Switch 1** (Box 4): Controls main light via travelers to Box 7
+- **Switch 2** (Box 7): Receives travelers, sends switched hot back to main light
+
+### **Fan Control**
+- **Single Switch** (Box 7): Direct control of exhaust fan
+
+## 🛡️ Safety Considerations
+
+⚠️ **ELECTRICAL WORK WARNING**: This project involves electrical wiring that can cause serious injury or death if performed incorrectly. 
+
+### **Before Starting**
+- ✋ **Hire a Licensed Electrician** if you're not qualified
+- 🔌 **Turn OFF power** at the breaker before any work
+- 🧪 **Test circuits** with a non-contact voltage tester
+- 📖 **Check local codes** - requirements may vary by location
+
+### **GFCI Requirements**
+- 🛡️ **GFCI protection required** for all bathroom outlets (NEC 210.8)
+- 🔄 **Monthly testing recommended** using TEST/RESET buttons
+- ⚡ **Replace immediately** if GFCI fails to trip or reset
+
+### **Bathroom-Specific Codes**
+- 📏 **Box placement**: Follow height and clearance requirements  
+- 💧 **Moisture protection**: Use appropriate boxes and covers
+- 🌡️ **Ventilation**: Exhaust fan required in bathrooms without windows
+
+## 🎨 Design Advantages
+
+### **Why Linear Feed-Through?**
+✅ **Follows Natural Flow**: Power moves in logical box order  
+✅ **Simple GFCI Wiring**: Only 2 cables at GFCI (LINE/LOAD)  
+✅ **Standard Practice**: Most common residential approach  
+✅ **Easy Troubleshooting**: Clear power path to follow  
+✅ **Efficient Installation**: Install boxes in sequence  
+
+### **User Benefits**
+✅ **Convenient Control**: All primary switches in Box 7  
+✅ **Full 3-Way Function**: Control lights from 2 locations each  
+✅ **Logical Layout**: Switch locations match room usage  
+✅ **Future Maintenance**: Easy to trace and service  
+
+## 📞 Support & Resources
+
+### **Documentation**
+- 🔗 **[National Electrical Code (NEC)](https://www.nfpa.org/codes-and-standards/all-codes-and-standards/list-of-codes-and-standards/detail?code=70)** - Official electrical code
+- 🏠 **Local Building Department** - Permit and inspection requirements
+- 👷 **Licensed Electrician** - Professional installation and consultation
+
+### **Tools Required**
+- Wire strippers and cutters
+- Non-contact voltage tester  
+- Drill with bits for box installation
+- Fish tape or wire pulling system
+- Screwdrivers (flathead and Phillips)
+- Wire nuts and electrical tape
+
+## ⚖️ Legal Disclaimer
+
+This documentation is for educational and planning purposes only. Electrical work must comply with local codes and regulations. Installation should be performed by qualified individuals or licensed electricians. The authors assume no responsibility for improper installation or code violations.
+
+---
+
+**📧 Questions?** Review the detailed documentation in the `diagrams/` and `docs/` folders, or consult with a licensed electrician for your specific installation requirements.
