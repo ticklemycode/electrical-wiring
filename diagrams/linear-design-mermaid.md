@@ -41,9 +41,9 @@ flowchart TD
     ControlBox7["📦 BOX 7: CONTROL CENTER<br/>🔘 Main Light Switch 2 (3-Way)<br/>🔘 Vanity Light Switch 2 (3-Way)<br/>🔘 Fan Switch (Single-Pole)<br/>📍 Triple Gang Box"]
     
     %% 3-WAY CONTROL CABLES (TRAVELERS)
-    VanityBox2 -.->|"🔵 14-3 NM-B Cable<br/>⚫ Black: Traveler 1<br/>🔴 Red: Traveler 2<br/>⚪ White: Neutral Return<br/>🟢 Bare: Ground"| ControlBox7
+    VanityBox2 -.->|"🔵 14-3 NM-B Cable<br/>⚫ Black: Traveler 1<br/>🔴 Red: Traveler 2<br/>⚪ White: NOT USED<br/>🟢 Bare: Ground"| ControlBox7
     
-    MainBox4 -.->|"🔵 14-3 NM-B Cable<br/>⚫ Black: Traveler 1<br/>🔴 Red: Traveler 2<br/>⚪ White: Neutral Return<br/>🟢 Bare: Ground"| ControlBox7
+    MainBox4 -.->|"🔵 14-3 NM-B Cable<br/>⚫ Black: Traveler 1<br/>🔴 Red: Traveler 2<br/>⚪ White: NOT USED<br/>🟢 Bare: Ground"| ControlBox7
     
     %% FIXTURE CONNECTIONS
     VanityBox2 -->|"🔴 14-2 NM-B Cable<br/>⚫ Black: Switched Hot<br/>⚪ White: Neutral<br/>🟢 Bare: Ground"| VanityFixture
@@ -86,8 +86,10 @@ flowchart TD
 ### **3-Way Control Cables (14-3 NM-B)**
 | Cable Run | Purpose | Black Wire | Red Wire | White Wire | Bare Wire |
 |-----------|---------|------------|----------|------------|-----------|
-| Box 2 ↔ Box 7 | Vanity 3-way control | Traveler 1 | Traveler 2 | Neutral return | Ground |
-| Box 4 ↔ Box 7 | Main 3-way control | Traveler 1 | Traveler 2 | Neutral return | Ground |
+| Box 2 ↔ Box 7 | Vanity 3-way control | Traveler 1 | Traveler 2 | **NOT USED** | Ground |
+| Box 4 ↔ Box 7 | Main 3-way control | Traveler 1 | Traveler 2 | **NOT USED** | Ground |
+
+**Note**: The white wires in the 14-3 cables are not used in this configuration. All fixture neutrals come from the main power feed chain.
 
 ### **Fixture Feed Cables (14-2 NM-B)**
 | Cable Run | Purpose | Black Wire | White Wire | Bare Wire |
@@ -110,17 +112,18 @@ flowchart TD
 - **Box 2**: Vanity Switch 1 (COM gets constant hot, sends travelers to Box 7)
 - **Box 7**: Vanity Switch 2 (receives travelers, COM sends switched hot back to Box 2)
 - **Switched Hot Path**: Box 7 → Box 2 → Box 3 (Vanity Light)
-- **Neutral Path**: Box 7 → Box 2 → Box 3 (via 14-3 white wire)
+- **Neutral Path**: Box 2 → Box 3 (direct from power feed chain)
 
 #### **Main Light 3-Way Circuit**  
 - **Box 4**: Main Switch 1 (COM gets constant hot, sends travelers to Box 7)
 - **Box 7**: Main Switch 2 (receives travelers, COM sends switched hot back to Box 4)
 - **Switched Hot Path**: Box 7 → Box 4 → Box 5 (Main Light)
-- **Neutral Path**: Box 7 → Box 4 → Box 5 (via 14-3 white wire)
+- **Neutral Path**: Box 4 → Box 5 (direct from power feed chain)
 
 #### **Fan Single-Pole Circuit**
 - **Box 7**: Fan Switch (gets constant hot, sends switched hot directly to Box 6)
 - **Direct Connection**: Box 7 → Box 6 (Fan) via 14-2 cable
+- **Neutral Path**: Box 7 → Box 6 (direct from power feed chain)
 
 ## 💡 Design Advantages
 
