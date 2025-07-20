@@ -1,4 +1,4 @@
-# Bathroom Electrical Wiring     VanityFixture["📦 BOX 3:<br/>💡 VANITY LIGHT FIXTURE"] Clear & Code-Compliant Design
+# Bathroom Electrical Wiring - Clear & Code-Compliant Design
 
 This document provides a clear, understandable wiring diagram that shows exactly how the bathroom electrical system works.
 
@@ -16,15 +16,15 @@ flowchart TD
     %% POWER SOURCE
     Panel["⚡ Electrical Panel<br/>15A Breaker"]
     
-    %% GFCI PROTECTION & POWER DISTRIBUTION
-    GFCI["📦 BOX 1: GFCI & POWER HUB<br/>🔌 GFCI Outlet<br/>⚡ Uses wire nuts to distribute<br/>protected power to 3 circuits"]
+    %% GFCI PROTECTION 
+    GFCI["📦 BOX 1: GFCI OUTLET<br/>🔌 GFCI Protection<br/>⚡ Protects entire circuit"]
     
     %% INDIVIDUAL SWITCHES
     VanityBox2["📦 BOX 2: VANITY SWITCH 1<br/>🔘 Vanity Light SW 1 (3-way)"]
     MainBox4["📦 BOX 4: MAIN SWITCH 1<br/>🔘 Main Light SW 1 (3-way)"]
     
-    %% CENTRAL SWITCH HUB
-    HubBox7["📦 BOX 7: CONTROL CENTER<br/>🔘 Main Light SW 2 (3-way)<br/>🔘 Vanity Light SW 2 (3-way)<br/>🔘 Fan Switch (single-pole)<br/><br/>⚡ Triple Gang Switch Box"]
+    %% CENTRAL POWER & CONTROL HUB
+    HubBox7["📦 BOX 7: CONTROL CENTER & POWER HUB<br/>🔘 Main Light SW 2 (3-way)<br/>🔘 Vanity Light SW 2 (3-way)<br/>🔘 Fan Switch (single-pole)<br/><br/>⚡ Triple Gang Box + Power Distribution"]
     
     %% FIXTURES
     VanityFixture["� BOX 3:<br/>�💡 VANITY LIGHT FIXTURE"]
@@ -33,9 +33,9 @@ flowchart TD
 
     %% POWER DISTRIBUTION
     Panel -->|"14-2: Hot/Neutral/Ground"| GFCI
-    GFCI -->|"14-2: Protected Power"| VanityBox2
-    GFCI -->|"14-2: Protected Power"| MainBox4
     GFCI -->|"14-2: Protected Power"| HubBox7
+    HubBox7 -->|"14-2: Hot/Neutral/Ground"| VanityBox2
+    HubBox7 -->|"14-2: Hot/Neutral/Ground"| MainBox4
     
     %% 3-WAY CIRCUITS
     VanityBox2 -.->|"14-3 Cable:<br/>🔴🔴 2 Travelers<br/>⚪ Neutral 🟢 Ground"| HubBox7
@@ -63,20 +63,22 @@ flowchart TD
 ## 🔧 How The Wiring Works
 
 ### **Power Distribution Strategy**
-1. **Box 1 is the Power Hub**: GFCI outlet uses wire nuts to distribute protected power to three separate circuits
-2. **Box 7 is the Control Center**: Triple-gang box houses all "second" switches and controls all fixtures
+1. **Box 1 provides GFCI protection**: All circuits protected by single GFCI outlet
+2. **Box 7 is the Power & Control Hub**: Triple-gang box distributes power to switches AND controls all fixtures
 3. **Standard 3-Way Circuits**: Both lights get proper 2-traveler wiring between their switch pairs
 
 ### **3-Way Switch Circuits Explained**
 
 #### **Main Light Circuit (Box 4 ↔ Box 7)**
-- **Box 4**: Main SW 1 gets constant hot from GFCI
+- **Box 7**: Distributes power to Box 4 via 14-2 cable
+- **Box 4**: Main SW 1 gets constant hot from Box 7
 - **14-3 Cable**: Carries 2 travelers (black & red) between switches  
 - **Box 7**: Main SW 2 sends switched hot to Box 5 (Main Light Fixture)
 - **Standard Configuration**: Textbook 3-way wiring
 
 #### **Vanity Light Circuit (Box 2 ↔ Box 7)**
-- **Box 2**: Vanity SW 1 gets constant hot from GFCI
+- **Box 7**: Distributes power to Box 2 via 14-2 cable
+- **Box 2**: Vanity SW 1 gets constant hot from Box 7
 - **14-3 Cable**: Carries 2 travelers (black & red) between switches
 - **Box 7**: Vanity SW 2 sends switched hot to Box 3 (Vanity Light Fixture)
 - **Standard Configuration**: Proper 3-way wiring with 2 travelers
@@ -98,9 +100,9 @@ flowchart TD
 | Cable Run | Type | Black Wire | Red Wire | White Wire | Purpose |
 |-----------|------|------------|----------|------------|---------|
 | Panel → Box 1 | 14-2 | Hot | - | Neutral | Power supply |
-| Box 1 → Box 2 | 14-2 | Hot | - | Neutral | Power to Vanity SW 1 |
-| Box 1 → Box 4 | 14-2 | Hot | - | Neutral | Power to Main SW 1 |
 | Box 1 → Box 7 | 14-2 | Hot | - | Neutral | Power to control center |
+| Box 7 → Box 2 | 14-2 | Hot | - | Neutral | Power to Vanity SW 1 |
+| Box 7 → Box 4 | 14-2 | Hot | - | Neutral | Power to Main SW 1 |
 | Box 2 → Box 7 | 14-3 | Traveler 1 | Traveler 2 | Neutral | Vanity 3-way circuit |
 | Box 4 → Box 7 | 14-3 | Traveler 1 | Traveler 2 | Neutral | Main 3-way circuit |
 | Box 7 → Box 3 | 14-2 | Switched Hot | - | Neutral | To vanity fixture |
@@ -109,14 +111,15 @@ flowchart TD
 
 ## 💡 Key Design Insights
 
-### **Why Box 7 is the Optimal Control Center**
+### **Why Box 7 is the Optimal Power & Control Hub**
 - **Fixture Proximity**: Closest to all three fixtures (vanity, main, fan)
 - **User Convenience**: All main controls in one triple-gang location
+- **Efficient Power Distribution**: Central location minimizes cable runs
 - **Proper 3-Way**: Both lights get standard 2-traveler circuits
 
-### **Power Distribution is Simple**
-- **GFCI Hub**: Box 1 feeds power to all three switch locations
-- **No Complex Splicing**: Each switch box gets dedicated power feed
+### **Power Distribution is Efficient**
+- **GFCI Protection**: Box 1 protects entire circuit with single GFCI
+- **Central Hub**: Box 7 distributes power to remote switches and all fixtures
 - **Standard Wiring**: All circuits use conventional practices
 
 ### **Both 3-Way Circuits Are Standard**
